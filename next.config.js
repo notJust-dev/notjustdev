@@ -5,4 +5,4 @@ module.exports = {
   images: {
     domains: ['ourcodeworld.com', 'miro.medium.com'],
   },
-}
+};

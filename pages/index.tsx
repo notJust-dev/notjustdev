@@ -1,5 +1,5 @@
-import Head from 'next/head'
-import Image from 'next/image'
+import Head from 'next/head';
+import Image from 'next/image';
 import Button from '../components/Button';
 import BlogCard from '../components/BlogCard';
 
@@ -17,19 +17,19 @@ const techLogos = [
 
 const blogPosts = [
   {
-    id: '1',    
+    id: '1',
     slug: 'the_importance_of_learning_css',
     title: 'The Importance of Learning CSS',
     image: 'https://ourcodeworld.com/public-media/articles/articleocw-5d07e6b3790af.jpg',
-    excerpt: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sapiente quibusdam molestias maiores praesentium dignissimos suscipit illum animi fugiat.'
+    excerpt: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sapiente quibusdam molestias maiores praesentium dignissimos suscipit illum animi fugiat.',
   }, {
-    id: '2',    
+    id: '2',
     slug: 'the_importance_of_learning_css_2',
     title: 'The Importance of Learning HTML',
     image: 'https://miro.medium.com/max/12000/1*Tums41FARnW23dtyXsi86w.jpeg',
-    excerpt: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sapiente quibusdam molestias maiores praesentium dignissimos suscipit illum animi fugiat.'
-  }
-]
+    excerpt: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sapiente quibusdam molestias maiores praesentium dignissimos suscipit illum animi fugiat.',
+  },
+];
 
 export default function Home() {
   return (
@@ -84,7 +84,7 @@ export default function Home() {
           {techLogos.map(logo => (
             <div className="relative w-10 h-12 m-3">
               <Image
-                src={logo} // Route of the image fil      
+                src={logo} // Route of the image fil
                 alt="profile image"
                 layout="fill"
                 objectFit="contain"
@@ -97,10 +97,10 @@ export default function Home() {
         <section className="flex flex-col items-center">
           <h1 className="text-2xl">Blog</h1>
           <p className="text-xs text-gray-500 text-center">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex optio molestias reiciendis totam repellendus cumque nobis architecto, mollitia consequuntur, accusantium incidunt nihil? Ad totam corporis repudiandae voluptas alias illo officia.</p>
-          
-          {blogPosts.map(post => <BlogCard post={post} />)}
-          
-          <Button text="See all posts" href="/blog" type='secondary' />
+
+          {blogPosts.map((post) => <BlogCard post={post} />)}
+
+          <Button text="See all posts" href="/blog" type="secondary" />
         </section>
       </main>
 
@@ -110,10 +110,11 @@ export default function Home() {
           target="_blank"
           rel="noopener noreferrer"
         >
-          Powered by{' '}
+          Powered by
+          {' '}
           <img src="/vercel.svg" alt="Vercel Logo" className="" />
         </a>
       </footer>
     </div>
-  )
+  );
 }
