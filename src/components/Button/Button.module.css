@@ -1,0 +1,17 @@
+.button {
+  background-color: red;
+
+  @apply block py-2 px-7 m-2 rounded text-center;
+}
+
+.primary {
+  @apply bg-primary text-gray-900;
+}
+
+.secondary {
+  @apply bg-secondary text-gray-900;
+}
+
+.tertiary {
+  @apply text-orange;
+}

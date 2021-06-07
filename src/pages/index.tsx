@@ -6,6 +6,7 @@ import Footer from '../components/Footer';
 import ProjectCard from '../components/ProjectCard';
 import Testimonials from '../components/Testimonials';
 import Navbar from '../components/Navbar';
+import MaxWidthWrapper from '../components/MaxWidthWrapper';
 
 const techLogos = [
   '/images/tech_logos/firebase.svg',
@@ -68,158 +69,169 @@ export default function Home() {
 
       <Navbar />
 
-      <main className="p-5 max-w-screen-xl grid gap-12">
+      <main className="max-w-screen-xl grid gap-12">
         {/* Hero */}
-        <section className="flex flex-col md:flex-row items-center">
-          {/* Taglines */}
-          <div className="flex-1 mb-5">
-            <p className="text-xs text-secondary font-mono">
-              Development | Code | Entrepreneurship
-            </p>
+        <MaxWidthWrapper>
+          <section className="flex flex-col md:flex-row items-center">
+            {/* Taglines */}
+            <div className="flex-1 mb-5">
+              <p className="text-xs text-secondary font-mono">
+                Development | Code | Entrepreneurship
+              </p>
 
-            <h1 className="text-3xl">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit
-            </h1>
-            <p className="text-sm text-gray-300 my-4">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Labore
-              autem tempore nulla aliquam error facere iusto consectetur
-              dignissimos maiores
-            </p>
+              <h1 className="text-3xl">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit
+              </h1>
+              <p className="text-sm text-gray-300 my-4">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Labore
+                autem tempore nulla aliquam error facere iusto consectetur
+                dignissimos maiores
+              </p>
 
-            {/* button */}
-          </div>
+              {/* button */}
+              <Button href="" text="Sign up" className="w-32 m-0 bg-red-500" />
+            </div>
 
-          {/* Video */}
-          <div className="flex-1 relative justify-center items-center pr-9 mb-10 w-full">
-            <Image
-              src="/images/video_img.png"
-              height={144}
-              width={144}
-              alt="profile image"
-              layout="responsive"
-            />
-            <div className="absolute bottom-0 right-0 w-14 transform translate-y-9">
+            {/* Video */}
+            <div className="flex-1 relative justify-center items-center pr-9 mb-10 w-full">
               <Image
-                src="/images/pattern_4.svg"
-                height={2106} /* TODO height should be smaller */
-                width={1204}
-                alt="pattern around video"
+                src="/images/video_img.png"
+                height={144}
+                width={144}
+                alt="profile image"
                 layout="responsive"
               />
+              <div className="absolute bottom-0 right-0 w-14 transform translate-y-9">
+                <Image
+                  src="/images/pattern_4.svg"
+                  height={2106} /* TODO height should be smaller */
+                  width={1204}
+                  alt="pattern around video"
+                  layout="responsive"
+                />
+              </div>
             </div>
-          </div>
 
-          <div>
-            <Button href="" text="Sign up" />
-          </div>
-        </section>
+            <div>
+              <Button href="" text="Sign up" />
+            </div>
+          </section>
+        </MaxWidthWrapper>
 
         {/* Tech stack */}
-        <section className="flex flex-row flex-wrap justify-center">
-          {techLogos.map((logo) => (
-            <div className="relative w-10 h-12 m-3" key={logo}>
-              <Image
-                src={logo} // Route of the image fil
-                alt="profile image"
-                layout="fill"
-                objectFit="contain"
-              />
-            </div>
-          ))}
-        </section>
+        <MaxWidthWrapper>
+          <section className="flex flex-row flex-wrap justify-center">
+            {techLogos.map((logo) => (
+              <div className="relative w-10 h-12 m-3" key={logo}>
+                <Image
+                  src={logo} // Route of the image fil
+                  alt="profile image"
+                  layout="fill"
+                  objectFit="contain"
+                />
+              </div>
+            ))}
+          </section>
+        </MaxWidthWrapper>
 
         {/* Projects */}
-        <section className="flex flex-col items-center">
-          <h1>Project Based Tutorials</h1>
-          <p className=" text-gray-500 text-center">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex optio
-            molestias reiciendis totam repellendus cumque nobis architecto
-          </p>
+        <MaxWidthWrapper>
+          <section className="flex flex-col items-center">
+            <h1>Project Based Tutorials</h1>
+            <p className=" text-gray-500 text-center">
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex optio
+              molestias reiciendis totam repellendus cumque nobis architecto
+            </p>
 
-          {projects.map((project) => (
-            <ProjectCard project={project} key={project.id} />
-          ))}
+            {projects.map((project) => (
+              <ProjectCard project={project} key={project.id} />
+            ))}
 
-          <Button text="See all projects" href="/blog" type="secondary" />
-        </section>
+            <Button text="See all projects" href="/blog" type="secondary" />
+          </section>
+        </MaxWidthWrapper>
 
         <Testimonials />
 
         {/* Blog */}
-        <section className="flex flex-col items-center">
-          <h1>Blog</h1>
-          <p className="text-xs text-gray-500 text-center">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex optio
-            molestias reiciendis totam repellendus cumque nobis architecto,
-            mollitia consequuntur, accusantium incidunt nihil? Ad totam corporis
-            repudiandae voluptas alias illo officia.
-          </p>
+        <MaxWidthWrapper>
+          <section className="flex flex-col items-center">
+            <h1>Blog</h1>
+            <p className="text-xs text-gray-500 text-center">
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex optio
+              molestias reiciendis totam repellendus cumque nobis architecto,
+              mollitia consequuntur, accusantium incidunt nihil? Ad totam
+              corporis repudiandae voluptas alias illo officia.
+            </p>
 
-          {blogPosts.map((post) => (
-            <BlogCard post={post} key={post.id} />
-          ))}
+            {blogPosts.map((post) => (
+              <BlogCard post={post} key={post.id} />
+            ))}
 
-          <Button text="See all posts" href="/blog" type="secondary" />
-        </section>
+            <Button text="See all posts" href="/blog" type="secondary" />
+          </section>
+        </MaxWidthWrapper>
 
         {/* About us */}
-        <section className="flex flex-col items-center">
-          <h1>About us</h1>
-          <p className="text-xs text-gray-500 text-center">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex optio
-            molestias reiciendis totam repellendus cumque nobis architecto,
-            mollitia consequuntur, accusantium incidunt nihil? Ad totam corporis
-            repudiandae voluptas alias illo officia.
-          </p>
-          <Image
-            src="/images/vadim.png"
-            height={440}
-            width={340}
-            alt="profile image"
-            layout="intrinsic"
-            objectFit="contain"
-          />
-          <div>
-            <h2 className="text-secondary">This is me</h2>
-            <h1>Master the latest technologies</h1>
-            <p>
-              Lorem, ipsum dolor sit amet consectetur adipisicing elit. Vitae
-              nemo sapiente excepturi vel iure! Aliquam vel, excepturi accusamus
-              maiores libero quidem nisi, asperiores eveniet natus nam
-              praesentium! Vero, quos ducimus.
+        <MaxWidthWrapper>
+          <section className="flex flex-col items-center">
+            <h1>About us</h1>
+            <p className="text-xs text-gray-500 text-center">
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex optio
+              molestias reiciendis totam repellendus cumque nobis architecto,
+              mollitia consequuntur, accusantium incidunt nihil? Ad totam
+              corporis repudiandae voluptas alias illo officia.
             </p>
-            <div className="flex flex-row">
-              <div className="relative w-20 h-20 m-3">
-                <Image
-                  src="/images/certifications/cp.png" // Route of the image fil
-                  alt="profile image"
-                  layout="fill"
-                  objectFit="contain"
-                />
+            <Image
+              src="/images/vadim.png"
+              height={440}
+              width={340}
+              alt="profile image"
+              layout="intrinsic"
+              objectFit="contain"
+            />
+            <div>
+              <h2 className="text-secondary">This is me</h2>
+              <h1>Master the latest technologies</h1>
+              <p>
+                Lorem, ipsum dolor sit amet consectetur adipisicing elit. Vitae
+                nemo sapiente excepturi vel iure! Aliquam vel, excepturi
+                accusamus maiores libero quidem nisi, asperiores eveniet natus
+                nam praesentium! Vero, quos ducimus.
+              </p>
+              <div className="flex flex-row">
+                <div className="relative w-20 h-20 m-3">
+                  <Image
+                    src="/images/certifications/cp.png" // Route of the image fil
+                    alt="profile image"
+                    layout="fill"
+                    objectFit="contain"
+                  />
+                </div>
+                <div className="relative w-20 h-20 m-3">
+                  <Image
+                    src="/images/certifications/cp.png" // Route of the image fil
+                    alt="profile image"
+                    layout="fill"
+                    objectFit="contain"
+                  />
+                </div>
+                <div className="relative w-20 h-20 m-3">
+                  <Image
+                    src="/images/certifications/cp.png"
+                    alt="profile image"
+                    layout="fill"
+                    objectFit="contain"
+                  />
+                </div>
               </div>
-              <div className="relative w-20 h-20 m-3">
-                <Image
-                  src="/images/certifications/cp.png" // Route of the image fil
-                  alt="profile image"
-                  layout="fill"
-                  objectFit="contain"
-                />
-              </div>
-              <div className="relative w-20 h-20 m-3">
-                <Image
-                  src="/images/certifications/cp.png"
-                  alt="profile image"
-                  layout="fill"
-                  objectFit="contain"
-                />
+              <div className="flex flex-row">
+                <Button text="Let's talk" href="/blog" />
+                <Button text="My story" href="/blog" type="tertiary" />
               </div>
             </div>
-            <div className="flex flex-row">
-              <Button text="Let's talk" href="/blog" />
-              <Button text="My story" href="/blog" type="tertiary" />
-            </div>
-          </div>
-        </section>
+          </section>
+        </MaxWidthWrapper>
       </main>
 
       <Footer />
