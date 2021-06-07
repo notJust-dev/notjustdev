@@ -25,3 +25,6 @@ a {
   box-sizing: border-box;
 }
 
+h1 {
+  @apply text-2xl;
+}

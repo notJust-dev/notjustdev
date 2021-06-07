@@ -21,7 +21,7 @@ const BlogCard = ({ post }: BlogCardProps) => (
       />
     </div>
 
-    <h1 className="text-lg my-3">{post.title}</h1>
+    <h1 className="my-3">{post.title}</h1>
     <p className="text-center text-sm font-light mb-3">
       {post.excerpt}
     </p>
