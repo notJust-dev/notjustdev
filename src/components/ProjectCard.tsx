@@ -18,7 +18,7 @@ const ProjectCard = ({ project }: ProjectCardProps) => (
     </div>
 
     <h1 className="text-center">{project.title}</h1>
-    <p className="text-center text-sm font-light mb-3">{project.excerpt}</p>
+    <p className="text-center mb-3">{project.excerpt}</p>
     <Button
       text="Learn more"
       href={`/project/${project.slug}`}

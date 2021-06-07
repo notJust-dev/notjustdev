@@ -21,7 +21,7 @@ const Footer = () => (
         praesentium.
       </p>
 
-      <h1>Company</h1>
+      <h2 className="text-secondary mt-2">Company</h2>
       <div className="flex flex-col">
         <Link href="/">
           <a>Home</a>
@@ -37,7 +37,7 @@ const Footer = () => (
         </Link>
       </div>
 
-      <h1>Courses</h1>
+      <h2 className="text-secondary mt-2">Courses</h2>
       <div className="flex flex-col">
         <Link href="/">
           <a>Whatsapp Clone</a>
@@ -50,14 +50,14 @@ const Footer = () => (
         </Link>
       </div>
 
-      <h1>Resources</h1>
+      <h2 className="text-secondary mt-2">Resources</h2>
       <div className="flex flex-col">
         <Link href="/">
           <a>Our Blog</a>
         </Link>
       </div>
 
-      <h1>On Social</h1>
+      <h2 className="text-secondary mt-2">On Social</h2>
       <div className="flex flex-col">
         <Link href="/">
           <a>Youtube</a>
@@ -70,8 +70,8 @@ const Footer = () => (
         </Link>
       </div>
     </div>
-    <p className="text-center p-5">
-      Copyright ©notjust.dev All rights reserved.
+    <p className="text-center p-5 text-gray-400">
+      Copyright © notjust.dev All rights reserved.
     </p>
   </footer>
 );

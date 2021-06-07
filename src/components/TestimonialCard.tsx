@@ -24,7 +24,7 @@ function TestimonialCard({ testimonial }: TestimonialCardProps) {
           />
         </div>
         <div>
-          <h3>{testimonial.name}</h3>
+          <h2>{testimonial.name}</h2>
           <p className="text-secondary">{testimonial.occupation}</p>
         </div>
       </div>

@@ -77,8 +77,10 @@ export default function Home() {
               Development | Code | Entrepreneurship
             </p>
 
-            <h1>Lorem ipsum dolor sit amet consectetur adipisicing elit</h1>
-            <p className="text-sm text-gray-300">
+            <h1 className="text-3xl">
+              Lorem ipsum dolor sit amet consectetur adipisicing elit
+            </h1>
+            <p className="text-sm text-gray-300 my-4">
               Lorem ipsum dolor sit amet consectetur adipisicing elit. Labore
               autem tempore nulla aliquam error facere iusto consectetur
               dignissimos maiores
@@ -129,11 +131,9 @@ export default function Home() {
         {/* Projects */}
         <section className="flex flex-col items-center">
           <h1>Project Based Tutorials</h1>
-          <p className="text-xs text-gray-500 text-center">
+          <p className=" text-gray-500 text-center">
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex optio
-            molestias reiciendis totam repellendus cumque nobis architecto,
-            mollitia consequuntur, accusantium incidunt nihil? Ad totam corporis
-            repudiandae voluptas alias illo officia.
+            molestias reiciendis totam repellendus cumque nobis architecto
           </p>
 
           {projects.map((project) => (
@@ -180,7 +180,7 @@ export default function Home() {
             objectFit="contain"
           />
           <div>
-            <h2>This is me</h2>
+            <h2 className="text-secondary">This is me</h2>
             <h1>Master the latest technologies</h1>
             <p>
               Lorem, ipsum dolor sit amet consectetur adipisicing elit. Vitae

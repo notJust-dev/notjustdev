@@ -31,7 +31,7 @@ const testimonials = [
 function Testimonials() {
   return (
     <section className="flex flex-col items-center">
-      <h1>What students think about us</h1>
+      <h1 className="text-center">What students think about us?</h1>
       <p className="text-xs text-gray-500 text-center">
         Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex optio
         molestias reiciendis totam repellendus cumque nobis architecto, mollitia
