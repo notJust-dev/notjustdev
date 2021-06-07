@@ -27,4 +27,9 @@ a {
 
 h1 {
   @apply text-2xl;
+  @apply my-3;
+}
+
+h3 {
+  @apply text-lg;
 }

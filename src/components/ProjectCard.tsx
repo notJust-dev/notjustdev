@@ -22,7 +22,7 @@ const ProjectCard = ({ project }: ProjectCardProps) => (
       />
     </div>
 
-    <h1 className="my-3">{project.title}</h1>
+    <h1 className="text-center">{project.title}</h1>
     <p className="text-center text-sm font-light mb-3">
       {project.excerpt}
     </p>

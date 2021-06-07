@@ -4,6 +4,7 @@ import Button from '../components/Button';
 import BlogCard from '../components/BlogCard';
 import Footer from '../components/Footer';
 import ProjectCard from '../components/ProjectCard';
+import Testimonials from '../components/Testimonials';
 import Navbar from '../components/Navbar';
 
 const techLogos = [
@@ -68,7 +69,7 @@ export default function Home() {
           <div className="flex-1 mb-5">
             <p className="text-xs text-secondary font-mono">Development | Code | Entrepreneurship</p>
 
-            <h1 className="my-3">Lorem ipsum dolor sit amet consectetur adipisicing elit</h1>
+            <h1>Lorem ipsum dolor sit amet consectetur adipisicing elit</h1>
             <p className="text-sm text-gray-300">Lorem ipsum dolor sit amet consectetur adipisicing elit. Labore autem tempore nulla aliquam error facere iusto consectetur dignissimos maiores</p>
 
             {/* button */}
@@ -121,8 +122,10 @@ export default function Home() {
 
           {projects.map((project) => <ProjectCard project={project} key={project.id} />)}
 
-          <Button text="See all posts" href="/blog" type="secondary" />
+          <Button text="See all projects" href="/blog" type="secondary" />
         </section>
+
+        <Testimonials />
 
         {/* Blog */}
         <section className="flex flex-col items-center">
@@ -148,7 +151,7 @@ export default function Home() {
           />
           <div>
             <h2>This is me</h2>
-            <h1 className="my-3">Master the latest technologies</h1>
+            <h1>Master the latest technologies</h1>
             <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Vitae nemo sapiente excepturi vel iure! Aliquam vel, excepturi accusamus maiores libero quidem nisi, asperiores eveniet natus nam praesentium! Vero, quos ducimus.</p>
             <div className="flex flex-row">
               <div className="relative w-20 h-20 m-3">
