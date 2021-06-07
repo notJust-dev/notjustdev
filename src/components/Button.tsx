@@ -10,9 +10,7 @@ interface ButtonProps {
   className: string;
 }
 
-const Button = ({
-  text, href, type, className,
-}: ButtonProps) => {
+const Button = ({ text, href, type, className }: ButtonProps) => {
   let aClassNames = '';
   if (type === 'primary') {
     aClassNames = 'bg-primary text-gray-900';
@@ -24,7 +22,10 @@ const Button = ({
 
   return (
     <Link href={href} passHref>
-      <a href="replace" className={`${aClassNames} block py-2 px-7 m-2 rounded text-center ${className}`}>
+      <a
+        href="replace"
+        className={`${aClassNames} block py-2 px-7 m-2 rounded text-center ${className}`}
+      >
         {text}
       </a>
     </Link>

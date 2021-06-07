@@ -18,15 +18,27 @@ const Navbar = () => {
       />
 
       <div className="block lg:hidden">
-        <button className="flex items-center p-3" type="button" onClick={() => setIsOpen(!isOpen)}>
-          <svg className="h-4 w-4 fill-current" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+        <button
+          className="flex items-center p-3"
+          type="button"
+          onClick={() => setIsOpen(!isOpen)}
+        >
+          <svg
+            className="h-4 w-4 fill-current"
+            viewBox="0 0 20 20"
+            xmlns="http://www.w3.org/2000/svg"
+          >
             <title>Menu</title>
             <path d="M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0v-2z" />
           </svg>
         </button>
       </div>
 
-      <div className={`w-full block flex-grow lg:flex lg:items-center lg:w-auto ${!isOpen && 'hidden'}`}>
+      <div
+        className={`w-full block flex-grow lg:flex lg:items-center lg:w-auto ${
+          !isOpen && 'hidden'
+        }`}
+      >
         <div className="text-sm lg:flex-grow">
           <Link href="/">
             <a className="block mt-4 lg:inline-block lg:mt-0 text-teal-lighter text-gray-400 hover:text-white mr-4">
@@ -55,7 +67,6 @@ const Navbar = () => {
         <Link href="/"><a>Home</a></Link>
         <Link href="/"><a>Home</a></Link>
       </div> */}
-
     </nav>
   );
 };

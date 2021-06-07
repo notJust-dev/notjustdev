@@ -8,10 +8,10 @@ interface TestimonialCardProps {
     occupation: string;
     image: string;
     testimonial: string;
-  }
+  };
 }
 
-function TestimonialCard({ testimonial } : TestimonialCardProps) {
+function TestimonialCard({ testimonial }: TestimonialCardProps) {
   return (
     <div className="bg-custom-blue-500 p-5 my-3">
       <div className="flex row mb-2 items-center">
