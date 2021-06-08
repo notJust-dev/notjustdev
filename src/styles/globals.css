@@ -33,9 +33,7 @@ h1 {
   font-family: Helvetica Neue Cyr, -apple-system, BlinkMacSystemFont, Segoe UI,
     Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, sans-serif;
 
-  @apply text-2xl;
-  @apply my-3;
-  @apply font-bold;
+  @apply text-2xl my-3 font-bold;
 }
 
 h2 {
