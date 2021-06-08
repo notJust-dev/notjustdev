@@ -7,18 +7,7 @@ import ProjectCard from '../components/ProjectCard';
 import Testimonials from '../components/Testimonials';
 import Navbar from '../components/Navbar';
 import MaxWidthWrapper from '../components/MaxWidthWrapper';
-
-const techLogos = [
-  '/images/tech_logos/firebase.svg',
-  '/images/tech_logos/graphql.svg',
-  '/images/tech_logos/javascript.svg',
-  '/images/tech_logos/mongodb.svg',
-  '/images/tech_logos/next-js.svg',
-  '/images/tech_logos/nodejs.svg',
-  '/images/tech_logos/react.svg',
-  '/images/tech_logos/redux.svg',
-  '/images/tech_logos/typescript.svg',
-];
+import TechLogosRow from '../components/TechLogosRow';
 
 const blogPosts = [
   {
@@ -41,6 +30,14 @@ const blogPosts = [
 ];
 
 const projects = [
+  {
+    id: '0',
+    slug: 'the_importance_of_learning_css',
+    title: 'The Importance of Learning CSS',
+    image: '/images/tmp/thumbnail.png',
+    excerpt:
+      'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sapiente quibusdam molestias maiores praesentium dignissimos suscipit illum animi fugiat.',
+  },
   {
     id: '1',
     slug: 'the_importance_of_learning_css',
@@ -89,7 +86,7 @@ export default function Home() {
               </p>
 
               {/* button */}
-              <Button href="" text="Sign up" className="w-32 m-0 bg-red-500" />
+              <Button href="" text="Sign up" className="w-32" />
             </div>
 
             {/* Video */}
@@ -111,28 +108,11 @@ export default function Home() {
                 />
               </div>
             </div>
-
-            <div>
-              <Button href="" text="Sign up" />
-            </div>
           </section>
         </MaxWidthWrapper>
 
         {/* Tech stack */}
-        <MaxWidthWrapper>
-          <section className="flex flex-row flex-wrap justify-center">
-            {techLogos.map((logo) => (
-              <div className="relative w-10 h-12 m-3" key={logo}>
-                <Image
-                  src={logo} // Route of the image fil
-                  alt="profile image"
-                  layout="fill"
-                  objectFit="contain"
-                />
-              </div>
-            ))}
-          </section>
-        </MaxWidthWrapper>
+        <TechLogosRow />
 
         {/* Projects */}
         <MaxWidthWrapper>
@@ -143,8 +123,12 @@ export default function Home() {
               molestias reiciendis totam repellendus cumque nobis architecto
             </p>
 
-            {projects.map((project) => (
-              <ProjectCard project={project} key={project.id} />
+            {projects.map((project, index) => (
+              <ProjectCard
+                project={project}
+                key={project.id}
+                mirrored={index % 2 == 1}
+              />
             ))}
 
             <Button text="See all projects" href="/blog" type="secondary" />

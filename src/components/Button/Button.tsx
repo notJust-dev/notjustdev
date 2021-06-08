@@ -16,7 +16,7 @@ const Button = ({ text, href, type, className }: ButtonProps) => (
   <Link href={href} passHref>
     <a
       href="replace"
-      className={`${className} ${styles.button} ${styles[type]} `}
+      className={`${styles.button} ${styles[type]} ${className}`}
     >
       {text}
     </a>

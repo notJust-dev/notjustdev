@@ -1,7 +1,5 @@
 .button {
-  background-color: red;
-
-  @apply block py-2 px-7 m-2 rounded text-center;
+  @apply inline-block relative py-2 px-7 rounded text-center;
 }
 
 .primary {

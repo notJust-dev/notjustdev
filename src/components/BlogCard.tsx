@@ -19,7 +19,7 @@ const BlogCard = ({ post }: BlogCardProps) => (
 
     <h2 className="my-3 text-center">{post.title}</h2>
     <p className="text-center font-light mb-3">{post.excerpt}</p>
-    <Button text="Read more" href={`/posts/${post.slug}`} type="tertiary" />
+    <Button text="Read more" href={`/posts/${post.slug}`} type="tertiary" className="m-2" />
   </div>
 );
 
