@@ -8,6 +8,7 @@ import Testimonials from '../components/Testimonials';
 import Navbar from '../components/Navbar';
 import MaxWidthWrapper from '../components/MaxWidthWrapper';
 import TechLogosRow from '../components/TechLogosRow';
+import AboutUsSection from '../components/AboutUsSection';
 
 const blogPosts = [
   {
@@ -21,6 +22,23 @@ const blogPosts = [
   },
   {
     id: '2',
+    slug: 'the_importance_of_learning_css_2',
+    title: 'The Importance of Learning HTML',
+    image: 'https://miro.medium.com/max/12000/1*Tums41FARnW23dtyXsi86w.jpeg',
+    excerpt:
+      'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sapiente quibusdam molestias maiores praesentium dignissimos suscipit illum animi fugiat.',
+  },
+  {
+    id: '3',
+    slug: 'the_importance_of_learning_css',
+    title: 'The Importance of Learning CSS',
+    image:
+      'https://ourcodeworld.com/public-media/articles/articleocw-5d07e6b3790af.jpg',
+    excerpt:
+      'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sapiente quibusdam molestias maiores praesentium dignissimos suscipit illum animi fugiat.',
+  },
+  {
+    id: '4',
     slug: 'the_importance_of_learning_css_2',
     title: 'The Importance of Learning HTML',
     image: 'https://miro.medium.com/max/12000/1*Tums41FARnW23dtyXsi86w.jpeg',
@@ -66,7 +84,7 @@ export default function Home() {
 
       <Navbar />
 
-      <main className="max-w-screen-xl grid gap-12">
+      <main className="grid gap-12">
         {/* Hero */}
         <MaxWidthWrapper>
           <section className="flex flex-col md:flex-row items-center">
@@ -98,7 +116,7 @@ export default function Home() {
                 alt="profile image"
                 layout="responsive"
               />
-              <div className="absolute bottom-0 right-0 w-14 transform translate-y-9">
+              <div className="absolute bottom-0 right-0 w-14 transform translate-y-9 md:w-24 md:translate-y-16 md:translate-x-6">
                 <Image
                   src="/images/pattern_4.svg"
                   height={2106} /* TODO height should be smaller */
@@ -148,74 +166,18 @@ export default function Home() {
               corporis repudiandae voluptas alias illo officia.
             </p>
 
-            {blogPosts.map((post) => (
-              <BlogCard post={post} key={post.id} />
-            ))}
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-5 my-5">
+              {blogPosts.map((post) => (
+                <BlogCard post={post} key={post.id} />
+              ))}
+            </div>
 
             <Button text="See all posts" href="/blog" type="secondary" />
           </section>
         </MaxWidthWrapper>
 
         {/* About us */}
-        <MaxWidthWrapper>
-          <section className="flex flex-col items-center">
-            <h1>About us</h1>
-            <p className="text-xs text-gray-500 text-center">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex optio
-              molestias reiciendis totam repellendus cumque nobis architecto,
-              mollitia consequuntur, accusantium incidunt nihil? Ad totam
-              corporis repudiandae voluptas alias illo officia.
-            </p>
-            <Image
-              src="/images/vadim.png"
-              height={440}
-              width={340}
-              alt="profile image"
-              layout="intrinsic"
-              objectFit="contain"
-            />
-            <div>
-              <h2 className="text-secondary">This is me</h2>
-              <h1>Master the latest technologies</h1>
-              <p>
-                Lorem, ipsum dolor sit amet consectetur adipisicing elit. Vitae
-                nemo sapiente excepturi vel iure! Aliquam vel, excepturi
-                accusamus maiores libero quidem nisi, asperiores eveniet natus
-                nam praesentium! Vero, quos ducimus.
-              </p>
-              <div className="flex flex-row">
-                <div className="relative w-20 h-20 m-3">
-                  <Image
-                    src="/images/certifications/cp.png" // Route of the image fil
-                    alt="profile image"
-                    layout="fill"
-                    objectFit="contain"
-                  />
-                </div>
-                <div className="relative w-20 h-20 m-3">
-                  <Image
-                    src="/images/certifications/cp.png" // Route of the image fil
-                    alt="profile image"
-                    layout="fill"
-                    objectFit="contain"
-                  />
-                </div>
-                <div className="relative w-20 h-20 m-3">
-                  <Image
-                    src="/images/certifications/cp.png"
-                    alt="profile image"
-                    layout="fill"
-                    objectFit="contain"
-                  />
-                </div>
-              </div>
-              <div className="flex flex-row">
-                <Button text="Let's talk" href="/blog" />
-                <Button text="My story" href="/blog" type="tertiary" />
-              </div>
-            </div>
-          </section>
-        </MaxWidthWrapper>
+        <AboutUsSection />
       </main>
 
       <Footer />

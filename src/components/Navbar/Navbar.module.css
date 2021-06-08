@@ -1,0 +1,7 @@
+.link {
+  @apply block mt-4 lg:inline-block lg:mt-0 text-gray-400 hover:text-white mx-4;
+}
+
+.isActive {
+  @apply text-xl font-medium text-white border-b-2 border-primary;
+}

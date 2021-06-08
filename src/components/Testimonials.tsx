@@ -1,4 +1,5 @@
 import React from 'react';
+import MaxWidthWrapper from './MaxWidthWrapper';
 import TestimonialCard from './TestimonialCard';
 
 const testimonials = [
@@ -30,19 +31,22 @@ const testimonials = [
 
 function Testimonials() {
   return (
-    <section className="flex flex-col items-center">
-      <h1 className="text-center">What students think about us?</h1>
-      <p className="text-xs text-gray-500 text-center">
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex optio
-        molestias reiciendis totam repellendus cumque nobis architecto, mollitia
-        consequuntur, accusantium incidunt nihil? Ad totam corporis repudiandae
-        voluptas alias illo officia.
-      </p>
-
-      {testimonials.map((testimonial) => (
-        <TestimonialCard testimonial={testimonial} key={testimonial.id} />
-      ))}
-    </section>
+    <MaxWidthWrapper>
+      <section className="flex flex-col items-center">
+        <h1 className="text-center">What students think about us?</h1>
+        <p className="text-xs text-gray-500 text-center">
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex optio
+          molestias reiciendis totam repellendus cumque nobis architecto,
+          mollitia consequuntur, accusantium incidunt nihil? Ad totam corporis
+          repudiandae voluptas alias illo officia.
+        </p>
+        <div className="flex flex-col md:flex-row">
+          {testimonials.map((testimonial) => (
+            <TestimonialCard testimonial={testimonial} key={testimonial.id} />
+          ))}
+        </div>
+      </section>
+    </MaxWidthWrapper>
   );
 }
 
