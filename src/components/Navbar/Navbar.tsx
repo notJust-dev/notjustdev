@@ -1,11 +1,10 @@
-/* eslint-disable jsx-a11y/anchor-is-valid */
 import React, { useState } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import Head from 'next/head';
 import MaxWidthWrapper from '../MaxWidthWrapper';
-import styles from './Navbar.module.css';
 import useScript from '../../utils/useScript';
+import ActiveLink from './ActiveLink';
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -19,14 +18,16 @@ const Navbar = () => {
 
       <MaxWidthWrapper>
         <nav className="flex items-center justify-between flex-wrap bg-teal py-6">
-          <Image
-            src="/images/logo/white.png"
-            height={30}
-            width={100}
-            alt="notJust Development Logo"
-            layout="intrinsic"
-            objectFit="contain"
-          />
+          <Link href="/">
+            <Image
+              src="/images/logo/white.png"
+              height={30}
+              width={100}
+              alt="notJust Development Logo"
+              layout="intrinsic"
+              objectFit="contain"
+            />
+          </Link>
 
           <div className="block lg:hidden">
             <button
@@ -50,19 +51,13 @@ const Navbar = () => {
               !isOpen && 'hidden'
             }`}
           >
-            <Link href="/">
-              <a className={`${styles.link} ${styles.isActive}`}>Home</a>
-            </Link>
+            <ActiveLink href="/" title="Home" />
 
-            <Link href="/projects">
-              <a className={styles.link}>Courses</a>
-            </Link>
+            <ActiveLink href="/projects" title="Courses" />
 
-            <Link href="/">
-              <a className={styles.link}>Blog</a>
-            </Link>
+            <ActiveLink href="/blog" title="Blog" />
 
-            <div className={styles.link}>
+            <div className="block mt-4 ml-5 lg:inline-block lg:mt-0">
               <div
                 className="g-ytsubscribe"
                 data-channelid="UCYSa_YLoJokZAwHhlwJntIA" // TODO ADD channel id in config
