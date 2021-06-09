@@ -2,14 +2,8 @@ import Image from 'next/image';
 import Link from 'next/link';
 import Button from './Button';
 
-interface BlogCardProps {
-  post: {
-    id: string;
-    slug: string;
-    title: string;
-    excerpt: string;
-    image: string;
-  };
+export interface BlogCardProps {
+  post: Post;
 }
 
 const BlogCard = ({ post }: BlogCardProps) => (
@@ -20,7 +14,9 @@ const BlogCard = ({ post }: BlogCardProps) => (
       </div>
 
       <h2 className="p-2 w-full text-center md:text-left">{post.title}</h2>
-      <p className="p-2 text-center md:text-left font-light">{post.excerpt}</p>
+      <p className="p-2 text-center md:text-left font-light">
+        {post.description}
+      </p>
       <Button
         text="Read more"
         href={`/posts/${post.slug}`}

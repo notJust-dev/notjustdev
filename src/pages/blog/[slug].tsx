@@ -1,26 +1,75 @@
+import { bundleMDX } from 'mdx-bundler';
+import { getMDXComponent } from 'mdx-bundler/client';
+import {
+  GetStaticPaths,
+  GetStaticProps,
+  GetStaticPropsContext,
+  InferGetStaticPropsType,
+} from 'next';
 import { useRouter } from 'next/router';
-import React from 'react';
+import { useMemo } from 'react';
 import Layout from '../../components/Layout/Layout';
+import { getPostBySlug, getPostSlugs } from '../../lib/api';
 
-const post = {
-  id: '1',
-  slug: 'the_importance_of_learning_css',
-  title: 'The Importance of Learning CSS',
-  image:
-    'https://ourcodeworld.com/public-media/articles/articleocw-5d07e6b3790af.jpg',
-  excerpt:
-    'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sapiente quibusdam molestias maiores praesentium dignissimos suscipit illum animi fugiat.',
-};
+const mdxSource = `
+---
+title: Example Post
+published: 2021-02-13
+description: This is some description
+---
 
-function BlogPostPage() {
-  const router = useRouter();
-  const { slug } = router.query;
+# Wahoo
+
+Here's a **neat** demo:
+
+`.trim();
+
+function BlogPostPage({
+  post,
+}: InferGetStaticPropsType<typeof getStaticProps>) {
+  const Component = useMemo(() => getMDXComponent(post.code), [post]);
 
   return (
     <Layout title={post.title}>
-      <h1>{slug}</h1>
+      <h1>{post.title}</h1>
+      <Component />
     </Layout>
   );
 }
+
+export const getStaticPaths: GetStaticPaths = async () => {
+  const posts = await getPostSlugs();
+
+  const paths = posts.map((slug) => ({
+    params: { slug },
+  }));
+
+  return { paths, fallback: false };
+};
+
+export const getStaticProps: GetStaticProps = async ({
+  params,
+}: GetStaticPropsContext) => {
+  const post = await getPostBySlug(params?.slug as string, [
+    'slug',
+    'title',
+    'date',
+    'canonical',
+    'description',
+    'category',
+    'tags',
+    'code',
+  ]);
+
+  // const components = await getComponents(post.directory);
+
+  // const source = await prepareMDX(post.content, components);
+
+  return {
+    props: {
+      post,
+    },
+  };
+};
 
 export default BlogPostPage;
