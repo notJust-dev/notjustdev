@@ -6,7 +6,7 @@ import MaxWidthWrapper from './MaxWidthWrapper';
 
 const Footer = () => (
   <footer className="">
-    <div className="bg-custom-blue-500 ">
+    <div className="bg-custom-blue-500 mt-10">
       <MaxWidthWrapper>
         <div className="p-5 flex flex-col md:flex-row">
           <div className="md:w-1/3 mb-5 md:mr-5">

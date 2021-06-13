@@ -4,6 +4,7 @@
 @tailwind utilities;
 
 @import url('./fonts.css');
+@import url('./mdx.css');
 
 html,
 body {

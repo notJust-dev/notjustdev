@@ -1,0 +1,55 @@
+.mdx-post h1 {
+  @apply mt-12 mb-4 text-4xl;
+}
+
+.mdx-post h2 {
+  @apply mt-10 mb-4 text-3xl;
+}
+
+.mdx-post h3 {
+  @apply mt-8 mb-4 text-2xl;
+}
+
+.mdx-post h4 {
+  @apply mt-6 mb-2 text-xl;
+}
+
+.mdx-post h5 {
+  @apply mt-4 mb-2 text-lg;
+}
+
+.mdx-post h6 {
+  @apply mt-2 mb-1 text-base;
+}
+
+.mdx-post p {
+  @apply my-5 text-lg leading-8;
+}
+
+.mdx-post a {
+  @apply text-primary border-b-2 border-transparent hover:border-primary;
+}
+
+.mdx-post ul {
+  @apply list-disc	pl-10 my-5;
+}
+
+.mdx-post ol {
+  @apply list-decimal pl-10 my-5;
+}
+
+.mdx-post li {
+  @apply mb-2 pl-1;
+}
+
+.mdx-post img {
+  @apply my-7;
+}
+
+.mdx-post hr {
+  @apply my-6 border-gray-700;
+}
+
+.mdx-post blockquote {
+  @apply border-l-4 border-gray-600 pl-4 italic font-bold;
+}
