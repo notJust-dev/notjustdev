@@ -1,5 +1,5 @@
 import React from 'react';
-import MaxWidthWrapper from './MaxWidthWrapper';
+import MaxWidthWrapper from '../MaxWidthWrapper';
 import TestimonialCard from './TestimonialCard';
 
 const testimonials = [

@@ -14,7 +14,7 @@ interface TestimonialCardProps {
 function TestimonialCard({ testimonial }: TestimonialCardProps) {
   return (
     <div className="bg-custom-blue-500 p-5 my-3 md:mx-3">
-      <div className="flex row mb-2 items-center">
+      <div className="flex row mb-4 items-center">
         <div className="relative w-16 h-16 mr-2">
           <Image
             src={testimonial.image}

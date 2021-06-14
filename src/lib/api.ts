@@ -29,8 +29,8 @@ interface GetAllPostsOptions {
   includeDraft?: boolean;
 }
 
-export async function getAllPosts(options?: GetAllPostsOptions) {
-  const { limit, includeDraft = false } = options || {};
+export async function getAllPosts(options: GetAllPostsOptions = {}) {
+  const { limit, includeDraft = false } = options;
 
   const slugs = getPostSlugs();
   let posts = await Promise.all(slugs.map((slug) => getPostBySlug(slug)));

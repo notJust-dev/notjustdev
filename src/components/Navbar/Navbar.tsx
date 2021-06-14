@@ -21,8 +21,8 @@ const Navbar = () => {
           <Link href="/">
             <Image
               src="/images/logo/white.png"
-              height={30}
-              width={100}
+              height={50}
+              width={150}
               alt="notJust Development Logo"
               layout="intrinsic"
               objectFit="contain"
