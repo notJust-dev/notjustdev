@@ -7,24 +7,8 @@
     "build": "next build",
     "start": "next start",
     "lint": "eslint ./",
-    "lint.fix": "eslint --fix ./",
+    "lint-fix": "eslint --fix ./",
     "prepare": "husky install"
-  },
-  "husky": {
-    "hooks": {
-      "pre-commit": "npm lint"
-    }
-  },
-  "lint-staged": {
-    "*.{js,jsx,ts,tsx}": [
-      "prettier --write",
-      "eslint --fix",
-      "git add"
-    ],
-    "*.{html,css,less,ejs}": [
-      "prettier --write",
-      "git add"
-    ]
   },
   "dependencies": {
     "mdx-bundler": "^4.1.0",
@@ -44,7 +28,6 @@
     "eslint-plugin-react": "^7.20.3",
     "eslint-plugin-react-hooks": "^4.0.8",
     "husky": "^6.0.0",
-    "lint-staged": "^11.0.0",
     "postcss": "^8.2.12",
     "prettier": "2.3.1",
     "tailwindcss": "^2.1.2",

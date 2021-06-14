@@ -41,8 +41,7 @@ export async function getAllPosts(options: GetAllPostsOptions = {}) {
 
   // sort posts by date in descending order
   posts = posts.sort(
-    (post1, post2) =>
-      Date.parse(post2.publishedOn) - Date.parse(post1.publishedOn),
+    (post1, post2) => Date.parse(post2.publishedOn) - Date.parse(post1.publishedOn),
   );
 
   if (limit && limit > 0) {

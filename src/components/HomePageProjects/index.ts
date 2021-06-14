@@ -1,1 +1,1 @@
-export {default} from './HomePageProjects';
+export { default } from './HomePageProjects';
