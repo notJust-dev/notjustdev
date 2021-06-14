@@ -1,8 +1,7 @@
 ---
 title: From idea to $80B company - UBER's success story
-date: '2019-08-04T10:10:51.093Z'
+publishedOn: '2019-08-04T10:10:51.093Z'
 canonical: ''
-image: https://ourcodeworld.com/public-media/articles/articleocw-5d07e6b3790af.jpg
 description: >-
   2019 was a year with a lot of successful companies going public, but today I
   want to speak specifically about the company with the biggest valuation, which

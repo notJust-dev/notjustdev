@@ -43,3 +43,10 @@ h2 {
 
   @apply text-xl;
 }
+
+h3 {
+  font-family: Helvetica Neue Cyr, -apple-system, BlinkMacSystemFont, Segoe UI,
+    Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, sans-serif;
+
+  @apply text-lg;
+}

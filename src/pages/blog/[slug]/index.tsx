@@ -8,6 +8,12 @@ import { getPostBySlug, getPostSlugs } from '../../../lib/api';
 import StaticCodeSnippet from '../../../components/StaticCodeSnippet';
 import InlineCodeSnippet from '../../../components/InlineCodeSnippet copy';
 
+const dateFormat = {
+  month: 'short' as 'short',
+  day: 'numeric' as 'numeric',
+  year: 'numeric' as 'numeric',
+};
+
 interface Props {
   post: Post;
 }
@@ -18,10 +24,24 @@ function BlogPostPage({ post }: Props) {
   return (
     <Layout title={post.title}>
       <MaxWidthWrapper>
-        <div className="relative w-full h-96">
-          <Image src={post.image} layout="fill" objectFit="cover" />
-        </div>
+        {post.image && (
+          <div className="relative w-full h-96">
+            <Image src={post.image} layout="fill" objectFit="cover" />
+          </div>
+        )}
         <h1 className="text-5xl text-center my-10">{post.title}</h1>
+
+        <hr className="my-5 border-gray-700" />
+        <div>
+          <h3>
+            Published on:
+            <b>
+              {' '}
+              {new Date(post.publishedOn).toLocaleString('en-US', dateFormat)}
+            </b>
+          </h3>
+        </div>
+        <hr className="my-5 border-gray-700" />
 
         <div className="mdx-post">
           <Component

@@ -18,7 +18,8 @@
   font-family: 'Helvetica Neue Cyr';
   font-weight: 500;
   font-style: normal;
-  src: url('/fonts/HelveticaNeueCyr-Medium.ttf') format('truetype');
+  src: url('/fonts/HelveticaNeueCyr/HelveticaNeueCyr-Medium.ttf')
+    format('truetype');
   font-display: swap;
 }
 
@@ -26,7 +27,8 @@
   font-family: 'Helvetica Neue Cyr';
   font-weight: 700;
   font-style: normal;
-  src: url('/fonts/HelveticaNeueCyr-Bold.ttf') format('truetype');
+  src: url('/fonts/HelveticaNeueCyr/HelveticaNeueCyr-Bold.ttf')
+    format('truetype');
   font-display: swap;
 }
 
@@ -34,7 +36,8 @@
   font-family: 'Helvetica Neue Cyr';
   font-weight: 700;
   font-style: italic;
-  src: url('/fonts/HelveticaNeueCyr-BoldItalic.ttf') format('truetype');
+  src: url('/fonts/HelveticaNeueCyr/HelveticaNeueCyr-BoldItalic.ttf')
+    format('truetype');
   font-display: swap;
 }
 
@@ -42,7 +45,8 @@
   font-family: 'Helvetica Neue Cyr';
   font-weight: 900;
   font-style: normal;
-  src: url('/fonts/HelveticaNeueCyr-Black.ttf') format('truetype');
+  src: url('/fonts/HelveticaNeueCyr/HelveticaNeueCyr-Black.ttf')
+    format('truetype');
   font-display: swap;
 }
 
@@ -50,12 +54,14 @@
   font-family: 'Helvetica Neue Cyr';
   font-weight: 900;
   font-style: italic;
-  src: url('/fonts/HelveticaNeueCyr-BlackItalic.ttf') format('truetype');
+  src: url('/fonts/HelveticaNeueCyr/HelveticaNeueCyr-BlackItalic.ttf')
+    format('truetype');
   font-display: swap;
 }
 
 @font-face {
   font-family: 'Helvetica Neue Roman';
-  src: url('/fonts/HelveticaNeueCyr-Roman.ttf') format('truetype');
+  src: url('/fonts/HelveticaNeueCyr/HelveticaNeueCyr-Roman.ttf')
+    format('truetype');
   font-display: swap;
 }

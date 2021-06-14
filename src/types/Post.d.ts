@@ -1,7 +1,7 @@
 type Post = {
   slug: string;
   title: string;
-  date: string;
+  publishedOn: string;
   image: string;
   canonical?: string;
   description: string;

@@ -1,8 +1,7 @@
 ---
-template: post
 title: How I developed an App (from 0 to market) in a 12H Livestream
 draft: true
-date: '2021-02-28T16:27:30.556Z'
+publishedOn: '2021-02-28T16:27:30.556Z'
 image: https://ourcodeworld.com/public-media/articles/articleocw-5d07e6b3790af.jpg
 description: "From the time I started doing youtube, I had this idea in mind to
   do a 12H Livestream and to build something. It was inspired by the extreme
