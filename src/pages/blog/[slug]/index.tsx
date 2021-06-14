@@ -31,17 +31,17 @@ function BlogPostPage({ post }: Props) {
         )}
         <h1 className="text-5xl text-center my-10">{post.title}</h1>
 
-        <hr className="my-5 border-gray-700" />
+        <hr className="my-4 border-gray-700" />
         <div>
-          <h3>
+          <h4>
             Published on:
             <b>
               {' '}
               {new Date(post.publishedOn).toLocaleString('en-US', dateFormat)}
             </b>
-          </h3>
+          </h4>
         </div>
-        <hr className="my-5 border-gray-700" />
+        <hr className="my-4 border-gray-700" />
 
         <div className="mdx-post">
           <Component

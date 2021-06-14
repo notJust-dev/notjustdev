@@ -24,13 +24,30 @@ export async function getPostBySlug(slug: string) {
   return post;
 }
 
-export async function getAllPosts() {
+interface GetAllPostsOptions {
+  limit?: number;
+  includeDraft?: boolean;
+}
+
+export async function getAllPosts(options?: GetAllPostsOptions) {
+  const { limit, includeDraft = false } = options || {};
+
   const slugs = getPostSlugs();
-  const posts = await Promise.all(slugs.map((slug) => getPostBySlug(slug)));
+  let posts = await Promise.all(slugs.map((slug) => getPostBySlug(slug)));
+
+  if (!includeDraft) {
+    posts = posts.filter((p) => !p.draft);
+  }
+
   // sort posts by date in descending order
-  const sortedPosts = posts.sort(
+  posts = posts.sort(
     (post1, post2) =>
       Date.parse(post2.publishedOn) - Date.parse(post1.publishedOn),
   );
-  return sortedPosts;
+
+  if (limit && limit > 0) {
+    posts = posts.slice(0, limit);
+  }
+
+  return posts;
 }
