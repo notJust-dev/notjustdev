@@ -5,7 +5,8 @@ import { useMemo } from 'react';
 import Layout from '../../../components/Layout/Layout';
 import MaxWidthWrapper from '../../../components/MaxWidthWrapper';
 import { getPostBySlug, getPostSlugs } from '../../../lib/api';
-import styles from './styles.css';
+import StaticCodeSnippet from '../../../components/StaticCodeSnippet';
+import InlineCodeSnippet from '../../../components/InlineCodeSnippet copy';
 
 interface Props {
   post: Post;
@@ -23,7 +24,9 @@ function BlogPostPage({ post }: Props) {
         <h1 className="text-5xl text-center my-10">{post.title}</h1>
 
         <div className="mdx-post">
-          <Component />
+          <Component
+            components={{ pre: StaticCodeSnippet, code: InlineCodeSnippet }}
+          />
         </div>
       </MaxWidthWrapper>
     </Layout>

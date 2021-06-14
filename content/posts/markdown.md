@@ -109,6 +109,8 @@ Start numbering with offset:
 ## Code
 
 Inline `code`
+Inline `var a = "abc"`
+multiline `var a; console.log(a); a = 1 + 1; `
 
 Indented code
 
@@ -125,12 +127,28 @@ Sample text here...
 
 Syntax highlighting
 
-```js
+```javascript
 var foo = function (bar) {
   return bar++;
 };
 
 console.log(foo(5));
+```
+
+```
+{
+  "firstName": "John",
+  "lastName": "Smith",
+  "age": 25
+}
+```
+
+```json
+{
+  "firstName": "John",
+  "lastName": "Smith",
+  "age": 25
+}
 ```
 
 ## Tables
@@ -179,7 +197,7 @@ The killer feature of `markdown-it` is very effective support of
 
 > Classic markup: :wink: :crush: :cry: :tear: :laughing: :yum:
 >
-> Shortcuts (emoticons): :-) :-( 8-) ;)
+> Shortcuts (emoticons): :-) :-( 8-) ;) 🍔🍔
 
 see [how to change output](https://github.com/markdown-it/markdown-it-emoji#change-output) with twemoji.
 
@@ -249,3 +267,7 @@ It converts "HTML", but keep intact partial entries like "xxxHTMLyyy" and so on.
 ::: warning
 _here be dragons_
 :::
+
+```
+
+```
