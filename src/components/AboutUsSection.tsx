@@ -2,6 +2,7 @@ import React from 'react';
 import Image from 'next/image';
 import MaxWidthWrapper from './MaxWidthWrapper';
 import Button from './Button';
+import { CONTACT_EMAIL } from '../lib/config';
 
 function AboutUsSection() {
   return (
@@ -71,7 +72,11 @@ function AboutUsSection() {
               />
             </div>
             <div className="flex flex-row mt-5">
-              <Button text="Let's talk" href="/blog" />
+              <Button
+                text="Let's talk"
+                href={`mailto:${CONTACT_EMAIL}`}
+                target="_blank"
+              />
               <Button text="My story" href="/blog" type="tertiary" />
             </div>
           </div>
