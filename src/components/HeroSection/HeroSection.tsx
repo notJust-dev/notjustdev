@@ -13,17 +13,16 @@ function HeroSection() {
             Development | Code | Entrepreneurship
           </p>
 
-          <h1 className="text-3xl">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit
+          <h1 className="text-3xl leading-relaxed">
+            notJust Development is where coding meets entrepreneurship
           </h1>
-          <p className="text-sm text-gray-300 my-4">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Labore
-            autem tempore nulla aliquam error facere iusto consectetur
-            dignissimos maiores
+          <p className="text-xl text-gray-00 my-4 leading-relaxed">
+            Your journey to becoming a technical lead starts today. Learn faster
+            by building real projects.
           </p>
 
           {/* button */}
-          <Button href="" text="Sign up" className="w-32" />
+          <Button href="" text="Sign up" className="w-32 my-5" />
         </div>
 
         {/* Video */}

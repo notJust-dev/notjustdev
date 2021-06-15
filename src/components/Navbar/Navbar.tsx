@@ -19,14 +19,16 @@ const Navbar = () => {
       <MaxWidthWrapper>
         <nav className="flex items-center justify-between flex-wrap bg-teal py-6">
           <Link href="/">
-            <Image
-              src="/images/logo/white.png"
-              height={50}
-              width={150}
-              alt="notJust Development Logo"
-              layout="intrinsic"
-              objectFit="contain"
-            />
+            <div>
+              <Image
+                src="/images/logo/white.png"
+                height={50}
+                width={150}
+                alt="notJust Development Logo"
+                layout="intrinsic"
+                objectFit="contain"
+              />
+            </div>
           </Link>
 
           <div className="block lg:hidden">
