@@ -6,51 +6,51 @@ import ProjectCard from '../ProjectCard';
 const projects = [
   {
     id: '0',
-    slug: 'the_importance_of_learning_css',
-    title: 'The Importance of Learning CSS',
+    slug: 'youtube',
+    title: 'React Native Youtube Clone',
     image: '/images/tmp/thumbnail.png',
     excerpt:
-      'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sapiente quibusdam molestias maiores praesentium dignissimos suscipit illum animi fugiat.',
-  },
-  {
-    id: '1',
-    slug: 'the_importance_of_learning_css',
-    title: 'The Importance of Learning CSS',
-    image: '/images/tmp/thumbnail_2.png',
-    excerpt:
-      'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sapiente quibusdam molestias maiores praesentium dignissimos suscipit illum animi fugiat.',
+      'Learn React Native and AWS Amplify from scratch by building a cross-platform (ios and android) YouTube mobile application clone. ',
   },
   {
     id: '2',
-    slug: 'the_importance_of_learning_css_2',
-    title: 'The Importance of Learning HTML',
-    image: '/images/tmp/thumbnail_3.png',
+    slug: 'whatsapp',
+    title: 'Realtime Chat app (WhatsApp clone)',
+    image: '/images/tmp/thumbnail_2.png',
     excerpt:
-      'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sapiente quibusdam molestias maiores praesentium dignissimos suscipit illum animi fugiat.',
+      'Learn React Native, AWS Amplify, GraphQL by building a real-time chat application similar to WhatsApp',
   },
 ];
 
 function HomePageProjects() {
   return (
-    <MaxWidthWrapper>
-      <section className="flex flex-col items-center">
-        <h1>Project Based Tutorials</h1>
-        <p className=" text-gray-500 text-center">
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex optio
-          molestias reiciendis totam repellendus cumque nobis architecto
-        </p>
+    <div className="relative py-10">
+      <div className="absolute top-0 shadow-lg right-0 bottom-0 left-0 z-50 w-full h-full bg-gray-700 bg-opacity-70 flex justify-center items-center">
+        <h1 className="text-6xl text-primary">Coming soon...</h1>
+      </div>
 
-        {projects.map((project, index) => (
-          <ProjectCard
-            project={project}
-            key={project.id}
-            mirrored={index % 2 === 1}
-          />
-        ))}
+      <MaxWidthWrapper>
+        <section className="flex flex-col items-center">
+          <h1>Project Based Tutorials</h1>
+          <p className="text-gray-500 text-center">
+            &quot;You don&apos;t learn to walk by following rules. You learn by
+            doing, and by falling over.&quot; ― Richard Branson
+          </p>
 
-        <Button text="See all projects" href="/blog" type="secondary" />
-      </section>
-    </MaxWidthWrapper>
+          <div className="my-5">
+            {projects.map((project, index) => (
+              <ProjectCard
+                project={project}
+                key={project.id}
+                mirrored={index % 2 === 1}
+              />
+            ))}
+          </div>
+
+          <Button text="See all projects" href="/blog" type="secondary" />
+        </section>
+      </MaxWidthWrapper>
+    </div>
   );
 }
 

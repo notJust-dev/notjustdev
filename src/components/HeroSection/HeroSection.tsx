@@ -17,8 +17,8 @@ function HeroSection() {
             notJust Development is where coding meets entrepreneurship
           </h1>
           <p className="text-xl text-gray-00 my-4 leading-relaxed">
-            Your journey to becoming a technical lead starts today. Learn faster
-            by building real projects.
+            Your journey to becoming a full-stack technical lead starts today.
+            Learn faster by building real projects.
           </p>
 
           {/* button */}

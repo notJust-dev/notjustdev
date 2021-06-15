@@ -10,7 +10,7 @@ const MAX_DESCRIPTION_LENGTH = 256;
 
 const BlogCard = ({ post }: BlogCardProps) => (
   <Link href={`/blog/${post.slug}`}>
-    <div className="bg-custom-blue-500 p-2 pb-5 flex flex-col items-center">
+    <div className="bg-custom-blue-500 p-2 pb-5 flex flex-col items-center cursor-pointer">
       {post.image && (
         <div className="relative w-full h-40">
           <Image src={post.image} layout="fill" objectFit="cover" />

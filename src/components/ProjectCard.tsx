@@ -15,7 +15,7 @@ interface ProjectCardProps {
 const ProjectCard = ({ project, mirrored }: ProjectCardProps) => {
   const float = mirrored ? 'left' : 'right';
   return (
-    <div className="relative my-3 flex flex-col items-stretch md:flex-row">
+    <div className="relative w-full my-3 flex flex-col items-stretch md:flex-row">
       <div
         className={`absolute ${float}-0 bottom-0 bg-custom-blue-500 w-full md:w-2/3 h-2/3 md:h-full`}
       />

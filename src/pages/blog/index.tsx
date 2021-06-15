@@ -14,11 +14,9 @@ const Blog = ({ posts }: BlogProps) => (
     <MaxWidthWrapper>
       <section className="flex flex-col items-center my-5">
         <h1>Blog</h1>
-        <p className="text-xs text-gray-500 text-center">
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex optio
-          molestias reiciendis totam repellendus cumque nobis architecto,
-          mollitia consequuntur, accusantium incidunt nihil? Ad totam corporis
-          repudiandae voluptas alias illo officia.
+        <p className="text-gray-500 text-center">
+          Check out our blog for the latest tips, tricks, and best practices on
+          Javascript, React/React Native, AWS and Startup.
         </p>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-5 my-5">
