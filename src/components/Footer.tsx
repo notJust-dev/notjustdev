@@ -3,53 +3,55 @@ import React from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import MaxWidthWrapper from './MaxWidthWrapper';
+import { SOCIALS } from '../lib/config';
 
 const Footer = () => (
   <footer className="">
     <div className="bg-custom-blue-500 mt-10">
       <MaxWidthWrapper>
-        <div className="p-5 flex flex-col md:flex-row">
-          <div className="md:w-1/3 mb-5 md:mr-5">
-            <Image
-              src="/images/logo/white.png"
-              height={50}
-              width={150}
-              alt="notJust Development Logo"
-              layout="intrinsic"
-              objectFit="contain"
-            />
-            <p>
-              Lorem, ipsum dolor sit amet consectetur adipisicing elit. Est
-              fugit error quaerat tempora vero natus ipsam molestiae, excepturi
-              pariatur, non ullam esse ipsum dolor itaque quam sequi eaque
-              consectetur praesentium.
+        <div className="py-10 flex flex-col md:flex-row">
+          <div className="md:w-1/3 mb-7 md:mr-7">
+            <div style={{ maxWidth: 200 }}>
+              <Image
+                src="/images/logo/white.png"
+                height={130}
+                width={350}
+                alt="notJust Development Logo"
+                layout="responsive"
+                objectFit="contain"
+              />
+            </div>
+
+            <p className="pt-5 text-gray-300 leading-relaxed">
+              Your journey to becoming a full-stack technical lead starts today.
+              Learn faster by building real projects.
             </p>
           </div>
 
-          <div className="md:w-2/3 grid grid-cols-2 lg:grid-cols-4">
+          <div className="md:w-2/3 grid grid-cols-2 lg:grid-cols-3">
             <div>
               <h2 className="text-white-400 mt-2 font-bold">Company</h2>
               <div className="flex flex-col">
                 <Link href="/">
                   <a className="text-gray-300 my-2">Home</a>
                 </Link>
-                <Link href="/">
-                  <a className="text-gray-300 my-2">About us</a>
+
+                <Link href="/projects">
+                  <a className="text-gray-300 my-2">Project Tutorials</a>
                 </Link>
-                <Link href="/">
-                  <a className="text-gray-300 my-2">Home</a>
-                </Link>
-                <Link href="/">
-                  <a className="text-gray-300 my-2">Home</a>
+                <Link href="/blog">
+                  <a className="text-gray-300 my-2">Blog</a>
                 </Link>
               </div>
             </div>
 
             <div>
-              <h2 className="text-white-400 mt-2 font-bold">Courses</h2>
+              <h2 className="text-white-400 mt-2 font-bold">
+                Project Tutorials
+              </h2>
               <div className="flex flex-col">
                 <Link href="/">
-                  <a className="text-gray-300 my-2">Whatsapp Clone</a>
+                  <a className="text-gray-300 my-2">WhatsApp Clone</a>
                 </Link>
                 <Link href="/">
                   <a className="text-gray-300 my-2">Instagram Clone</a>
@@ -61,26 +63,19 @@ const Footer = () => (
             </div>
 
             <div>
-              <h2 className="text-white-400 mt-2 font-bold">Resources</h2>
-              <div className="flex flex-col">
-                <Link href="/">
-                  <a className="text-gray-300 my-2">Our Blog</a>
-                </Link>
-              </div>
-            </div>
-
-            <div>
               <h2 className="text-white-400 mt-2 font-bold">On Social</h2>
               <div className="flex flex-col">
-                <Link href="/">
-                  <a className="text-secondary my-2">Youtube</a>
-                </Link>
-                <Link href="/">
-                  <a className="text-secondary my-2">Twitter</a>
-                </Link>
-                <Link href="/">
-                  <a className="text-secondary my-2">Instagram</a>
-                </Link>
+                {Object.keys(SOCIALS).map((social) => (
+                  <a
+                    href={SOCIALS[social]}
+                    className="text-secondary my-2"
+                    target="_blank"
+                    rel="noreferrer"
+                    key={social}
+                  >
+                    {social}
+                  </a>
+                ))}
               </div>
             </div>
           </div>

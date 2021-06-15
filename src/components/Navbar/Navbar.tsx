@@ -55,7 +55,7 @@ const Navbar = () => {
           >
             <ActiveLink href="/" title="Home" />
 
-            <ActiveLink href="/projects" title="Courses" />
+            <ActiveLink href="/projects" title="Project Tutorials" />
 
             <ActiveLink href="/blog" title="Blog" />
 
