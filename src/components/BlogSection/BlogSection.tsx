@@ -14,7 +14,7 @@ function BlogSection({ posts }: Props) {
         <h1>Blog</h1>
         <p className="text-gray-500 text-center">
           Check out our blog for the latest tips, tricks, and best practices on
-          Javascript, React/React Native, AWS and Startup.
+          Javascript, React/React Native, AWS and Startups.
         </p>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-5 my-10">

@@ -18,8 +18,9 @@ function Testimonials() {
               <>
                 Just finished @VadimNotJustDev’s Spotify build tutorial. Learned
                 a ton about AWS Amplify, S3, GraphQL and writing clean React
-                Native code.{' '}
+                Native code.
                 <span className="bg-primary text-gray-600 font-bold  py-1">
+                  {' '}
                   Highly recommend if you are currently learning React Native
                 </span>
               </>
@@ -34,11 +35,12 @@ function Testimonials() {
               <>
                 Just finished @VadimNotJustDev’s Spotify build tutorial. Learned
                 a ton about AWS Amplify, S3, GraphQL and writing clean React
-                Native code.{' '}
+                Native code.
                 <span
                   className="text-secondary font-bold  py-1"
                   style={{ backgroundColor: '#4a8f52', color: '#09120A' }}
                 >
+                  {' '}
                   Highly recommend if you are currently learning React Native
                 </span>
               </>
@@ -53,11 +55,12 @@ function Testimonials() {
               <>
                 Just finished @VadimNotJustDev’s Spotify build tutorial. Learned
                 a ton about AWS Amplify, S3, GraphQL and writing clean React
-                Native code.{' '}
+                Native code.
                 <span
                   className=" text-gray-800 font-bold  py-1"
                   style={{ backgroundColor: '#e89736' }}
                 >
+                  {' '}
                   Highly recommend if you are currently learning React Native
                 </span>
               </>
