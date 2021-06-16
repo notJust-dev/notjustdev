@@ -4,7 +4,7 @@ import Image from 'next/image';
 interface TestimonialCardProps {
   name: string;
   occupation: string;
-  image: string;
+  image: StaticImageData;
   href: string;
   Testimonial: React.FC;
 }
@@ -29,6 +29,7 @@ function TestimonialCard({
             layout="fill"
             objectFit="cover"
             alt={`${name} profile picture`}
+            placeholder="blur"
             className="rounded-full"
           />
         </div>
