@@ -1,20 +1,20 @@
 import React, { useState } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
-import Head from 'next/head';
+import Script from 'next/script';
 import MaxWidthWrapper from '../MaxWidthWrapper';
-import useScript from '../../utils/useScript';
 import ActiveLink from './ActiveLink';
+import { CHANNEL_ID } from '../../lib/config';
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
     <>
-      <Head>
-        <></>
-        {useScript('https://apis.google.com/js/platform.js')}
-      </Head>
+      <Script
+        src="https://apis.google.com/js/platform.js"
+        strategy="lazyOnload"
+      />
 
       <MaxWidthWrapper>
         <nav className="flex items-center justify-between flex-wrap bg-teal py-6">
@@ -58,15 +58,18 @@ const Navbar = () => {
             <ActiveLink href="/projects" title="Project Tutorials" />
 
             <ActiveLink href="/blog" title="Blog" />
+          </div>
 
-            <div className="block mt-4 ml-5 lg:inline-block lg:mt-0">
-              <div
-                className="g-ytsubscribe"
-                data-channelid="UCYSa_YLoJokZAwHhlwJntIA" // TODO ADD channel id in config
-                data-layout="default"
-                data-count="default"
-              />
-            </div>
+          <div
+            className=" mt-4 ml-5 lg:inline-block lg:mt-0"
+            style={{ width: 116, height: 24 }}
+          >
+            <div
+              className="g-ytsubscribe"
+              data-channelid={CHANNEL_ID}
+              data-layout="default"
+              data-count="default"
+            />
           </div>
 
           {/* <h1>Company</h1>

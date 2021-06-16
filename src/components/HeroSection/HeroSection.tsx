@@ -22,7 +22,7 @@ function HeroSection() {
           </p>
 
           {/* button */}
-          <Button href="" text="Sign up" className="w-32 my-5" />
+          <Button href="/" text="Sign up" className="w-32 my-5" />
         </div>
 
         {/* Video */}
