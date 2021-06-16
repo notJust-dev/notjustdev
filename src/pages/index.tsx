@@ -1,6 +1,6 @@
 import { GetStaticProps } from 'next';
 import Testimonials from '../components/Testimonials';
-import TechLogosRow from '../components/TechLogosRow';
+import TechLogos from '../components/TechLogos';
 import AboutUsSection from '../components/AboutUsSection';
 import HeroSection from '../components/HeroSection';
 import HomePageProjects from '../components/HomePageProjects';
@@ -22,7 +22,7 @@ export default function Home({ latestPosts }: Props) {
         <HeroSection />
 
         {/* Tech stack */}
-        <TechLogosRow />
+        <TechLogos />
 
         {/* Projects */}
         <HomePageProjects />

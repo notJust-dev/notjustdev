@@ -4,6 +4,8 @@ import Link from 'next/link';
 import MaxWidthWrapper from './MaxWidthWrapper';
 import { SOCIALS } from '../lib/config';
 
+import logo from '../../public/images/logo/white.png';
+
 const Footer = () => (
   <footer className="">
     <div className="bg-custom-blue-500 mt-10">
@@ -12,12 +14,10 @@ const Footer = () => (
           <div className="md:w-1/3 mb-7 md:mr-7">
             <div style={{ maxWidth: 200 }}>
               <Image
-                src="/images/logo/white.png"
-                height={130}
-                width={350}
+                src={logo}
                 alt="notJust Development Logo"
                 layout="responsive"
-                objectFit="contain"
+                placeholder="blur"
               />
             </div>
 

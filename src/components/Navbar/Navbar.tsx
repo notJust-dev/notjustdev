@@ -5,6 +5,7 @@ import Script from 'next/script';
 import MaxWidthWrapper from '../MaxWidthWrapper';
 import ActiveLink from './ActiveLink';
 import { CHANNEL_ID } from '../../lib/config';
+import logo from '../../../public/images/logo/white.png';
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -17,16 +18,14 @@ const Navbar = () => {
       />
 
       <MaxWidthWrapper>
-        <nav className="flex items-center justify-between flex-wrap bg-teal py-6">
+        <nav className="flex items-center justify-between flex-wrap bg-teal pt-6 pb-16">
           <Link href="/" passHref>
-            <div className="cursor-pointer">
+            <div className="cursor-pointer w-44">
               <Image
-                src="/images/logo/white.png"
-                height={50}
-                width={150}
+                src={logo}
                 alt="notJust Development Logo"
-                layout="intrinsic"
-                objectFit="contain"
+                layout="responsive"
+                placeholder="blur"
               />
             </div>
           </Link>
@@ -58,18 +57,18 @@ const Navbar = () => {
             <ActiveLink href="/projects" title="Project Tutorials" />
 
             <ActiveLink href="/blog" title="Blog" />
-          </div>
 
-          <div
-            className=" mt-4 ml-5 lg:inline-block lg:mt-0"
-            style={{ width: 116, height: 24 }}
-          >
             <div
-              className="g-ytsubscribe"
-              data-channelid={CHANNEL_ID}
-              data-layout="default"
-              data-count="default"
-            />
+              className="mt-4 ml-5 lg:inline-block lg:mt-0"
+              style={{ width: 116, height: 24 }}
+            >
+              <div
+                className="g-ytsubscribe"
+                data-channelid={CHANNEL_ID}
+                data-layout="default"
+                data-count="default"
+              />
+            </div>
           </div>
 
           {/* <h1>Company</h1>

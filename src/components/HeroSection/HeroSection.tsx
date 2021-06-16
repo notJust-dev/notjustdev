@@ -2,6 +2,8 @@ import React from 'react';
 import Image from 'next/image';
 import Button from '../Button';
 import MaxWidthWrapper from '../MaxWidthWrapper';
+import pattern4 from '../../../public/images/brand_elements/pattern_4.svg';
+import video from '../../../public/images/video_img.png';
 
 function HeroSection() {
   return (
@@ -28,20 +30,15 @@ function HeroSection() {
         {/* Video */}
         <div className="flex-1 relative justify-center items-center pr-9 mb-10 w-full">
           <Image
-            src="/images/video_img.png"
+            src={video}
             height={144}
             width={144}
             alt="profile image"
             layout="responsive"
+            placeholder="blur"
           />
           <div className="absolute bottom-0 right-0 w-14 transform translate-y-9 md:w-24 md:translate-y-16 md:translate-x-6">
-            <Image
-              src="/images/pattern_4.svg"
-              height={2106} /* TODO height should be smaller */
-              width={1204}
-              alt="pattern around video"
-              layout="responsive"
-            />
+            <Image src={pattern4} alt="" layout="responsive" />
           </div>
         </div>
       </section>

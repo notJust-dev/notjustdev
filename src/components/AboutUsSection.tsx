@@ -4,6 +4,11 @@ import MaxWidthWrapper from './MaxWidthWrapper';
 import Button from './Button';
 import { CONTACT_EMAIL } from '../lib/config';
 
+import author from '../../public/images/me.png';
+import awsDA from '../../public/images/certifications/aws-certified-developer-associate.png';
+import awsSAA from '../../public/images/certifications/aws-certified-solutions-architect-associate.png';
+import awsSYSA from '../../public/images/certifications/aws-certified-sysops-administrator-associate.png';
+
 function AboutUsSection() {
   return (
     <MaxWidthWrapper>
@@ -11,11 +16,10 @@ function AboutUsSection() {
         <div className="flex flex-col md:flex-row items-center my-5 ">
           <div className="flex-1 w-full">
             <Image
-              src="/images/me.png"
+              src={author}
               layout="responsive"
-              width="1"
-              height="1"
               alt="profile image"
+              placeholder="blur"
             />
           </div>
 
@@ -50,25 +54,22 @@ function AboutUsSection() {
 
             <div className="grid grid-cols-3 gap-5 my-5">
               <Image
-                src="/images/certifications/aws-certified-developer-associate.png"
-                alt="aws certified developer associate"
+                src={awsDA}
+                alt="aws developer associate certificate"
                 layout="responsive"
-                width="1"
-                height="1"
+                placeholder="blur"
               />
               <Image
-                src="/images/certifications/aws-certified-solutions-architect-associate.png"
-                alt="aws certified solutions architect associate"
+                src={awsSAA}
+                alt="aws solutions architect associate certificate"
                 layout="responsive"
-                width="1"
-                height="1"
+                placeholder="blur"
               />
               <Image
-                src="/images/certifications/aws-certified-sysops-administrator-associate.png"
-                alt="aws certified sysops administrator associate"
+                src={awsSYSA}
+                alt="aws sysops administrator associate certificate"
                 layout="responsive"
-                width="1"
-                height="1"
+                placeholder="blur"
               />
             </div>
             <div className="flex flex-row mt-5">
