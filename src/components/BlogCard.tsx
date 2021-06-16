@@ -9,11 +9,16 @@ export interface BlogCardProps {
 const MAX_DESCRIPTION_LENGTH = 256;
 
 const BlogCard = ({ post }: BlogCardProps) => (
-  <Link href={`/blog/${post.slug}`}>
+  <Link href={`/blog/${post.slug}`} passHref>
     <div className="bg-custom-blue-500 p-2 pb-5 flex flex-col items-center cursor-pointer">
       {post.image && (
         <div className="relative w-full h-40">
-          <Image src={post.image} layout="fill" objectFit="cover" />
+          <Image
+            src={post.image}
+            layout="fill"
+            objectFit="cover"
+            alt={post.title}
+          />
         </div>
       )}
 

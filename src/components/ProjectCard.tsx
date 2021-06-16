@@ -32,6 +32,7 @@ const ProjectCard = ({ project, mirrored }: ProjectCardProps) => {
           <Image
             src={project.image}
             layout="responsive"
+            alt={project.title}
             width={16}
             height={9}
           />

@@ -4,7 +4,8 @@
     "plugin:react/recommended",
     "plugin:import/errors",
     "plugin:import/warnings",
-    "prettier"
+    "prettier",
+    "next"
   ],
   "env": {
     "browser": true,
@@ -15,7 +16,8 @@
   "parserOptions": {
     "sourceType": "module",
     "ecmaFeatures": {
-      "jsx": true
+      "jsx": true,
+      "tsx": true
     },
     "project": "./tsconfig.json"
   },

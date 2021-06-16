@@ -1,4 +1,3 @@
-/* eslint jsx-a11y/anchor-is-valid: 0 */
 import React from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
@@ -32,15 +31,21 @@ const Footer = () => (
             <div>
               <h2 className="text-white-400 mt-2 font-bold">Company</h2>
               <div className="flex flex-col">
-                <Link href="/">
-                  <a className="text-gray-300 my-2">Home</a>
+                <Link href="/" passHref>
+                  <a href="replaced" className="text-gray-300 my-2">
+                    Home
+                  </a>
                 </Link>
 
-                <Link href="/projects">
-                  <a className="text-gray-300 my-2">Project Tutorials</a>
+                <Link href="/projects" passHref>
+                  <a href="replaced" className="text-gray-300 my-2">
+                    Project Tutorials
+                  </a>
                 </Link>
-                <Link href="/blog">
-                  <a className="text-gray-300 my-2">Blog</a>
+                <Link href="/blog" passHref>
+                  <a href="replaced" className="text-gray-300 my-2">
+                    Blog
+                  </a>
                 </Link>
               </div>
             </div>
@@ -50,14 +55,20 @@ const Footer = () => (
                 Project Tutorials
               </h2>
               <div className="flex flex-col">
-                <Link href="/">
-                  <a className="text-gray-300 my-2">WhatsApp Clone</a>
+                <Link href="/" passHref>
+                  <a href="replaced" className="text-gray-300 my-2">
+                    WhatsApp Clone
+                  </a>
                 </Link>
-                <Link href="/">
-                  <a className="text-gray-300 my-2">Instagram Clone</a>
+                <Link href="/" passHref>
+                  <a href="replaced" className="text-gray-300 my-2">
+                    Instagram Clone
+                  </a>
                 </Link>
-                <Link href="/">
-                  <a className="text-gray-300 my-2">Twitter Clone</a>
+                <Link href="/" passHref>
+                  <a href="replaced" className="text-gray-300 my-2">
+                    Twitter Clone
+                  </a>
                 </Link>
               </div>
             </div>

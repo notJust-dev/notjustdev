@@ -18,7 +18,7 @@ const Navbar = () => {
 
       <MaxWidthWrapper>
         <nav className="flex items-center justify-between flex-wrap bg-teal py-6">
-          <Link href="/">
+          <Link href="/" passHref>
             <div className="cursor-pointer">
               <Image
                 src="/images/logo/white.png"

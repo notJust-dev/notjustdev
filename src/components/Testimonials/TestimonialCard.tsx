@@ -28,6 +28,7 @@ function TestimonialCard({
             src={image}
             layout="fill"
             objectFit="cover"
+            alt={`${name} profile picture`}
             className="rounded-full"
           />
         </div>

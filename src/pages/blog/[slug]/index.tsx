@@ -26,7 +26,12 @@ function BlogPostPage({ post }: Props) {
       <MaxWidthWrapper>
         {post.image && (
           <div className="relative w-full h-96">
-            <Image src={post.image} layout="fill" objectFit="cover" />
+            <Image
+              src={post.image}
+              layout="fill"
+              objectFit="cover"
+              alt="post image"
+            />
           </div>
         )}
         <h1 className="text-5xl text-center my-10">{post.title}</h1>
