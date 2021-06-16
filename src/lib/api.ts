@@ -1,6 +1,25 @@
 import fs from 'fs';
+import path from 'path';
 import { bundleMDX } from 'mdx-bundler';
 import { join } from 'path';
+
+// should be set before importing bundleMDX
+if (process.platform === 'win32') {
+  process.env.ESBUILD_BINARY_PATH = path.join(
+    process.cwd(),
+    'node_modules',
+    'esbuild',
+    'esbuild.exe',
+  );
+} else {
+  process.env.ESBUILD_BINARY_PATH = path.join(
+    process.cwd(),
+    'node_modules',
+    'esbuild',
+    'bin',
+    'esbuild',
+  );
+}
 
 const postsDirectory = join(process.cwd(), 'content', 'posts');
 
@@ -41,7 +60,8 @@ export async function getAllPosts(options: GetAllPostsOptions = {}) {
 
   // sort posts by date in descending order
   posts = posts.sort(
-    (post1, post2) => Date.parse(post2.publishedOn) - Date.parse(post1.publishedOn),
+    (post1, post2) =>
+      Date.parse(post2.publishedOn) - Date.parse(post1.publishedOn),
   );
 
   if (limit && limit > 0) {
