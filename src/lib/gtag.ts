@@ -4,7 +4,7 @@ import { GA_TRACKING_ID } from './config';
 export const pageview = (url: string) => {
   try {
     if (window.gtag) {
-      window.gtag('config', GA_TRACKING_ID, {
+      window.gtag('config', GA_TRACKING_ID as string, {
         page_path: url,
       });
     }

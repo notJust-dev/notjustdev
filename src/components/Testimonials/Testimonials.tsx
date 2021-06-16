@@ -25,7 +25,7 @@ function Testimonials() {
                 Native code.
                 <span className="bg-primary text-gray-600 font-bold  py-1">
                   {' '}
-                  Highly recommend if you are currently learning React Native
+                  Highly recommend if you are currently learning React Native!
                 </span>
               </>
             )}
