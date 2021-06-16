@@ -4,7 +4,7 @@ import TestimonialCard from './TestimonialCard';
 
 import mattImage from '../../../public/images/testimonials/matt.jpg';
 import adityaImage from '../../../public/images/testimonials/aditya.jpg';
-import rhiannonImage from '../../../public/images/testimonials/rhiannon.jpeg';
+import rhiannonImage from '../../../public/images/testimonials/rhiannon.png';
 
 function Testimonials() {
   return (
