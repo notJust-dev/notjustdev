@@ -24,7 +24,7 @@ const useScript = (
         ref?.current?.removeChild(script);
       }
     };
-  }, [url, ref]);
+  }, [url, ref, data]);
 };
 
 export default useScript;
