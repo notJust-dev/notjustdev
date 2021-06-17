@@ -1,10 +1,8 @@
 import React, { useState } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
-import Script from 'next/script';
 import MaxWidthWrapper from '../MaxWidthWrapper';
 import ActiveLink from './ActiveLink';
-import { CHANNEL_ID } from '../../lib/config';
 import logo from '../../../public/images/logo/white.png';
 
 const Navbar = () => {
@@ -12,11 +10,6 @@ const Navbar = () => {
 
   return (
     <>
-      <Script
-        src="https://apis.google.com/js/platform.js"
-        strategy="lazyOnload"
-      />
-
       <MaxWidthWrapper>
         <nav className="flex items-center justify-between flex-wrap bg-teal pt-6 pb-16">
           <Link href="/" passHref>
@@ -57,27 +50,7 @@ const Navbar = () => {
             <ActiveLink href="/projects" title="Project Tutorials" />
 
             <ActiveLink href="/blog" title="Blog" />
-
-            <div
-              className="mt-4 ml-5 lg:inline-block lg:mt-0"
-              style={{ width: 116, height: 24 }}
-            >
-              <div
-                className="g-ytsubscribe"
-                data-channelid={CHANNEL_ID}
-                data-layout="default"
-                data-count="default"
-              />
-            </div>
           </div>
-
-          {/* <h1>Company</h1>
-      <div className="flex flex-col">
-        <Link href="/"><a>Home</a></Link>
-        <Link href="/"><a>About us</a></Link>
-        <Link href="/"><a>Home</a></Link>
-        <Link href="/"><a>Home</a></Link>
-      </div> */}
         </nav>
       </MaxWidthWrapper>
     </>

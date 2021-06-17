@@ -32,7 +32,6 @@ export default function Home({ latestPosts }: Props) {
         {/* Blog */}
         <BlogSection posts={latestPosts} />
 
-        {/* About us */}
         <AboutUsSection />
       </main>
     </Layout>

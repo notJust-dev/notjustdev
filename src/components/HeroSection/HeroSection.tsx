@@ -24,7 +24,11 @@ function HeroSection() {
           </p>
 
           {/* button */}
-          <Button href="/" text="Sign up" className="w-32 my-5" />
+          <Button
+            href="https://www.youtube.com/channel/UCYSa_YLoJokZAwHhlwJntIA"
+            text="Subscribe"
+            className="w-32 my-5"
+          />
         </div>
 
         {/* Video */}

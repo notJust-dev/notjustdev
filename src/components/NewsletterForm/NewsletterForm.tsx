@@ -1,9 +1,16 @@
-import React, { useMemo } from 'react';
+import React, { useMemo, useRef } from 'react';
 import MaxWidthWrapper from '../MaxWidthWrapper';
+import useScript from '../../hooks/useScript';
 
 import { CONVERTKIT } from '../../lib/config';
 
 function NewsletterForm() {
+  const scriptRef = useRef<HTMLDivElement | null>(null);
+
+  useScript(CONVERTKIT.FORM_SRC as string, scriptRef, {
+    uid: CONVERTKIT.FORM_ID as string,
+  });
+
   const subscribers = useMemo(() => {
     const now = +new Date();
     const subscribersUpdatedOn = +new Date(CONVERTKIT.subscribersUpdatedOn);
@@ -18,8 +25,8 @@ function NewsletterForm() {
 
   return (
     <MaxWidthWrapper>
-      <div className="bg-gray-900 shadow-lg p-10">
-        <div className="m-3">
+      <div id="newsletter" className="bg-gray-900 shadow-lg p-10">
+        <div className="mb-5 md:mx-3">
           <h1>notJust Development Newsletter</h1>
           <p>
             Join over{' '}
@@ -28,7 +35,8 @@ function NewsletterForm() {
             any time.
           </p>
         </div>
-        <script async data-uid={CONVERTKIT.FORM_ID} src={CONVERTKIT.FORM_SRC} />
+
+        <div ref={scriptRef} />
       </div>
     </MaxWidthWrapper>
   );
