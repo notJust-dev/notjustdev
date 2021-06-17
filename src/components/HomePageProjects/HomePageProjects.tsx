@@ -26,7 +26,7 @@ function HomePageProjects() {
   return (
     <div className="relative py-10">
       <div className="absolute top-0 shadow-lg right-0 bottom-0 left-0 z-50 w-full h-full bg-gray-700 bg-opacity-70 flex justify-center items-center">
-        <h1 className="text-6xl text-primary">Coming soon...</h1>
+        <h1 className="text-6xl text-primary text-center">Coming soon...</h1>
       </div>
 
       <MaxWidthWrapper>

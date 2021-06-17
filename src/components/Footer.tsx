@@ -2,12 +2,14 @@ import React from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import MaxWidthWrapper from './MaxWidthWrapper';
+import NewsletterForm from './NewsletterForm';
 import { SOCIALS } from '../lib/config';
 
 import logo from '../../public/images/logo/white.png';
 
 const Footer = () => (
   <footer className="">
+    <NewsletterForm />
     <div className="bg-custom-blue-500 mt-10">
       <MaxWidthWrapper>
         <div className="py-10 flex flex-col md:flex-row">

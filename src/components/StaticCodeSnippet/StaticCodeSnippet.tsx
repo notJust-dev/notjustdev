@@ -31,7 +31,7 @@ const StaticCodeSnippet = ({ children }: Props) => {
     >
       {({ className, style, tokens, getLineProps, getTokenProps }) => (
         <pre
-          className={`${className} relative rounded-md my-10 p-8 -mx-8`}
+          className={`${className} relative rounded-md my-10 p-8 -mx-8 overflow-auto`}
           style={style}
         >
           {language && (

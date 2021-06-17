@@ -72,11 +72,14 @@ The next challenge was to save the authenticated users in the database and also 
 
 For the API, Amplify uses AWS AppSync and it makes it super easy to create GraphQL or Restful APIs. You just have to specify the GraphQL schema, and the rest is taken care of by Amplify. Bellow, you can see the schema for VCrypto:
 
-```
+```graphql
 type User
-@model(mutations: null)
-@key(name: "byNetworth", fields: [ "type", "networth" ], queryField: "getUsersByNetworth")
-{
+  @model(mutations: null)
+  @key(
+    name: "byNetworth"
+    fields: ["type", "networth"]
+    queryField: "getUsersByNetworth"
+  ) {
   id: ID!
   type: String!
   email: String!
@@ -88,8 +91,8 @@ type User
 }
 
 type PortfolioCoin
-@model(mutations: null)
-@key(name: "byUser", fields: ["userId"]){
+  @model(mutations: null)
+  @key(name: "byUser", fields: ["userId"]) {
   id: ID!
   amount: Float!
 
@@ -120,7 +123,7 @@ type Mutation {
     amount: Float!
     usdPortfolioCoinId: ID
     coinPortfolioCoinId: ID
-  ): Boolean!  @function(name: "ExchangeCoins-${env}")
+  ): Boolean! @function(name: "ExchangeCoins-${env}")
 }
 ```
 

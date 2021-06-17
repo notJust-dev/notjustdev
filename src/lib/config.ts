@@ -10,3 +10,11 @@ export const SOCIALS: { [k: string]: string } = {
 };
 
 export const CHANNEL_ID = 'UCYSa_YLoJokZAwHhlwJntIA';
+
+export const CONVERTKIT = {
+  FORM_SRC: process.env.NEXT_PUBLIC_CONVERTKIT_FORM_SRC,
+  FORM_ID: process.env.NEXT_PUBLIC_CONVERTKIT_FORM_ID,
+  subscribers: 7100,
+  subscribersUpdatedOn: '2021-06-17',
+  averageNewSubscribersPerDay: 50,
+};

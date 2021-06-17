@@ -29,7 +29,6 @@ function TestimonialCard({
             layout="fill"
             objectFit="cover"
             alt={`${name} profile picture`}
-            placeholder="blur"
             className="rounded-full"
           />
         </div>
