@@ -2,6 +2,7 @@
 title: From idea to $80B company - UBER's success story
 publishedOn: '2019-08-04T10:10:51.093Z'
 canonical: ''
+image: /images/thumbnails/posts/2020-08-08-from-idea-to-80b-company-ubers-success-story.jpeg
 description: >-
   2019 was a year with a lot of successful companies going public, but today I
   want to speak specifically about the company with the biggest valuation, which

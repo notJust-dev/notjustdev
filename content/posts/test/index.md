@@ -2,7 +2,7 @@
 title: How I developed an App (from 0 to market) in a 12H Livestream
 draft: true
 publishedOn: '2021-02-28T16:27:30.556Z'
-image: https://ourcodeworld.com/public-media/articles/articleocw-5d07e6b3790af.jpg
+
 description: "From the time I started doing youtube, I had this idea in mind to
   do a 12H Livestream and to build something. It was inspired by the extreme
   challenges of Mr. Beast's. However, I always procrastinated doing it because I
@@ -18,7 +18,10 @@ tags:
 
 **Advertisement :)**
 
-- **[pica](https://nodeca.github.io/pica/demo/)** - high quality and fast image
+Hello
+![pica](./capabilities.png)
+
+- **[pica](capabilities)** - high quality and fast image
   resize in browser.
 - **[babelfish](https://github.com/nodeca/babelfish/)** - developer friendly
   i18n with plurals support and easy syntax.
@@ -199,16 +202,11 @@ Autoconverted link https://github.com/nodeca/pica (enable linkify to see)
 
 ## Images
 
-![Minion](https://octodex.github.com/images/minion.png)
-![Stormtroopocat](https://octodex.github.com/images/stormtroopocat.jpg 'The Stormtroopocat')
+Minions
 
 Like links, Images also have a footnote style syntax
 
-![Alt text][id]
-
 With a reference later in the document defining the URL location:
-
-[id]: https://octodex.github.com/images/dojocat.jpg 'The Dojocat'
 
 ## Plugins
 
