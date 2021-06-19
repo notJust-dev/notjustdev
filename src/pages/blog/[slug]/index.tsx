@@ -7,6 +7,7 @@ import MaxWidthWrapper from '../../../components/MaxWidthWrapper';
 import { getPostBySlug, getPostSlugs } from '../../../lib/api';
 import StaticCodeSnippet from '../../../components/StaticCodeSnippet';
 import InlineCodeSnippet from '../../../components/InlineCodeSnippet copy';
+import MDXImage from '../../../components/MDXImage';
 
 const dateFormat = {
   month: 'short' as 'short',
@@ -19,13 +20,14 @@ interface Props {
 }
 
 function BlogPostPage({ post }: Props) {
-  const Component = useMemo(() => getMDXComponent(post.code), [post]);
+  console.log(post.code);
+  const Component = useMemo(() => getMDXComponent(post.code), [post.code]);
   // TODO Add SEO title description etc
   return (
     <Layout title={post.title}>
       <MaxWidthWrapper>
         {post.image && (
-          <div className="relative w-full h-96">
+          <div className="relative w-full aspect-w-16 aspect-h-9">
             <Image
               src={post.image}
               layout="fill"
@@ -50,7 +52,11 @@ function BlogPostPage({ post }: Props) {
 
         <div className="mdx-post">
           <Component
-            components={{ pre: StaticCodeSnippet, code: InlineCodeSnippet }}
+            components={{
+              pre: StaticCodeSnippet,
+              code: InlineCodeSnippet,
+              img: MDXImage as React.ComponentType<{}>,
+            }}
           />
         </div>
       </MaxWidthWrapper>

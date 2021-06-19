@@ -1,6 +1,7 @@
 import fs from 'fs';
 import { bundleMDX } from 'mdx-bundler';
-import { join } from 'path';
+import { remarkMdxImages } from 'remark-mdx-images';
+import { join, dirname } from 'path';
 
 // should be set before importing bundleMDX
 if (process.platform === 'win32') {
@@ -30,14 +31,36 @@ export function getPostSlugs() {
 
 export async function getPostBySlug(slug: string) {
   const realSlug = slug.replace(/\.md$/, '');
-  const fullPath = join(postsDirectory, `${realSlug}.md`);
+
+  let fullPath = join(postsDirectory, `${realSlug}.md`);
+  if (!fs.existsSync(fullPath)) {
+    fullPath = join(postsDirectory, realSlug, `index.md`);
+  }
+  // Check if file exits (directory might be empty, or not contain an index)
+
   const fileContents = fs.readFileSync(fullPath, 'utf8');
-  const { code, frontmatter } = await bundleMDX(fileContents);
+
+  const { code, frontmatter } = await bundleMDX(fileContents, {
+    cwd: dirname(fullPath),
+    xdmOptions: (options) => ({ ...options, remarkPlugins: [remarkMdxImages] }),
+    esbuildOptions: (options) => ({
+      ...options,
+      outdir: `./public/images/content/posts/${realSlug}`,
+      loader: {
+        ...options.loader,
+        '.png': 'file',
+        '.jpeg': 'file',
+        '.jpg': 'file',
+      },
+      publicPath: `/images/content/posts/${realSlug}`,
+      write: true,
+    }),
+  });
 
   const post = {
+    ...frontmatter,
     code,
     slug: realSlug,
-    ...frontmatter,
   } as Post;
   return post;
 }

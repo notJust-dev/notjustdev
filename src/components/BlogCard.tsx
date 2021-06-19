@@ -12,7 +12,7 @@ const BlogCard = ({ post }: BlogCardProps) => (
   <Link href={`/blog/${post.slug}`} passHref>
     <div className="bg-custom-blue-500 p-2 pb-5 flex flex-col items-center cursor-pointer">
       {post.image && (
-        <div className="relative w-full h-40">
+        <div className="relative w-full aspect-w-16 aspect-h-9 mb-2">
           <Image
             src={post.image}
             layout="fill"

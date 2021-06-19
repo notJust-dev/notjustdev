@@ -2,6 +2,7 @@
 template: post
 title: How I developed an App (from 0 to market) in a 12H Livestream
 draft: false
+image: /images/thumbnails/posts/2021-02-28-how-i-developed-an-app-from-0-to-market-in-a-12h-livestream.jpeg
 publishedOn: '2021-02-28T16:27:30.556Z'
 description: "From the time I started doing youtube, I had this idea in mind to
   do a 12H Livestream and to build something. It was inspired by the extreme
@@ -40,7 +41,7 @@ For the backend, I will use AWS Amplify. More about it later.
 
 A day before the Livestream, I sketched some screens using Figma, to have an idea of what I am going to build. Here is the result. (That moment when you find some free illustration and you end up overusing them 🙈)
 
-![Screenshot 2021-02-27 at 17.55.54.png](https://cdn.hashnode.com/res/hashnode/image/upload/v1614448559226/GzYQgATP3.png)
+![VCrypto User Interface Design](./design.jpeg)
 
 - **Home Screen** will display a greeting message and the watchlist
 - **Portfolio Screen** will display all the cryptocurrencies you have bought and will show you the account balance, which is the sum of the dollar value of all cryptos in the portfolio.
@@ -58,7 +59,7 @@ Let's get to the juicy part 🤩
 
 The backend was created using AWS Amplify (ofc). Let's see the architecture diagram of the whole system, and down below, I will get into details and explain every part of it.
 
-![VCrypt (1).png](https://cdn.hashnode.com/res/hashnode/image/upload/v1614450076267/B8FvH0t_5.png)
+![VCrypto Architecture Design](./architecture.jpeg)
 
 ### Authentication
 
@@ -66,7 +67,7 @@ For Authentication, Amplify uses Amazon Cognito which helps us manage users and 
 
 The next challenge was to save the authenticated users in the database and also to give them the promised virtual $100,000 (how generous of me, isn't it?). To solve this, I created a custom Lambda function that is triggered each time an account is confirmed in Cognito. The Lambda function inserts the user in the UserTable DynamoDB and also inserts the portfolio coin for the virtual USDs.
 
-![VCrypt (1).png](https://cdn.hashnode.com/res/hashnode/image/upload/v1614451353142/NTLfJqwwd.png)
+![VCrypto Authentication design](./auth.jpeg)
 
 ### GraphQL API
 
@@ -130,14 +131,14 @@ type Mutation {
 ### Currency Exchange Lambda
 
 For the process of exchanging currencies (buying or selling cryptocurrencies), I wrote a custom lambda. That allowed me to secure this process with extra checks and prevent unwanted currency exchanges. When buying a coin, I check if the user has enough USD coins, and when selling a coin, I check if the user has enough coins to sell.
-![VCrypt (1).png](https://cdn.hashnode.com/res/hashnode/image/upload/v1614452444111/WjaDcqYRF.png)
+![VCrypt Currency Exchange Flow](./cur_exchange.jpeg)
 
 ### Fetch Cryptocurency prices
 
 To get all the data about the current cryptocurrencies including the current price, the last 7-day history, the price changes, and so on, we used the [CoinGecko](https://www.coingecko.com/en) API. It is a free-to-use API and provides data about more than 6k cryptocurrencies.
 
 I created a Lambda function that is triggered every 5 minutes. The lambda function queries the data of the top 50 cryptocurrencies from coingecko (50 to keep it simple) and saves it to DynamoDB to be accessed by the app.
-![VCrypt (1) copy.png](https://cdn.hashnode.com/res/hashnode/image/upload/v1614452869204/fgfGTymVm.png)
+![VCrypt Fetch Prices](./fetch_prices.jpeg)
 
 # Summary
 

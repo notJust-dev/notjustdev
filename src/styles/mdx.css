@@ -42,10 +42,6 @@
   @apply mb-2 pl-1;
 }
 
-.mdx-post img {
-  @apply my-7;
-}
-
 .mdx-post hr {
   @apply my-6 border-gray-700;
 }

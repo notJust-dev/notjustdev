@@ -1,8 +1,7 @@
 ---
-template: post
 title: The Most Effective Way to Learn to CODE (fast and easy)
 draft: false
-image: https://media.timeout.com/images/105653190/image.jpg
+image: /images/thumbnails/posts/2020-12-04-the-most-effective-way-to-learn-to-code-fast-and-easy.png
 publishedOn: '2020-12-04T20:11:06.794Z'
 description: With more and more new technologies and programming languages, the
   most essential skill for any developer is by far the ability to learn and
@@ -15,7 +14,6 @@ tags:
   - Learn coding
   - How to learn programming
   - Project-based learning
-  - ''
 ---
 
 With more and more new technologies and programming languages, The most essential skill for any developer is by far the ability to learn and adapt fast. I am going to give you some easy strategies to learn anything faster and more effectively. These strategies helped learn all the technologies, languages, and frameworks I use nowadays, and it also helped me get an internship at Amazon as a software developer.

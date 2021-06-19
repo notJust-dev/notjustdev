@@ -18,7 +18,10 @@ tags:
 
 **Advertisement :)**
 
-- **[pica](https://nodeca.github.io/pica/demo/)** - high quality and fast image
+Hello
+![pica](./capabilities.png)
+
+- **[pica](capabilities)** - high quality and fast image
   resize in browser.
 - **[babelfish](https://github.com/nodeca/babelfish/)** - developer friendly
   i18n with plurals support and easy syntax.
@@ -199,8 +202,7 @@ Autoconverted link https://github.com/nodeca/pica (enable linkify to see)
 
 ## Images
 
-![Minion](https://octodex.github.com/images/minion.png)
-![Stormtroopocat](https://octodex.github.com/images/stormtroopocat.jpg 'The Stormtroopocat')
+Minions
 
 Like links, Images also have a footnote style syntax
 
