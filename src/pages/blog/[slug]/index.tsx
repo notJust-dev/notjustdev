@@ -20,8 +20,7 @@ interface Props {
 }
 
 function BlogPostPage({ post }: Props) {
-  console.log(post.code);
-  const Component = useMemo(() => getMDXComponent(post.code), [post.code]);
+  const Component = useMemo(() => getMDXComponent(post.code), [post]);
   // TODO Add SEO title description etc
   return (
     <Layout title={post.title}>

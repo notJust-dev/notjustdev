@@ -42,7 +42,10 @@ export async function getPostBySlug(slug: string) {
 
   const { code, frontmatter } = await bundleMDX(fileContents, {
     cwd: dirname(fullPath),
-    xdmOptions: (options) => ({ ...options, remarkPlugins: [remarkMdxImages] }),
+    xdmOptions: (options) => ({
+      ...options,
+      remarkPlugins: [...(options.remarkPlugins || []), remarkMdxImages],
+    }),
     esbuildOptions: (options) => ({
       ...options,
       outdir: `./public/images/content/posts/${realSlug}`,
