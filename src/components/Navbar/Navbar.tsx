@@ -23,7 +23,7 @@ const Navbar = () => {
             </div>
           </Link>
 
-          <div className="block lg:hidden">
+          <div className="block md:hidden">
             <button
               className="flex items-center p-3"
               type="button"
@@ -41,7 +41,7 @@ const Navbar = () => {
           </div>
 
           <div
-            className={`w-full block flex-grow lg:flex lg:items-center lg:justify-end lg:w-auto ${
+            className={`w-full block flex-grow md:flex md:items-center md:justify-end md:w-auto ${
               !isOpen && 'hidden'
             }`}
           >

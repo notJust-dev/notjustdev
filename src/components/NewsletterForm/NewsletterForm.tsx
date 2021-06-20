@@ -25,7 +25,7 @@ function NewsletterForm() {
 
   return (
     <MaxWidthWrapper>
-      <div id="newsletter" className="bg-gray-900 shadow-lg p-10">
+      <div id="newsletter" className="bg-gray-900 shadow-lg p-3 md:p-10">
         <div className="mb-5 md:mx-3">
           <h1>notJust Development Newsletter</h1>
           <p>
