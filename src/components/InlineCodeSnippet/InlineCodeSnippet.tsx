@@ -21,7 +21,7 @@ const InlineCodeSnippet = ({ children }: Props) => (
       return (
         <span
           {...getLineProps({ line })}
-          className={`${className} p-2 rounded-md`}
+          className={`${className} px-2 py-1 rounded-md`}
           style={style}
         >
           {line.map((token, key) => (
