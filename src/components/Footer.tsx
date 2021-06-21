@@ -97,7 +97,7 @@ const Footer = () => (
     </div>
 
     <p className="text-center p-5 text-gray-400">
-      Copyright © notjust.dev All rights reserved.
+      Copyright © 2021 notjust.dev All rights reserved.
     </p>
   </footer>
 );

@@ -6,7 +6,7 @@ import Layout from '../../../components/Layout/Layout';
 import MaxWidthWrapper from '../../../components/MaxWidthWrapper';
 import { getPostBySlug, getPostSlugs } from '../../../lib/api';
 import StaticCodeSnippet from '../../../components/StaticCodeSnippet';
-import InlineCodeSnippet from '../../../components/InlineCodeSnippet copy';
+import InlineCodeSnippet from '../../../components/InlineCodeSnippet';
 import MDXImage from '../../../components/MDXImage';
 
 const dateFormat = {

@@ -30,26 +30,28 @@ const StaticCodeSnippet = ({ children }: Props) => {
       theme={palenight}
     >
       {({ className, style, tokens, getLineProps, getTokenProps }) => (
-        <pre
-          className={`${className} relative rounded-md my-10 p-8 -mx-8 overflow-auto`}
-          style={style}
-        >
+        <div className="relative">
           {language && (
             <div
-              className="absolute -top-8 right-10 p-2 px-5 rounded-md"
+              className="absolute -top-8 right-0 p-2 px-5 rounded-md z-"
               style={style}
             >
               {language.toUpperCase()}
             </div>
           )}
-          {tokens.slice(0, -1).map((line, i) => (
-            <div {...getLineProps({ line, key: i })}>
-              {line.map((token, key) => (
-                <span {...getTokenProps({ token, key })} />
-              ))}
-            </div>
-          ))}
-        </pre>
+          <pre
+            className={`${className} rounded-md my-10 p-8 -mx-8 overflow-auto`}
+            style={style}
+          >
+            {tokens.slice(0, -1).map((line, i) => (
+              <div {...getLineProps({ line, key: i })}>
+                {line.map((token, key) => (
+                  <span {...getTokenProps({ token, key })} />
+                ))}
+              </div>
+            ))}
+          </pre>
+        </div>
       )}
     </Highlight>
   );
