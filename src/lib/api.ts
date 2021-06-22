@@ -54,6 +54,7 @@ export async function getPostBySlug(slug: string) {
         '.png': 'file',
         '.jpeg': 'file',
         '.jpg': 'file',
+        '.gif': 'file',
       },
       publicPath: `/images/content/posts/${realSlug}`,
       write: true,
