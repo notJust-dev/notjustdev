@@ -42,7 +42,7 @@ function HeroSection() {
             placeholder="blur"
           />
           <div className="absolute bottom-0 right-0 w-14 transform translate-y-9 md:w-24 md:translate-y-16 md:translate-x-6">
-            <Image src={pattern4} alt="" layout="responsive" />
+            <Image src={pattern4} alt="brand element" layout="responsive" />
           </div>
         </div>
       </section>

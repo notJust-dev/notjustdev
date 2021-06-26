@@ -16,3 +16,14 @@ export const CONVERTKIT = {
   subscribersUpdatedOn: '2021-06-17',
   averageNewSubscribersPerDay: 50,
 };
+
+export const SEO = {
+  title: 'notJust Development',
+  description:
+    'Become a full-stack developer by building real projects. Learn React, React Native, AWS Amplify and other modern technologies that power WEB and Mobile',
+  author: 'Vadim Savin',
+  keywords: 'React Native, React, Typescript, AWS Amplify',
+  hostname: 'https://www.notjust.dev',
+  image: '/images/notJustCover.jpg',
+  twitter: '@VadimNotJustDev'
+};

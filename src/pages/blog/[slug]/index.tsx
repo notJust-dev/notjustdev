@@ -23,7 +23,13 @@ function BlogPostPage({ post }: Props) {
   const Component = useMemo(() => getMDXComponent(post.code), [post]);
   // TODO Add SEO title description etc
   return (
-    <Layout title={post.title}>
+    <Layout
+      title={post.title}
+      description={post.description}
+      image={post.image}
+      pageType="article"
+      keywords={post.keywords}
+    >
       <MaxWidthWrapper>
         {post.image && (
           <div className="relative w-full aspect-w-16 aspect-h-9">

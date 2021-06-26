@@ -8,6 +8,7 @@ type Post = {
   category: string;
   tags: string[];
   draft?: boolean;
+  keywords?: string;
 
   code?: any;
 };
