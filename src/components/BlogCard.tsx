@@ -29,7 +29,7 @@ const BlogCard = ({ post }: BlogCardProps) => (
       </p>
       <Button
         text="Read more"
-        href={`/posts/${post.slug}`}
+        href={`/blog/${post.slug}`}
         type="tertiary"
         className="m-2"
       />
