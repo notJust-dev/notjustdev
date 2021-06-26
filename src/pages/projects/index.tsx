@@ -5,7 +5,7 @@ import MaxWidthWrapper from '../../components/MaxWidthWrapper';
 
 function Projects() {
   return (
-    <Layout title="notJust Development Blog">
+    <Layout title="notJust Development Projects">
       <MaxWidthWrapper>
         {/* Projects */}
         <div className="mb-5">

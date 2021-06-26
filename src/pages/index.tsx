@@ -16,7 +16,7 @@ interface Props {
 
 export default function Home({ latestPosts }: Props) {
   return (
-    <Layout title="notJust Development">
+    <Layout>
       <main className="grid gap-12">
         {/* Hero */}
         <HeroSection />
