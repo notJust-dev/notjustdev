@@ -45,7 +45,7 @@ const Layout = ({
         <meta property="og:description" content={description} />
         <meta property="og:site_name" content={siteName} />
 
-        <meta name="twitter:card" content="summary" />
+        <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content={title} />
         <meta name="twitter:site" content={siteName} />
         <meta name="twitter:description" content={description} />
