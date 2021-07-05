@@ -36,7 +36,11 @@ export async function getPostBySlug(slug: string) {
   if (!fs.existsSync(fullPath)) {
     fullPath = join(postsDirectory, realSlug, `index.md`);
   }
+
   // Check if file exits (directory might be empty, or not contain an index)
+  if (!fs.existsSync(fullPath)) {
+    return null;
+  }
 
   const fileContents = fs.readFileSync(fullPath, 'utf8');
 
@@ -78,7 +82,10 @@ export async function getAllPosts(options: GetAllPostsOptions = {}) {
   const { limit, includeDraft = false } = options;
 
   const slugs = getPostSlugs();
-  let posts = await Promise.all(slugs.map((slug) => getPostBySlug(slug)));
+  let posts = (
+    await Promise.all(slugs.map((slug) => getPostBySlug(slug)))
+  ).filter((p) => p) as Post[];
+
 
   if (!includeDraft) {
     posts = posts.filter((p) => !p.draft);
