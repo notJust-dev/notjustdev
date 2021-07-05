@@ -1,4 +1,5 @@
 import React from 'react';
+import Script from 'next/script';
 
 interface SnackProps {
   snackId: string;
@@ -9,7 +10,7 @@ interface SnackProps {
 }
 
 const Snack = ({ snackId, platform, preview, theme, height }: SnackProps) => (
-  <>
+  <div>
     <div
       data-snack-id={snackId}
       data-snack-platform={platform}
@@ -18,8 +19,8 @@ const Snack = ({ snackId, platform, preview, theme, height }: SnackProps) => (
       className="overflow-hidden w-full bg-gray-900 border-1 border-gray-800 rounded-md my-5"
       style={{ height }}
     />
-    <script async src="https://snack.expo.io/embed.js" />
-  </>
+    <Script strategy="lazyOnload" src="https://snack.expo.io/embed.js" />
+  </div>
 );
 
 Snack.defaultProps = {
@@ -30,4 +31,3 @@ Snack.defaultProps = {
 } as Partial<SnackProps>;
 
 export default Snack;
-// style="overflow:hidden;background:#212121;border:1px solid var(--color-border);border-radius:4px;height:505px;width:100%"
