@@ -16,12 +16,20 @@ const dateFormat = {
 };
 
 interface Props {
-  post: Post;
+  post: Post | null;
 }
 
 function BlogPostPage({ post }: Props) {
-  const Component = useMemo(() => getMDXComponent(post.code), [post]);
-  // TODO Add SEO title description etc
+  const Component = useMemo(() => getMDXComponent(post?.code), [post]);
+
+  if (!post) {
+    return (
+      <MaxWidthWrapper>
+        <h3>Post not found!</h3>
+      </MaxWidthWrapper>
+    );
+  }
+
   return (
     <Layout
       title={post.title}
