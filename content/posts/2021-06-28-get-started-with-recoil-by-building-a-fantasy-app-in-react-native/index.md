@@ -14,15 +14,15 @@ keywords: reactjs, react native, global state management, recoil, recoil.js reco
 import Snack from '../../../src/components/shared/Snack';
 import YoutubeVideo from '../../../src/components/shared/YoutubeVideo';
 
-The complexity of your app grew consistently. To keep things organized, you split your code in small, reusable components. Now you have hundreds of them. It becomes more challenging to manage the state of your app. Multiple components, from all other the places, depend on the same data. You start extracting these shared data to the closest common parent, and from there you drill the data from one component to another, until it reaches the component that depends on that data. It quickly gets unmanageable, and you realise that...
+The complexity of your app grew consistently. To keep things organized, you split your code into small, reusable components. Now you have hundreds of them. It becomes more challenging to manage the state of your app. Multiple components, from all over the place, depend on the same data. You start extracting these shared data to the closest common parent, and from there you drill the data from one component to another, until it reaches the component that depends on that data. It quickly gets unmanageable, and you realize that...
 
-## You need a global state management!
+## You need global state management!
 
-From your research on the topic "The best global state management library", you come to a conclusion that you need to integrate Redux. The only thing you remember about Redux, is the time you took a course on React or React Native, and there was a module about Redux. At the time it felt pretty clear, but after a week, you knew as much about Redux as I do about Regex.
+From your research on the topic "The best global state management library", you conclude that you need to integrate [Redux](https://redux.js.org/). The only thing you remember about Redux is the time you took a course on React or React Native, and there was a module about Redux. At the time it felt pretty clear, but after a week, you knew as much about Redux as I do about Regex.
 
-I cannot deny the popularity, the scale and the maturity of Redux, but man it is overcomplicated. Actions, Action Creators, Reducers, Selectors, Saga, Thunk 🤯
+I cannot deny the popularity, the scale, and the maturity of Redux, but man it is overcomplicated. Actions, Action Creators, Reducers, Selectors, Saga, Thunk 🤯
 
-An easier alternative is the Context API. It is easy to learn, it comes out-of-the box and it gets it's job done. It is a great and easy solution that works well for small projects.
+An easier alternative is the Context API. It is easy to learn, it comes out of the box and it gets its job done. It is a great and easy solution that works well for small projects.
 
 On the other hand, Context API was developed for things that do not change often (ex: theme, options, preferences). It is not very optimal when it comes to data that changes very often.
 
@@ -32,11 +32,11 @@ Then what is the alternative?
 
 > Recoil works and thinks like React!
 
-Recoil.js is an experimental library developed by the Facebook team with simplicity and compatibility in mind. It was developed specifically for React, and that makes it super easy to get started and integrate it in your React or React Native project. It feels native because they kept the API, the semantics and behavior as Reactish as possible.
+[Recoil.js](https://recoiljs.org/) is an experimental library developed by the Facebook team with simplicity and compatibility in mind. It was developed specifically for React, and that makes it super easy to get started and integrate it into your React or React Native project. It feels native because they kept the API, semantics, and behavior as Reactish as possible.
 
 In recoil, there are 2 main building blocks: atoms and selectors.
 
-**Atoms** are the shared state; individual units of state.
+**Atoms** are the shared state; individual units of the state.
 
 **Selectors** are pure functions, that consume atoms (or other selectors), process the data, and return it. They are used to create derivative data.
 
@@ -46,7 +46,7 @@ Data flows from _atoms_ through _selectors_ down into React component.
 
 ## Atoms
 
-As previously mentioned, **Atoms** are units of state. They're updatable and subscribable: when an atom is updated, each subscribed component is re-rendered with the new value.
+As previously mentioned, **Atoms** are units of the state. They're updatable and subscribable: when an atom is updated, each subscribed component is re-rendered with the new value.
 
 Atoms are created using the atom function:
 
@@ -57,7 +57,7 @@ const fontSizeState = atom({
 });
 ```
 
-To read and write an atom from a component, we use a hook called useRecoilState. It's just like React's useState, but now the state can be shared between components:
+To read and write an atom from a component, we use a hook called `useRecoilState()`. It's just like React's `useState()`, but now the state can be shared between components:
 
 ```jsx
 const [fontSize, setFontSize] = useRecoilState(fontSizeState);
@@ -95,7 +95,7 @@ const fontSizeLabel = useRecoilValue(fontSizeLabelState);
 
 Theory aside, let's have a look at how we can integrate Recoil into a real project.
 
-We are going to build a Fantasy app, similar to the UEFA Games. Users will be able to create their dream team, by selecting the players from a list.
+We are going to build a [Fantasy sport](https://en.wikipedia.org/wiki/Fantasy_sport) app, similar to the [UEFA Games](https://gaming.uefa.com/en/uefaeuro2020fantasyfootball/create-team). Users will be able to create their dream team, by selecting the players from a list.
 
 The user stories of the app are: "As a user, I want to...
 
@@ -113,7 +113,7 @@ If you prefer video format, this project was developed from scratch, step-by-ste
 
 ## Starting point
 
-I have prepared the UI for our app, so we can focus only on Recoil. I suggest you to open the bellow snack on [snack.expo.io](https://snack.expo.io/@vadinsavin/uefa-ui), to be able to browse all the component that it is made of.
+I have prepared the UI for our app, so we can focus only on Recoil. I suggest you open the bellow snack on [snack.expo.io](https://snack.expo.io/@vadinsavin/uefa-ui), to be able to browse all the components that it is made of.
 
 The important components that we are going to work with are:
 
@@ -161,9 +161,10 @@ export const allPlayersState = atom({
 });
 ```
 
-To consume this data, we will use the `useRecoilValue` function to retrieve the value of the state.
+To consume this data, we will use the `useRecoilValue()` function to retrieve the value of the state.
 
 ```jsx
+// App.js
 import { useRecoilValue, RecoilRoot } from 'recoil';
 import { allPlayersState } from './atoms/Players';
 
@@ -180,7 +181,7 @@ function App() {
 
 The filters will be implemented similarly, but here we will also have to change the state value when we select a filter.
 
-As we will be able to select multiple position, we will implement the position filter as an array of value, that will hold the selected positions.
+As we will be able to select multiple positions, we will implement the position filter as an array of values, that will hold the selected positions.
 
 ```js
 // atoms/Players.js
@@ -195,7 +196,7 @@ Now, let's consume this state in the `component/Filter.js` using the `useRecoilS
 
 If the position is selected (is included in the filter array), we will display it with a different color in the UI.
 
-When clicking on a position filter, we will check if we have to add it to the array, or remove it.
+When clicking on a position filter, we will check if we have to add it to the array or remove it.
 
 ```js
 // components/Filter.js
@@ -319,7 +320,7 @@ To add and remove the selected players in my team, we will update the `PlayerLis
 
 We will consume the recoil state that holds all selected players: `const [myPlayers, setMyPlayers] = useRecoilState(myPlayersState);`
 
-Let's implement a `onPress` function, that will modify the state accordingly. If the clicked player is already in my team, then we will want to remove it from the state. Otherwise, we want to add it to the team, but before adding it, we should also make sure there is an empty spot for the player in the team. For example, if we press on a Defender, and our formation is 3-3-4, meaning that we can have maximum 4 defenders, we will be able to add the player only if there are less than 4 defenders already selected.
+Let's implement an `onPress` function, that will modify the state accordingly. If the clicked player is already in my team, then we will want to remove it from the state. Otherwise, we want to add it to the team, but before adding it, we should also make sure there is an empty spot for the player in the team. For example, if we press on a Defender, and our formation is 3-3-4, meaning that we can have a maximum of 4 defenders, we will be able to add the player only if there are fewer than 4 defenders already selected.
 
 Don't forget to replace the root `View` of the component with a `Pressable` and attach the `onPress` event. Also, by adding this conditional style `{ backgroundColor: isSelected ? '#d170db' : 'white' },` to the `Pressable`, the row will become purple if the player is selected.
 
@@ -397,7 +398,7 @@ With these changes, we should see the selected players added on the field, with 
 
 ### Team stats
 
-The last step is to calculate and render some statistics about the team. We will focus on 2 values: number of players, total value of the players;
+The last step is to calculate and render some statistics about the team. We will focus on 2 values: number of players, the total value of the players;
 
 We will calculate these 2 values using 2 **selectors** that we will add to `atoms/MyTeam.js`
 
