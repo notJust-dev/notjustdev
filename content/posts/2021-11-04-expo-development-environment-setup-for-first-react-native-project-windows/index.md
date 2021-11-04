@@ -9,7 +9,7 @@ tags:
   - ReactJs
   - Expo
   - Windows
-keywords: reactjs, react native, expo, windows, expo development environment setup on windows
+keywords: reactjs, react native, expo, expo go, windows, expo development environment setup on windows
 ---
 
 import Snack from '../../../src/components/shared/Snack';
