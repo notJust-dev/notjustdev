@@ -1,4 +1,4 @@
-type Post = {
+type PostMeta = {
   slug: string;
   title: string;
   publishedOn: string;
@@ -9,6 +9,8 @@ type Post = {
   tags: string[];
   draft?: boolean;
   keywords?: string;
+};
 
+type Post = PostMeta & {
   code?: any;
 };

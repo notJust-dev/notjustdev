@@ -3,7 +3,7 @@ import Link from 'next/link';
 import Button from './Button';
 
 export interface BlogCardProps {
-  post: Post;
+  post: PostMeta;
 }
 
 const MAX_DESCRIPTION_LENGTH = 256;

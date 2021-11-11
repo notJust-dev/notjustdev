@@ -3,25 +3,9 @@ import { bundleMDX } from 'mdx-bundler';
 import { remarkMdxImages } from 'remark-mdx-images';
 import { join, dirname } from 'path';
 
-// should be set before importing bundleMDX
-if (process.platform === 'win32') {
-  process.env.ESBUILD_BINARY_PATH = join(
-    process.cwd(),
-    'node_modules',
-    'esbuild',
-    'esbuild.exe',
-  );
-} else {
-  process.env.ESBUILD_BINARY_PATH = join(
-    process.cwd(),
-    'node_modules',
-    'esbuild',
-    'bin',
-    'esbuild',
-  );
-}
-
-const postsDirectory = join(process.cwd(), 'content', 'posts');
+const rootDir = process.cwd();
+const postsDirectory = join(rootDir, 'content', 'posts');
+const outDir = join(rootDir, 'public', 'images', 'content', 'posts');
 
 export function getPostSlugs() {
   return fs
@@ -29,30 +13,39 @@ export function getPostSlugs() {
     .map((post) => post.replace(/\.md$/, ''));
 }
 
-export async function getPostBySlug(slug: string) {
+const getFullPath = (slug: string) => {
   const realSlug = slug.replace(/\.md$/, '');
 
   let fullPath = join(postsDirectory, `${realSlug}.md`);
-  if (!fs.existsSync(fullPath)) {
-    fullPath = join(postsDirectory, realSlug, `index.md`);
+  if (fs.existsSync(fullPath)) {
+    return fullPath;
   }
 
-  // Check if file exits (directory might be empty, or not contain an index)
-  if (!fs.existsSync(fullPath)) {
-    return null;
+  fullPath = join(postsDirectory, realSlug, `index.md`);
+  if (fs.existsSync(fullPath)) {
+    return fullPath;
   }
 
-  const fileContents = fs.readFileSync(fullPath, 'utf8');
+  throw new Error(`MDX file not found: ${fullPath}`);
+};
 
+const getFileContents = (path: string) => fs.readFileSync(path, 'utf8');
+
+export async function getPostBySlug(slug: string) {
+  const realSlug = slug.replace(/\.md$/, '');
+  const fullPath = getFullPath(slug);
+  const fileContents = getFileContents(fullPath);
+
+  // TODO check bundleMDXFile
   const { code, frontmatter } = await bundleMDX(fileContents, {
     cwd: dirname(fullPath),
     xdmOptions: (options) => ({
       ...options,
-      remarkPlugins: [...(options.remarkPlugins || []), remarkMdxImages],
+      remarkPlugins: [...(options.remarkPlugins ?? []), remarkMdxImages],
     }),
     esbuildOptions: (options) => ({
       ...options,
-      outdir: `./public/images/content/posts/${realSlug}`,
+      outdir: join(outDir, realSlug),
       loader: {
         ...options.loader,
         '.png': 'file',
@@ -64,7 +57,7 @@ export async function getPostBySlug(slug: string) {
       write: true,
     }),
   });
-
+  
   const post = {
     ...frontmatter,
     code,
@@ -73,19 +66,37 @@ export async function getPostBySlug(slug: string) {
   return post;
 }
 
+export async function getPostMetaBySlug(slug: string) {
+  const realSlug = slug.replace(/\.md$/, '');
+  const fullPath = getFullPath(slug);
+  const fileContents = getFileContents(fullPath);
+
+  // TODO check bundleMDXFile
+  const { frontmatter } = await bundleMDX(fileContents, {
+    cwd: dirname(fullPath),
+  });
+
+  const post = {
+    ...frontmatter,
+    slug: realSlug,
+  } as PostMeta;
+  return post;
+}
+
 interface GetAllPostsOptions {
   limit?: number;
   includeDraft?: boolean;
 }
 
-export async function getAllPosts(options: GetAllPostsOptions = {}) {
+export async function getAllPostsMeta(options: GetAllPostsOptions = {}) {
   const { limit, includeDraft = false } = options;
 
+  // This is not optimal. It reads and builds ALL posts, and then selects the first X
+  // The challenge here is that in order to know if it's draft or not, we need to read it
   const slugs = getPostSlugs();
   let posts = (
-    await Promise.all(slugs.map((slug) => getPostBySlug(slug)))
-  ).filter((p) => p) as Post[];
-
+    await Promise.all(slugs.map((slug) => getPostMetaBySlug(slug)))
+  ).filter((p) => p) as PostMeta[];
 
   if (!includeDraft) {
     posts = posts.filter((p) => !p.draft);
