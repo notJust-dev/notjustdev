@@ -68,7 +68,7 @@ function BlogPostPage({ post }: Props) {
             components={{
               pre: StaticCodeSnippet,
               code: InlineCodeSnippet,
-              img: MDXImage as React.ComponentType<{}>,
+              img: MDXImage,
             }}
           />
         </div>
@@ -78,6 +78,7 @@ function BlogPostPage({ post }: Props) {
 }
 
 export const getStaticPaths: GetStaticPaths = async () => {
+  // const posts = await getPostSlugs();
   const posts = await getPostSlugs();
 
   const paths = posts.map((slug) => ({

@@ -9,6 +9,7 @@ export const pageview = (url: string) => {
       });
     }
   } catch (error) {
+    // eslint-disable-next-line no-console
     console.log('Error from the trackerPageView => ', error);
   }
 };

@@ -19,7 +19,7 @@ const StaticCodeSnippet = ({ children }: Props) => {
   const language = children.props.className?.replace('language-', '').trim();
 
   if (!code) {
-    return null;
+    return <></>;
   }
 
   return (

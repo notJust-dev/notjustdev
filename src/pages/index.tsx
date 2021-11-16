@@ -6,12 +6,12 @@ import HeroSection from '../components/HeroSection';
 import HomePageProjects from '../components/HomePageProjects';
 import BlogSection from '../components/BlogSection';
 import Layout from '../components/Layout/Layout';
-import { getAllPosts } from '../lib/api';
+import { getAllPostsMeta } from '../lib/api';
 
 const BLOG_POSTS_ON_HOME_PAGE = 4;
 
 interface Props {
-  latestPosts: Post[];
+  latestPosts: PostMeta[];
 }
 
 export default function Home({ latestPosts }: Props) {
@@ -40,6 +40,6 @@ export default function Home({ latestPosts }: Props) {
 
 export const getStaticProps: GetStaticProps<Props> = async () => ({
   props: {
-    latestPosts: await getAllPosts({ limit: BLOG_POSTS_ON_HOME_PAGE }),
+    latestPosts: await getAllPostsMeta({ limit: BLOG_POSTS_ON_HOME_PAGE }),
   },
 });

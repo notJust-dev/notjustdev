@@ -3,10 +3,10 @@ import { GetStaticProps } from 'next';
 import BlogCard from '../../components/BlogCard';
 import Layout from '../../components/Layout/Layout';
 import MaxWidthWrapper from '../../components/MaxWidthWrapper';
-import { getAllPosts } from '../../lib/api';
+import { getAllPostsMeta } from '../../lib/api';
 
 interface BlogProps {
-  posts: Post[];
+  posts: PostMeta[];
 }
 
 const Blog = ({ posts }: BlogProps) => (
@@ -33,6 +33,6 @@ export default Blog;
 
 export const getStaticProps: GetStaticProps<BlogProps> = async () => ({
   props: {
-    posts: await getAllPosts(),
+    posts: await getAllPostsMeta(),
   },
 });

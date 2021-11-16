@@ -12,9 +12,6 @@ tags:
 keywords: reactjs, react native, expo, expo go, windows, expo development environment setup on windows
 ---
 
-import Snack from '../../../src/components/shared/Snack';
-import YoutubeVideo from '../../../src/components/shared/YoutubeVideo';
-
 In general, there are two ways to get started with React Native - using **Expo CLI** or **React Native CLI**. Both ways have their own strengths and weaknesses but even React Native's official documentation is suggesting to get started with Expo CLI if you are new to mobile development. Therefore, in this guide we will go through all the steps needed to setup Expo development environment for your first React Native project using Windows.
 
 ## Installing Windows Terminal
