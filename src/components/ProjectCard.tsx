@@ -1,18 +1,12 @@
 import Image from 'next/image';
 import Button from './Button';
 
-interface ProjectCardProps {
-  project: {
-    id: string;
-    slug: string;
-    title: string;
-    excerpt: string;
-    image: string;
-  };
+interface CourseCardProps {
+  course: CourseMeta;
   mirrored: boolean;
 }
 
-const ProjectCard = ({ project, mirrored }: ProjectCardProps) => {
+const ProjectCard = ({ course, mirrored }: CourseCardProps) => {
   const float = mirrored ? 'left' : 'right';
   return (
     <div className="relative w-full my-3 flex flex-col items-stretch md:flex-row">
@@ -30,9 +24,9 @@ const ProjectCard = ({ project, mirrored }: ProjectCardProps) => {
         />
         <div className="p-5 w-full">
           <Image
-            src={project.image}
+            src={course.thumbnail}
             layout="responsive"
-            alt={project.title}
+            alt={course.title}
             width={16}
             height={9}
           />
@@ -40,19 +34,14 @@ const ProjectCard = ({ project, mirrored }: ProjectCardProps) => {
       </div>
 
       <div className="flex flex-1 flex-col justify-center p-5 z-10 ">
-        <h1 className="text-center md:text-left">{project.title}</h1>
-        <p className="text-center mb-3 md:text-left">{project.excerpt}</p>
+        <h1 className="text-center md:text-left">{course.title}</h1>
+        <p className="text-center mb-3 md:text-left">{course.description}</p>
         <div className="flex flex-col md:flex-row">
           <Button
-            text="Learn more"
-            href={`/project/${project.slug}`}
+            text="Let's Start Learning!"
+            href="https://academy.notjust.dev/offers/emcoSdeA/checkout"
             className="w-full my-2 md:w-auto"
-          />
-          <Button
-            text="See if you're ready"
-            href={`/project/${project.slug}`}
-            type="secondary"
-            className="w-full my-2 md:w-auto md:ml-4"
+            target="_blank"
           />
         </div>
       </div>
@@ -62,6 +51,6 @@ const ProjectCard = ({ project, mirrored }: ProjectCardProps) => {
 
 ProjectCard.defaultProps = {
   mirrored: false,
-} as Partial<ProjectCardProps>;
+} as Partial<CourseCardProps>;
 
 export default ProjectCard;

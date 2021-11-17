@@ -14,3 +14,13 @@ type PostMeta = {
 type Post = PostMeta & {
   code?: any;
 };
+
+type CourseMeta = {
+  slug: string;
+  title: string;
+  thumbnail: string;
+  description: string;
+  category: string;
+  tags: string[];
+  keywords?: string;
+}
