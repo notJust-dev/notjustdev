@@ -6,15 +6,18 @@ import HeroSection from '../components/HeroSection';
 import HomePageProjects from '../components/HomePageProjects';
 import BlogSection from '../components/BlogSection';
 import Layout from '../components/Layout/Layout';
-import { getAllPostsMeta } from '../lib/api';
+import { getAllPostsMeta } from '../lib/postRepository';
+import { getAllCoursesMeta } from '../lib/courseRepository';
 
 const BLOG_POSTS_ON_HOME_PAGE = 4;
+const COURSES_ON_HOME_PAGE = 2;
 
 interface Props {
   latestPosts: PostMeta[];
+  courses: CourseMeta[];
 }
 
-export default function Home({ latestPosts }: Props) {
+export default function Home({ latestPosts, courses }: Props) {
   return (
     <Layout>
       <main className="grid gap-12">
@@ -25,7 +28,7 @@ export default function Home({ latestPosts }: Props) {
         <TechLogos />
 
         {/* Projects */}
-        <HomePageProjects />
+        <HomePageProjects courses={courses}/>
 
         <Testimonials />
 
@@ -41,5 +44,6 @@ export default function Home({ latestPosts }: Props) {
 export const getStaticProps: GetStaticProps<Props> = async () => ({
   props: {
     latestPosts: await getAllPostsMeta({ limit: BLOG_POSTS_ON_HOME_PAGE }),
+    courses: await getAllCoursesMeta({ limit: COURSES_ON_HOME_PAGE }),
   },
 });

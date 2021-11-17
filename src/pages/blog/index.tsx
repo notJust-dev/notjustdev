@@ -3,7 +3,7 @@ import { GetStaticProps } from 'next';
 import BlogCard from '../../components/BlogCard';
 import Layout from '../../components/Layout/Layout';
 import MaxWidthWrapper from '../../components/MaxWidthWrapper';
-import { getAllPostsMeta } from '../../lib/api';
+import { getAllPostsMeta } from '../../lib/postRepository';
 
 interface BlogProps {
   posts: PostMeta[];

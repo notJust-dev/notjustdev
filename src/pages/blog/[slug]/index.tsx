@@ -4,7 +4,7 @@ import { GetStaticPaths, GetStaticProps, GetStaticPropsContext } from 'next';
 import { useMemo } from 'react';
 import Layout from '../../../components/Layout/Layout';
 import MaxWidthWrapper from '../../../components/MaxWidthWrapper';
-import { getPostBySlug, getPostSlugs } from '../../../lib/api';
+import { getPostBySlug, getPostSlugs } from '../../../lib/postRepository';
 import StaticCodeSnippet from '../../../components/StaticCodeSnippet';
 import InlineCodeSnippet from '../../../components/InlineCodeSnippet';
 import MDXImage from '../../../components/MDXImage';
@@ -78,7 +78,6 @@ function BlogPostPage({ post }: Props) {
 }
 
 export const getStaticPaths: GetStaticPaths = async () => {
-  // const posts = await getPostSlugs();
   const posts = await getPostSlugs();
 
   const paths = posts.map((slug) => ({
