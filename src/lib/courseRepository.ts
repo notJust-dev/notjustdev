@@ -1,9 +1,11 @@
 import fs from 'fs';
 import { bundleMDX } from 'mdx-bundler';
+import { remarkMdxImages } from 'remark-mdx-images';
 import { join, dirname } from 'path';
 
 const rootDir = process.cwd();
 const courseDirectory = join(rootDir, 'content', 'courses');
+const outDir = join(rootDir, 'public', 'images', 'content', 'courses');
 
 interface GetAllCourseOptions {
   limit?: number;
@@ -32,6 +34,41 @@ const getFullPath = (slug: string) => {
 };
 
 const getFileContents = (path: string) => fs.readFileSync(path, 'utf8');
+
+export async function getCourseBySlug(slug: string) {
+  const realSlug = slug.replace(/\.md$/, '');
+  const fullPath = getFullPath(slug);
+  const fileContents = getFileContents(fullPath);
+
+  // TODO check bundleMDXFile
+  const { code, frontmatter } = await bundleMDX(fileContents, {
+    cwd: dirname(fullPath),
+    xdmOptions: (options) => ({
+      ...options,
+      remarkPlugins: [...(options.remarkPlugins ?? []), remarkMdxImages],
+    }),
+    esbuildOptions: (options) => ({
+      ...options,
+      outdir: join(outDir, realSlug),
+      loader: {
+        ...options.loader,
+        '.png': 'file',
+        '.jpeg': 'file',
+        '.jpg': 'file',
+        '.gif': 'file',
+      },
+      publicPath: `/images/content/courses/${realSlug}`,
+      write: true,
+    }),
+  });
+  
+  const course = {
+    ...frontmatter,
+    code,
+    slug: realSlug,
+  } as Course;
+  return course;
+}
 
 export async function getCourseMetaBySlug(slug: string) {
   const realSlug = slug.replace(/\.md$/, '');

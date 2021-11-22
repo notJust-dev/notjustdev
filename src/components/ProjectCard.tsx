@@ -42,6 +42,12 @@ const ProjectCard = ({ course, mirrored }: CourseCardProps) => {
             href="https://academy.notjust.dev/offers/emcoSdeA/checkout"
             className="w-full my-2 md:w-auto"
             target="_blank"
+          /> 
+          <Button
+            text="Read More"
+            href={`/projects/${course.slug}`}
+            type="tertiary"
+            className="w-full my-2 md:w-auto md:ml-4"
           />
         </div>
       </div>
