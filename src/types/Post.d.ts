@@ -15,6 +15,10 @@ type Post = PostMeta & {
   code?: any;
 };
 
+type Course = CourseMeta & {
+  code?: any;
+};
+
 type CourseMeta = {
   slug: string;
   title: string;
