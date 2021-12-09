@@ -33,7 +33,13 @@ const getFileContents = (path: string) => fs.readFileSync(path, 'utf8');
 
 export async function getPostBySlug(slug: string) {
   const realSlug = slug.replace(/\.md$/, '');
-  const fullPath = getFullPath(slug);
+  let fullPath;
+  try {
+    fullPath = getFullPath(slug);
+  } catch (e) {
+    return null;
+  }
+
   const fileContents = getFileContents(fullPath);
 
   // TODO check bundleMDXFile
@@ -57,7 +63,7 @@ export async function getPostBySlug(slug: string) {
       write: true,
     }),
   });
-  
+
   const post = {
     ...frontmatter,
     code,
@@ -68,7 +74,12 @@ export async function getPostBySlug(slug: string) {
 
 export async function getPostMetaBySlug(slug: string) {
   const realSlug = slug.replace(/\.md$/, '');
-  const fullPath = getFullPath(slug);
+  let fullPath;
+  try {
+    fullPath = getFullPath(slug);
+  } catch (e) {
+    return null;
+  }
   const fileContents = getFileContents(fullPath);
 
   // TODO check bundleMDXFile
