@@ -41,17 +41,17 @@ Sponsorships: **$3942.71**
 
 My AdSense revenue has been pretty stable for the last 9 months ($1000-$1500). For the size of my channel (35k subs), this is quite a good revenue. In my opinion, this relates to my long-format videos of 3-5 hours, which people on average watch for more than 50%.
 
-AdSense revenue gives me the possibility to work full-time on [notJust.dev](http://notJust.dev) as it already covers my personal monthly expenses.
+AdSense revenue gives me the possibility to work full-time on [notJust.dev](https://notjust.dev) as it already covers my personal monthly expenses.
 
 ## Sponsorships
 
-Sponsorships are a substantial revenue source for [notJust.dev](http://notJust.dev) at the moment. It gives me the possibility to grow the team and to create even more educational content for you guys.
+Sponsorships are a substantial revenue source for [notJust.dev](https://notjust.dev) at the moment. It gives me the possibility to grow the team and to create even more educational content for you guys.
 
 I am very picky when choosing the brands that we work with and I am trying to work with brands that I would use myself and that I think will be useful to you in your full-stack development journey.
 
 # The team is growing 🚀
 
-2 months ago I was doing everything myself. From coding, live-streaming, video editing, thumbnail design, community management, social media, copyrighting, and marketing. Well, I still do a lot of these things, but I realise that if I want to take [notJust.dev](http://notJust.dev) to the next level, I need to bring people on board.
+2 months ago I was doing everything myself. From coding, live-streaming, video editing, thumbnail design, community management, social media, copyrighting, and marketing. Well, I still do a lot of these things, but I realise that if I want to take [notJust.dev](https://notjust.dev) to the next level, I need to bring people on board.
 
 During the last 2 months, our team grew to 6 people.
 
@@ -61,7 +61,7 @@ Darshan and Yashi are helping with video editing for both YouTube channel and fo
 
 Sasha has joined the team as a YouTube manager, but she is doing much more than just YouTube management. She is helping me with idea generation, project management, planning and structuring our processes.
 
-Lukas is helping me with the technical side of the project. He has been preparing the project-based tutorials that will come in future on the channel. Maybe we will see him in front of the camera as well, who knows 🤷‍♂️. Lukas is as well helping with the [notjust.dev](http://notjust.dev) website, both with content and development.
+Lukas is helping me with the technical side of the project. He has been preparing the project-based tutorials that will come in future on the channel. Maybe we will see him in front of the camera as well, who knows 🤷‍♂️. Lukas is as well helping with the [notjust.dev](https://notjust.dev) website, both with content and development.
 
 And of course, Alex, who is listening to all my crazy ideas and keeping me with my feet on the ground. She is the one that pushes me when I have unproductive days. Also, thanks for drawing the diagrams for this article instead of watching Game of Thrones.
 
@@ -71,6 +71,6 @@ In November my main focus will be working on the [Full-stack mobile developer co
 
 The weekly Live streams on my [YouTube channel](https://www.youtube.com/c/notjustdev) every Friday at 3PM GMT is already a rule, so I will try to keep them coming consistently. Also, we are working on something special on the channel: notJust Squid Game. It’s coming soon. Very hyped about it.
 
-That's it for this time. Let me know what part of running and growing [notJust.dev](http://notJust.dev) are you most interested in so I could talk about it next month.
+That's it for this time. Let me know what part of running and growing [notJust.dev](https://notjust.dev) are you most interested in so I could talk about it next month.
 
 Take care 🤗 stay hydrated 🚰 and write clean code 👨‍💻
