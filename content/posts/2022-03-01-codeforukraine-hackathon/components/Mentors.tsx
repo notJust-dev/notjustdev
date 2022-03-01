@@ -1,4 +1,15 @@
-const Mentor = ({ data }) => (
+interface IMentor {
+  name: string;
+  url: string;
+  image: string;
+  subtitle: string;
+}
+
+interface IMentors {
+  data: [IMentor];
+}
+
+const Mentor = ({ data }: IMentors) => (
   <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
     {data.map((mentor) => (
       <a href={mentor.url} key={mentor.name} target="_blank" rel="noreferrer">
