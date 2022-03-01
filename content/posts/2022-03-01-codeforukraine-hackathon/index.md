@@ -14,13 +14,6 @@ import YoutubeVideo from '../../../src/components/shared/YoutubeVideo';
 import Button from '../../../src/components/shared/Button';
 import Mentors from './components/Mentors'
 
-import vadim from './images/vadim.jpg';
-import andrei from './images/andrei.jpeg';
-import lukas from './images/lukas.jpeg';
-import roma from './images/roma.jpeg';
-import dima from './images/dima.jpeg';
-import naz from './images/naz.jpeg';
-
 In the context of what is happening in Ukraine I felt the urge to do something, but how can a developer help in this situation? Well, we can think about this together.
 
 We are organizing a 7-day hackathon, with the topic #CodeForUkraine, starting on Wednesday, 2nd of March.
@@ -91,32 +84,32 @@ By the end of the day, you have to submit your project.
 <Mentors
 data={[{
 name: "Vadim Savin",
-image: vadim,
+image: "/images/posts/mentors/vadim.jpg",
 subtitle: "Tutor at notJust.dev",
 url: "https://www.linkedin.com/in/vadimsavin/",
 }, {
 name: "Lukas Grinevicius",
-image: lukas,
+image: "/images/posts/mentors/lukas.jpeg",
 subtitle: "CTO at Fitenium, Tutor",
 url: "https://www.linkedin.com/in/lukas-grinevi%C4%8Dius-b16740198/",
 }, {
 name: "Zgirvaci Andrei",
-image: andrei,
+image: "/images/posts/mentors/andrei.jpeg",
 subtitle: "CTO at Trustio Inc.",
 url: "https://www.linkedin.com/in/andrei-zgirvaci/",
 }, {
 name: "Dima Gangaliuc",
-image: dima,
+image: "/images/posts/mentors/dima.jpeg",
 subtitle: "CEO, Business Developer at Riift Studio ",
 url: "https://www.linkedin.com/in/dumitrugangaliuc/"
 }, {
 name: "Roman Gluck",
-image: roma,
+image: "/images/posts/mentors/roma.jpeg",
 subtitle: "Product Manager at Pentalog / Public Speaking Trainer",
 url: "https://www.linkedin.com/in/roman-gluck/",
 }, {
 name: "Nazariy Dumanskyy",
-image: naz,
+image: "/images/posts/mentors/naz.jpeg",
 subtitle: "JavaScript, ReactJS, & Blockchain Developer",
 url: "https://www.linkedin.com/in/nazariydumanskyy/"
 }
