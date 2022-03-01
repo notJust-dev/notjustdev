@@ -12,6 +12,14 @@ keywords: hackathon, codeForUkraine
 
 import YoutubeVideo from '../../../src/components/shared/YoutubeVideo';
 import Button from '../../../src/components/shared/Button';
+import Mentors from './components/Mentors'
+
+import vadim from './images/vadim.jpg';
+import andrei from './images/andrei.jpeg';
+import lukas from './images/lukas.jpeg';
+import roma from './images/roma.jpeg';
+import dima from './images/dima.jpeg';
+import naz from './images/naz.jpeg';
 
 In the context of what is happening in Ukraine I felt the urge to do something, but how can a developer help in this situation? Well, we can think about this together.
 
@@ -25,17 +33,93 @@ Fill up **[This Form](https://forms.gle/Ne2SuzvAp1X2NLFj7)** and let’s use our
 
 <Button title="Register to participate" href="https://forms.gle/Ne2SuzvAp1X2NLFj7" target="_blank" />
 
-## Day 0 (Wednesday, 2nd March)
-
-Join the live stream on Wednesday and let's kickstart the #CodeForUkraine Hackathon.
-
-During the live stream, we will present all the project ideas, and you will be able to join the idea you like the most.
-
-<YoutubeVideo id="wK4sELIitkU" />
-
-## Discord
+### Discord
 
 All the team collaboration throughout the week will happen on discord.
 
 Make sure to Join the [notJust.dev discord server](https://discord.gg/VpURUN2).
 
+## Schedule for the next 7 days
+
+### Day 0 (Wednesday, 2nd March)
+
+Join the live stream on Wednesday and let's kickstart the #CodeForUkraine Hackathon.
+
+During the live stream, we will present all the project ideas, and you will be able to join the idea you like the most.
+
+Goal of the day is to **form the teams**.
+
+<YoutubeVideo id="wK4sELIitkU" />
+
+### Day 1 (Thursday, 3rd March)
+
+Recommended focus:
+
+- 📜 Research,
+- 📌 Design/Sketch,
+- 📐 Plan
+
+### Day 2, 3, 4 (Friday-Sunday)
+
+Recommended focus:
+
+- 🛠️ Build!
+
+### Day 5 (Monday, 7th March)
+
+Recommended focus:
+
+- 🚀 Deploy
+- 🔨 Test
+- 💅 Polish
+
+### Day 6 (Tuesday, 8th March)
+
+Recommended focus:
+
+- 💅 Prepare the app for the demo day
+- 🤹 One person from the team prepares the Pitch
+
+By the end of the day, you have to submit your project.
+
+### Day 7 (Wednesday, 9th March)
+
+**Demo day!**
+
+## Mentors
+
+<Mentors
+data={[{
+name: "Vadim Savin",
+image: vadim,
+subtitle: "Tutor at notJust.dev",
+url: "https://www.linkedin.com/in/vadimsavin/",
+}, {
+name: "Lukas Grinevicius",
+image: lukas,
+subtitle: "CTO at Fitenium, Tutor",
+url: "https://www.linkedin.com/in/lukas-grinevi%C4%8Dius-b16740198/",
+}, {
+name: "Zgirvaci Andrei",
+image: andrei,
+subtitle: "CTO at Trustio Inc.",
+url: "https://www.linkedin.com/in/andrei-zgirvaci/",
+}, {
+name: "Dima Gangaliuc",
+image: dima,
+subtitle: "CEO, Business Developer at Riift Studio ",
+url: "https://www.linkedin.com/in/dumitrugangaliuc/"
+}, {
+name: "Roman Gluck",
+image: roma,
+subtitle: "Product Manager at Pentalog / Public Speaking Trainer",
+url: "https://www.linkedin.com/in/roman-gluck/",
+}, {
+name: "Nazariy Dumanskyy",
+image: naz,
+subtitle: "JavaScript, ReactJS, & Blockchain Developer",
+url: "https://www.linkedin.com/in/nazariydumanskyy/"
+}
+]} />
+
+#CodeForUkraine
