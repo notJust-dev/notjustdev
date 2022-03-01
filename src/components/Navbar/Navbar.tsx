@@ -4,12 +4,14 @@ import Link from 'next/link';
 import MaxWidthWrapper from '../MaxWidthWrapper';
 import ActiveLink from './ActiveLink';
 import logo from '../../../public/images/logo/white.png';
+import Announcement from '../Announcement';
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
     <>
+      <Announcement />
       <MaxWidthWrapper>
         <nav className="flex items-center justify-between flex-wrap bg-teal pt-6 pb-16">
           <Link href="/" passHref>
