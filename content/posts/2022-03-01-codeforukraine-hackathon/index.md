@@ -93,14 +93,14 @@ image: "/images/posts/mentors/lukas.jpeg",
 subtitle: "CTO at Fitenium, Tutor",
 url: "https://www.linkedin.com/in/lukas-grinevi%C4%8Dius-b16740198/",
 }, {
-name: "Zgirvaci Andrei",
+name: "Andrei Zgirvaci",
 image: "/images/posts/mentors/andrei.jpeg",
 subtitle: "CTO at Trustio Inc.",
 url: "https://www.linkedin.com/in/andrei-zgirvaci/",
 }, {
 name: "Dumitru Gangaliuc",
 image: "/images/posts/mentors/dima.jpeg",
-subtitle: "CEO, Business Developer at Riift Studio ",
+subtitle: "CEO, Business Developer at Riift Studio",
 url: "https://www.linkedin.com/in/dumitrugangaliuc/"
 }, {
 name: "Roman Gluck",
