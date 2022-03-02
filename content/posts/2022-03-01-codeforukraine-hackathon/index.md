@@ -98,7 +98,7 @@ image: "/images/posts/mentors/andrei.jpeg",
 subtitle: "CTO at Trustio Inc.",
 url: "https://www.linkedin.com/in/andrei-zgirvaci/",
 }, {
-name: "Dima Gangaliuc",
+name: "Dumitru Gangaliuc",
 image: "/images/posts/mentors/dima.jpeg",
 subtitle: "CEO, Business Developer at Riift Studio ",
 url: "https://www.linkedin.com/in/dumitrugangaliuc/"
