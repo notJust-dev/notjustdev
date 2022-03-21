@@ -11,6 +11,7 @@ keywords: react native course, fullstack, mobile developer, aws amplify
 
 import YoutubeVideo from '../../../src/components/shared/YoutubeVideo';
 import Button from '../../../src/components/shared/Button';
+import CountdownTimer from '../../../src/components/shared/CountdownTimer';
 
 Hey notJust Developers 👋
 
@@ -83,6 +84,12 @@ Don't take my word for it, see what Chris Warren has to say:
 
 Ok, ok, I also can't wait 🤩
 
-The launch date is: 24th April
+The launch date is..... \*ba dum tsss\*:
 
-I will come with more details in the following weeks. Stay tuned, and sign up for the wait list, if you are not already there. People on the wait list will get a good offer.
+### 24th April 🎉
+
+<CountdownTimer endDateStr={"2022-04-24T00:00:00Z"} />
+
+I will come with more details in the following weeks.
+
+Stay tuned, and sign up for the [wait list](https://academy.notjust.dev/), if you are not already there. People on the wait list will get a good offer.
