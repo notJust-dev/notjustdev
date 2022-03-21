@@ -5,7 +5,7 @@ const Number = ({ value, label }: { value: number; label: string }) => (
     <div className="bg-secondary rounded-md p-3 md:py-6 flex justify-center">
       <span className="text-lg md:text-6xl font-bold text-center">{value}</span>
     </div>
-    <div className="text-center text-md md:text-2xl m-1 m-3">{label}</div>
+    <div className="text-center text-md md:text-2xl m-1 md:m-3">{label}</div>
   </div>
 );
 
