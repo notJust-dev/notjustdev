@@ -3,7 +3,7 @@ import Image from 'next/image';
 import Button from '../Button';
 import MaxWidthWrapper from '../MaxWidthWrapper';
 import pattern4 from '../../../public/images/brand_elements/pattern_4.svg';
-import video from '../../../public/images/video_img.png';
+import video from '../../../public/images/vadim-headshot.png';
 
 function HeroSection() {
   return (
@@ -16,11 +16,11 @@ function HeroSection() {
           </p>
 
           <h1 className="text-3xl leading-relaxed">
-            notJust Development is where coding meets entrepreneurship
+            You are notJust a Developer. You are more than that 🚀
           </h1>
           <p className="text-xl text-gray-300 my-4 leading-relaxed">
             Your journey to becoming a full-stack technical lead starts today.
-            Learn faster by building real projects.
+            Learn faster by building the apps you ❤️
           </p>
 
           {/* button */}
@@ -35,8 +35,8 @@ function HeroSection() {
         <div className="flex-1 relative justify-center items-center pr-9 mb-10 w-full">
           <Image
             src={video}
-            height={144}
-            width={144}
+            height={145}
+            width={138}
             alt="profile image"
             layout="responsive"
             placeholder="blur"
