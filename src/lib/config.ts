@@ -12,8 +12,8 @@ export const SOCIALS: { [k: string]: string } = {
 export const CONVERTKIT = {
   FORM_SRC: process.env.NEXT_PUBLIC_CONVERTKIT_FORM_SRC,
   FORM_ID: process.env.NEXT_PUBLIC_CONVERTKIT_FORM_ID,
-  subscribers: 7100,
-  subscribersUpdatedOn: '2021-06-17',
+  subscribers: 18215,
+  subscribersUpdatedOn: '2022-03-21',
   averageNewSubscribersPerDay: 50,
 };
 
@@ -25,5 +25,5 @@ export const SEO = {
   keywords: 'React Native, React, Typescript, AWS Amplify',
   hostname: 'https://www.notjust.dev',
   image: '/images/notJustCover.jpg',
-  twitter: '@VadimNotJustDev'
+  twitter: '@VadimNotJustDev',
 };
