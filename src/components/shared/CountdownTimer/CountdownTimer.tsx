@@ -3,7 +3,9 @@ import React, { useEffect, useState } from 'react';
 const Number = ({ value, label }: { value: number; label: string }) => (
   <div className="m-1 md:m-5 flex-1">
     <div className="bg-secondary rounded-md p-3 md:py-6 flex justify-center">
-      <span className="text-lg md:text-6xl font-bold text-center">{value}</span>
+      <span className="text-lg md:text-6xl font-bold text-center">
+        {String(value).padStart(2, '0')}
+      </span>
     </div>
     <div className="text-center text-md md:text-2xl m-1 md:m-3">{label}</div>
   </div>
@@ -13,13 +15,14 @@ const CountdownTimer = ({ endDateStr }: { endDateStr: string }) => {
   const [msLeft, setMsLeft] = useState(0);
 
   useEffect(() => {
+    let interval: NodeJS.Timeout;
     const now = new Date();
     const endDate = new Date(endDateStr);
     const millisecondsTillEnd = endDate.getTime() - now.getTime();
-    setMsLeft(millisecondsTillEnd);
 
-    let interval: NodeJS.Timeout;
     if (millisecondsTillEnd > 0) {
+      setMsLeft(millisecondsTillEnd);
+
       interval = setInterval(() => {
         setMsLeft((ms) => ms - 1000);
       }, 1000);
