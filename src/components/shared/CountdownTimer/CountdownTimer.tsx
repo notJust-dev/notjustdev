@@ -15,7 +15,7 @@ const CountdownTimer = ({ endDateStr }: { endDateStr: string }) => {
   useEffect(() => {
     const now = new Date();
     const endDate = new Date(endDateStr);
-    const millisecondsTillEnd = endDate - now;
+    const millisecondsTillEnd = endDate.getTime() - now.getTime();
     setMsLeft(millisecondsTillEnd);
 
     let interval: NodeJS.Timeout;
