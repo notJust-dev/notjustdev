@@ -96,9 +96,9 @@ Ok, ok, I also can't wait 🤩
 
 The launch date is..... \*ba dum tsss\*:
 
-### 24th April 🎉
+### 25th April 🎉
 
-<CountdownTimer endDateStr={"2022-04-24T00:00:00Z"} />
+<CountdownTimer endDateStr={"2022-04-25T00:00:00Z"} />
 
 I will come with more details in the following weeks.
 
