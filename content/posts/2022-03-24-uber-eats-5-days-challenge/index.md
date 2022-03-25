@@ -11,6 +11,7 @@ keywords: react native course, fullstack, mobile developer, aws amplify, uber ea
 
 import Button from '../../../src/components/shared/Button';
 import YoutubeVideoMock from '../../../src/components/shared/YoutubeVideoMock';
+import OptInForm from '../../../src/components/shared/OptInForm';
 
 Hey notJust Developers 👋
 
@@ -25,6 +26,11 @@ By the end of the 5 Days challenge, you will walk away more confident in your sk
 We will build not 1, not 2, but 3 React Native applications and we will connect them together using one common backend.
 
 ![3 apps that we will build: Driver, user and restaurant app](./apps.png)
+
+<OptInForm
+formId={"f3e28ec974"}
+formSrc={"https://awesome-teacher-1065.ck.page/f3e28ec974/index.js"}
+title="👇 Reserve a FREE spot"></OptInForm>
 
 ## Schedule
 
