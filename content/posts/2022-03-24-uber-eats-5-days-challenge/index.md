@@ -27,10 +27,11 @@ We will build not 1, not 2, but 3 React Native applications and we will connect 
 
 ![3 apps that we will build: Driver, user and restaurant app](./apps.png)
 
-<OptInForm
-formId={"f3e28ec974"}
-formSrc={"https://awesome-teacher-1065.ck.page/f3e28ec974/index.js"}
-title="👇 Reserve a FREE spot"></OptInForm>
+## Reserve your spot
+
+The entrance is free, but make sure to reserve a spot bellow.
+
+<OptInForm formId={"f3e28ec974"} formSrc={"https://awesome-teacher-1065.ck.page/f3e28ec974/index.js"} title="👇 Reserve a FREE spot" />
 
 ## Schedule
 
