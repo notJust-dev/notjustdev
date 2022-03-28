@@ -40,7 +40,7 @@ The entrance is free, but make sure to reserve a spot bellow.
 <YoutubeVideoMock 
   title="Day 1: Build a full stack UBER EATS clone 🔴" 
   description="Join the challenge and build a Full-stack Uber Eats clone, including 2 React Native apps and their backend in just 5 DAYS." 
-  url="https://youtu.be/VMcK6Z8tbWU"
+  url="https://youtu.be/ZPNHWlMk6_E"
   imageUri="/images/posts/2022-03-24-uber-eats-5-days-challenge/thumbnail.png"
 />
 
@@ -49,7 +49,7 @@ The entrance is free, but make sure to reserve a spot bellow.
 <YoutubeVideoMock
   title="Day 2: Build a full stack UBER EATS clone 🔴"
   description="Join the challenge and build a Full-stack Uber Eats clone, including 2 React Native apps and their backend in just 5 DAYS."
-  url="https://youtu.be/LOxD87qGiN0"
+  url="https://youtu.be/WFo_IxhBxF4"
   imageUri="/images/posts/2022-03-24-uber-eats-5-days-challenge/thumbnail.png"
 />
 
@@ -58,7 +58,7 @@ The entrance is free, but make sure to reserve a spot bellow.
 <YoutubeVideoMock 
   title="Day 3: Build a full stack UBER EATS clone 🔴" 
   description="Join the challenge and build a Full-stack Uber Eats clone, including 2 React Native apps and their backend in just 5 DAYS." 
-  url="https://youtu.be/v4stJVz6W6I"
+  url="https://youtu.be/eTNvx8kdslk"
   imageUri="/images/posts/2022-03-24-uber-eats-5-days-challenge/thumbnail.png"
 />
 
@@ -67,7 +67,7 @@ The entrance is free, but make sure to reserve a spot bellow.
 <YoutubeVideoMock
   title="Day 4: Build a full stack UBER EATS clone 🔴"
   description="Join the challenge and build a Full-stack Uber Eats clone, including 2 React Native apps and their backend in just 5 DAYS."
-  url="https://youtu.be/x4B4RO26r4Y"
+  url="https://youtu.be/gunuloenCpU"
   imageUri="/images/posts/2022-03-24-uber-eats-5-days-challenge/thumbnail.png"
 />
 
@@ -76,6 +76,6 @@ The entrance is free, but make sure to reserve a spot bellow.
 <YoutubeVideoMock 
   title="Day 5: Build a full stack UBER EATS clone 🔴" 
   description="Join the challenge and build a Full-stack Uber Eats clone, including 2 React Native apps and their backend in just 5 DAYS."
-  url="https://youtu.be/RIRsLyIjBzk" 
+  url="https://youtu.be/Os49oPTfzuU" 
   imageUri="/images/posts/2022-03-24-uber-eats-5-days-challenge/thumbnail.png"
 />
