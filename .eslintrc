@@ -23,6 +23,7 @@
   },
   "rules": {
     "react/react-in-jsx-scope": 0,
-    "object-curly-newline": 0
+    "object-curly-newline": 0,
+    "jsx-a11y/anchor-is-valid": 0
   }
 }

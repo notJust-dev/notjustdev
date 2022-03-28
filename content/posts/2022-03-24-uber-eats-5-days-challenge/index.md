@@ -19,7 +19,7 @@ I am so excited to announce our first **Intensive 5 DAYS coding challenge!** ðŸš
 
 We have started preparing this challenge 6 months ago, and we made sure it's packed with value.
 
-By the end of the 5 Days challenge, you will walk away more confident in your skills of building complex, full-stack, end-to-end projects.
+By the end of the 5 Days challenge, you will walk away more confident in your skills of building complex, full-stack, end-to-end projects with [React Native](https://reactnative.dev/) and [AWS Amplify](https://aws.amazon.com/amplify/).
 
 ## What will we build?
 

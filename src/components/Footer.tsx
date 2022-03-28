@@ -34,20 +34,14 @@ const Footer = () => (
               <h2 className="text-white-400 mt-2 font-bold">Company</h2>
               <div className="flex flex-col">
                 <Link href="/" passHref>
-                  <a href="replaced" className="text-gray-300 my-2">
-                    Home
-                  </a>
+                  <a className="text-gray-300 my-2">Home</a>
                 </Link>
 
                 <Link href="/projects" passHref>
-                  <a href="replaced" className="text-gray-300 my-2">
-                    Project Tutorials
-                  </a>
+                  <a className="text-gray-300 my-2">Project Tutorials</a>
                 </Link>
                 <Link href="/blog" passHref>
-                  <a href="replaced" className="text-gray-300 my-2">
-                    Blog
-                  </a>
+                  <a className="text-gray-300 my-2">Blog</a>
                 </Link>
               </div>
             </div>
@@ -58,19 +52,13 @@ const Footer = () => (
               </h2>
               <div className="flex flex-col">
                 <Link href="/" passHref>
-                  <a href="replaced" className="text-gray-300 my-2">
-                    WhatsApp Clone
-                  </a>
+                  <a className="text-gray-300 my-2">WhatsApp Clone</a>
                 </Link>
                 <Link href="/" passHref>
-                  <a href="replaced" className="text-gray-300 my-2">
-                    Instagram Clone
-                  </a>
+                  <a className="text-gray-300 my-2">Instagram Clone</a>
                 </Link>
                 <Link href="/" passHref>
-                  <a href="replaced" className="text-gray-300 my-2">
-                    Twitter Clone
-                  </a>
+                  <a className="text-gray-300 my-2">Twitter Clone</a>
                 </Link>
               </div>
             </div>
