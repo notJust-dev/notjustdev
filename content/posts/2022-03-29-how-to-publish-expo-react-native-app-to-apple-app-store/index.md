@@ -49,7 +49,7 @@ We will need an expo account to use **Expo Application Services**. So, in order 
 
 ### Adjusting Application Settings
 
-Before we can create our first build, we need to adjust some information about our application. To do that, open your code editor (in my case it is **Visual Studio Code**) and navigate to your **app.json** file. In here we will have to change the *name*, which will be the name of your application and the *slug*, which is a peace of URL that represents your application.
+Before we can create our first build, we need to adjust some information about our application. To do that, open your code editor (in my case it is **Visual Studio Code**) and navigate to your **app.json** file. In here we will have to change the *name*, which will be the name of your application and the *slug*, which is a piece of URL that represents your application.
 ![app.json](./app-json.png)
 
 ### Installing Expo Application Services
