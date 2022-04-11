@@ -9,6 +9,7 @@ type PostMeta = {
   tags: string[];
   draft?: boolean;
   keywords?: string;
+  hideImageHeader?: boolean;
 };
 
 type Post = PostMeta & {
@@ -27,4 +28,4 @@ type CourseMeta = {
   category: string;
   tags: string[];
   keywords?: string;
-}
+};

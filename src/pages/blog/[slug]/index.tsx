@@ -39,7 +39,7 @@ function BlogPostPage({ post }: Props) {
       keywords={post.keywords}
     >
       <MaxWidthWrapper>
-        {post.image && (
+        {post.image && !post.hideImageHeader && (
           <div className="relative w-full aspect-w-16 aspect-h-9">
             <Image
               src={post.image}
