@@ -1,5 +1,5 @@
 ---
-title: How To Publish Expo React Native Application to Apple App Store
+title: How To Publish Expo React Native Application To The Apple App Store
 image: /images/thumbnails/posts/2022-03-29-hot-to-publish-expo-react-native-app-to-apple-app-store.png
 publishedOn: '2022-03-29T20:27:30.556Z'
 description: 'In this tutorial, you will learn everything that you need to know in order to publish your application to the Apple App Store. We will cover everything from creating a developer account to releasing new updates for your application.'
@@ -245,11 +245,11 @@ When updating Expo application, you almost always have two options **Over The Ai
 
 With OTA updates you can release new functionality, quick bug fixes or almost anything that you need by simply opening your project in the code editor and running `expo publish` in the terminal. Once the command is executed, the next time user opens your application on their phones, they will see the new update.
 
-But OTA updates have a few limitations, if you change anything in the ios or android folders, if you change your splash screen, icon, app name, owner, scheme, add new libraries, change your libraries or do anything that is listed in [this](https://docs.expo.dev/workflow/publishing/) article, then you will have to release a normal updates. *(Also, I would suggest releasing normal updates after implementing big features or making big changes)*
+But OTA updates have a few limitations, if you change anything in the ios or android folders, if you change your splash screen, icon, app name, owner, scheme, add new libraries, change your libraries or do anything that is listed in [this](https://docs.expo.dev/workflow/publishing/) article, then you will have to release a normal update. *(Also, I would suggest releasing normal updates after implementing big features or making big changes)*
 
 ### Releasing New Update
 
-First things first, we have to increment application *version* and ios *buildNumber* in the **app.json** file. Then run `eas build -platform ios` command in the terminal, login to your Apple account and EAS will take care of the rest automatically.
+First things first, we have to increment application *version* and ios *buildNumber* in the **app.json** file. Then run `eas build --platform ios` command in the terminal, login to your Apple account and EAS will take care of the rest automatically.
 
 Once the build is finished, run `eas submit -p ios --latest` in the terminal and wait until EAS submits your build to the **App Store Connect** as well as until **App Store Connect** finishes processing your build.
 
