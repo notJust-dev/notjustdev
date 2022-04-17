@@ -49,7 +49,9 @@ const Navbar = () => {
           >
             <ActiveLink href="/" title="Home" />
 
-            <ActiveLink href="/projects" title="Project Tutorials" />
+            <ActiveLink href="/projects" title="Free Courses" />
+
+            <ActiveLink href="/pro-courses" title="Premium Courses" />
 
             <ActiveLink href="/blog" title="Blog" />
           </div>
