@@ -10,7 +10,7 @@ interface CourseCardProps {
 const ProjectCard = ({ course, mirrored }: CourseCardProps) => {
   const float = mirrored ? 'left' : 'right';
   return (
-    <Link href={`/projects/${course.slug}`} passHref>
+    <Link href={course.redirect_url || `/projects/${course.slug}`} passHref>
       <div className="relative w-full my-3 flex flex-col items-stretch md:flex-row cursor-pointer">
         <div
           className={`absolute ${float}-0 bottom-0 bg-custom-blue-500 w-full md:w-2/3 h-2/3 md:h-full`}

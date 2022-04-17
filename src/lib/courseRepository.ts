@@ -7,8 +7,9 @@ const rootDir = process.cwd();
 const courseDirectory = join(rootDir, 'content', 'courses');
 const outDir = join(rootDir, 'public', 'images', 'content', 'courses');
 
-interface GetAllCourseOptions {
+interface IGetCourseOptionsByType {
   limit?: number;
+  type: 'pro' | 'free';
 }
 
 export function getCourseSlugs() {
@@ -61,7 +62,7 @@ export async function getCourseBySlug(slug: string) {
       write: true,
     }),
   });
-  
+
   const course = {
     ...frontmatter,
     code,
@@ -87,13 +88,13 @@ export async function getCourseMetaBySlug(slug: string) {
   return course;
 }
 
-export async function getAllCoursesMeta(options: GetAllCourseOptions = {}) {
-  const { limit } = options;
+export async function getCoursesMetaByType(options: IGetCourseOptionsByType) {
+  const { limit, type } = options;
 
   const slugs = getCourseSlugs();
   let courses = (
     await Promise.all(slugs.map((slug) => getCourseMetaBySlug(slug)))
-  ).filter((c) => c) as CourseMeta[];
+  ).filter((c) => c && c.type === type) as CourseMeta[];
 
   if (limit && limit > 0) {
     courses = courses.slice(0, limit);
