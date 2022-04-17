@@ -9,6 +9,7 @@ type PostMeta = {
   tags: string[];
   draft?: boolean;
   keywords?: string;
+  hideImageHeader?: boolean;
 };
 
 type Post = PostMeta & {
@@ -28,5 +29,5 @@ type CourseMeta = {
   tags: string[];
   keywords?: string;
   type: 'pro' | 'free';
-  redirect_url?: string
+  redirect_url?: string;
 };
