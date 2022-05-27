@@ -39,12 +39,11 @@ const getFileContents = (path: string) => fs.readFileSync(path, 'utf8');
 export async function getCourseBySlug(slug: string) {
   const realSlug = slug.replace(/\.md$/, '');
   const fullPath = getFullPath(slug);
-  const fileContents = getFileContents(fullPath);
 
-  // TODO check bundleMDXFile
-  const { code, frontmatter } = await bundleMDX(fileContents, {
+  const { code, frontmatter } = await bundleMDX({
+    source: getFileContents(fullPath),
     cwd: dirname(fullPath),
-    xdmOptions: (options) => ({
+    mdxOptions: (options) => ({
       ...options,
       remarkPlugins: [...(options.remarkPlugins ?? []), remarkMdxImages],
     }),
@@ -74,10 +73,9 @@ export async function getCourseBySlug(slug: string) {
 export async function getCourseMetaBySlug(slug: string) {
   const realSlug = slug.replace(/\.md$/, '');
   const fullPath = getFullPath(slug);
-  const fileContents = getFileContents(fullPath);
 
-  // TODO check bundleMDXFile
-  const { frontmatter } = await bundleMDX(fileContents, {
+  const { frontmatter } = await bundleMDX({
+    file: fullPath,
     cwd: dirname(fullPath),
   });
 
