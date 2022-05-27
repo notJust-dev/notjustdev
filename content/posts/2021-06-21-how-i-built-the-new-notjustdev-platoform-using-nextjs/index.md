@@ -8,6 +8,7 @@ tags:
   - NextJS
   - ReactJS
 keywords: reactjs, nextjs, nextjs blog, mdx blog, tailwind, jamstack
+author: vadim
 ---
 
 import Counter from './components/Counter.tsx'

@@ -15,6 +15,7 @@ tags:
   - Startup
   - Uber Founder Story
   - Startup Success Stories
+author: vadim
 ---
 
 2019 was a year with a lot of successfull companies going public, but today I want to speak specifically about the company with the biggest valuation, which is Uber.

@@ -8,6 +8,7 @@ import { getPostBySlug, getPostSlugs } from '../../../lib/postRepository';
 import StaticCodeSnippet from '../../../components/StaticCodeSnippet';
 import InlineCodeSnippet from '../../../components/InlineCodeSnippet';
 import MDXImage from '../../../components/MDXImage';
+import AuthorDetails from '../../../components/AuthorDetails';
 
 const dateFormat = {
   month: 'short' as 'short',
@@ -72,6 +73,8 @@ function BlogPostPage({ post }: Props) {
             }}
           />
         </div>
+
+        {post.author && <AuthorDetails authorId={post.author} />}
       </MaxWidthWrapper>
     </Layout>
   );

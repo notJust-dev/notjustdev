@@ -9,6 +9,7 @@ tags:
   - ReactJs
   - Global State Management
 keywords: reactjs, react native, global state management, recoil, recoil.js recoil with react native
+author: vadim
 ---
 
 import Snack from '../../../src/components/shared/Snack';

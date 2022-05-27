@@ -10,6 +10,7 @@ tags:
   - iOS
   - Apple App Store
 keywords: react native, expo, ios, apple app store
+author: lukas
 ---
 import YoutubeVideo from '../../../src/components/shared/YoutubeVideo';
 

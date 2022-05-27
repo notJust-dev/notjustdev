@@ -10,7 +10,9 @@ tags:
   - Expo
   - Windows
 keywords: reactjs, react native, expo, expo go, windows, expo development environment setup on windows
+author: lukas
 ---
+
 import YoutubeVideo from '../../../src/components/shared/YoutubeVideo';
 
 In general, there are two ways to get started with React Native - using **Expo CLI** or **React Native CLI**. Both ways have their own strengths and weaknesses but even React Native's official documentation is suggesting to get started with Expo CLI if you are new to mobile development. Therefore, in this guide we will go through all the steps needed to setup Expo development environment for your first React Native project using Windows.
@@ -40,7 +42,7 @@ In the next window you should select the path that you want Git to be installed 
 ![Git Installation Second Window](./git_installation_2.png)
 <br/>
 
-Now in this window I would suggest checking '*Add a Git Bash Profile to Windows Terminal'* box and then clicking **Next**.
+Now in this window I would suggest checking '_Add a Git Bash Profile to Windows Terminal'_ box and then clicking **Next**.
 ![Git Installation Third Window](./git_installation_3.png)
 <br/>
 
@@ -50,7 +52,7 @@ In the next two windows you can make changes if you want but I would suggest lea
 ![Git Installation Fifth Window](./git_installation_5.png)
 <br/>
 
-In this window select '*Override the default branch name for new repositories*' and type 'main' in the input box. We do that because this is the new naming convention and everybody is encouraged to follow it. After making changes click **Next**.
+In this window select '_Override the default branch name for new repositories_' and type 'main' in the input box. We do that because this is the new naming convention and everybody is encouraged to follow it. After making changes click **Next**.
 ![Git Installation Sixth Window](./git_installation_6.png)
 <br/>
 
@@ -90,7 +92,7 @@ To test if node was installed correctly open the terminal and type `node --versi
 
 By this step we have already installed all of the dependencies that Expo needs. Now it's time to install Expo CLI itself!
 
-To install Expo CLI, you simply have to open the terminal and type `npm install --global expo-cli`. That's it, it's that easy! On a side note, we need to add *--global* in order to install Expo CLI globally. 
+To install Expo CLI, you simply have to open the terminal and type `npm install --global expo-cli`. That's it, it's that easy! On a side note, we need to add _--global_ in order to install Expo CLI globally.
 
 Now we can create our first React Native project!
 
@@ -154,7 +156,7 @@ Now we can open our application on Visual Studio Code by navigating to the folde
 ![Open Project in Visual Code](./open_project_in_visual_code.png)
 <br/>
 
-You might be asked to verify that you trust the authors of the files in this folder. Check the box '*Trust the authors of all files in the parent folder*' and click **Yes, I trust the authors** button.
+You might be asked to verify that you trust the authors of the files in this folder. Check the box '_Trust the authors of all files in the parent folder_' and click **Yes, I trust the authors** button.
 ![Trust Authors Warning](./visual_studio_code_trust_authors.png)
 <br/>
 
@@ -162,7 +164,7 @@ Now you can select the theme of Visual Studio Code that you prefer and run the p
 
 To run the project, just open the terminal in Visual Studio Code by clicking CTRL + \` (that little button in the top left of your keyboard below the 'esc' button, you are welcome 😉) and just type `npm start` which will start the project and open **Expo Developer Tools** window in the browser.
 
-## Now you can start coding!!!  🥳
+## Now you can start coding!!! 🥳
 
 But in order to start learning React Native the right way, I highly encourage you to visit [notJust.dev Youtube Channel](https://www.youtube.com/channel/UCYSa_YLoJokZAwHhlwJntIA) where you will find plenty of free projects and tutorials to follow, which will most certainly increase your React Native knowledge and skill!
 

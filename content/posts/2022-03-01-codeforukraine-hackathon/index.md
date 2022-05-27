@@ -8,6 +8,7 @@ tags:
   - Hackathon
   -  #CodeForUkraine
 keywords: hackathon, codeForUkraine
+author: vadim
 ---
 
 import YoutubeVideo from '../../../src/components/shared/YoutubeVideo';

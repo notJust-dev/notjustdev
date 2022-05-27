@@ -8,6 +8,7 @@ tags:
   - Software Engineering
   - Software Engineering Degree
 keywords: software engineering, software engineering degree, programming schools, learn programming, do you need uni to become a developer
+author: vadim
 ---
 
 There are so many ways of becoming a Software Engineer in 2021 like self-learning, taking some online courses or bootcamps. However, I took a more traditional path to became a professional Software Engineer and recently have graduated from [Saxion University](https://www.saxion.edu/) from the Netherlands.

@@ -7,6 +7,7 @@ category: Courses
 tags:
   - The Full Stack Mobile Developer
 keywords: react native course, fullstack, mobile developer, aws amplify
+author: vadim
 ---
 
 import Button from '../../../src/components/shared/Button';

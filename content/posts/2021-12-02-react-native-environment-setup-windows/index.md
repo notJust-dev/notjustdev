@@ -10,7 +10,9 @@ tags:
   - React Native CLI
   - Windows
 keywords: reactjs, react native, react native cli, windows, react native development environment setup on windows
+author: lukas
 ---
+
 import YoutubeVideo from '../../../src/components/shared/YoutubeVideo';
 
 In general, there are two ways to get started with React Native - using **Expo CLI** or **React Native CLI**. Both ways have their own strengths and weaknesses, but if you are a beginner, I would highly suggest you to start with [Expo CLI](https://www.notjust.dev/blog/2021-11-04-expo-development-environment-setup-for-first-react-native-project-windows) because the setup is a lot easier and faster. Of course, if you are up for a bit bigger challenge, this guide is perfect for you, because we will cover all the steps needed to setup React Native CLI development environment for your first React Native project using Windows.
@@ -41,7 +43,7 @@ In the next window you should select the path that you want Git to be installed 
 ![Git Installation Second Window](../2021-11-04-expo-development-environment-setup-for-first-react-native-project-windows/git_installation_2.png)
 <br/>
 
-Now in this window I would suggest checking '*Add a Git Bash Profile to Windows Terminal'* box and then clicking **Next**.
+Now in this window I would suggest checking '_Add a Git Bash Profile to Windows Terminal'_ box and then clicking **Next**.
 ![Git Installation Third Window](../2021-11-04-expo-development-environment-setup-for-first-react-native-project-windows/git_installation_3.png)
 <br/>
 
@@ -51,7 +53,7 @@ In the next two windows you can make changes if you want, but I would recommend 
 ![Git Installation Fifth Window](../2021-11-04-expo-development-environment-setup-for-first-react-native-project-windows/git_installation_5.png)
 <br/>
 
-In this window select '*Override the default branch name for new repositories*' and type 'main' in the input box. We do that because this is the new naming convention and everybody is encouraged to follow it. After making changes click **Next**.
+In this window select '_Override the default branch name for new repositories_' and type 'main' in the input box. We do that because this is the new naming convention and everybody is encouraged to follow it. After making changes click **Next**.
 ![Git Installation Sixth Window](../2021-11-04-expo-development-environment-setup-for-first-react-native-project-windows/git_installation_6.png)
 <br/>
 
@@ -99,7 +101,7 @@ We are one step closer to the finish line, let's keep up the good work!
 
 In order to download **Android Studio** we can go to their [website](https://developer.android.com/studio?gclid=Cj0KCQiAtJeNBhCVARIsANJUJ2G3CKuFt6fhUQOU5oaMTxxKiTGapHAhO6zAETMAIxAWcdxVIimIkTMaAsvVEALw_wcB&gclsrc=aw.ds) and click big green "Download Android Studio" button in the middle of the screen.
 
-Once the download is finished, we can open the file and start the installation process. 
+Once the download is finished, we can open the file and start the installation process.
 On the first window you won't have to do much, you can read what it says and click **Next**.
 ![Android Studio Installation First Window](./android-studio-installation-1.png)
 
@@ -130,10 +132,10 @@ Here, in order to make sure that everything is installed correctly and everythin
 In this step, if you followed the guide and did everything like it said, then leave it on default. If you changed the installation paths and they do not match with what you see in the box, then change the path accordingly.
 ![Android Studio JDK Location](./android-studio-jdk-location.png)
 
-Now just choose whichever UI theme you prefer. *Not sure if it's just a myth or not, but people are talking that dark theme increases your programming skills :)*
+Now just choose whichever UI theme you prefer. _Not sure if it's just a myth or not, but people are talking that dark theme increases your programming skills :)_
 ![Android Studio UI Theme](./android-studio-ui-theme.png)
 
-On this window make sure that **Android SDK**, one of **Android SDK Platforms** and **Performance** (this one is not mandatory) is selected or says *installed* like **Android Virtual Device** in the example below and click **Next**.
+On this window make sure that **Android SDK**, one of **Android SDK Platforms** and **Performance** (this one is not mandatory) is selected or says _installed_ like **Android Virtual Device** in the example below and click **Next**.
 ![Android Studio Components Setup](./android-studio-components-setup.png)
 
 If your system can run the Android emulator in an accelerated performance mode, you will see one more window in which you will have to set the minimum amount of RAM available for the **Intel Hardware Accelerated Execution Manager (HAXM)** to use. I can't tell which option is best for you, so if you are not sure what you are doing here, I would suggest leaving it on **Recommended** option and clicking **Next**.
@@ -143,7 +145,7 @@ Now just finish the installation, and we are another step closer!
 
 ## Installing Android SDK
 
-Android Studio installs the latest Android SDK by default. However, in order to build React Native applications we need **Android 10 (Q) SDK** in particular. 
+Android Studio installs the latest Android SDK by default. However, in order to build React Native applications we need **Android 10 (Q) SDK** in particular.
 
 To do that, from the **Welcome to Android Studio** window let's click **More Actions** and select **SDK Manager**, which will open system settings.
 ![Android Studio SDK Manager](./android-studio-sdk-manager.png)
@@ -160,7 +162,7 @@ Now we need to accept terms and conditions to finally start the installation.
 Once the installation is finished we can click **Finish**, which will automatically close the installation window.
 ![Android Studio SDK Installation Finish](./android-studio-sdk-installation-finish.png)
 
-We still have to install a few things before the next step. In the **Android SDK** section under **System Settings** tab that we opened previously make sure to tick the **Show Package Details** box in the bottom right corner. 
+We still have to install a few things before the next step. In the **Android SDK** section under **System Settings** tab that we opened previously make sure to tick the **Show Package Details** box in the bottom right corner.
 ![Android Studio Show Package Details](./android-studio-show-package-details.png)
 
 After ticking that box you should see more options. Make sure that **Android SDK Platform 29** and **Intel x86 Atom System Image** or **Google APIs Intel x86 Atom System Image** under **Android 10.0 (Q)** is installed. If it is not, then select them and click **Apply** to install.
@@ -215,14 +217,14 @@ We did amazing until now, I think we deserve a short break! Drink a cup of water
 
 Ready? Lets goo!
 
-React Native's official documentation suggests instead of installing and managing a specific version of the CLI globally, just use `npx` to access the current version at runtime, so let's do just that. 
+React Native's official documentation suggests instead of installing and managing a specific version of the CLI globally, just use `npx` to access the current version at runtime, so let's do just that.
 
-In order to download and install the current stable version of the React Native CLI we need to open Windows Terminal and type `npx react-native`, which should ask you to install *react-native* package. Press *y* button on the keyboard and the installation should start automatically. 
+In order to download and install the current stable version of the React Native CLI we need to open Windows Terminal and type `npx react-native`, which should ask you to install _react-native_ package. Press _y_ button on the keyboard and the installation should start automatically.
 ![Install React Native CLI](./npx-react-native.png)
 
 ## Initialize Your First Project
 
-In order to create a new React Native project, in the terminal we can simply type `npx react-native init` and the project name at the end, for this example let's call our application **RNFirstProject**. This will create a new project with the latest React Native version. *Keep in mind that at the time of writing this guide the latest React Native version is 0.65*.
+In order to create a new React Native project, in the terminal we can simply type `npx react-native init` and the project name at the end, for this example let's call our application **RNFirstProject**. This will create a new project with the latest React Native version. _Keep in mind that at the time of writing this guide the latest React Native version is 0.65_.
 ![Initializing React Native Project](./new-project.png)
 
 While React Native is preparing and building our new project, we can create a new android virtual device on which we will run the applications.
@@ -238,13 +240,13 @@ In the window that was opened click **Create Virtual Device...**, which will ope
 Here we need to select **Phone** under **Category** tab and any virtual device from the list that you like. In our example below we chose **Pixel 4** just because it has **Play Store**. After selecting the device, click **Next** to continue the setup.
 ![Virtual Device Selection](./device-selection.png)
 
-Now we need to select a system image, let's select **Release Name Q** and click **Next**. *Side note, you might need to download version **Q** again if you chose a device with Play Store. If you do need to download it again, just click **Download** near the name, and it will download as well as install it automatically*
+Now we need to select a system image, let's select **Release Name Q** and click **Next**. _Side note, you might need to download version **Q** again if you chose a device with Play Store. If you do need to download it again, just click **Download** near the name, and it will download as well as install it automatically_
 ![Select System Image](./system-image.png)
 
-In the last step you can do some more changes if you know what you are doing, but in our example we just changed the **AVD Name** and clicked **Finish**, which will create a new virtual device and close the setup window automatically. *Side note, you can untick a box near **Enable Device Frame** to increase the performance by a little bit. This might be helpful if your computer is not that powerfull.*
+In the last step you can do some more changes if you know what you are doing, but in our example we just changed the **AVD Name** and clicked **Finish**, which will create a new virtual device and close the setup window automatically. _Side note, you can untick a box near **Enable Device Frame** to increase the performance by a little bit. This might be helpful if your computer is not that powerfull._
 ![Virtual Device Name](./avd-name.png)
 
-Once the setup is done, we can run our virtual device by clicking *Play* icon under **Actions** tab.
+Once the setup is done, we can run our virtual device by clicking _Play_ icon under **Actions** tab.
 ![Run Virtual Device](./run-avd.png)
 
 Keep in mind that it can take a little bit longer when opening a newly created virtual device because it has to set up everything.
@@ -262,7 +264,7 @@ You might be asked to allow access to NodeJS, allow it.
 Now we need to open a new terminal tab by clicking on a **+** on the top.
 ![New Terminal Tab](./new-terminal-tab.png)
 
-In this new terminal tab we need to go to our project's folder, which we already learned how to do before, by simply typing `cd RNFirstProject` (RNFirstProject being our project's name that we gave when initializing). And then typing `npm run android` to build and run the application on android emulator. 
+In this new terminal tab we need to go to our project's folder, which we already learned how to do before, by simply typing `cd RNFirstProject` (RNFirstProject being our project's name that we gave when initializing). And then typing `npm run android` to build and run the application on android emulator.
 
 This part should take some time, but after it's finished you should have your first application up and running on an emulator, how exciting is that?!
 
@@ -280,15 +282,15 @@ Now we can open our application on Visual Studio Code by navigating to the folde
 ![Open Project in Visual Code](../2021-11-04-expo-development-environment-setup-for-first-react-native-project-windows/open_project_in_visual_code.png)
 <br/>
 
-You might be asked to verify that you trust the authors of the files in this folder. Check the box '*Trust the authors of all files in the parent folder*' and click **Yes, I trust the authors** button.
+You might be asked to verify that you trust the authors of the files in this folder. Check the box '_Trust the authors of all files in the parent folder_' and click **Yes, I trust the authors** button.
 ![Trust Authors Warning](../2021-11-04-expo-development-environment-setup-for-first-react-native-project-windows/visual_studio_code_trust_authors.png)
 <br/>
 
-Now you can select the theme of Visual Studio Code that you prefer *(don't forget the story about UI themes that I told you before)* and run the project. Visual Studio Code has a lot of very useful extensions for React Native developers that will make you code faster, cleaner, prevent bugs and in general make coding a lot more enjoyable. If you want to see what are those extensions and learn how to add them to your Visual Studio Code I recommend watching [TOP 10 VSCode Extensions for React/React Native Developers (2021)](https://www.youtube.com/watch?v=jCzJYyknKGg).
+Now you can select the theme of Visual Studio Code that you prefer _(don't forget the story about UI themes that I told you before)_ and run the project. Visual Studio Code has a lot of very useful extensions for React Native developers that will make you code faster, cleaner, prevent bugs and in general make coding a lot more enjoyable. If you want to see what are those extensions and learn how to add them to your Visual Studio Code I recommend watching [TOP 10 VSCode Extensions for React/React Native Developers (2021)](https://www.youtube.com/watch?v=jCzJYyknKGg).
 
 To run the project, just open the terminal in Visual Studio Code by pressing CTRL + \` (that little button in the top left of your keyboard below the ESC button, you are welcome 😉) and just type `npm start` which will start the development server. Then you should open a new terminal window by pressing CTRL + SHIFT + \` (same little button under ESC) and in the new terminal typing `npm run android`, which will build and run your application on the android virtual device.
 
-## Now you can start coding!!!  🥳
+## Now you can start coding!!! 🥳
 
 But in order to start learning React Native the right way, I highly encourage you to visit [notJust.dev YouTube Channel](https://www.youtube.com/channel/UCYSa_YLoJokZAwHhlwJntIA) where you will find plenty of free projects and tutorials to follow, which will most certainly increase your React Native knowledge and skill!
 
