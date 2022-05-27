@@ -10,6 +10,7 @@ type PostMeta = {
   draft?: boolean;
   keywords?: string;
   hideImageHeader?: boolean;
+  author?: string;
 };
 
 type Post = PostMeta & {

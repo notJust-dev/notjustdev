@@ -14,6 +14,7 @@ tags:
   - Learn coding
   - How to learn programming
   - Project-based learning
+author: vadim
 ---
 
 With more and more new technologies and programming languages, The most essential skill for any developer is by far the ability to learn and adapt fast. I am going to give you some easy strategies to learn anything faster and more effectively. These strategies helped learn all the technologies, languages, and frameworks I use nowadays, and it also helped me get an internship at Amazon as a software developer.

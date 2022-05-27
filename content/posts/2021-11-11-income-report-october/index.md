@@ -9,6 +9,7 @@ tags:
   - Business
   - Indie Hacker
 keywords: business, startup, indie hacker, bootstrap, income statement, build in public
+author: vadim
 ---
 
 I’ve been following the trend of building in public. Building in public is the idea of openly sharing the process of growing and developing a project. It’s about sharing both ups and downs, wins and losses, on the way with the goal to either inspire others or learn from the mistakes.

@@ -9,6 +9,7 @@ tags:
   - In app purchases
   - Subscriptions
 keywords: monetization, in-app-purchases, in-app-subscription, mobile app monetization, revenuecat
+author: vadim
 ---
 
 import YoutubeVideo from '../../../src/components/shared/YoutubeVideo';

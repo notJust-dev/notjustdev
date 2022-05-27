@@ -10,6 +10,7 @@ tags:
   - Android
   - Google Play Store
 keywords: react native, expo, android, google play store
+author: lukas
 ---
 import YoutubeVideo from '../../../src/components/shared/YoutubeVideo';
 
