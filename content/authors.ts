@@ -24,10 +24,12 @@ I am also a proud ex-Amazon SDE and Certified AWS Architect, Developer and SysOp
   },
   {
     id: 'lukas',
-    name: 'Lukas Grinevicius',
+    name: 'Lukas Grinevičius',
     image: 'lukas.jpeg',
     description: 'Helping you become a rock star Full Stack Developer',
-    socials: {},
+    socials: {
+      LinkedIn: 'lukas-grinevičius-b16740198',
+    },
   },
 ];
 
