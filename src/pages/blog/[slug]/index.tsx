@@ -4,11 +4,16 @@ import { GetStaticPaths, GetStaticProps, GetStaticPropsContext } from 'next';
 import { useMemo } from 'react';
 import Layout from '../../../components/Layout/Layout';
 import MaxWidthWrapper from '../../../components/MaxWidthWrapper';
-import { getPostBySlug, getPostSlugs } from '../../../lib/postRepository';
+import {
+  getPostBySlug,
+  getPostSlugs,
+  getRecommendedPostsMeta,
+} from '../../../lib/postRepository';
 import StaticCodeSnippet from '../../../components/StaticCodeSnippet';
 import InlineCodeSnippet from '../../../components/InlineCodeSnippet';
 import MDXImage from '../../../components/MDXImage';
 import AuthorDetails from '../../../components/AuthorDetails';
+import BlogCard from '../../../components/BlogCard';
 
 const dateFormat = {
   month: 'short' as 'short',
@@ -18,9 +23,10 @@ const dateFormat = {
 
 interface Props {
   post: Post | null;
+  recommendedPosts: PostMeta[];
 }
 
-function BlogPostPage({ post }: Props) {
+function BlogPostPage({ post, recommendedPosts }: Props) {
   const Component = useMemo(() => getMDXComponent(post?.code), [post]);
 
   if (!post) {
@@ -75,6 +81,13 @@ function BlogPostPage({ post }: Props) {
         </div>
 
         {post.author && <AuthorDetails authorId={post.author} />}
+
+        <h3 className="text-2xl mt-10">Read next</h3>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-5 my-5">
+          {recommendedPosts.map((recommendedPost) => (
+            <BlogCard post={recommendedPost} key={recommendedPost.slug} />
+          ))}
+        </div>
       </MaxWidthWrapper>
     </Layout>
   );
@@ -94,10 +107,15 @@ export const getStaticProps: GetStaticProps<Props> = async ({
   params,
 }: GetStaticPropsContext) => {
   const post = await getPostBySlug(params?.slug as string);
+  const recommendedPosts = post?.slug
+    ? await getRecommendedPostsMeta(post.slug)
+    : [];
 
+  console.log(recommendedPosts.length);
   return {
     props: {
       post,
+      recommendedPosts,
     },
   };
 };
