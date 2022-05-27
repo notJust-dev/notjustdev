@@ -2,6 +2,7 @@ import fs from 'fs';
 import { bundleMDX } from 'mdx-bundler';
 import { remarkMdxImages } from 'remark-mdx-images';
 import { join, dirname } from 'path';
+import { getFileContents, getFullPath, shuffle } from './utils';
 
 const rootDir = process.cwd();
 const postsDirectory = join(rootDir, 'content', 'posts');
@@ -13,35 +14,14 @@ export function getPostSlugs() {
     .map((post) => post.replace(/\.md$/, ''));
 }
 
-const getFullPath = (slug: string) => {
-  const realSlug = slug.replace(/\.md$/, '');
-
-  let fullPath = join(postsDirectory, `${realSlug}.md`);
-  if (fs.existsSync(fullPath)) {
-    return fullPath;
-  }
-
-  fullPath = join(postsDirectory, realSlug, `index.md`);
-  if (fs.existsSync(fullPath)) {
-    return fullPath;
-  }
-
-  throw new Error(`MDX file not found: ${fullPath}`);
-};
-
-const getFileContents = (path: string) => fs.readFileSync(path, 'utf8');
-
 export async function getPostBySlug(slug: string) {
   const realSlug = slug.replace(/\.md$/, '');
   let fullPath;
   try {
-    fullPath = getFullPath(slug);
+    fullPath = getFullPath(slug, postsDirectory);
   } catch (e) {
     return null;
   }
-
-  console.log(fullPath);
-  console.log(dirname(fullPath));
 
   const { code, frontmatter } = await bundleMDX({
     source: getFileContents(fullPath),
@@ -77,7 +57,7 @@ export async function getPostMetaBySlug(slug: string) {
   const realSlug = slug.replace(/\.md$/, '');
   let fullPath;
   try {
-    fullPath = getFullPath(slug);
+    fullPath = getFullPath(slug, postsDirectory);
   } catch (e) {
     return null;
   }
@@ -125,3 +105,20 @@ export async function getAllPostsMeta(options: GetAllPostsOptions = {}) {
 
   return posts;
 }
+
+export const getRecommendedPostsMeta = async (
+  forSlug: string,
+  limit: number = 2,
+) => {
+  let slugs = getPostSlugs().filter((s) => s !== forSlug);
+  slugs = shuffle(slugs);
+  if (limit > 0) {
+    slugs = slugs.slice(0, limit);
+  }
+
+  let posts = (
+    await Promise.all(slugs.map((slug) => getPostMetaBySlug(slug)))
+  ).filter((p) => p && !p.draft) as PostMeta[];
+
+  return posts;
+};

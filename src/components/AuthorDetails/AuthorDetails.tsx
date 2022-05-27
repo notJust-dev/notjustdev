@@ -16,7 +16,7 @@ const AuthorDetails = ({ authorId }: IAuthorDetails) => {
 
   return (
     <div>
-      <hr className="my-4 border-gray-700" />
+      <hr className="my-10 border-gray-700" />
 
       <div className="flex flex-col sm:flex-row items-center sm:items-start">
         <div className="w-36 h-36 relative rounded-full overflow-hidden">
@@ -73,7 +73,7 @@ const AuthorDetails = ({ authorId }: IAuthorDetails) => {
         </div>
       </div>
 
-      <hr className="my-4 border-gray-700" />
+      <hr className="my-10 border-gray-700" />
     </div>
   );
 };
