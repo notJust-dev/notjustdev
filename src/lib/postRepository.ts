@@ -40,12 +40,13 @@ export async function getPostBySlug(slug: string) {
     return null;
   }
 
-  const fileContents = getFileContents(fullPath);
+  console.log(fullPath);
+  console.log(dirname(fullPath));
 
-  // TODO check bundleMDXFile
-  const { code, frontmatter } = await bundleMDX(fileContents, {
+  const { code, frontmatter } = await bundleMDX({
+    source: getFileContents(fullPath),
     cwd: dirname(fullPath),
-    xdmOptions: (options) => ({
+    mdxOptions: (options) => ({
       ...options,
       remarkPlugins: [...(options.remarkPlugins ?? []), remarkMdxImages],
     }),
@@ -80,10 +81,9 @@ export async function getPostMetaBySlug(slug: string) {
   } catch (e) {
     return null;
   }
-  const fileContents = getFileContents(fullPath);
 
-  // TODO check bundleMDXFile
-  const { frontmatter } = await bundleMDX(fileContents, {
+  const { frontmatter } = await bundleMDX({
+    file: fullPath,
     cwd: dirname(fullPath),
   });
 
