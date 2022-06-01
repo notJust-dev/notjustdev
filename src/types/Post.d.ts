@@ -15,6 +15,13 @@ type PostMeta = {
 
 type Post = PostMeta & {
   code?: any;
+  toc?: ToCHeading[];
+};
+
+type ToCHeading = {
+  slug: string;
+  title: string;
+  depth: number;
 };
 
 type Course = CourseMeta & {
