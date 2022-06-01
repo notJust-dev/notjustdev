@@ -3,6 +3,11 @@ import { bundleMDX } from 'mdx-bundler';
 import { remarkMdxImages } from 'remark-mdx-images';
 import { join, dirname } from 'path';
 import { getFileContents, getFullPath, shuffle } from './utils';
+import rehypeSlug from 'rehype-slug';
+import rehypeAutolinkHeadings from 'rehype-autolink-headings';
+import GithubSlugger from 'github-slugger';
+
+var slugger = new GithubSlugger();
 
 const rootDir = process.cwd();
 const postsDirectory = join(rootDir, 'content', 'posts');
@@ -23,12 +28,46 @@ export async function getPostBySlug(slug: string) {
     return null;
   }
 
+  const source = getFileContents(fullPath);
+
+  const isHeader2or3 = (line: string) => {
+    const trimmed = line.trim();
+    return trimmed.startsWith('## ') || trimmed.startsWith('### ');
+  };
+
+  const headings = source.split(/\r?\n/).filter(isHeader2or3);
+
+  const toc = headings.map((h) => {
+    const depth = h.split(' ', 1)[0].length;
+    const title = h.slice(depth).trim();
+    return {
+      slug: slugger.slug(title),
+      title,
+      depth,
+    };
+  });
+
+  toc.unshift({ slug: 'introduction', title: 'Introduction', depth: 2 });
+
   const { code, frontmatter } = await bundleMDX({
-    source: getFileContents(fullPath),
+    source,
     cwd: dirname(fullPath),
     mdxOptions: (options) => ({
       ...options,
       remarkPlugins: [...(options.remarkPlugins ?? []), remarkMdxImages],
+      rehypePlugins: [
+        ...(options.rehypePlugins ?? []),
+        rehypeSlug,
+        () =>
+          rehypeAutolinkHeadings({
+            behavior: 'append',
+            properties: {
+              className: 'heading-copy-link',
+              'aria-hidden': 'true',
+              tabIndex: -1,
+            },
+          }),
+      ],
     }),
     esbuildOptions: (options) => ({
       ...options,
@@ -49,6 +88,7 @@ export async function getPostBySlug(slug: string) {
     ...frontmatter,
     code,
     slug: realSlug,
+    toc,
   } as Post;
   return post;
 }

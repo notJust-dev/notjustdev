@@ -1,7 +1,8 @@
+import React, { useEffect, useMemo, useState } from 'react';
 import { getMDXComponent } from 'mdx-bundler/client';
 import Image from 'next/image';
 import { GetStaticPaths, GetStaticProps, GetStaticPropsContext } from 'next';
-import { useMemo } from 'react';
+
 import Layout from '../../../components/Layout/Layout';
 import MaxWidthWrapper from '../../../components/MaxWidthWrapper';
 import {
@@ -14,6 +15,7 @@ import InlineCodeSnippet from '../../../components/InlineCodeSnippet';
 import MDXImage from '../../../components/MDXImage';
 import AuthorDetails from '../../../components/AuthorDetails';
 import BlogCard from '../../../components/BlogCard';
+import TableOfContents from '../../../components/TableOfContents';
 
 const dateFormat = {
   month: 'short' as 'short',
@@ -27,7 +29,26 @@ interface Props {
 }
 
 function BlogPostPage({ post, recommendedPosts }: Props) {
+  const [activeHeadingId, setActiveHeadingId] = useState('');
   const Component = useMemo(() => getMDXComponent(post?.code), [post]);
+
+  useEffect(() => {
+    const callback: IntersectionObserverCallback = (headings) => {
+      const intersectingHeader = headings.find((h) => h.isIntersecting);
+      if (intersectingHeader) {
+        setActiveHeadingId(intersectingHeader.target.id);
+      }
+    };
+
+    const observer = new IntersectionObserver(callback, {
+      rootMargin: '0px 0px -40% 0px',
+    });
+
+    const headingElements = Array.from(document.querySelectorAll('h2, h3'));
+    headingElements.forEach((element) => observer.observe(element));
+
+    return () => observer.disconnect();
+  }, []);
 
   if (!post) {
     return (
@@ -70,14 +91,26 @@ function BlogPostPage({ post, recommendedPosts }: Props) {
         </div>
         <hr className="my-4 border-gray-700" />
 
-        <div className="mdx-post">
-          <Component
-            components={{
-              pre: StaticCodeSnippet,
-              code: InlineCodeSnippet,
-              img: MDXImage,
-            }}
-          />
+        <div className="flex flex-row">
+          <MaxWidthWrapper maxWidth={800} px={0}>
+            <article className="flex-1">
+              <h2 id="introduction" className="invisible h-0 mt-0">
+                Introduction
+              </h2>
+              <div className="mdx-post">
+                <Component
+                  components={{
+                    pre: StaticCodeSnippet,
+                    code: InlineCodeSnippet,
+                    img: MDXImage,
+                  }}
+                />
+              </div>
+            </article>
+          </MaxWidthWrapper>
+          {post.toc && (
+            <TableOfContents toc={post.toc} activeHeadingId={activeHeadingId} />
+          )}
         </div>
 
         {post.author && <AuthorDetails authorId={post.author} />}
@@ -111,7 +144,6 @@ export const getStaticProps: GetStaticProps<Props> = async ({
     ? await getRecommendedPostsMeta(post.slug)
     : [];
 
-  console.log(recommendedPosts.length);
   return {
     props: {
       post,

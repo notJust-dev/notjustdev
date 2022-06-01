@@ -50,3 +50,26 @@ h3 {
 
   @apply text-lg;
 }
+
+.icon.icon-link {
+  display: inline-block;
+  text-indent: -9999px;
+  width: 24px;
+  height: 24px;
+  background: url(/icons/link.svg);
+  background-size: 24px 24px;
+}
+
+.mdx-post :is(h1, h2, h3, h4, h5, h6) {
+  scroll-margin-top: 16px;
+}
+
+.mdx-post :is(h1, h2, h3, h4, h5, h6) .heading-copy-link {
+  opacity: 0;
+  transition: opacity 250ms ease 0s;
+  @apply inline ml-3;
+}
+
+.mdx-post :is(h1, h2, h3, h4, h5, h6):hover .heading-copy-link {
+  opacity: 1;
+}
