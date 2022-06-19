@@ -8,13 +8,14 @@ import { getCourseBySlug, getCourseSlugs } from '../../../lib/courseRepository';
 import StaticCodeSnippet from '../../../components/StaticCodeSnippet';
 import InlineCodeSnippet from '../../../components/InlineCodeSnippet';
 import MDXImage from '../../../components/MDXImage';
+import TableOfContents from '../../../components/TableOfContents';
 
 interface Props {
   course: Course | null;
 }
 
 function CoursePage({ course }: Props) {
-   const Component = useMemo(() => getMDXComponent(course?.code), [course]);
+  const Component = useMemo(() => getMDXComponent(course?.code), [course]);
 
   if (!course) {
     return (
@@ -44,14 +45,21 @@ function CoursePage({ course }: Props) {
         )}
         <h1 className="text-5xl text-center my-10">{course.title}</h1>
 
-        <div className="mdx-post">
-          <Component
-            components={{
-              pre: StaticCodeSnippet,
-              code: InlineCodeSnippet,
-              img: MDXImage,
-            }}
-          />
+        <div className="flex flex-row">
+          <MaxWidthWrapper maxWidth={800} px={0}>
+            <article className="flex-1">
+              <div className="mdx-post">
+                <Component
+                  components={{
+                    pre: StaticCodeSnippet,
+                    code: InlineCodeSnippet,
+                    img: MDXImage,
+                  }}
+                />
+              </div>
+            </article>
+          </MaxWidthWrapper>
+          {course.toc && <TableOfContents toc={course.toc} />}
         </div>
       </MaxWidthWrapper>
     </Layout>
@@ -61,8 +69,8 @@ function CoursePage({ course }: Props) {
 export const getStaticPaths: GetStaticPaths = async () => {
   const courses = await getCourseSlugs();
 
-  const paths = courses.map((slug) => ({
-    params: { slug },
+  const paths = courses.map((project_slug) => ({
+    params: { project_slug },
   }));
 
   return { paths, fallback: false };
@@ -71,7 +79,7 @@ export const getStaticPaths: GetStaticPaths = async () => {
 export const getStaticProps: GetStaticProps<Props> = async ({
   params,
 }: GetStaticPropsContext) => {
-  const course = await getCourseBySlug(params?.slug as string);
+  const course = await getCourseBySlug(params?.project_slug as string);
 
   return {
     props: {
