@@ -142,7 +142,7 @@ Then scroll down even more, and we will have to provide some **App Review Inform
 
 And lastly in this page we will have to select **Version Release** approach.
 - Manually release this version - After the application approval, you will have to go to the dashboard and release the application yourself.
-- Automatically release this version - After the application approval, your application will be releasedf automatically right away.
+- Automatically release this version - After the application approval, your application will be released automatically right away.
 - Automatically release this version after App Review, no earlier than - You can specify the date at which you want your application to be released automatically.
 
 Now we can scroll to the top of the screen and click **Save** button in the top right corner to save the information.
