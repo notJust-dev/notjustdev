@@ -27,7 +27,7 @@ If you chose to follow the guide - let's roll!
 
 First and foremost, we have to create a **Google Developer Account** so that we could publish our application to the Google Play Store.
 
-To do that, simply go to their [website](https://play.google.com/console/about/), click **Go to Play Console** button in the top right corner and then login with your **Gmail** account. After that, select if you are creating a new account for _Yourself_ or _Organization/Business_ and click **Get Started ->**.
+To do that, simply go to their [website](https://play.google.com/console/about/), click **Go to Play Console** button in the top-right corner and then login with your **Gmail** account. After that, select if you are creating a new account for _Yourself_ or _Organization/Business_ and click **Get Started ->**.
 ![New Google Account](./new-google-account.png)
 
 In the next page, simply provide all of the necessary information and click **Create account and pay** on the bottom of the page, after which you will see a pop-up asking you to provide your card details and finalize the purchase. Yes, we will have to pay a one time 25$ fee in order to create a developer account and be able to publish our applications on the Google Play Store.
@@ -39,10 +39,10 @@ Once the payment is confirmed, you will be redirected to the next page where you
 While we are still in the dashboard, let's create a **Google Service Account**. To do that, in the left menu bar expand the **Setup** tab and click **API access**.
 ![Setup](./setup.png)
 
-Then click **Choose a project to link**, which will open a pop-up asking you to agree to the Terms of Service, click **I agree** button in the bottom right corner to do that.
+Then click **Choose a project to link**, which will open a pop-up asking you to agree to the Terms of Service, click **I agree** button in the bottom-right corner to do that.
 ![Choose a project to link](./choose-a-project-to-link.png)
 
-On the next page, select **Create a new project** and click **Link project** on the bottom right of the page.
+On the next page, select **Create a new project** and click **Link project** on the bottom-right of the page.
 ![Create new project](./create-new-project.png)
 
 Now click **Create new service account** button to start creating it.
@@ -78,12 +78,12 @@ In the pop-up, select **Key Type** of **JSON** and click **Create**. This will c
 
 Once the download is finished, you can close the pop-up and **Google Cloud Platform** dashboard. In the **Google Play Console** dashboard, close the pop-up by clicking **Done** and you should see your new service account under **Service Accounts** tab. _If you don't see it, try reloading the page_
 
-Our last step is to grant the access to this service account. To do that simply click **Grant access** button near your newly created service account, in the next page simply click **Invite user** button in the bottom right corner and in the pop-up confirm the invite by clicking **Send invite**.
+Our last step is to grant the access to this service account. To do that simply click **Grant access** button near your newly created service account, in the next page simply click **Invite user** button in the bottom-right corner and in the pop-up confirm the invite by clicking **Send invite**.
 ![Grant Access](./service-account.png)
 
 ## Creating Expo Account
 
-We will need an expo account to use **Expo Application Services**. So, to create your expo account go to their [website](https://expo.dev), click **Sign Up** button in the top right corner and complete the registration process. After that, confirm your email address, and we are ready to go!
+We will need an expo account to use **Expo Application Services**. So, to create your expo account go to their [website](https://expo.dev), click **Sign Up** button in the top-right corner and complete the registration process. After that, confirm your email address, and we are ready to go!
 
 ## Creating First Build
 
@@ -133,14 +133,14 @@ In this page we will have to provide some basic information about the applicatio
 - App or game - Select if your application is a game or an app.
 - Free or paid - Select if your application is free or paid.
 
-And lastly, we will have to confirm that the application meets the **Developer Program Policies** as well as accept US export laws. After that, simply click the **Create app** button in the bottom right corner, and you will be redirected to your application dashboard.
+And lastly, we will have to confirm that the application meets the **Developer Program Policies** as well as accept US export laws. After that, simply click the **Create app** button in the bottom-right corner, and you will be redirected to your application dashboard.
 
 ## Setting Up The Application
 
 Now it's time to provide more detailed information about the application. To start, in your application dashboard simply scroll until you find a **Set up your app** tab and click **View Tasks** dropdown which will expand the list of task that we will have to go through.
 ![Set Up Your App](./set-up-your-app.png)
 
-_After every step don't forget to click **Save** button in the bottom right corner and go back to the main dashboard page after that._
+_After every step don't forget to click **Save** button in the bottom-right corner and go back to the main dashboard page after that._
 
 ### App Access
 
@@ -149,12 +149,12 @@ Here you will have to select if your application is restricted based on login cr
 
 ### Ads
 
-Here you will have to select if your application contains any ads. If it does, you have to make sure that ads comply with Google ads policy. Also, keep in mind that selecting **Yes** will show users that your application contains ads before they download the app.
+Here you will have to select if your application contains any ads. If it does, you have to make sure that ads comply with Google ads policy. Also, keep in mind that selecting **Yes** will show users that your application contains ads.
 ![App Ads](./ads.png)
 
 ### Content Ratings
 
-In this section you will have to complete a short questionnaire about your application, after that your application will receive an official content ratings. Ratings will be displayed on Google Play Store to help users identify if your app is suitable for them.
+In this section you will have to complete a short questionnaire about your application, after that your application will receive official content ratings. Ratings will be displayed on Google Play Store to help users identify if your app is suitable for them.
 ![Content Ratings](./content-ratings.png)
 
 ### Target Audience
@@ -174,7 +174,9 @@ This section is more relevant to the applications that are somehow related to th
 
 ### Data Safety
 
-Before doing anything here, we need to add privacy policy, but it would take too much time to write it from scratch now, therefore I did some research and managed to find a website that will help you to generate your privacy policy at least for now. Open the [website](https://app.privacypolicies.com/wizard/privacy-policy) and go through the questionnaire. After you are finished with that, your privacy policy URL will be generated, so just copy the URL and go back to the **Google Play Console** dashboard.
+This section helps users to understand how your application collects and shares their data.
+
+But before doing anything here, we need to add a privacy policy, of course it would take too much time to write it from scratch now, therefore I did some research and managed to find a website that will help you to generate your privacy policy at least for now. Open the [website](https://app.privacypolicies.com/wizard/privacy-policy) and go through the questionnaire. After you are finished with that, your privacy policy URL will be generated, so just copy the URL and go back to the **Google Play Console** dashboard.
 ![Privacy Policy](../2022-03-29-how-to-publish-expo-react-native-app-to-apple-app-store/privacy-policy.png)
 
 In the dashboard scroll to the bottom of the side menu and under **Policy** tab click **App content**.
@@ -183,9 +185,9 @@ In the dashboard scroll to the bottom of the side menu and under **Policy** tab 
 In here, click **Manage** under **Privacy policy** tab. Then paste the URL that you just copied in the box and click **Save** button in the right bottom corner.
 ![Manage Privacy Policy](./manage-privacy-policy.png)
 
-After the steps above, scroll to the top of the side menu and go to the **Dashboard** where we will be able to continue.
+After the steps above, scroll to the top of the side menu and go to the **Dashboard**, then click on the **Data Safety** task where we will be able to continue with data safety section.
 
-This section helps users to understand how your application collects and shares their data. At first, you will be asked if your application collects or shares certain types of data, then if it does just answer to the questions about each type of user data and when you are done simply review, and submit the answers.
+At first, you will be asked if your application collects or shares certain types of data, then if it does just answer to the questions about each type of user data and when you are done simply review, and submit the answers.
 
 ### Select An App Category And Provide Contact Details
 
@@ -194,13 +196,13 @@ In this section, we will have to provide some more details:
 - App or game - Select whether the application is an app or a game.
 - Category - Select which category fits your application the best.
 - Email address - Email address which can be used to contact you by the users.
-- Phone number (Optional) - Phone number which can be used to contact you by the users
-- Website (Optional) - URL to the website of yours.
+- Phone number (Optional) - Phone number which can be used to contact you by the users.
+- Website (Optional) - URL to your website.
 - External marketing - I recommend leaving the box ticked if you want your application to be advertised outside of Google Play.
 
 ### Set Up Your Store Listing
 
-Finally, the last step of the set up! In this section, we will have to provide:
+Finally, the last step of the set-up! In this section, we will have to provide:
 
 - App name - The name of your application. _Most likely this will be already populated with the correct name_
 - Short description - Short description of your application. One good catchy sentence should work very well here.
@@ -213,7 +215,7 @@ Finally, the last step of the set up! In this section, we will have to provide:
 
 ## Submitting New App To Google Review
 
-Now that we have the application all set up, we can start submitting it to the Google Review! First thing that you will have to do is scroll down and find under the **Release your app** tab **Publish your app on Google Play** section, then click **View tasks** dropdown and select the first task.
+Now that we have the application ready, we can start submitting it for the Google Review! First thing that you will have to do is scroll down and find under the **Release your app** tab **Publish your app on Google Play** section, then click **View tasks** dropdown and select the first task.
 ![Select Countries](./select-countries.png)
 
 ### Select Countries And Regions
@@ -227,12 +229,12 @@ In this page, click **Create new release** button in the middle of the screen an
 
 - App bundles - Here you will need to upload the build that we have downloaded earlier from the expo.dev dashboard.
 - Release name - This will not be shown to the users on Google Play Store, it's just so that you could follow each release easier.
-- Release notes - Add new release notes to the user, so that it would be clear what this new version added, changed or fixed.
+- Release notes - Add new release notes for users to better understand what this new version added, changed or fixed.
 
-After providing the information, click **Save** button in the bottom of the right corner and then click **Review release** to check if your release doesn't have any errors. If everything is good, simply click **Start rollout to Production** in the right bottom corner of the screen and confirm the rollout in the pop-up.
+After providing the information, click **Save** button in the bottom-right corner and then click **Review release** to check if your release doesn't have any errors. If everything is good, simply click **Start rollout to Production** in the bottom-right corner of the screen and confirm the rollout in the pop-up.
 ![Production Release](./production-release.png)
 
-That's it, you have submitted your application to the Google Review! Now it will take around 24 hours for Google to review your application and if everything meets their guidelines, your application will change status from **In Review** to **Available on Google Play**, and it will be automatically listed on the Google Play Store!!
+That's it, you have submitted your application to the Google Review! Now it will take around 24 hours for Google to review your application and if everything meets their guidelines, your application status will be changed from **In Review** to **Available on Google Play**, and it will be automatically listed on the Google Play Store!!
 ![Available On Google Play](./available-on-google-play.png)
 
 ## Updating Application
@@ -259,7 +261,7 @@ Once the submission is finished, go back to the **Google Play Console** dashboar
 In order to release this version to production, simply click the arrow near this new release.
 ![Latest Release](./latest-release.png)
 
-Then click **Promote release** dropdown in the top right corner and select **Production**.
+Then click **Promote release** dropdown in the top-right corner and select **Production**.
 ![Promote Release](./promote-release.png)
 
 Now you will see the same page as before, so provide all of the necessary information, then click **Save** and **Review release**, after which you should follow the same steps from before.
