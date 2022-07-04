@@ -26,10 +26,20 @@ I am also a proud ex-Amazon SDE and Certified AWS Architect, Developer and SysOp
     id: 'lukas',
     name: 'Lukas Grinevičius',
     image: 'lukas.jpeg',
-    description: 'Helping you become a rock star Full Stack Developer',
+    description: `Hey! 👋  I\'m Lukas and I\'m a Fullstack Developer with a passion for building new exciting projects, coding, and sharing my knowledge with others. 
+    
+    I'm also a co-founder as well as a CTO of a startup that is used by over 20k users.
+    
+    You are in good hands because I will always try my best to help You to improve and become the next rock star developer! 🚀
+    
+    Therefore, I think I can call myself (notJust) developer, and I'm sure You can too! 😎
+    `,
     socials: {
       LinkedIn: 'lukas-grinevičius-b16740198',
+      Instagram: 'lgrinevicius/', 
+      Twitter: 'GrinLukas',
     },
+    buyMeACoffee: 'LukasGrin',
   },
 ];
 
