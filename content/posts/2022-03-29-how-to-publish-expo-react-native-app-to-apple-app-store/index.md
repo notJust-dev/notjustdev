@@ -107,7 +107,7 @@ Now you should see a pop-up card where we will have to provide some information 
 - Primary Language - Provide the main language of your application.
 - Bundle ID - Here you should select the bundle ID that we have created while creating our first build.
 - SKU - This is a unique ID for your application, you can make it the same as Bundle ID.
-- User Access - Here you can choose what access certain roles have, but more times that not you will choose **Full Access**, especially as an individual.
+- User Access - Here you can choose what access certain roles have, but more times than not you will choose **Full Access**, especially as an individual.
 
 After providing all of the necessary information, click **Create** and wait a minute before reloading the page, which should display your application!
 ![New App Pop-Up](./new-app-pop-up.png)
@@ -142,7 +142,7 @@ Then scroll down even more, and we will have to provide some **App Review Inform
 
 And lastly in this page we will have to select **Version Release** approach.
 - Manually release this version - After the application approval, you will have to go to the dashboard and release the application yourself.
-- Automatically release this version - After the application approval, your application will be release automatically right away.
+- Automatically release this version - After the application approval, your application will be released automatically right away.
 - Automatically release this version after App Review, no earlier than - You can specify the date at which you want your application to be released automatically.
 
 Now we can scroll to the top of the screen and click **Save** button in the top right corner to save the information.
