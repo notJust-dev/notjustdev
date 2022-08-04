@@ -39,7 +39,7 @@ export async function getPostBySlug(slug: string) {
 
   const toc = headings.map((h) => {
     const depth = h.split(' ', 1)[0].length;
-    const title = h.slice(depth).trim();
+    const title = h.slice(depth).replaceAll('_', '').trim();
     return {
       slug: slugger.slug(title),
       title,
