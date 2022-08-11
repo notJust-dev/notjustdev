@@ -27,6 +27,14 @@ I am so excited to introduce you all the 17 startups that were started in the pa
 
 At the bottom of the page, you can find more details about the voting process.
 
+## Demo Day
+
+The Demo Day will be live streamed on [notJust.dev](https://www.youtube.com/c/notjustdev) youtube channel on 12th August at 3 PM GMT+1.
+
+We will present all the pitches and at the end will run the voting and we will also announce the winners. So make sure to watch it live here:
+
+<YoutubeVideo id="lKCHktGjxZY" />
+
 ## Startups
 
 ### 1. YourFace
