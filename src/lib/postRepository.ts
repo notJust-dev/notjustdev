@@ -1,11 +1,11 @@
 import fs from 'fs';
 import { bundleMDX } from 'mdx-bundler';
-import { remarkMdxImages } from 'remark-mdx-images';
 import { join, dirname } from 'path';
 import { getFileContents, getFullPath, shuffle } from './utils';
 import rehypeSlug from 'rehype-slug';
 import rehypeAutolinkHeadings from 'rehype-autolink-headings';
 import GithubSlugger from 'github-slugger';
+import remarkImageSize from './remark-image-size';
 
 var slugger = new GithubSlugger();
 
@@ -54,7 +54,7 @@ export async function getPostBySlug(slug: string) {
     cwd: dirname(fullPath),
     mdxOptions: (options) => ({
       ...options,
-      remarkPlugins: [...(options.remarkPlugins ?? []), remarkMdxImages],
+      remarkPlugins: [...(options.remarkPlugins ?? []), remarkImageSize],
       rehypePlugins: [
         ...(options.rehypePlugins ?? []),
         rehypeSlug,

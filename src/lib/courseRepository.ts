@@ -1,8 +1,8 @@
 import fs from 'fs';
 import { bundleMDX } from 'mdx-bundler';
-import { remarkMdxImages } from 'remark-mdx-images';
 import { join, dirname } from 'path';
 import { getFileContents, getFullPath } from './utils';
+import remarkImageSize from './remark-image-size';
 
 const rootDir = process.cwd();
 const courseDirectory = join(rootDir, 'content', 'courses');
@@ -28,7 +28,7 @@ export async function getCourseBySlug(slug: string) {
     cwd: dirname(fullPath),
     mdxOptions: (options) => ({
       ...options,
-      remarkPlugins: [...(options.remarkPlugins ?? []), remarkMdxImages],
+      remarkPlugins: [...(options.remarkPlugins ?? []), remarkImageSize],
     }),
     esbuildOptions: (options) => ({
       ...options,

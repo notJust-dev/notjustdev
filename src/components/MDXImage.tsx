@@ -5,23 +5,28 @@ interface Props {
   src?: string;
   alt?: string;
   children?: ReactNode;
+  width?: string | number;
+  height?: string | number;
 }
 
-const MDXImage = ({ src, alt, children }: Props) => (
-  <div className="aspect-w-16 aspect-h-9 relative my-7">
+const MDXImage = ({ src, alt, children, width, height }: Props) => (
+  <span className="relative block my-7 text-center">
     <Image
       src={src as string}
       alt={alt as string}
-      layout="fill"
+      width={width}
+      height={height}
       objectFit="contain"
     />
     {children}
-  </div>
+  </span>
 );
 
 MDXImage.defaultProps = {
   src: '',
   alt: '',
+  width: 0,
+  height: 0,
 } as Partial<Props>;
 
 export default MDXImage;
