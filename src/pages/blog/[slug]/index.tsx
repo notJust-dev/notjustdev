@@ -74,6 +74,7 @@ function BlogPostPage({ post, recommendedPosts }: Props) {
               layout="fill"
               objectFit="cover"
               alt="post image"
+              priority
             />
           </div>
         )}
