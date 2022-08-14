@@ -33,24 +33,17 @@ export function getAllCoursesSubPagesSlugs() {
   }));
 }
 
-export async function getCourseSubPageBySlug(
-  courseSlug: string,
-  subPageSlug: string,
-) {
-  const subPagesDir = join(courseDirectory, courseSlug, 'subpages');
-
-  const fullPath = getFullPath(subPageSlug, subPagesDir);
-
-  const { code, frontmatter } = await bundleMDX({
-    source: getFileContents(fullPath),
-    cwd: dirname(fullPath),
+const getBundledMDX = (path: string, slug: string) => {
+  return bundleMDX({
+    source: getFileContents(path),
+    cwd: dirname(path),
     mdxOptions: (options) => ({
       ...options,
       remarkPlugins: [...(options.remarkPlugins ?? []), remarkMdxImages],
     }),
     esbuildOptions: (options) => ({
       ...options,
-      outdir: join(outDir, courseSlug),
+      outdir: join(outDir, slug),
       loader: {
         ...options.loader,
         '.png': 'file',
@@ -58,70 +51,18 @@ export async function getCourseSubPageBySlug(
         '.jpg': 'file',
         '.gif': 'file',
       },
-      publicPath: `/images/content/courses/${courseSlug}`,
+      publicPath: `/images/content/courses/${slug}`,
       write: true,
     }),
   });
+};
 
-  const courseSubPage = {
-    ...frontmatter,
-    code,
-    courseSlug,
-    subPageSlug,
-  } as CourseSubPage;
-  return courseSubPage;
-}
+export async function getCourseMetaBySlug(slug: string, parentSlug?: string) {
+  const dir = parentSlug
+    ? join(courseDirectory, parentSlug, 'subpages')
+    : courseDirectory;
 
-export async function getCourseBySlug(slug: string) {
-  const realSlug = slug.replace(/\.md$/, '');
-  const fullPath = getFullPath(slug, courseDirectory);
-
-  const toc = await Promise.all(
-    getCourseSubPagesSlugs(realSlug).map(async (subPageSlug) => {
-      const subPage = await getCourseSubPageBySlug(slug, subPageSlug);
-      return {
-        slug: subPageSlug,
-        title: subPage.title,
-        depth: 1,
-        url: `/projects/${slug}/${subPageSlug}`,
-      };
-    }),
-  );
-
-  const { code, frontmatter } = await bundleMDX({
-    source: getFileContents(fullPath),
-    cwd: dirname(fullPath),
-    mdxOptions: (options) => ({
-      ...options,
-      remarkPlugins: [...(options.remarkPlugins ?? []), remarkMdxImages],
-    }),
-    esbuildOptions: (options) => ({
-      ...options,
-      outdir: join(outDir, realSlug),
-      loader: {
-        ...options.loader,
-        '.png': 'file',
-        '.jpeg': 'file',
-        '.jpg': 'file',
-        '.gif': 'file',
-      },
-      publicPath: `/images/content/courses/${realSlug}`,
-      write: true,
-    }),
-  });
-
-  const course = {
-    ...frontmatter,
-    code,
-    slug: realSlug,
-    toc,
-  } as Course;
-  return course;
-}
-
-export async function getCourseMetaBySlug(slug: string) {
-  const realSlug = slug.replace(/\.md$/, '');
-  const fullPath = getFullPath(slug, courseDirectory);
+  const fullPath = getFullPath(slug, dir);
 
   const { frontmatter } = await bundleMDX({
     file: fullPath,
@@ -130,8 +71,49 @@ export async function getCourseMetaBySlug(slug: string) {
 
   const course = {
     ...frontmatter,
-    slug: realSlug,
+    slug,
   } as CourseMeta;
+  return course;
+}
+
+export async function getCourseBySlug(slug: string, parentSlug?: string) {
+  const dir = parentSlug
+    ? join(courseDirectory, parentSlug, 'subpages')
+    : courseDirectory;
+
+  const fullPath = getFullPath(slug, dir);
+  const courseSlug = parentSlug || slug;
+
+  let toc = await Promise.all(
+    getCourseSubPagesSlugs(courseSlug).map(async (subPageSlug) => {
+      const subPage = await getCourseMetaBySlug(subPageSlug, courseSlug);
+      return {
+        slug: subPageSlug,
+        title: subPage.title,
+        depth: 1,
+        url: `/projects/${courseSlug}/${subPageSlug}`,
+      };
+    }),
+  );
+  const courseMeta = await getCourseMetaBySlug(courseSlug);
+  toc = [
+    {
+      slug: courseSlug,
+      title: courseMeta.title,
+      depth: 0,
+      url: `/projects/${courseSlug}`,
+    },
+    ...toc,
+  ];
+
+  const { code, frontmatter } = await getBundledMDX(fullPath, slug);
+
+  const course = {
+    ...frontmatter,
+    code,
+    slug,
+    toc,
+  } as Course;
   return course;
 }
 

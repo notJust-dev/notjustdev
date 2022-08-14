@@ -1,6 +1,5 @@
 ---
 title: 'Day 2: User Side Backend'
-thumbnail: /images/thumbnails/courses/uber-eats.png
 description: Uber Eats
 category: React Native Courses
 type: free

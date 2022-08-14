@@ -1,6 +1,5 @@
 ---
 title: 'Day 3: Driver Side App'
-thumbnail: /images/thumbnails/courses/uber-eats.png
 description: Uber Eats
 category: React Native Courses
 type: free

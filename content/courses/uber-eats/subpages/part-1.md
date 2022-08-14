@@ -1,17 +1,7 @@
 ---
-title: "Day 1: User Side App"
-thumbnail: /images/thumbnails/courses/uber-eats.png
-description: Uber Eats
-category: React Native Courses
-type: free
-tags:
-  - React Native Course
-  - Beginner Course
-  - Uber Eats
-keywords: react native, react native course, react native tutorial, beginner react native course, beginner react native tutorial, tesla clone, project based tutorial, project based course
+title: 'Day 1: User Side App'
+ytVideoId: ZPNHWlMk6_E
 ---
-
-import YoutubeVideo from "../../../../src/components/shared/YoutubeVideo";
 
 ## Part 1: Front end
 
@@ -23,4 +13,3 @@ Steps to follow:
 - Step 2
   - Step 2.1
 
-<YoutubeVideo id="ZPNHWlMk6_E" />
