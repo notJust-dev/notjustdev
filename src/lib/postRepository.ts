@@ -1,6 +1,6 @@
 import fs from 'fs';
 import { bundleMDX } from 'mdx-bundler';
-import { remarkMdxImages } from 'remark-mdx-images';
+import remarkImagesSize from './remark-images-size';
 import { join, dirname } from 'path';
 import { getFileContents, getFullPath, shuffle } from './utils';
 import rehypeSlug from 'rehype-slug';
@@ -54,7 +54,7 @@ export async function getPostBySlug(slug: string) {
     cwd: dirname(fullPath),
     mdxOptions: (options) => ({
       ...options,
-      remarkPlugins: [...(options.remarkPlugins ?? []), remarkMdxImages],
+      remarkPlugins: [...(options.remarkPlugins ?? []), remarkImagesSize],
       rehypePlugins: [
         ...(options.rehypePlugins ?? []),
         rehypeSlug,

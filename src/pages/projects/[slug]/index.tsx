@@ -14,7 +14,7 @@ interface Props {
 }
 
 function CoursePage({ course }: Props) {
-   const Component = useMemo(() => getMDXComponent(course?.code), [course]);
+  const Component = useMemo(() => getMDXComponent(course?.code), [course]);
 
   if (!course) {
     return (
@@ -39,6 +39,7 @@ function CoursePage({ course }: Props) {
               layout="fill"
               objectFit="cover"
               alt="Course Thumbnail"
+              priority
             />
           </div>
         )}
