@@ -7,6 +7,8 @@ export default class MyDocument extends Document {
     return (
       <Html lang="en">
         <Head>
+          <meta name="facebook-domain-verification" content="ybnih1fjzxz7h3ib5g8deqvb49hz79" />
+          
           {/* Global Site Tag (gtag.js) - Google Analytics */}
           <script
             async
