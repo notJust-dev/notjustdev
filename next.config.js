@@ -19,7 +19,9 @@ module.exports = {
     return [
       {
         source: '/masterclass-guide',
-        destination: 'https://notjust.notion.site/Masterclass-Build-a-SM-app-in-2-days-a531dd6e786c491692e1f24c965538ad',
+        destination:
+          'https://notjust.notion.site/Masterclass-Build-a-SM-app-in-2-days-a531dd6e786c491692e1f24c965538ad',
+        permanent: false,
       },
     ];
   },
