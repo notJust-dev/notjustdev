@@ -13,6 +13,10 @@ module.exports = {
         source: '/masterclass',
         destination: 'https://assets.notjust.dev/masterclass',
       },
+      {
+        source: '/shop',
+        destination: 'https://my-store-11437346.creator-spring.com/',
+      },
     ];
   },
   async redirects() {
