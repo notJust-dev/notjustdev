@@ -54,6 +54,8 @@ const Navbar = () => {
             <ActiveLink href="/pro-courses" title="Premium Courses" />
 
             <ActiveLink href="/blog" title="Blog" />
+
+            <ActiveLink href="https://shop.notjust.dev" title="Shop" />
           </div>
         </nav>
       </MaxWidthWrapper>
