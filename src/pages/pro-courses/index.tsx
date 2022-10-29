@@ -3,7 +3,7 @@ import { GetStaticProps } from 'next';
 import Layout from '../../components/Layout/Layout';
 import MaxWidthWrapper from '../../components/MaxWidthWrapper';
 import { getCoursesMetaByType } from '../../lib/courseRepository';
-import CourseCard from '../../components/ProjectCard';
+import ProjectCard from '../../components/ProjectCard';
 
 interface IProCourses {
   courses: CourseMeta[];
@@ -22,7 +22,7 @@ function ProCourses({ courses }: IProCourses) {
 
           <div className="my-5">
             {courses.map((course, index) => (
-              <CourseCard
+              <ProjectCard
                 course={course}
                 key={course.slug}
                 mirrored={index % 2 === 1}

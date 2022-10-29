@@ -4,7 +4,7 @@ import Button from './Button';
 
 export interface BlogCardProps {
   post: PostMeta;
-  priority: boolean;
+  priority?: boolean;
 }
 
 const MAX_DESCRIPTION_LENGTH = 256;

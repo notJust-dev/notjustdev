@@ -8,11 +8,7 @@ interface CourseCardProps {
   priority: boolean;
 }
 
-const ProjectCard = ({
-  course,
-  mirrored,
-  priority = false,
-}: CourseCardProps) => {
+const ProjectCard = ({ course, mirrored, priority }: CourseCardProps) => {
   const float = mirrored ? 'left' : 'right';
   return (
     <Link href={course.redirect_url || `/projects/${course.slug}`}>
@@ -56,6 +52,7 @@ const ProjectCard = ({
 
 ProjectCard.defaultProps = {
   mirrored: false,
+  priority: false,
 } as Partial<CourseCardProps>;
 
 export default ProjectCard;
