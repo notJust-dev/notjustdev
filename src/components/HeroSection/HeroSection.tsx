@@ -33,7 +33,15 @@ function HeroSection() {
 
         {/* Video */}
         <div className="flex-1 relative justify-center items-center pr-9 mb-10 w-full">
-          <Image src={video} alt="profile image" placeholder="blur" priority />
+          <Image
+            src={video}
+            alt="profile image"
+            placeholder="blur"
+            priority
+            sizes="(max-width: 768px) 100vw,
+              (max-width: 1100px) 50vw,
+              550px"
+          />
           <div className="absolute bottom-0 right-0 w-14 transform translate-y-9 md:w-24 md:translate-y-16 md:translate-x-6">
             <Image src={pattern4} width={100} height={200} alt="" />
           </div>

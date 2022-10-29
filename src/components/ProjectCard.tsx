@@ -30,6 +30,9 @@ const ProjectCard = ({ course, mirrored }: CourseCardProps) => {
             width={1280}
             height={720}
             className="p-5 z-10 mx-auto"
+            sizes="(max-width: 768px) 100vw,
+              (max-width: 1100px) 50vw,
+              550px"
           />
         </div>
 

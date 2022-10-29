@@ -21,6 +21,7 @@ const Navbar = () => {
                 alt="notJust Development Logo"
                 placeholder="blur"
                 priority
+                sizes="176px"
               />
             </div>
           </Link>

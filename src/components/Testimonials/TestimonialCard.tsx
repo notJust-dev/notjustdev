@@ -28,6 +28,7 @@ function TestimonialCard({
             src={image}
             alt={`${name} profile picture`}
             className="rounded-full"
+            sizes="64px"
           />
         </div>
         <div>
