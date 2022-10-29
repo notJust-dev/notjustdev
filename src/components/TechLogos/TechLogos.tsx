@@ -33,7 +33,12 @@ function TechLogosRow() {
             className="relative w-16 h-8 m-3 sm:w-24 sm:h-10 sm:m-5"
             key={logoName}
           >
-            <Image src={techLogos[logoName]} alt={`${logoName} logo`} fill />
+            <Image
+              src={techLogos[logoName]}
+              alt={`${logoName} logo`}
+              fill
+              sizes="96px"
+            />
           </div>
         ))}
       </section>
