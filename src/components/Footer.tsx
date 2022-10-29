@@ -19,6 +19,7 @@ const Footer = () => (
                 src={logo}
                 alt="notJust Development Logo"
                 placeholder="blur"
+                sizes="200px"
               />
             </div>
 

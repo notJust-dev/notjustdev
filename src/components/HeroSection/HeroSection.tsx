@@ -35,7 +35,6 @@ function HeroSection() {
         <div className="flex-1 relative justify-center items-center pr-9 mb-10 w-full">
           <Image
             src={video}
-            // width="500"
             alt="profile image"
             placeholder="blur"
             priority
