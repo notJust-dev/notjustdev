@@ -1,8 +1,11 @@
+import Lukas from '../public/images/authors/lukas.jpeg';
+import Vadim from '../public/images/authors/vadim.jpg';
+
 const authors: Author[] = [
   {
     id: 'vadim',
     name: 'Vadim Savin',
-    image: 'vadim.jpg',
+    image: Vadim,
     description: `Hi 👋 Let me introduce myself
 
 I started my career as a Fullstack Developer when I was 16 y.o.
@@ -25,7 +28,7 @@ I am also a proud ex-Amazon SDE and Certified AWS Architect, Developer and SysOp
   {
     id: 'lukas',
     name: 'Lukas Grinevičius',
-    image: 'lukas.jpeg',
+    image: Lukas,
     description: `Hey! 👋  I\'m Lukas and I\'m a Fullstack Developer with a passion for building new exciting projects, coding, and sharing my knowledge with others. 
     
     I'm also a co-founder as well as a CTO of a startup that is used by over 20k users.
@@ -36,7 +39,7 @@ I am also a proud ex-Amazon SDE and Certified AWS Architect, Developer and SysOp
     `,
     socials: {
       LinkedIn: 'lukas-grinevičius-b16740198',
-      Instagram: 'lgrinevicius/', 
+      Instagram: 'lgrinevicius/',
       Twitter: 'GrinLukas',
     },
     buyMeACoffee: 'LukasGrin',

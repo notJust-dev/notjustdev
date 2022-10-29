@@ -13,12 +13,7 @@ const BlogCard = ({ post }: BlogCardProps) => (
     <div className="bg-custom-blue-500 p-2 pb-5 flex flex-col items-center cursor-pointer">
       {post.image && (
         <div className="relative w-full aspect-w-16 aspect-h-9 mb-2">
-          <Image
-            src={post.image}
-            layout="fill"
-            objectFit="cover"
-            alt={post.title}
-          />
+          <Image src={post.image} alt={post.title} width={1280} height={720} />
         </div>
       )}
 

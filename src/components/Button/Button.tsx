@@ -14,14 +14,12 @@ interface ButtonProps {
 }
 
 const Button = ({ text, href, type, className, target }: ButtonProps) => (
-  <Link href={href} passHref>
-    <a
-      href="replace"
-      target={target}
-      className={`${styles.button} ${styles[type]} ${className}`}
-    >
-      {text}
-    </a>
+  <Link
+    href={href}
+    target={target}
+    className={`${styles.button} ${styles[type]} ${className}`}
+  >
+    {text}
   </Link>
 );
 

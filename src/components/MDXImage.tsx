@@ -5,8 +5,8 @@ interface Props {
   src?: string;
   alt?: string;
   children?: ReactNode;
-  width?: string | number;
-  height?: string | number;
+  width?: number | string;
+  height?: number | string;
 }
 
 const MDXImage = ({ src, alt, children, width, height }: Props) => (
@@ -14,9 +14,8 @@ const MDXImage = ({ src, alt, children, width, height }: Props) => (
     <Image
       src={src as string}
       alt={alt as string}
-      width={width}
-      height={height}
-      objectFit="contain"
+      width={Number(width)}
+      height={Number(height)}
     />
     {children}
   </span>

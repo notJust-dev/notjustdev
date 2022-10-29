@@ -24,15 +24,13 @@ const ProjectCard = ({ course, mirrored }: CourseCardProps) => {
           <div
             className={`absolute ${float}-0 bottom-0 bg-custom-blue-500 w-full md:w-1/2 h-1/2 md:h-full`}
           />
-          <div className="p-5 w-full">
-            <Image
-              src={course.thumbnail}
-              layout="responsive"
-              alt={course.title}
-              width={16}
-              height={9}
-            />
-          </div>
+          <Image
+            src={course.thumbnail}
+            alt={course.title}
+            width={1280}
+            height={720}
+            className="p-5 z-10 mx-auto"
+          />
         </div>
 
         <div className="flex flex-1 flex-col justify-center p-5 z-10 ">

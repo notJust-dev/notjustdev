@@ -36,9 +36,9 @@ function CoursePage({ course }: Props) {
           <div className="relative w-full aspect-w-16 aspect-h-9">
             <Image
               src={course.thumbnail}
-              layout="fill"
-              objectFit="cover"
               alt="Course Thumbnail"
+              width={1280}
+              height={720}
               priority
             />
           </div>

@@ -71,9 +71,9 @@ function BlogPostPage({ post, recommendedPosts }: Props) {
           <div className="relative w-full aspect-w-16 aspect-h-9">
             <Image
               src={post.image}
-              layout="fill"
-              objectFit="cover"
               alt="post image"
+              width={1280}
+              height={720}
               priority
             />
           </div>
