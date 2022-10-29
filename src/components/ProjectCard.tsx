@@ -5,9 +5,14 @@ import Button from './Button';
 interface CourseCardProps {
   course: CourseMeta;
   mirrored: boolean;
+  priority: boolean;
 }
 
-const ProjectCard = ({ course, mirrored }: CourseCardProps) => {
+const ProjectCard = ({
+  course,
+  mirrored,
+  priority = false,
+}: CourseCardProps) => {
   const float = mirrored ? 'left' : 'right';
   return (
     <Link href={course.redirect_url || `/projects/${course.slug}`}>
@@ -29,6 +34,7 @@ const ProjectCard = ({ course, mirrored }: CourseCardProps) => {
             alt={course.title}
             width={1280}
             height={720}
+            priority={priority}
             className="p-5 z-10 mx-auto"
             sizes="(max-width: 768px) 100vw,
               (max-width: 1100px) 50vw,

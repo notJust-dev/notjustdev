@@ -26,6 +26,7 @@ function Projects({ courses }: CourseProps) {
                 course={course}
                 key={course.slug}
                 mirrored={index % 2 === 1}
+                priority={index < 2}
               />
             ))}
           </div>

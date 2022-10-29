@@ -1,5 +1,5 @@
 ---
-title: #CodeForUkraine Hackathon
+title: '#CodeForUkraine Hackathon'
 image: /images/thumbnails/posts/2022-03-01-codeforukraine-hackathon.png
 publishedOn: '2022-03-01T16:27:30.556Z'
 description: 'Let’s use our skills to build impactful apps to support Ukrainians in these hard times.'
