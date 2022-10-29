@@ -56,12 +56,7 @@ const AuthorDetails = ({ authorId }: IAuthorDetails) => {
                 target="_blank"
                 rel="noreferrer"
               >
-                <Image
-                  width={218}
-                  height={60}
-                  src={bmcButton}
-                  alt="Buy me a coffee"
-                />
+                <Image width={218} src={bmcButton} alt="Buy me a coffee" />
               </a>
             </>
           )}
