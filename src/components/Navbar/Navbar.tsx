@@ -19,8 +19,8 @@ const Navbar = () => {
               <Image
                 src={logo}
                 alt="notJust Development Logo"
-                layout="responsive"
                 placeholder="blur"
+                priority
               />
             </div>
           </Link>

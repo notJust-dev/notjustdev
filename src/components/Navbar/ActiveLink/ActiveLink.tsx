@@ -18,8 +18,11 @@ function ActiveLink({ href, title }: ActiveLinkProps) {
   }
 
   return (
-    <Link href={href}>
-      <a className={`${styles.link} ${isActive && styles.isActive}`}>{title}</a>
+    <Link
+      href={href}
+      className={`${styles.link} ${isActive && styles.isActive}`}
+    >
+      {title}
     </Link>
   );
 }
