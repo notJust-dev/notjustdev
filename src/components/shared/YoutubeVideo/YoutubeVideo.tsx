@@ -1,21 +1,14 @@
 import React from 'react';
+import LiteYouTubeEmbed from 'react-lite-youtube-embed';
 
 interface Props {
   id: string;
+  title: string;
 }
 
-function YoutubeVideo({ id }: Props) {
+function YoutubeVideo({ id, title }: Props) {
   return (
-    <iframe
-      title="Youtube video"
-      width="100%"
-      height="500"
-      src={`https://www.youtube.com/embed/${id}`}
-      frameBorder="0"
-      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-      allowFullScreen
-      loading="lazy"
-    />
+    <LiteYouTubeEmbed id={id} title={title} adNetwork={true} cookie={true} />
   );
 }
 

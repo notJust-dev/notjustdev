@@ -20,7 +20,7 @@ So, finally after a long time of developing your application you are ready to ta
 During this guide, we will use **Expo Application Services** because it makes everything SOOO much easier and faster that I think you will enjoy using it as well! 😊
 
 Quick side note, if you prefer following video tutorial instead, you can watch the video below.
-<YoutubeVideo id="oBWBDaqNuws" />
+<YoutubeVideo id="oBWBDaqNuws" title={frontmatter.title} />
 If you chose to follow the guide - let's roll!
 
 ## Creating Google Developer Account

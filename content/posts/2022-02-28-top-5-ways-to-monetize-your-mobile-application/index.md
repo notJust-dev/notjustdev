@@ -17,7 +17,7 @@ import YoutubeVideo from '../../../src/components/shared/YoutubeVideo';
 In this article, we are going to cover 5 different ways you can monetize your mobile application so you can start earning money by doing what you love.
 
 If you prefer a video format, here it is 👇
-<YoutubeVideo id="kLfsuIsyTs4" />
+<YoutubeVideo id="kLfsuIsyTs4" title={frontmatter.title} />
 
 ## Paid app
 
