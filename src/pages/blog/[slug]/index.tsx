@@ -75,6 +75,7 @@ function BlogPostPage({ post, recommendedPosts }: Props) {
               width={1280}
               height={720}
               priority
+              sizes="1100px"
             />
           </div>
         )}
