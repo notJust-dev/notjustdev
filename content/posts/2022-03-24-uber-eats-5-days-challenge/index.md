@@ -24,7 +24,7 @@ We have started preparing this challenge 6 months ago, and we made sure it's pac
 
 By the end of the 5 Days challenge, you will walk away more confident in your skills of building complex, full-stack, end-to-end projects with [React Native](https://reactnative.dev/) and [AWS Amplify](https://aws.amazon.com/amplify/).
 
-<YoutubeVideo id="zh9XCdk7atY" />
+<YoutubeVideo id="zh9XCdk7atY" title={frontmatter.title} />
 
 ## What will we build?
 

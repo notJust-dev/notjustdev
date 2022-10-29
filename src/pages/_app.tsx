@@ -3,6 +3,7 @@ import { useRouter } from 'next/router';
 import type { AppProps } from 'next/app';
 import * as gtag from '../lib/gtag';
 import '../styles/globals.css';
+import 'react-lite-youtube-embed/dist/LiteYouTubeEmbed.css';
 
 function MyApp({ Component, pageProps }: AppProps) {
   const router = useRouter();

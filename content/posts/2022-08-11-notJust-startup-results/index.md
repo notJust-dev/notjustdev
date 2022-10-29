@@ -33,7 +33,7 @@ The Demo Day will be live streamed on [notJust.dev](https://www.youtube.com/c/no
 
 We will present all the pitches and at the end will run the voting and we will also announce the winners. So make sure to watch it live here:
 
-<YoutubeVideo id="lKCHktGjxZY" />
+<YoutubeVideo id="lKCHktGjxZY" title={frontmatter.title} />
 
 ## Startups
 
@@ -41,104 +41,104 @@ We will present all the pitches and at the end will run the voting and we will a
 
 A youtube video comments sections allowing for face to face communication.
 
-<YoutubeVideo id="yRkds6eBYvo" />
+<YoutubeVideo id="yRkds6eBYvo" title="YourFace pitch" />
 
 ### 2. The Realtors
 
 The Realtors is a platform that allows users who are real estate agents upload their available property for rent and/or sale, it also allows users who are individuals or companies searching for landed property for rent or purchase the opportunity explore various options.
 
-<YoutubeVideo id="S2EFjgiLvdw" />
+<YoutubeVideo id="S2EFjgiLvdw" title="The Realtors pitch" />
 
 ### 3. MeSquared
 
 Gamified habit, dream, and affirmation tracking app
 
-<YoutubeVideo id="68AN4Lr_XrU" />
+<YoutubeVideo id="68AN4Lr_XrU" title="MeSquared pitch" />
 
 ### 4. Umm
 
 Umm, is a private social media messaging app for the generation'Z
 
-<YoutubeVideo id="Al4OrvtPcuY" />
+<YoutubeVideo id="Al4OrvtPcuY" title="Umm pitch" />
 
 ### 5. FEO - Event Organizer
 
 Provide the businesses and organizations a simple and powerful event organizer. Leading teams from planning, confirming, approving, publishing, registering and hosting successful public events.
 
-<YoutubeVideo id="1DZ5fQfVPNs" />
+<YoutubeVideo id="1DZ5fQfVPNs" title="FEO - Event Organizer pitch" />
 
 ### 6. Makrverse
 
 Makrverse turn inventors into entrepreneurs. With the rising availability of home manufacturing, more and more people build tech inventions. Our goal is to decentralise manufacturing and bring tailor-made technologies to your doorsteps.
 
-<YoutubeVideo id="wFEZIdg9Gu8" />
+<YoutubeVideo id="wFEZIdg9Gu8" title="Makrverse pitch" />
 
 ### 7. Academe
 
 Academe is a messaging platform for students to share and receive advice and educate each other on various academic matters such as the college application process, high school experience, and more.
 
-<YoutubeVideo id="xluoD9io3SQ" />
+<YoutubeVideo id="xluoD9io3SQ" title="Academe pitch" />
 
 ### 8. Bokiii
 
 Bokiii is an app to take action and make an impact towards making the world a better and more sustainable place.
 AjypkaxYWqg
 
-<YoutubeVideo id="AjypkaxYWqg" />
+<YoutubeVideo id="AjypkaxYWqg" title="Bokiii pitch" />
 
 ### 9. Dyce
 
 A freelancing platform for all skills especially non tech related skills.
 
-<YoutubeVideo id="Q84CGqOh8A4" />
+<YoutubeVideo id="Q84CGqOh8A4" title="Dyce pitch" />
 
 ### 10. RealTime Food Ordering Application
 
 When i was 14 i was hired for my first coding job, i developed full stack food ordering application for a pizza place in my country - in a really low level code using react native and express, now after serval years i learned new technologies and improved my coding skill and decided to rebuild the exact project but with a realtime notifications and server integration, modern technologies and most important part decided for it to be a website in order to access server side features like prisma, moreover i developed another version that is using mongodb, react & express. It is really so clean coded and handled to a level where errors can’t even be made and I’m pretty happy about the results as my github profile got me a lot of job offers on linkedin
 
-<YoutubeVideo id="skigHZimv-c" />
+<YoutubeVideo id="skigHZimv-c" title="RealTime Food Ordering Application pitch" />
 
 ### 11. Zona TryOut
 
 An e-commerce which sell an examination tryout like a computer based test in online web apps.
 
-<YoutubeVideo id="epV-6WCb7RU" />
+<YoutubeVideo id="epV-6WCb7RU" title="Zona TryOut pitch" />
 
 ### 12. Nimbi - Rate Photos & Bios
 
 Where people can post pictures and bios without being revealed and will get ratings anonymously.
 
-<YoutubeVideo id="g2CB3pVyh1M" />
+<YoutubeVideo id="g2CB3pVyh1M" title="Nimbi - Rate Photos & Bios pitch" />
 
 ### 13. Valorant Pro Lineups App
 
 Valorant Pro Lineup is a app that contain all of the lineups for each character and map. Valorant player can easily view this lineups and become pro at valorant
 
-<YoutubeVideo id="019y61og7Zo" />
+<YoutubeVideo id="019y61og7Zo" title="Valorant Pro Lineups App pitch" />
 
 ### 14. Incog
 
 Incog is a private social network where you can create a vibrant, secure , open and private social community that stimulates free and open conversation. The main Moto of incog is ‘The truth we all know, but agree not to talk about’.
 
-<YoutubeVideo id="3VaJssgFDSk" />
+<YoutubeVideo id="3VaJssgFDSk" title="Incog pitch" />
 
 ### 15. Eyesight
 
 Revolutionizing the idea of visual accessibility for everyone, all from your phone, right from your pocket.
 
-<YoutubeVideo id="pOQ_FcJ0Oak" />
+<YoutubeVideo id="pOQ_FcJ0Oak" title="Eyesight pitch" />
 
 ### 16. Moodsica
 
 A social network to share and discover new music with your friends
 
-<YoutubeVideo id="dTwKybNcnY4" />
+<YoutubeVideo id="dTwKybNcnY4" title="Moodsica pitch" />
 
 ### 17. Oxygen
 
 Oxygen is about making life easier for people by making deliveries faster and quicker and more affordable than others
 
-<YoutubeVideo id="nFA4XLsR1iY" />
+<YoutubeVideo id="nFA4XLsR1iY" title="Oxygen pitch" />
 
 ## Now, it's time for voting
 

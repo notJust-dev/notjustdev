@@ -19,7 +19,7 @@ import YoutubeVideo from "../../../src/components/shared/YoutubeVideo";
 So, finally after a long time of developing your application you are ready to take it to the next step and publish it to the Apple's App Store, CONGRATULATIONS! But we still have to go through a few more steps before we can start celebrating, and I will try to guide you through them as clearly as I can. Let's buckle up and start working!
 
 Quick side note, if you prefer to follow a video format tutorial instead, you can watch the video below.
-<YoutubeVideo id="r-Z--YDrmjI" />
+<YoutubeVideo id="r-Z--YDrmjI" title={frontmatter.title} />
 If you chose to follow the guide - let's roll!
 
 ## Creating Apple Developer Account

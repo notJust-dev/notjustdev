@@ -43,7 +43,7 @@ During the live stream, we will present all the project ideas, and you will be a
 
 Goal of the day is to **form the teams**.
 
-<YoutubeVideo id="wK4sELIitkU" />
+<YoutubeVideo id="wK4sELIitkU" title={frontmatter.title} />
 
 ### Day 1 (Thursday, 3rd March)
 
