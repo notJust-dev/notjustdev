@@ -3,13 +3,19 @@ import React from 'react';
 interface MaxWidthWrapperProps {
   children: React.ReactNode;
   maxWidth: number;
-  px: number;
+  noPadding: boolean;
 }
 
-function MaxWidthWrapper({ children, maxWidth, px }: MaxWidthWrapperProps) {
+function MaxWidthWrapper({
+  children,
+  maxWidth,
+  noPadding,
+}: MaxWidthWrapperProps) {
   return (
     <div
-      className={`relative w-full mr-auto ml-auto px-${px}`}
+      className={`relative w-full mr-auto ml-auto ${
+        noPadding ? 'px-0' : 'px-8'
+      }`}
       style={{ maxWidth: `${maxWidth}px` }}
     >
       {children}
@@ -19,7 +25,7 @@ function MaxWidthWrapper({ children, maxWidth, px }: MaxWidthWrapperProps) {
 
 MaxWidthWrapper.defaultProps = {
   maxWidth: 1100,
-  px: 8,
+  noPadding: false,
 } as Partial<MaxWidthWrapperProps>;
 
 export default MaxWidthWrapper;
