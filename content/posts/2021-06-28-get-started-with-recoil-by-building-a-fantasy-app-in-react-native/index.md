@@ -110,7 +110,7 @@ This is a perfect use case to implement Recoil, as there is a lot of shared stat
 
 If you prefer video format, this project was developed from scratch, step-by-step, Live on my channel.
 
-<YoutubeVideo id="u_C3GBilvv8" />
+<YoutubeVideo id="u_C3GBilvv8" title={frontmatter.title} />
 
 ## Starting point
 

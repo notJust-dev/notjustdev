@@ -13,17 +13,20 @@ interface ButtonProps {
   target: '_blank' | '_self';
 }
 
-const Button = ({ text, href, type, className, target }: ButtonProps) => (
-  <Link href={href} passHref>
-    <a
-      href="replace"
+const Button = ({ text, href, type, className, target }: ButtonProps) =>
+  href ? (
+    <Link
+      href={href}
       target={target}
       className={`${styles.button} ${styles[type]} ${className}`}
     >
       {text}
-    </a>
-  </Link>
-);
+    </Link>
+  ) : (
+    <span className={`${styles.button} ${styles[type]} ${className}`}>
+      {text}
+    </span>
+  );
 
 Button.defaultProps = {
   type: 'primary',

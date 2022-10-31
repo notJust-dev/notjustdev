@@ -26,10 +26,9 @@ function TestimonialCard({
         <div className="relative w-16 h-16 mr-2">
           <Image
             src={image}
-            layout="fill"
-            objectFit="cover"
             alt={`${name} profile picture`}
             className="rounded-full"
+            sizes="64px"
           />
         </div>
         <div>

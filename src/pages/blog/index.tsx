@@ -20,8 +20,8 @@ const Blog = ({ posts }: BlogProps) => (
         </p>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-5 my-5">
-          {posts.map((post) => (
-            <BlogCard post={post} key={post.slug} />
+          {posts.map((post, index) => (
+            <BlogCard post={post} key={post.slug} priority={index < 2} />
           ))}
         </div>
       </section>

@@ -18,7 +18,7 @@ import YoutubeVideo from '../../../src/components/shared/YoutubeVideo';
 In general, there are two ways to get started with React Native - using **Expo CLI** or **React Native CLI**. Both ways have their own strengths and weaknesses, but if you are a beginner, I would highly suggest you to start with [Expo CLI](https://www.notjust.dev/blog/2021-11-04-expo-development-environment-setup-for-first-react-native-project-windows) because the setup is a lot easier and faster. Of course, if you are up for a bit bigger challenge, this guide is perfect for you, because we will cover all the steps needed to setup React Native CLI development environment for your first React Native project using Windows.
 
 If you prefer, you can always follow the instructions in the video below instead:
-<YoutubeVideo id="oorfevovPWw" />
+<YoutubeVideo id="oorfevovPWw" title={frontmatter.title} />
 If you chose to follow the guide, then let's roll!
 
 ## Installing Windows Terminal

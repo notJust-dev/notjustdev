@@ -20,12 +20,7 @@ const AuthorDetails = ({ authorId }: IAuthorDetails) => {
 
       <div className="flex flex-col sm:flex-row items-center sm:items-start">
         <div className="w-36 h-36 relative rounded-full overflow-hidden">
-          <Image
-            src={`/images/authors/${author.image}`}
-            layout="fill"
-            objectFit="cover"
-            alt="post image"
-          />
+          <Image src={author.image} alt={`${author.name} profile picture`} />
         </div>
 
         <div className="flex-1 sm:ml-5 mt-5 sm:mt-0 text-center sm:text-left">
@@ -61,12 +56,7 @@ const AuthorDetails = ({ authorId }: IAuthorDetails) => {
                 target="_blank"
                 rel="noreferrer"
               >
-                <Image
-                  width={218}
-                  height={60}
-                  src={bmcButton}
-                  alt="Buy me a coffee"
-                />
+                <Image width={218} src={bmcButton} alt="Buy me a coffee" />
               </a>
             </>
           )}

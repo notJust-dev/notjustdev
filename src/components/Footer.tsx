@@ -18,8 +18,8 @@ const Footer = () => (
               <Image
                 src={logo}
                 alt="notJust Development Logo"
-                layout="responsive"
                 placeholder="blur"
+                sizes="200px"
               />
             </div>
 
@@ -33,15 +33,14 @@ const Footer = () => (
             <div>
               <h2 className="text-white-400 mt-2 font-bold">Company</h2>
               <div className="flex flex-col">
-                <Link href="/" passHref>
-                  <a className="text-gray-300 my-2">Home</a>
+                <Link href="/" className="text-gray-300 my-2">
+                  Home
                 </Link>
-
-                <Link href="/projects" passHref>
-                  <a className="text-gray-300 my-2">Project Tutorials</a>
+                <Link href="/projects" className="text-gray-300 my-2">
+                  Project Tutorials
                 </Link>
-                <Link href="/blog" passHref>
-                  <a className="text-gray-300 my-2">Blog</a>
+                <Link href="/blog" className="text-gray-300 my-2">
+                  Blog
                 </Link>
               </div>
             </div>
@@ -51,14 +50,14 @@ const Footer = () => (
                 Project Tutorials
               </h2>
               <div className="flex flex-col">
-                <Link href="/" passHref>
-                  <a className="text-gray-300 my-2">WhatsApp Clone</a>
+                <Link href="/" className="text-gray-300 my-2">
+                  WhatsApp Clone
                 </Link>
-                <Link href="/" passHref>
-                  <a className="text-gray-300 my-2">Instagram Clone</a>
+                <Link href="/" className="text-gray-300 my-2">
+                  Instagram Clone
                 </Link>
-                <Link href="/" passHref>
-                  <a className="text-gray-300 my-2">Twitter Clone</a>
+                <Link href="/" passHref className="text-gray-300 my-2">
+                  Twitter Clone
                 </Link>
               </div>
             </div>

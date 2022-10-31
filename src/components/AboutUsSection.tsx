@@ -15,12 +15,7 @@ function AboutUsSection() {
       <section className="flex flex-col items-center mb-10">
         <div className="flex flex-col md:flex-row items-center my-5 ">
           <div className="flex-1 w-full">
-            <Image
-              src={author}
-              layout="responsive"
-              alt="profile image"
-              placeholder="blur"
-            />
+            <Image src={author} alt="Vadim Savin" placeholder="blur" />
           </div>
 
           <div className="flex flex-1 flex-col">
@@ -56,19 +51,16 @@ function AboutUsSection() {
               <Image
                 src={awsDA}
                 alt="aws developer associate certificate"
-                layout="responsive"
                 placeholder="blur"
               />
               <Image
                 src={awsSAA}
                 alt="aws solutions architect associate certificate"
-                layout="responsive"
                 placeholder="blur"
               />
               <Image
                 src={awsSYSA}
                 alt="aws sysops administrator associate certificate"
-                layout="responsive"
                 placeholder="blur"
               />
             </div>

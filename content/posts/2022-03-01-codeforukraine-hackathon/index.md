@@ -1,5 +1,5 @@
 ---
-title: #CodeForUkraine Hackathon
+title: '#CodeForUkraine Hackathon'
 image: /images/thumbnails/posts/2022-03-01-codeforukraine-hackathon.png
 publishedOn: '2022-03-01T16:27:30.556Z'
 description: 'Let’s use our skills to build impactful apps to support Ukrainians in these hard times.'
@@ -43,7 +43,7 @@ During the live stream, we will present all the project ideas, and you will be a
 
 Goal of the day is to **form the teams**.
 
-<YoutubeVideo id="wK4sELIitkU" />
+<YoutubeVideo id="wK4sELIitkU" title={frontmatter.title} />
 
 ### Day 1 (Thursday, 3rd March)
 
