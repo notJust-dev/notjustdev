@@ -11,8 +11,8 @@ keywords: hackathon, codeForUkraine
 author: vadim
 ---
 
-import YoutubeVideo from '../../../src/components/shared/YoutubeVideo';
-import Button from '../../../src/components/shared/Button';
+import YoutubeVideo from '../../../src/components/shared/YoutubeVideo/YoutubeVideo';
+import Button from '../../../src/components/shared/Button/Button';
 import Mentors from './components/Mentors'
 
 In the context of what is happening in Ukraine I felt the urge to do something, but how can a developer help in this situation? Well, we can think about this together.

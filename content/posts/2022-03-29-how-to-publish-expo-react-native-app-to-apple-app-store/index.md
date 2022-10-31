@@ -12,7 +12,7 @@ tags:
 keywords: react native, expo, ios, apple app store
 author: lukas
 ---
-import YoutubeVideo from '../../../src/components/shared/YoutubeVideo';
+import YoutubeVideo from '../../../src/components/shared/YoutubeVideo/YoutubeVideo';
 
 So, finally after a long time of developing your application you are ready to take it to the next step and publish it to the Apple's App Store, CONGRATULATIONS! But we still have to go through a few more steps before we can start celebrating, and I will try to guide you through them as clearly as I can. Let's buckle up and start working!
 

@@ -19,7 +19,7 @@ keywords: react native, expo, react native cli, flatlist, flashlist, flatlist vs
 author: lukas
 ---
 
-import YoutubeVideo from "../../../src/components/shared/YoutubeVideo";
+import YoutubeVideo from "../../../src/components/shared/YoutubeVideo/YoutubeVideo";
 
 Hello and welcome back to another blog, notJust developers! Today we are going to do something different, which is going to be very exciting and definitely helpful at least to some of you. Most likely you can already guess what this blog will be about from the title alone, but just to make sure that we are on the same page - today we will be comparing newly released Shopify’s FlashList versus an old but widely used FlatList.
 

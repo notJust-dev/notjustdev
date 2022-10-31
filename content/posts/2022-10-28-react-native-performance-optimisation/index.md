@@ -17,7 +17,7 @@ keywords: react native, expo, react native cli, performance, useMemo, useCallbac
 author: lukas
 ---
 
-import YoutubeVideo from "../../../src/components/shared/YoutubeVideo";
+import YoutubeVideo from "../../../src/components/shared/YoutubeVideo/YoutubeVideo";
 
 Hello and welcome back to another blog, notJust developers! Today, once again we are going to talk about the performance, as this is the topic that's really interesting to me and in my opinion very important if you want to guarantee pleasant user experience in your application.
 

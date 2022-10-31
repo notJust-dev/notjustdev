@@ -11,10 +11,10 @@ hideImageHeader: true
 author: vadim
 ---
 
-import Button from '../../../src/components/shared/Button';
-import YoutubeVideoMock from '../../../src/components/shared/YoutubeVideoMock';
-import OptInForm from '../../../src/components/shared/OptInForm';
-import YoutubeVideo from '../../../src/components/shared/YoutubeVideo';
+import Button from '../../../src/components/shared/Button/Button';
+import YoutubeVideoMock from '../../../src/components/shared/YoutubeVideoMock/YoutubeVideoMock';
+import OptInForm from '../../../src/components/shared/OptInForm/OptInForm';
+import YoutubeVideo from '../../../src/components/shared/YoutubeVideo/YoutubeVideo';
 
 Hey notJust Developers 👋
 

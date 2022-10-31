@@ -12,8 +12,8 @@ keywords: reactjs, react native, global state management, recoil, recoil.js reco
 author: vadim
 ---
 
-import Snack from '../../../src/components/shared/Snack';
-import YoutubeVideo from '../../../src/components/shared/YoutubeVideo';
+import Snack from '../../../src/components/shared/Snack/Snack';
+import YoutubeVideo from '../../../src/components/shared/YoutubeVideo/YoutubeVideo';
 
 The complexity of your app grew consistently. To keep things organized, you split your code into small, reusable components. Now you have hundreds of them. It becomes more challenging to manage the state of your app. Multiple components, from all over the place, depend on the same data. You start extracting these shared data to the closest common parent, and from there you drill the data from one component to another, until it reaches the component that depends on that data. It quickly gets unmanageable, and you realize that...
 

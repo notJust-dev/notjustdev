@@ -12,7 +12,7 @@ keywords: monetization, in-app-purchases, in-app-subscription, mobile app moneti
 author: vadim
 ---
 
-import YoutubeVideo from '../../../src/components/shared/YoutubeVideo';
+import YoutubeVideo from '../../../src/components/shared/YoutubeVideo/YoutubeVideo';
 
 In this article, we are going to cover 5 different ways you can monetize your mobile application so you can start earning money by doing what you love.
 
