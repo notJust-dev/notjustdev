@@ -123,19 +123,11 @@ Also, we will host Group Coaching sessions daily where you can ask questions and
 
 ## Feedback from our previous events
 
-> Our team is very thankful to you for providing us with such opportunity and recognition. We would love to collaborate with you on our idea and take your inputs to improve our product.
+![Our team is very thankful to you for providing us with such opportunity and recognition. We would love to collaborate with you on our idea and take your inputs to improve our product.](./testimonial1.png)
 
-**Kislay Vats** | Incog | notJust Startup
+![Thank you very much for the opportunity to participate in the competition. I saw very good startups there so I was surprised I won. Hoping to see more of these events in the future, in uncertain times like this you are truly helping out a lot of people and fostering talents. I truly believe that NotJustDev is going to be not just a youtube channel but a huge incubator that pushes the boundary of what's possible in the world of startups.](./testimonial3.png)
 
-> Good news, the app was submitted to the App Store and Google Play Store and was approved for both! So we are now officially launched
-
-**Richard Harvey** | MeSquared | notJust Startup
-
-> Thank you very much for the opportunity to participate in the competition. I saw very good startups there so I was surprised I won. Hoping to see more of these events in the future, in uncertain times like this you are truly helping out a lot of people and fostering talents.
->
-> I truly believe that NotJustDev is going to be not just a youtube channel but a huge incubator that pushes the boundary of what's possible in the world of startups.
-
-**Thadeo Arlo** | Makrverse | notJust Startup
+![Good news, the app was submitted to the App Store and Google Play Store and was approved for both! So we are now officially launched](./testimonial2.png)
 
 ## Thanks to our sponsors
 
