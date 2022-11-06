@@ -14,6 +14,7 @@ author: Saad
 ---
 
 import YoutubeVideo from "../../../src/components/shared/YoutubeVideo/YoutubeVideo";
+import Snack from '../../../src/components/shared/Snack/Snack';
 
 One of the most effective ways to learn is to build real-life projects and we are going to do exactly that in this series! This is going to be a four part blog series, we will build the beautiful iOS 16 lock screen from scratch. Moreover we be learning animations! React-Native and Reanimated will be used as our core technologies. This series will be divided into four chapters. They are the following,
 
@@ -30,7 +31,7 @@ If you like watching videos, no worries! We have it covered as well in video for
 
 <YoutubeVideo id="IC3wrgZ9joA" title={frontmatter.title} />
 
-**Section 1 - Initialize the project**
+### Initialize the project
 
 The first step is to create the project using Expo. If you don’t have expo set up on your machine, you can follow our [guide](https://www.notjust.dev/blog/2021-11-04-expo-development-environment-setup-for-first-react-native-project-windows) setting it up or follow the [official one](https://docs.expo.dev/get-started/installation/). Assuming you have expo all set up on your machine, let’s run this command to create a blank project,
 
@@ -287,6 +288,6 @@ export default NotificationItem;
 
 With that, we have come to the end and successfully built the amazing UI together! Hopefully, you enjoyed making the UI as much as I did. If you want to play around with what we have built so far, enjoy the snack ;)
 
-[https://snack.expo.dev/@saad-bashar/github.com-saad-bashar-ios16lockscreen](https://snack.expo.dev/@saad-bashar/github.com-saad-bashar-ios16lockscreen)
+<Snack snackId="@saad-bashar/github.com-saad-bashar-ios16lockscreen" height={700} />
 
 Now that we have this UI up and running, we can move forward to our next steps. As you can see we are showing a static time in our UI at the moment which is really boring! In our next step, let’s fix that and enable dynamic time in our UI.
