@@ -31,7 +31,7 @@ If you like watching videos, no worries! We have it covered as well in video for
 
 <YoutubeVideo id="IC3wrgZ9joA" title={frontmatter.title} />
 
-### Initialize the project
+## Initialize the project
 
 The first step is to create the project using Expo. If you don’t have expo set up on your machine, you can follow our [guide](https://www.notjust.dev/blog/2021-11-04-expo-development-environment-setup-for-first-react-native-project-windows) setting it up or follow the [official one](https://docs.expo.dev/get-started/installation/). Assuming you have expo all set up on your machine, let’s run this command to create a blank project,
 
@@ -50,9 +50,11 @@ When you hit `npm run start`, your dev server will start and you should see ther
 
 ![Blank app](./blank-app.png)
 
+## Building the UI
+
 Alright, Now let’s get our hands dirty. The fun is about to start. Open up the `App.js` file and start coding! Wait, before we really start coding there is one last thing we need to do. We need to download the assets. Go to this [link](https://assets.notjust.dev/ios-lockscreen), give your name and email. You should be able to download the assets. Now move the assets folder in our project’s root directory.
 
-**1. Wallpaper**
+### Wallpaper
 
 First, we will set up the wallpaper in our UI by using react native `ImageBackground` component.
 
@@ -78,7 +80,7 @@ With this amount of code, we already get a beautiful-looking UI.
 
 You may ask, why ImageBackgroud? Because we will put other content on top of the image and ImageBackground does exactly that.
 
-**2. Time and Lock Icon**
+### Time and Lock Icon
 
 Next, we want to show the lock icon and time at the top of our image like the following,
 
@@ -120,7 +122,7 @@ time: {
 }
 ```
 
-**3. Footer**
+### Footer
 
 Great, our upper part is done, now let’s check what we want to achieve at the bottom part of our UI.
 
@@ -177,7 +179,7 @@ Awesome, now let’s see what we have achieved so far. If you have been followin
 
 ![Header Footer](./header-footer.png)
 
-**4. Notification List**
+### Notification List
 
 The final part of our UI is the notification list. Check out the preview of the list before we dive into the code.
 
@@ -211,7 +213,8 @@ export default NotificationsList;
 1. `data`: The data is static coming from our `assets/data` file.
 2. We are just using a `FlatList` to render the data in a list.
 
-**NotificationItem Component**
+### Notification Item
+
 ![Notification Item](./notification-item.png)
 
 The actual UI of the item is rendered inside `NotificationItem` component. Each notification item gets these details from our list, (src/assets/data)
@@ -288,6 +291,10 @@ export default NotificationItem;
 
 With that, we have come to the end and successfully built the amazing UI together! Hopefully, you enjoyed making the UI as much as I did. If you want to play around with what we have built so far, enjoy the snack ;)
 
+## Snack Link
+
 <Snack snackId="@saad-bashar/github.com-saad-bashar-ios16lockscreen" height={700} />
+
+## Conclusion
 
 Now that we have this UI up and running, we can move forward to our next steps. As you can see we are showing a static time in our UI at the moment which is really boring! In our next step, let’s fix that and enable dynamic time in our UI.
