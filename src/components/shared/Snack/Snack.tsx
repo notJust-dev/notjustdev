@@ -1,5 +1,4 @@
 import React from 'react';
-import Script from 'next/script';
 
 interface SnackProps {
   snackId: string;
@@ -19,7 +18,8 @@ const Snack = ({ snackId, platform, preview, theme, height }: SnackProps) => (
       className="overflow-hidden w-full bg-gray-900 border-1 border-gray-800 rounded-md my-5"
       style={{ height }}
     />
-    <Script strategy="lazyOnload" src="https://snack.expo.io/embed.js" />
+    {/* <Script strategy="lazyOnload" src="https://snack.expo.io/embed.js" /> */}
+    <script defer src="https://snack.expo.io/embed.js" />
   </div>
 );
 
