@@ -33,6 +33,6 @@ export default Blog;
 
 export const getStaticProps: GetStaticProps<BlogProps> = async () => ({
   props: {
-    posts: await getPost('62dc18e1-4a51-4683-be5c-91684c0c9880'),
+    posts: await getAllPosts(),
   },
 });

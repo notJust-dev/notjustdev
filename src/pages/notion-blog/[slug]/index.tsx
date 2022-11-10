@@ -16,7 +16,7 @@ import MDXImage from '../../../components/MDXImage';
 import AuthorDetails from '../../../components/AuthorDetails';
 import BlogCard from '../../../components/BlogCard';
 import TableOfContents from '../../../components/TableOfContents';
-import { getAllPosts, getPost } from '../../../lib/notion';
+import { getAllPosts, getPostBySLug } from '../../../lib/notion';
 
 const dateFormat = {
   month: 'short' as 'short',
@@ -85,10 +85,10 @@ function BlogPostPage({ post, recommendedPosts }: Props) {
         <hr className="my-4 border-gray-700" />
         <div>
           <h4>
-            Published on:
+            Last updated on:
             <b>
               {' '}
-              {new Date(post.publishedOn).toLocaleString('en-US', dateFormat)}
+              {new Date(post.updatedOn).toLocaleString('en-US', dateFormat)}
             </b>
           </h4>
         </div>
@@ -131,9 +131,8 @@ function BlogPostPage({ post, recommendedPosts }: Props) {
 
 export const getStaticPaths: GetStaticPaths = async () => {
   const posts = await getAllPosts();
-  console.log(posts);
-  const paths = posts.map((post) => ({
-    params: { id: post.id },
+  const paths = posts.map(({ slug }) => ({
+    params: { slug },
   }));
 
   return { paths, fallback: false };
@@ -142,11 +141,12 @@ export const getStaticPaths: GetStaticPaths = async () => {
 export const getStaticProps: GetStaticProps<Props> = async ({
   params,
 }: GetStaticPropsContext) => {
-  const post = await getPost(params?.id as string);
+  console.log('params', params);
+  const post = await getPostBySLug(params?.slug as string);
   // const recommendedPosts = post?.slug
   //   ? await getRecommendedPostsMeta(post.slug)
   //   : [];
-  console.log(post);
+  // console.log(post);
   return {
     props: {
       post,
