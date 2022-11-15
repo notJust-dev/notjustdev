@@ -7,9 +7,13 @@ import { SOCIALS } from '../lib/config';
 
 import logo from '../../public/images/logo/white.png';
 
-const Footer = () => (
+type FooterProps = {
+  hideNewsletterForm?: boolean;
+};
+
+const Footer = ({ hideNewsletterForm = false }: FooterProps) => (
   <footer className="">
-    <NewsletterForm />
+    {!hideNewsletterForm && <NewsletterForm />}
     <div className="bg-custom-blue-500 mt-10">
       <MaxWidthWrapper>
         <div className="py-10 flex flex-col md:flex-row">

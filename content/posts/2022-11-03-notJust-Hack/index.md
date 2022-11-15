@@ -1,6 +1,7 @@
 ---
 title: notJust Hack
 image: /images/thumbnails/posts/2022-11-03-notJust-Hack.png
+# ytVideoId: 'PYQwn2Amrzw'
 publishedOn: '2022-11-03T17:48:30.556Z'
 description: 'Are you ready for a new challenge? Now is the time to build the App you always wanted to!'
 category: React Native
@@ -8,11 +9,19 @@ tags:
   - Hackathon
   - notJustEvents
 keywords: notJust Hack, hackathon, react native, aws amplify
+hideReadNext: true
+hideNewsletterForm: true
 ---
+
+import OptInForm from '../../../src/components/shared/OptInForm/OptInForm';
+import Button from '../../../src/components/shared/Button/Button';
+import YoutubeVideo from "../../../src/components/shared/YoutubeVideo/YoutubeVideo";
 
 Hey notJust Developers, are you ready for a new **Challenge**?
 
 Join the **notJust Hack** from 25th to 27th November, and build that App that you always wanted to.
+
+<YoutubeVideo id="PYQwn2Amrzw" title="notJust Hackathon Announcement" />
 
 ## Why participate?
 
@@ -28,55 +37,40 @@ We promise a weekend full of fun activities, learnings and hard work.
 
 As I always say, the best way to learn something new is to build a real project with it.
 
-## Schedule
+<OptInForm formId={"57a6ea4ec2"} formSrc={"https://awesome-teacher-1065.ck.page/57a6ea4ec2/index.js"} title="Sign up, and let's Hack together 👇" />
 
-(TODO: Add times and google events)
+## 📅 Schedule
 
-#### Day 0: 24th November
+### Day 0 (24th November)
 
-Kickoff Live stream
+- Kickoff Live stream on Youtube
 
-#### Day 1: 25th November
+### Day 1, 2, 3 (25-27th November)
 
-Workshop: Front end (Live)
+- Daily Workshop
+- Daily Group Coaching on Zoom
 
-Group Coaching (Zoom or Discord)
+### Demo day (28th November)
 
-#### Day 2: 26th November
+- Demo day - Live on [notJust.dev channel](https://www.youtube.com/c/notjustdev)
 
-Workshop: Backend (sponsored by AWS) (Live)
+## 🎁 Prizes
 
-Group Coaching
+### ✨ 3 Winners
 
-#### Day 3: 27th November
-
-Workshop: Chat app (sponsored by Stream) (Live)
-
-Group Coaching
-
-#### Demo day: 28th November
-
-Demo day (Live)
-
-## Prizes (TBD)
-
-Subject to change!
-
-### 3 Winners
-
-- $1000
+- **$500** 💰
 - notJust Dev TShirt
-- Bonus1
-- Bonus2
+- Nhost swag
 
-### 5 Runner ups
+### ✨ 3 Runner ups
 
-- $500
+- **$250** 💰
 - notJust Dev TShirt
-- Bonus1
-- Bonus2
+- Nhost swag
 
-## Demo day
+![gif](./giphy.webp)
+
+## ❇️ Demo day
 
 To participate at the demo day, you will have to submit a 3 minutes long video presentation of your project together with a link to the github repository. The submissions that follow the requirements will be played at the Demo Day, on 28th November, and our juries will vote for the best ones.
 
@@ -92,7 +86,7 @@ For the video presentation, we recommend following this structure:
 
 ❗ The video should be maximum 3 minutes. In order to give everyone the possibility to present, we will stop the video presentations at 3 minutes.
 
-## Evaluation criteria
+## 🧑‍⚖️ Evaluation criteria
 
 All projects will be judged by our juries.
 
@@ -113,9 +107,9 @@ Requirements:
 - **The project should be started during the Hackathon**
 - You can work alone, or in teams
 
-## Need help?
+## 🆘 Need help?
 
-Join our discord channel and get help from our mentors.
+[Join our discord channel](https://discord.gg/VpURUN2) and get help from our mentors.
 
 Every day, we will host a workshop to help you on your journey of building an app in 3 days.
 
@@ -129,10 +123,33 @@ Also, we will host Group Coaching sessions daily where you can ask questions and
 
 ![Good news, the app was submitted to the App Store and Google Play Store and was approved for both! So we are now officially launched](./testimonial2.png)
 
-## Thanks to our sponsors
+## 🙏 Thanks to our sponsors
 
 ### Stream
 
-The Stream Maker Account provides qualifying teams with full and free access to Stream's Chat and Activity Feed APIs, making them accessible to side projects and new startups. No credit card is required.
+[Stream](https://gstrm.io/notjustdevhack) powers Chat Messaging and Activity Feeds for billions of global end-users across thousands of different apps.
 
-[Try Stream for Free](https://gstrm.io/notjustdevhack)
+The Stream Maker Account provides qualifying teams with full and free access to Stream's Chat and Activity Feed APIs, making them accessible to side projects and new startups. No credit card is required. [Try Stream for Free!](https://gstrm.io/notjustdevhack)
+
+## Sharing is caring 🙌
+
+If you are excited about this event, help your network discover it as well. Invite your friends and learn together. It's more effective and also fun to learn together.
+<Button 
+  href="http://bit.ly/3GhZw3X"
+  target="_blank"
+  class="flex-1"
+  title="Share on Twitter 🐦"
+  flex1
+/>
+
+<Button
+  href="http://bit.ly/3EvCkxU"
+  target="\_blank"
+  type="secondary"
+  title="Share on LinkedIn 🧑‍💼"
+  flex1
+/>
+
+Thanks for all your support 🙏
+
+<OptInForm formId={"57a6ea4ec2"} formSrc={"https://awesome-teacher-1065.ck.page/57a6ea4ec2/index.js"} title="Don't forget to sign up...">To join the daily workshops and the group coaching sessions during the Hackathon!</OptInForm>
