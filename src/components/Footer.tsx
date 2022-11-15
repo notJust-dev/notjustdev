@@ -12,7 +12,7 @@ type FooterProps = {
 };
 
 const Footer = ({ hideNewsletterForm = false }: FooterProps) => (
-  <footer className="">
+  <footer className="mt-auto">
     {!hideNewsletterForm && <NewsletterForm />}
     <div className="bg-custom-blue-500 mt-10">
       <MaxWidthWrapper>

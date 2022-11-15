@@ -33,7 +33,7 @@ const Layout = ({
   const siteName = 'notJust.dev';
 
   return (
-    <div>
+    <div className="flex flex-col min-h-screen	">
       <Head>
         <title>{title}</title>
         <meta name="description" content={description} />
