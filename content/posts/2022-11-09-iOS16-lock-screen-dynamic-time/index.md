@@ -1,8 +1,8 @@
 ---
-title: iOS16 Lock Screen Series - Part 2 (Dynamic time)
-image: /images/thumbnails/posts/2022-11-05-iOS-16-lock-screen.jpeg
+title: Create a Dynamic Digital Clock in React Native
+image: /images/thumbnails/posts/2022-11-09-iOS16-lock-screen-dynamic-time.jpg
 publishedOn: '2022-11-09T17:48:30.556Z'
-description: 'This is our second part of the iOS 16 lock screen series. Here we will be learning how to work with date-time and learn the functionality of creating a simple clock that renders time dynamically.'
+description: 'In this blog post we will be learning how to work with date-time and learn the functionality of creating a clock that renders time dynamically.'
 category: React Native
 tags:
   - React Native CLI
@@ -27,7 +27,7 @@ As you can see from the preview we built 3 main components in our screen,
 2. Notification list
 3. Footer → Where we show the flashlight and camera icon.
 
-As of now our date and time inside header are fixed which is really boring! Let’s change it. This is going to be the second part of the series where we would like to create a dynamic time component that will give us an updated date and time. Just like the clock on your wall.
+As of now, our date and time inside the header are hard-coded, which is not how a clock actually works! Let’s change it. We will create a dynamic time component that will give us an updated date and time. Just like the clock on your wall.
 
 ## Install `dayjs` package
 
@@ -44,7 +44,7 @@ npm install dayjs
 
 ## Render the date-time
 
-We can render the date and time the way we want it very easily by the help of dayjs library
+Now that we have installed the library, let’s render the date-time in our header. We will use the `dayjs` library to get the current date and time and then we will format it to show it in our header.
 
 - **Import the library**
 
@@ -63,7 +63,7 @@ With these changes, the texts at the top of our component should be,
 <Text style="{styles.time}">{dayjs().format("hh:mm")}</Text>
 ```
 
-Cool! Now we should be able to see the current date and time in our simulators or devices. However, the work is not done yet. As you have probably discovered that our date-time is not really updating, even though it gives us the current date-time when the application renders but after that it does not update anymore.
+Cool! Now we should be able to see the current date and time in our simulators or devices. However, the work is not done yet. As you have probably discovered that our date-time is not getting updated anymore after it has been rendered once.
 
 Let’s now fix it. We don’t want a broken clock in our application. Do we?
 
@@ -73,18 +73,20 @@ We need a couple of changes now in order to update the time.
 
 ### Create a date-time state
 
-1. Since we will need to update our time, we need to put it into a state variable.
+Since we will need to update our time, we need to put it into a state variable.
 
 ```jsx
 import { useState } from 'react';
 
-// inside our component
-const [date, setDate] = useState(dayjs()); // default value is now our current time
+const App = () => {
+   const [date, setDate] = useState(daysjs()) // Initialize the date with current date-time
+   ....
+}
 ```
 
 ### Format our date-time using dayjs
 
-2. We have put `dayjs()` into our `date` state so we can use our `date` state to show the date-time now inside our `<Text />` component
+We have put `dayjs()` into our `date` state so we can use our `date` state to show the date-time inside our `<Text />` component
 
 ```jsx
 <Text style={styles.date}>{date.format("dddd, DD MMMM")}</Text>
@@ -94,10 +96,11 @@ const [date, setDate] = useState(dayjs()); // default value is now our current t
 
 ### Update the date-time state using `setInterval`
 
-3. We want to update the time with one minute interval every time. To do so we can use the javascript’s `setInterval` function. A typical `setInterval` function’s prototype is the following,
+We want to periodically update the date and time from the state. To do so we can use the javascript’s `setInterval` function. A typical `setInterval` function’s prototype is the following,
 
 ```jsx
 setInterval(() => {
+  // function that we want to run periodically
   functionToTrigger();
 }, timeInMs);
 ```
@@ -108,11 +111,12 @@ As we want to update our clock every minute, our function will become,
 
 ```jsx
 setInterval(() => {
-  updateTime(); // dummy function for now, will work on this.
+  // function that we want to run periodically
+  functionToTrigger();
 }, 60000); // 1 min = 60000 milliseconds
 ```
 
-Great, now our `updateTime` function will trigger an update in every one minute. Let’s update our time by using `setDate` hook.
+We can write the function that will update our date-time state. Time to write our `functionToTrigger()` function.
 
 ```jsx
 setInterval(() => {
@@ -120,7 +124,9 @@ setInterval(() => {
 }, 60000);
 ```
 
-4. We have our core logic set up for updating the time, where do we want to use this logic now? You might have guessed it already, since this is a side effect and it does not depend on user’s interaction we will use react’s `useEffect` hook. The next question is when do we want to start this logic? We want to start our timer after our component mounts. By using an empty dependency array inside our `useEffect` hook we can achieve that lifecycle.
+We have our core logic set up for updating the time, where do we want to use this logic now? You might have guessed it already, since this is a side effect and it does not depend on user’s interaction we will use react’s `useEffect` hook.
+
+The next question is when do we want to start this logic? We want to start our timer after our component mounts. By using an empty dependency array inside our `useEffect` hook we can achieve that lifecycle.
 
 ```jsx
 useEffect(() => {
@@ -134,13 +140,13 @@ Awesome, with that you should be able to see your time being updated every minut
 
 ### Preview
 
-Before we go any further, let’s check whether our implementation is working so far, let’s update the time in every seconds and show seconds in our header with the hours and mins for the sake of the demo.
+Before we go any further, let’s check whether our implementation is working so far, let’s update the time every seconds and show seconds in our header with the hours and mins for the sake of the demo.
 
 ```jsx
 useEffect(() => {
   setInterval(() => {
-    setDate(dayjs()); // dayjs() always gives us the current time
-  }, 1000 * 1);
+    setDate(dayjs());
+  }, 1000 * 1); // 1 second = 1000 milliseconds
 }, []);
 ```
 
@@ -158,11 +164,11 @@ Let’s revert back the code since we have already proved that it’s working!
 
 ### Clean up the interval
 
-5. There is one more final thing that we need to add. In our final step, we will need to clear the interval to make sure that when our application un-mounts we clean up the interval object and we do not keep it running. In order to do so we can do the following,
+There is one more final thing that we need to add. In our final step, we will need to clear the interval to make sure that when our application un-mounts we clean up the interval object and we do not keep it running. In order to do so we can do the following,
 
 ```jsx
 useEffect(() => {
-  let timer = setInterval(() => {
+  const timer = setInterval(() => {
     setDate(dayjs());
   }, 1000 * 1);
 
@@ -170,10 +176,10 @@ useEffect(() => {
 }, []);
 ```
 
-Note here,
+Note here:
 
-1. Our setInterval function returns a timer object that we want to clear, hence the variable `timer`
-2. `clearInterval()` is a global funciton that we can directly use, no need to import. We are passing our `timer` variable to `clearInterval(timer)` to clear the `setInterval` function.
+- Our setInterval function returns a timer object that we want to clear, hence the variable `timer`
+- `clearInterval()` is a global funciton that we can directly use, no need to import. We are passing our `timer` variable to `clearInterval(timer)` to clear the `setInterval` function.
 
 ## Snack link
 

@@ -1,5 +1,5 @@
 ---
-title: iOS16 Lock Screen Series - Part 1 (Building the UI)
+title: Building the iOS 16 Lock Screen - UI
 image: /images/thumbnails/posts/2022-11-05-iOS-16-lock-screen.jpeg
 publishedOn: '2022-11-05T17:48:30.556Z'
 description: 'Learning by doing is one of the most effective ways to learn. In this series, We will be building a lock screen UI similar to iOS 16 from scratch using React Native and Reanimated. This is the first part of the series where we will be building the UI.'
@@ -16,12 +16,14 @@ author: Saad
 import YoutubeVideo from "../../../src/components/shared/YoutubeVideo/YoutubeVideo";
 import Snack from '../../../src/components/shared/Snack/Snack';
 
-One of the most effective ways to learn is to build real-life projects and we are going to do exactly that in this series! This is going to be a four part blog series, we will build the beautiful iOS 16 lock screen from scratch. Moreover we be learning animations! React-Native and Reanimated will be used as our core technologies. This series will be divided into four chapters. They are the following,
+One of the most effective ways to learn is to build real-life projects and we are going to do exactly that in this series! This is going to be a four part blog series, we will build the beautiful iOS 16 lock screen from scratch. Moreover we will be learning animations! React-Native and Reanimated will be used as our core technologies. This series will be divided into four chapters. They are the following,
 
 1. iOS 16 lock screen - UI.
 2. iOS 16 lock screen - Dynamic time.
-3. iOS 16 lock screen - Custom animations.
-4. iOS 16 lock screen - FlatList animations.
+3. iOS 16 lock screen - Flatlist animations.
+4. iOS 16 lock screen - Custom animations.
+
+Even though this is a series of four parts, each part will be a standalone blog post and you can lean valuable concepts from each part. So, let’s get started!
 
 This blog post will cover the first chapter of this series (iOS 16 lock screen - UI). We will build the beautiful UI together and learn along the way. First, let’s see ahead what we are going to build.
 
