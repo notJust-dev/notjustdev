@@ -8,7 +8,9 @@ export const downloadImage = (
   url: string,
   filepath: string,
 ): Promise<string> => {
-  const fullPath = join(publicDir, filepath);
+  const fullPath = filepath.includes(publicDir)
+    ? filepath
+    : join(publicDir, filepath);
   return new Promise((resolve, reject) => {
     client.get(url, (res) => {
       if (res.statusCode === 200) {

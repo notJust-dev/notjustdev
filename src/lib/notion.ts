@@ -7,8 +7,15 @@ import { bundleMDX } from 'mdx-bundler';
 import { NotionToMarkdown } from 'notion-to-md';
 import { dirname } from 'path';
 import { downloadImage } from '../utils/imageDownloader';
+import { v4 as uuidv4 } from 'uuid';
+import fs from 'fs';
+import remarkImagesSize from './remark-images-size';
+import rehypeSlug from 'rehype-slug';
+import rehypeAutolinkHeadings from 'rehype-autolink-headings';
 
 const { NOTION_KEY, NOTION_DATABASE = '' } = process.env;
+
+const rootDir = process.cwd();
 
 // Initializing a client
 const notion = new Client({
@@ -18,8 +25,7 @@ const notion = new Client({
 // passing notion client to the option
 const n2m = new NotionToMarkdown({ notionClient: notion });
 
-const MD_IMAGE_REGEX =
-  /!\[[^\]]*\]\((?<filename>.*?)(?=\"|\))(?<optionalpart>\".*\")?\)/g;
+const MD_IMAGE_REGEX = /!\[(?<alt>[^\]]*)\]\((?<url>.*?)(?=\"|\))\)/g;
 
 const richTextToPlain = (richText: any[]) => {
   return richText.map((rt) => rt.plain_text).join(' ');
@@ -74,34 +80,49 @@ export const getPostBySLug = async (slug: string): Promise<Post> => {
   }
 
   const mdblocks = await n2m.pageToMarkdown(page.id);
-  const mdString = n2m
+  let mdString = n2m
     .toMarkdownString(mdblocks)
     .replaceAll('“', '"')
     .replaceAll('”', '"');
 
+  // create folder for images
+  const dir = `${rootDir}/public/images/notion/${slug}`;
+  if (!fs.existsSync(dir)) {
+    fs.mkdirSync(dir);
+  }
+
   const matches = mdString.matchAll(MD_IMAGE_REGEX);
-  console.log([...matches].map((match) => match.groups));
+
+  for (const match of matches) {
+    if (match.groups?.url) {
+      const uri = await downloadImage(
+        match.groups.url,
+        `/images/notion/${slug}/${match.groups.alt.replaceAll(' ', '-')}.png`,
+      );
+      mdString = mdString.replace(match.groups?.url, uri);
+    }
+  }
 
   const { code, frontmatter } = await bundleMDX({
     source: mdString,
     cwd: process.cwd(),
-    // mdxOptions: (options) => ({
-    //   ...options,
-    //   remarkPlugins: [...(options.remarkPlugins ?? []), remarkImagesSize],
-    //   rehypePlugins: [
-    //     ...(options.rehypePlugins ?? []),
-    //     rehypeSlug,
-    //     () =>
-    //       rehypeAutolinkHeadings({
-    //         behavior: 'append',
-    //         properties: {
-    //           className: 'heading-copy-link',
-    //           'aria-hidden': 'true',
-    //           tabIndex: -1,
-    //         },
-    //       }),
-    //   ],
-    // }),
+    mdxOptions: (options) => ({
+      ...options,
+      remarkPlugins: [...(options.remarkPlugins ?? []), remarkImagesSize],
+      rehypePlugins: [
+        ...(options.rehypePlugins ?? []),
+        rehypeSlug,
+        () =>
+          rehypeAutolinkHeadings({
+            behavior: 'append',
+            properties: {
+              className: 'heading-copy-link',
+              'aria-hidden': 'true',
+              tabIndex: -1,
+            },
+          }),
+      ],
+    }),
     // esbuildOptions: (options) => ({
     //   ...options,
     //   outdir: join(outDir, realSlug),

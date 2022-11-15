@@ -21,7 +21,7 @@ export interface RemarkMdxImagesOptions {
   resolve?: boolean;
 }
 
-const urlPattern = /^(https?:)?\//;
+const urlPattern = /^(https?:)/;
 const relativePathPattern = /\.\.?\//;
 
 /**
@@ -37,12 +37,21 @@ const remarkMdxImages: Plugin<[RemarkMdxImagesOptions?], Root> =
       'image',
       (node: Image, index: number | null, parent: Parent | null) => {
         let { alt = null, title, url } = node;
+        console.log('Test 2', url);
+
         if (urlPattern.test(url)) {
+          console.log('failes');
           return;
         }
-        if (!relativePathPattern.test(url) && resolve) {
-          url = `./${url}`;
-        }
+
+        // if (url[0] === '/') {
+        //   url = `/public${url}`;
+        // } else
+        // if (!relativePathPattern.test(url) && resolve) {
+        //   url = `./${url}`;
+        // }
+
+        console.log('Test 3', url);
 
         let name = imported.get(url);
         if (!name) {
@@ -113,9 +122,13 @@ const remarkMdxImages: Plugin<[RemarkMdxImagesOptions?], Root> =
             value: title,
           });
         }
-
+        if (url[0] === '/') {
+          url = `/public${url}`;
+        }
         const imagePath = join(dirname(file.path), url);
+        console.log('IMAGE path', imagePath);
         const imageSize = sizeOf(imagePath);
+        console.log('IMAGE size', imageSize);
 
         textElement.attributes.push({
           type: 'mdxJsxAttribute',
