@@ -68,6 +68,13 @@ As I always say, the best way to learn something new is to build a real project 
 - notJust Dev TShirt
 - Nhost swag
 
+### 🎁 1 Special prize from Nhost
+
+- Nhost Pro plan for 24 months (worth $600)
+- 1h Startup-coaching session with [Johan Eliasson](https://www.linkedin.com/in/johan--eliasson/), CEO / Founder of Nhost
+
+Nhost will pick the winner for this prize!
+
 ![gif](./giphy.webp)
 
 ## ❇️ Demo day
@@ -130,6 +137,10 @@ Also, we will host Group Coaching sessions daily where you can ask questions and
 [Stream](https://gstrm.io/notjustdevhack) powers Chat Messaging and Activity Feeds for billions of global end-users across thousands of different apps.
 
 The Stream Maker Account provides qualifying teams with full and free access to Stream's Chat and Activity Feed APIs, making them accessible to side projects and new startups. No credit card is required. [Try Stream for Free!](https://gstrm.io/notjustdevhack)
+
+### Nhost
+
+[Nhost](http://bit.ly/3hMq836) is an open-source alternative to Firebase, leveraging the power of GraphQL. We provide all the APIs, services, and SDKs you need to build apps users love. Go from a side project to a successful business in a few days. [Try Nhost for Free!](http://bit.ly/3hMq836)
 
 ## Sharing is caring 🙌
 
