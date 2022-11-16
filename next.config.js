@@ -12,6 +12,10 @@ module.exports = {
         source: '/masterclass',
         destination: 'https://assets.notjust.dev/masterclass',
       },
+      {
+        source: '/hack',
+        destination: '/blog/2022-11-03-notJust-Hack',
+      },
     ];
   },
   async redirects() {

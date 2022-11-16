@@ -13,6 +13,7 @@ type Props = {
   keywords: string;
   image: string;
   pageType: string;
+  hideNewsletterForm?: boolean;
 };
 
 const Layout = ({
@@ -23,6 +24,7 @@ const Layout = ({
   keywords,
   image,
   pageType,
+  hideNewsletterForm,
 }: Props) => {
   const router = useRouter();
 
@@ -31,7 +33,7 @@ const Layout = ({
   const siteName = 'notJust.dev';
 
   return (
-    <div>
+    <div className="flex flex-col min-h-screen	">
       <Head>
         <title>{title}</title>
         <meta name="description" content={description} />
@@ -57,7 +59,7 @@ const Layout = ({
 
       <main>{children}</main>
 
-      <Footer />
+      <Footer hideNewsletterForm={hideNewsletterForm} />
     </div>
   );
 };

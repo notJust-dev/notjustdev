@@ -78,6 +78,7 @@ export async function getPostBySlug(slug: string) {
         '.jpeg': 'file',
         '.jpg': 'file',
         '.gif': 'file',
+        '.webp': 'file',
       },
       publicPath: `/images/content/posts/${realSlug}`,
       write: true,
