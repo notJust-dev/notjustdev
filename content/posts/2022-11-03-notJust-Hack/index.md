@@ -2,7 +2,7 @@
 title: notJust Hack
 image: /images/thumbnails/posts/2022-11-03-notJust-Hack.png
 # ytVideoId: 'PYQwn2Amrzw'
-publishedOn: '2022-11-03T17:48:30.556Z'
+publishedOn: '2022-11-16T17:48:30.556Z'
 description: 'Are you ready for a new challenge? Join the notJust Hack from 25th to 27th November, and build that App that you always wanted to.'
 category: React Native
 tags:
