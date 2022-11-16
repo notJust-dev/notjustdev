@@ -16,6 +16,7 @@ import MDXImage from '../../../components/MDXImage';
 import AuthorDetails from '../../../components/AuthorDetails';
 import BlogCard from '../../../components/BlogCard';
 import TableOfContents from '../../../components/TableOfContents';
+import YoutubeVideo from '../../../components/shared/YoutubeVideo';
 
 const dateFormat = {
   month: 'short' as 'short',
@@ -65,18 +66,23 @@ function BlogPostPage({ post, recommendedPosts }: Props) {
       image={post.image}
       pageType="article"
       keywords={post.keywords}
+      hideNewsletterForm={post.hideNewsletterForm}
     >
       <MaxWidthWrapper>
         {post.image && !post.hideImageHeader && (
           <div className="relative w-full aspect-w-16 aspect-h-9">
-            <Image
-              src={post.image}
-              alt="post image"
-              width={1280}
-              height={720}
-              priority
-              sizes="(max-width: 1100px) 100vw, 1100px"
-            />
+            {post.ytVideoId ? (
+              <YoutubeVideo id={post.ytVideoId} title={post.title} />
+            ) : (
+              <Image
+                src={post.image}
+                alt="post image"
+                width={1280}
+                height={720}
+                priority
+                sizes="(max-width: 1100px) 100vw, 1100px"
+              />
+            )}
           </div>
         )}
         <h1 className="text-5xl text-center my-10">{post.title}</h1>
@@ -117,12 +123,16 @@ function BlogPostPage({ post, recommendedPosts }: Props) {
 
         {post.author && <AuthorDetails authorId={post.author} />}
 
-        <h3 className="text-2xl mt-10">Read next</h3>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-5 my-5">
-          {recommendedPosts.map((recommendedPost) => (
-            <BlogCard post={recommendedPost} key={recommendedPost.slug} />
-          ))}
-        </div>
+        {!post.hideReadNext && (
+          <>
+            <h3 className="text-2xl mt-10">Read next</h3>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-5 my-5">
+              {recommendedPosts.map((recommendedPost) => (
+                <BlogCard post={recommendedPost} key={recommendedPost.slug} />
+              ))}
+            </div>
+          </>
+        )}
       </MaxWidthWrapper>
     </Layout>
   );

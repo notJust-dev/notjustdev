@@ -3,6 +3,7 @@ type PostMeta = {
   title: string;
   publishedOn: string;
   image: string;
+  ytVideoId?: string;
   canonical?: string;
   description: string;
   category: string;
@@ -10,6 +11,8 @@ type PostMeta = {
   draft?: boolean;
   keywords?: string;
   hideImageHeader?: boolean;
+  hideReadNext?: boolean;
+  hideNewsletterForm?: boolean;
   author?: string;
 };
 
