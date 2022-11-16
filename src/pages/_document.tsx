@@ -19,7 +19,7 @@ export default class MyDocument extends Document {
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img
                 src="https://mc.yandex.ru/watch/91208801"
-                style="position:absolute; left:-9999px;"
+                style={{ position: 'absolute', left: '-9999px' }}
                 alt=""
               />
             </div>
@@ -32,7 +32,7 @@ export default class MyDocument extends Document {
               src="https://www.googletagmanager.com/ns.html?id=GTM-58HCJGW"
               height="0"
               width="0"
-              style="display:none;visibility:hidden"
+              style={{ display: 'none', visibility: 'hidden' }}
             ></iframe>
           </noscript>
           {/* <!-- End Google Tag Manager (noscript) --> */}
