@@ -37,6 +37,19 @@ export default class MyDocument extends Document {
           </noscript>
           {/* <!-- End Google Tag Manager (noscript) --> */}
 
+          {/* <!-- Meta Pixel Code --> */}
+          <noscript>
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img
+              height="1"
+              width="1"
+              alt=""
+              style={{ display: 'none' }}
+              src="https://www.facebook.com/tr?id=828991778317631&ev=PageView&noscript=1"
+            />
+          </noscript>
+          {/* <!-- Meta Pixel Code --> */}
+
           <Main />
           <NextScript />
         </body>
