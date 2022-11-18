@@ -351,6 +351,21 @@ const [runQuery, { data, loading, error }] = useLazyQuery(query);
     onPress={() => runQuery({ variables: { q: search } })}
   />
 </View>;
+
+...
+
+header: {
+  flexDirection: "row",
+  alignItems: "center",
+},
+input: {
+  flex: 1,
+  borderWidth: 1,
+  borderColor: "gainsboro",
+  borderRadius: 5,
+  padding: 10,
+  marginVertical: 5,
+}
 ```
 
 <aside>
@@ -432,46 +447,54 @@ tabs: {
 
 ### My Books
 
-17. Create a context provider that will be responsible for keeping track of my books
+We are going to use React Context API to store the details about my books, and to be able to use this data in different places in the application.
+
+17. For that, create a new file context/MyBooksProvider.tsx
 
 ```jsx
-import React, { createContext, useContext, useState } from "react";
+import { createContext, useContext, ReactNode, useState } from "react";
 
 type MyBooksContextType = {
-  isBookSaved: (book: Book) => boolean;
   onToggleSaved: (book: Book) => void;
+  isBookSaved: (book: Book) => boolean;
   savedBooks: Book[];
 };
 
 const MyBooksContext = createContext<MyBooksContextType>({
-  isBookSaved: () => false,
   onToggleSaved: () => {},
+  isBookSaved: () => false,
   savedBooks: [],
 });
 
 type Props = {
-  children: React.ReactNode;
+  children: ReactNode;
 };
 
 const MyBooksProvider = ({ children }: Props) => {
   const [savedBooks, setSavedBooks] = useState<Book[]>([]);
 
+  const areBooksTheSame = (a: Book, b: Book) => {
+    return JSON.stringify(a) === JSON.stringify(b);
+  };
+
   const isBookSaved = (book: Book) => {
-    return savedBooks.some(
-      (savedBook) => JSON.stringify(savedBook) === JSON.stringify(book)
-    );
+    return savedBooks.some((savedBook) => areBooksTheSame(savedBook, book));
   };
 
   const onToggleSaved = (book: Book) => {
     if (isBookSaved(book)) {
-      setSavedBooks((books) => books.filter((item) => item !== book));
+      // remove from saved
+      setSavedBooks((books) =>
+        books.filter((savedBook) => !areBooksTheSame(savedBook, book))
+      );
     } else {
+      // add to saved
       setSavedBooks((books) => [book, ...books]);
     }
   };
 
   return (
-    <MyBooksContext.Provider value={{ isBookSaved, onToggleSaved, savedBooks }}>
+    <MyBooksContext.Provider value={{ onToggleSaved, isBookSaved, savedBooks }}>
       {children}
     </MyBooksContext.Provider>
   );
@@ -480,14 +503,6 @@ const MyBooksProvider = ({ children }: Props) => {
 export const useMyBooks = () => useContext(MyBooksContext);
 
 export default MyBooksProvider;
-```
-
-18. In `App.tsx`, wrap our `Navigation` component inside the `MyBooksProvider`
-
-```jsx
-<MyBooksProvider>
-  <Navigation colorScheme={colorScheme} />
-</MyBooksProvider>
 ```
 
 19. Now we can use `MyBooksContext` inside our screens. For that, we can use the exported custom hook called `useMyBooks`.
@@ -526,9 +541,18 @@ export default function TabTwoScreen() {
     </View>
   );
 }
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    padding: 10,
+  },
+});
 ```
 
 ## Persisting data
+
+To persist data on the device storage, we are going to use [Async Storage](https://react-native-async-storage.github.io/async-storage/).
 
 22. Install Async Storage
 
