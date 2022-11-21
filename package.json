@@ -25,7 +25,7 @@
     "react-icons": "^4.3.1",
     "react-lite-youtube-embed": "^2.3.1",
     "rehype-autolink-headings": "^6.1.1",
-    "rehype-slug": "^5.0.1",
+    "rehype-slug": "^5.1.0",
     "remark-mdx-images": "^1.0.3",
     "sharp": "^0.30.5",
     "unified": "^10.1.2",

@@ -2,7 +2,7 @@
 title: notJust Hack
 image: /images/thumbnails/posts/2022-11-03-notJust-Hack.png
 # ytVideoId: 'PYQwn2Amrzw'
-publishedOn: '2022-11-16T17:48:30.556Z'
+publishedOn: '2022-11-21T17:48:30.556Z'
 description: 'Are you ready for a new challenge? Join the notJust Hack from 25th to 27th November, and build that App that you always wanted to.'
 category: React Native
 tags:
@@ -60,22 +60,32 @@ As I always say, the best way to learn something new is to build a real project 
 
 - **$500** 💰
 - notJust Dev TShirt
+- Stream swag
 - Nhost swag
 
 ### ✨ 3 Runner ups
 
 - **$250** 💰
 - notJust Dev TShirt
+- Stream swag
 - Nhost swag
 
-### 🎁 1 Special prize from Nhost
+### 🎁 1 Special prize from [Stream](https://gstrm.io/notjustdevhack) for their favorite project
 
-- Nhost Pro plan for 24 months (worth $600)
+- $300 Amazon Gift Card
+- Stream swag
+
+### 🎁 1 Special prize from [Nhost](http://bit.ly/3hMq836) for their favorite project
+
+- Nhost Pro plan for 24 months (worth **$600**)
 - 1h Startup-coaching session with [Johan Eliasson](https://www.linkedin.com/in/johan--eliasson/), CEO / Founder of Nhost
 
-Nhost will pick the winner for this prize!
+### 🎁 1 Special prize from [notJust Academy](https://academy.notjust.dev/)
 
-![gif](./giphy.webp)
+- [The Full Stack Mobile Developer](https://academy.notjust.dev/) Ultimate package (worth **$399**)
+- If you are already a course member, we will send you $399
+
+![gif](./cheering_minions.gif)
 
 ## ❇️ Demo day
 

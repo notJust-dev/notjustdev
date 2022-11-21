@@ -39,9 +39,13 @@ export async function getPostBySlug(slug: string) {
 
   const toc = headings.map((h) => {
     const depth = h.split(' ', 1)[0].length;
-    const title = h.slice(depth).replaceAll('_', '').trim();
+    const title = h
+      .slice(depth)
+      .replaceAll('_', '')
+      .replace(/\[([^\[\]]*)\]\((.*?)\)/gm, '$1')
+      .trim();
     return {
-      slug: slugger.slug(title),
+      slug: slugger.slug(`h-${title}`),
       title,
       depth,
     };
@@ -57,7 +61,7 @@ export async function getPostBySlug(slug: string) {
       remarkPlugins: [...(options.remarkPlugins ?? []), remarkImagesSize],
       rehypePlugins: [
         ...(options.rehypePlugins ?? []),
-        rehypeSlug,
+        () => rehypeSlug({ prefix: 'h-' }),
         () =>
           rehypeAutolinkHeadings({
             behavior: 'append',
