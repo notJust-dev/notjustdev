@@ -39,21 +39,6 @@ As I always say, the best way to learn something new is to build a real project 
 
 <OptInForm formId={"57a6ea4ec2"} formSrc={"https://awesome-teacher-1065.ck.page/57a6ea4ec2/index.js"} title="Sign up, and let's Hack together 👇" />
 
-## 📅 Schedule
-
-### Day 0 (24th November)
-
-- Kickoff Live stream on Youtube
-
-### Day 1, 2, 3 (25-27th November)
-
-- Daily Workshop
-- Daily Group Coaching on Zoom
-
-### Demo day (28th November)
-
-- Demo day - Live on [notJust.dev channel](https://www.youtube.com/c/notjustdev)
-
 ## 🎁 Prizes
 
 ### ✨ 3 Winners
@@ -70,24 +55,99 @@ As I always say, the best way to learn something new is to build a real project 
 - Stream swag
 - Nhost swag
 
-### 🎁 1 Special prize from [Stream](https://gstrm.io/notjustdevhack) for their favorite project
+### 1 Special prize from [Stream](https://gstrm.io/notjustdevhack) for their favorite project
 
 - $300 Amazon Gift Card
 - Stream swag
 
-### 🎁 1 Special prize from [Nhost](http://bit.ly/3hMq836) for their favorite project
+### 1 Special prize from [Nhost](http://bit.ly/3hMq836) for their favorite project
 
 - Nhost Pro plan for 24 months (worth **$600**)
 - 1h Startup-coaching session with [Johan Eliasson](https://www.linkedin.com/in/johan--eliasson/), CEO / Founder of Nhost
 
-### 🎁 1 Special prize from [notJust Academy](https://academy.notjust.dev/)
+### 1 Special prize from [notJust Academy](https://academy.notjust.dev/)
 
 - [The Full Stack Mobile Developer](https://academy.notjust.dev/) Ultimate package (worth **$399**)
 - If you are already a course member, we will send you $399
 
 ![gif](./cheering_minions.gif)
 
-## ❇️ Demo day
+## 📅 Schedule
+
+### 🔴 Kickoff Live stream on Youtube
+
+📅 Thursday 24th November - [3pm UTC](https://dateful.com/convert/utc?t=3pm)
+
+<hr />
+
+### 🧰 Workshop: Build any Mobile App with React Native
+
+📅 Friday 25th November - [3pm UTC](https://dateful.com/convert/utc?t=3pm)
+
+Let’s Kickstart the #notJust.Hack with a workshop on building mobile applications with React Native
+
+✅ The power of React Native<br />
+✅ How to get started<br />
+✅ Learn by building REAL Projects
+
+And because the best way to learn is by getting your hands dirty, we will build a **Virtual Events App!**
+
+### 🙋 Group Coaching
+
+📅 Friday 25th November - [6pm-7pm UTC](https://dateful.com/convert/utc?t=6pm)
+
+<hr />
+
+### 🧰 Workshop: Virtual Events App [React Native | Nhost]
+
+📅 Saturday 26th November - [3pm UTC](https://dateful.com/convert/utc?t=3pm)
+
+Building Full Stack applications in 2022 is so accessible for Mobile Developers with the help of services like [Nhost](http://bit.ly/3hMq836).
+
+Today we will use [Nhost](http://bit.ly/3hMq836) to build a Full-Stack Events App 📅
+
+✅ Authentications<br />
+✅ Database & GraphQL API<br />
+✅ Storage<br />
+✅ Apollo Client
+
+Join the workshop, and let’s learn together!
+
+### 🙋 Group Coaching
+
+📅 Saturday 26th November - [6pm-7pm UTC](https://dateful.com/convert/utc?t=6pm)
+
+<hr />
+
+### 🧰 Workshop: Build a Chat App with Stream SDK
+
+📅 Sunday 27th November - [3pm UTC](https://dateful.com/convert/utc?t=3pm)
+
+Adding Chat to your application couldn’t be easier than using [Stream Chat](https://gstrm.io/notjustdevhack).
+
+That’s exactly what we are going to do during today’s workshop.
+
+We will build a premium messaging experience for our Virtual Events app 📅
+
+✅ Private and Group messaging<br />
+✅ Message reaction<br />
+✅ Replies & Threads<br />
+✅ Attachements, URL previews, gifs<br />
+✅ and more
+
+Join the workshop, and let’s learn together!
+
+### 🙋 Group Coaching
+
+📅 Sunday 27th November - [6pm-7pm UTC](https://dateful.com/convert/utc?t=6pm)
+
+<hr />
+
+### 🔴 Demo day
+
+📅 Monday 28th November - [3pm UTC](https://dateful.com/convert/utc?t=3pm)
+
+## Demo day
 
 To participate at the demo day, you will have to submit a 3 minutes long video presentation of your project together with a link to the github repository. The submissions that follow the requirements will be played at the Demo Day, on 28th November, and our juries will vote for the best ones.
 
