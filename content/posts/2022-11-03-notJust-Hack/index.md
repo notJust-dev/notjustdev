@@ -74,74 +74,19 @@ As I always say, the best way to learn something new is to build a real project 
 
 ## 📅 Schedule
 
-### 🔴 Kickoff Live stream on Youtube
+![Sessions](./sessions.png)
 
-📅 Thursday 24th November - [3pm UTC](https://dateful.com/convert/utc?t=3pm)
+For the detailed schedule of all the events, please visit the event page.
 
-<hr />
+If you want to join the workshops on Zoom and be able to ask questions, make sure to register on the event page.
 
-### 🧰 Workshop: Build any Mobile App with React Native
-
-📅 Friday 25th November - [3pm UTC](https://dateful.com/convert/utc?t=3pm)
-
-Let’s Kickstart the #notJust.Hack with a workshop on building mobile applications with React Native
-
-✅ The power of React Native<br />
-✅ How to get started<br />
-✅ Learn by building REAL Projects
-
-And because the best way to learn is by getting your hands dirty, we will build a **Virtual Events App!**
-
-### 🙋 Group Coaching
-
-📅 Friday 25th November - [6pm-7pm UTC](https://dateful.com/convert/utc?t=6pm)
-
-<hr />
-
-### 🧰 Workshop: Virtual Events App [React Native | Nhost]
-
-📅 Saturday 26th November - [3pm UTC](https://dateful.com/convert/utc?t=3pm)
-
-Building Full Stack applications in 2022 is so accessible for Mobile Developers with the help of services like [Nhost](http://bit.ly/3hMq836).
-
-Today we will use [Nhost](http://bit.ly/3hMq836) to build a Full-Stack Events App 📅
-
-✅ Authentications<br />
-✅ Database & GraphQL API<br />
-✅ Storage<br />
-✅ Apollo Client
-
-Join the workshop, and let’s learn together!
-
-### 🙋 Group Coaching
-
-📅 Saturday 26th November - [6pm-7pm UTC](https://dateful.com/convert/utc?t=6pm)
-
-<hr />
-
-### 🧰 Workshop: Build a Chat App with Stream SDK
-
-📅 Sunday 27th November - [3pm UTC](https://dateful.com/convert/utc?t=3pm)
-
-Adding Chat to your application couldn’t be easier than using [Stream Chat](https://gstrm.io/notjustdevhack).
-
-That’s exactly what we are going to do during today’s workshop.
-
-We will build a premium messaging experience for our Virtual Events app 📅
-
-✅ Private and Group messaging<br />
-✅ Message reaction<br />
-✅ Replies & Threads<br />
-✅ Attachements, URL previews, gifs<br />
-✅ and more
-
-Join the workshop, and let’s learn together!
-
-### 🙋 Group Coaching
-
-📅 Sunday 27th November - [6pm-7pm UTC](https://dateful.com/convert/utc?t=6pm)
-
-<hr />
+<Button 
+  href="https://events.zoom.us/ev/Ajc5bJBZEl2f2uhIDg-bt7cHDY4mqF1eFudjFVJuXnDqRCteHPvC~AggLXsr32QYFjq8BlYLZ5I06Dg"
+  target="_blank"
+  class="flex-1"
+  title="View Sessions Schedule"
+  flex1
+/>
 
 ### 🔴 Demo day
 

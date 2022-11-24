@@ -31,6 +31,12 @@ module.exports = {
         destination: 'https://my-store-11437346.creator-spring.com/',
         permanent: false,
       },
+      {
+        source: '/hack-event',
+        destination:
+          'https://events.zoom.us/ev/Ajc5bJBZEl2f2uhIDg-bt7cHDY4mqF1eFudjFVJuXnDqRCteHPvC~AggLXsr32QYFjq8BlYLZ5I06Dg',
+        permanent: false,
+      },
     ];
   },
 };
