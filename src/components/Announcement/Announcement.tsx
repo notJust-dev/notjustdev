@@ -1,11 +1,11 @@
 import Link from 'next/link';
 
 const text =
-  'notJust Hack 🚀 - Build the app you always wanted to! Sign up NOW!';
+  '🔥 Black Friday Sale: Join the Full Stack Mobile Developer Course and save 25% 🔥';
 
 const Announcement = () =>
   !text ? null : (
-    <Link href="/hack">
+    <Link href="https://academy.notjust.dev/">
       <div className="flex justify-center p-3 cursor-pointer bg-custom-blue-500">
         <h3 className="text-primary">{text} →</h3>
       </div>
