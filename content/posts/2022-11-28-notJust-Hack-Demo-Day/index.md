@@ -56,7 +56,7 @@ We have prepared exciting prizes for the best projects
 
 ![gif](./cheering_minions.gif)
 
-## Startups
+## Projects
 
 ### 1. Introvert Diaries
 
@@ -164,6 +164,34 @@ It gives students the additional option to make the payment to the canteen owner
 
 <YoutubeVideo id="3F1XQZTKKPA" title="Canteen App" />
 
-## Results
+## And the winners are 🥁
 
-During the Demo live stream, we will announce the winners!
+Congrats to all the participants. You are all the winners today, and the best prize is the application that you have built during the last 3 days.
+
+Our special prizes go to the best projects based on the votes from 4 judges.
+
+### ✨ 3 Winners
+
+- MarketBuzz
+- Handy Helper
+- Cura
+
+### ✨ 3 Runner ups
+
+- Mero Room
+- Yummy donations
+- PillPocket
+
+### 1 Special prize from [Stream](https://gstrm.io/notjustdevhack)
+
+- EDUSCORE
+
+### 1 Special prize from [Nhost](http://bit.ly/3hMq836)
+
+- EDUSCORE
+
+### 1 Special prize from [notJust Academy](https://academy.notjust.dev/)
+
+- Hamro World Cup - FIFA World Cup 2022 updates
+
+![minions](./giphy.gif)
