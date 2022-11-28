@@ -1,21 +1,60 @@
 ---
 title: notJust Hack - Demo Day
-image: /images/thumbnails/posts/2022-11-03-notJust-Hack.png
+image: /images/thumbnails/posts/2022-11-28-notJust-Hack-Demo-Day.png
 # ytVideoId: 'PYQwn2Amrzw'
 publishedOn: '2022-11-28T17:48:30.556Z'
-description: "Let's see the result of the last intense 3 days during the notJust Hack events. 17 Projects will pitch their ideas and compete for the prizes"
+description: "Let's see the result of the last 3 days during the notJust Hack event. 17 Projects will pitch their ideas and compete for the prizes"
 category: React Native
 tags:
   - Hackathon
   - notJustEvents
 keywords: notJust Hack, hackathon, react native, aws amplify
-hideReadNext: true
-hideNewsletterForm: true
 ---
 
 import OptInForm from '../../../src/components/shared/OptInForm/OptInForm';
 import Button from '../../../src/components/shared/Button/Button';
 import YoutubeVideo from "../../../src/components/shared/YoutubeVideo/YoutubeVideo";
+
+The [notJust.Hack](https://www.notjust.dev/blog/2022-11-03-notJust-Hack) event came to an end and I am excited to share with you all the projects that have been developed during the last 3 days.
+
+You can watch the Demo Day Livestream here:
+
+<YoutubeVideo id="T7tElERGxuE" title="notJust Hack - Demo Day" />
+
+## 🎁 Prizes
+
+We have prepared exciting prizes for the best projects
+
+### ✨ 3 Winners
+
+- **$500** 💰
+- notJust Dev TShirt
+- Stream swag
+- Nhost swag
+
+### ✨ 3 Runner ups
+
+- **$250** 💰
+- notJust Dev TShirt
+- Stream swag
+- Nhost swag
+
+### 1 Special prize from [Stream](https://gstrm.io/notjustdevhack) for their favorite project
+
+- $300 Amazon Gift Card
+- Stream swag
+
+### 1 Special prize from [Nhost](http://bit.ly/3hMq836) for their favorite project
+
+- Nhost Pro plan for 24 months (worth **$600**)
+- 1h Startup-coaching session with [Johan Eliasson](https://www.linkedin.com/in/johan--eliasson/), CEO / Founder of Nhost
+
+### 1 Special prize from [notJust Academy](https://academy.notjust.dev/)
+
+- [The Full Stack Mobile Developer](https://academy.notjust.dev/) Ultimate package (worth **$399**)
+- If you are already a course member, we will send you $399
+
+![gif](./cheering_minions.gif)
 
 ## Startups
 
@@ -119,3 +158,7 @@ Sugo is a general services application that uses maps to discover where the clie
 It gives students the additional option to make the payment to the canteen owners of their university by promising that they will pay the amount later and the transactions and passbook data is saved in our backend.
 
 <YoutubeVideo id="3F1XQZTKKPA" title="Canteen App" />
+
+## Results
+
+During the Demo live stream, we will announce the winners!
