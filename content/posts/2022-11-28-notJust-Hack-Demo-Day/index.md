@@ -153,7 +153,12 @@ A parking space app
 Sugo is a general services application that uses maps to discover where the client wants the freelancer to work or meet.
 <YoutubeVideo id="7DMmUks-mVo" title="Sugo" />
 
-### 17. Canteen App
+### 17. PinLand
+
+Map out your land in different places.
+<YoutubeVideo id="77Cdj6V1I6o" title="PinLand" />
+
+### 18. Canteen App
 
 It gives students the additional option to make the payment to the canteen owners of their university by promising that they will pay the amount later and the transactions and passbook data is saved in our backend.
 
