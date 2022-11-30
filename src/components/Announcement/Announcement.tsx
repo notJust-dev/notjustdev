@@ -1,7 +1,6 @@
 import Link from 'next/link';
 
-const text =
-  '🔥 Black Friday Sale: Join the Full Stack Mobile Developer Course and save 25% 🔥';
+const text = '';
 
 const Announcement = () =>
   !text ? null : (
