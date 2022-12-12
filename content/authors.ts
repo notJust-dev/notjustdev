@@ -1,5 +1,6 @@
 import Lukas from '../public/images/authors/lukas.jpeg';
 import Vadim from '../public/images/authors/vadim.jpg';
+import Wynstan from '../public/images/authors/wynstan.png';
 
 const authors: Author[] = [
   {
@@ -43,6 +44,19 @@ I am also a proud ex-Amazon SDE and Certified AWS Architect, Developer and SysOp
       Twitter: 'GrinLukas',
     },
     buyMeACoffee: 'LukasGrin',
+  },
+  {
+    id: 'wynstan',
+    name: 'Wynstan',
+    image: Wynstan,
+    description: `Hey there! 👋  I\'m Wynstan and I am excited to work with you and help you become a confident and capable mobile developer. Let's get started!
+    `,
+    socials: {
+      // LinkedIn: 'lukas-grinevičius-b16740198',
+      // Instagram: 'lgrinevicius/',
+      // Twitter: 'GrinLukas',
+    },
+    // buyMeACoffee: 'LukasGrin',
   },
 ];
 
