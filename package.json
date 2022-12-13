@@ -24,6 +24,7 @@
     "react-dom": "^18.2.0",
     "react-icons": "^4.3.1",
     "react-lite-youtube-embed": "^2.3.1",
+    "react-player": "^2.11.0",
     "rehype-autolink-headings": "^6.1.1",
     "rehype-slug": "^5.1.0",
     "remark-mdx-images": "^1.0.3",
