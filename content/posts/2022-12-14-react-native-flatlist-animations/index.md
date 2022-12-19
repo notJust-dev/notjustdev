@@ -80,7 +80,7 @@ npm start -- --clear
 
 With that, we are ready to rock and roll!
 
-## Task 1: and Hiding the Footer
+## Task 1: Showing and Hiding the Footer
 
 Let’s first work on hiding and showing the footer whenever we scroll the list. From the preview, we can first deduce the logic of hiding and showing the footer. It depends on our scroll position in the FlatList.
 
@@ -91,38 +91,27 @@ It’s understood from the above deduction that we will need to track the scroll
 
 To do so, let’s add `onScroll` props to the `FlatList` inside our `NotificationList` component. After that, we will use `useAnimatedScrollHandler` from `reanimated` to track the scroll position of our FlatList. `useAnimatedScrollHandler` hook gives us a lot of details but we are particularly interested in `onScroll` function as of now. Go to the `NotificationList` component and add the following code.
 
+Since we are using the handler from reanimated we need to convert our FlatList to `Animated.FlatList`. We can achieve that very easily by using `Animated` from the reanimated package. Remember to import `Animated` from the reanimated package.
+
 ```jsx
 ..............
 import { useAnimatedScrollHandler } from "react-native-reanimated";
+import Animated, { useAnimatedScrollHandler } from "react-native-reanimated";
+
 
 const NotificationsList = ({ ...flatListProps }) => {
   .......
   const handler = useAnimatedScrollHandler({
     onScroll: (event) => {
-			// event.contentOffset.y will give us the scroll position
-      console.log(event.contentOffset.y);
+		// event.contentOffset.y will give us the scroll position
+      	console.log(event.contentOffset.y);
     }
   })
 
   return (
-    <FlatList
-	  .......
-      onScroll={handler}
-    />
-  );
-};
-```
-
-Since we are using the handler from reanimated we need to convert our FlatList to `Animated.FlatList`. We can achieve that very easily by using `Animated` from the reanimated package. Remember to import `Animated` from the reanimated package.
-
-```jsx
-import Animated, { useAnimatedScrollHandler } from "react-native-reanimated";
-.......
-const NotificationsList = ({ ...flatListProps }) => {
-	..........
-  return (
     <Animated.FlatList
-	    .......
+		.......
+     	onScroll={handler}
     />
   );
 };
@@ -156,8 +145,8 @@ Let’s declare the footer opacity value using reanimated as we want to smoothly
 import { useSharedValue } from "react-native-reanimated";
 
 export default function App() {
-   .......
-  const footerVisibility = useSharedValue(1) // 1 because the footer is visible initially
+	.......
+	const footerVisibility = useSharedValue(1) // 1 because the footer is visible initially
 	.......
 	const animatedFooterStyle = useAnimatedStyle(() => {
     return {
@@ -205,11 +194,11 @@ export default function App() {
   .......
   return (
     <ImageBackground source={wallpaper} style={StyleSheet.absoluteFill}>
-			.......
-      {/* Notification List */}
-      <NotificationsList footerVisibility={footerVisibility} />
-			.....
-      ......
+		.......
+		{/* Notification List */}
+		<NotificationsList footerVisibility={footerVisibility} />
+		.....
+      	......
     </ImageBackground>
   );
 }
@@ -229,11 +218,11 @@ const NotificationsList = ({ footerVisibility, ...flatListProps }) => {
   const handler = useAnimatedScrollHandler({
     onScroll: event => {
       if (event.contentOffset.y < 10) {
-				// hide the footer
-        footerVisibility.value = withTiming(1);
-      } else {
-				// show the footer
+		// hide the footer
         footerVisibility.value = withTiming(0);
+      } else {
+		// show the footer
+        footerVisibility.value = withTiming(1);
       }
     },
   });
@@ -241,7 +230,6 @@ const NotificationsList = ({ footerVisibility, ...flatListProps }) => {
   return (
     <Animated.FlatList
       .........
-			.........
     />
   );
 };
@@ -321,8 +309,7 @@ const NotificationItem = ({ data, index }) => {
   });
   return (
     <Animated.View style={[styles.container, animatedStyle]}>
-     .......
-		 ......
+     	.......
     </Animated.View>
   );
 };
@@ -359,7 +346,6 @@ const NotificationsList = ({ footerVisibility, ...flatListProps }) => {
   const handler = useAnimatedScrollHandler({
     onScroll: event => {
 	   ......
-		 ......
     },
     onEndDrag: event => {
       if (event.contentOffset.y < 10) {
@@ -376,7 +362,6 @@ const NotificationsList = ({ footerVisibility, ...flatListProps }) => {
   return (
     <Animated.FlatList
 	    ....
-			....
       listVisibility={listVisibility}
     />
   );
@@ -514,13 +499,13 @@ Phew! We have done a lot of work and we have a nice looking notification list. L
 
 <VideoPlayer height={500} width={300} url="/videos/posts/2022-12-14-react-native-flatlist-animations/scale-opacity-list-anim.mp4" />
 
-## TASK 3: Animate the last visible item in our list
+## Task 3: Animate the last visible item in our list
 
 Let’s start with our next task. We want to animate the last visible item in our list just like what happens in iOS 16.
 
 **Removing the footer and list animation first**
 
-We will need to remove some of the noises from our code to work on the last item specifically. We will comment out the current `animatedStyle` which animates the list for now. As it will be very hard to see the list animation and the last item’s animation together at this point. Both of these animations depend on `listVisibility` Let’s comment it out and create a new `animatedStyle`. We will write the animation of our last item inside it.
+We will need to remove some of the noises from our code to work on the last item specifically. We will comment out the current `animatedStyle` which animates the list for now. As it will be very hard to see the list animation and the last item’s animation together at this point. Both of these animations depend on `listVisibility` Let’s comment it out inside `NotificationItem` component and create a new `animatedStyle`. We will write the animation of our last item inside it.
 
 At the same time, we will disable the footer animation or we can say we will comment out our footer at this point to focus on the last item.
 
@@ -557,11 +542,11 @@ return (
       data={notifications}
       renderItem={({ item, index }) => (
         <NotificationItem
-						......
+			......
           scrollY={scrollY}
         />
       )}
-			.....
+		.....
     />
   );
 ```
