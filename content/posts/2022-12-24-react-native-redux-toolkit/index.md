@@ -1,8 +1,8 @@
 ---
 title: 'Getting Started with Redux in React Native'
-image:
+image: /images/thumbnails/posts/2022-12-24-redux-react-native.png
 publishedOn: '2022-12-24T17:48:30.556Z'
-description: 'Redux is one of the most used state management libraries in React / React Native. In this article, we will learn how to get started with Redux in React Native.'
+description: 'Redux is one of the most used state management libraries in React and React Native. In this article, we will learn how to get started with Redux in React Native. Not only the basics but we will also cover all the important related topics!'
 category: React Native
 tags:
   - react native
@@ -29,7 +29,9 @@ import YoutubeVideo from "../../../src/components/shared/YoutubeVideo/YoutubeVid
 import Snack from '../../../src/components/shared/Snack/Snack';
 import VideoPlayer from '../../../src/components/shared/VideoPlayer/VideoPlayer';
 
-It's very rare to find a react native app without a global state management library. It's also very rare to find a react native app without redux. Redux is one of the most used state management libraries in React / React Native. If you wanted an easy explanation of what redux is, you are in luck! In this article, we will dive into the world of redux and learn how to get started with redux in react native.
+It's very rare to find a react native app without a global state management library. It's also very rare to find a react native app without redux. Redux is one of the most used state management libraries in React / React Native and a tool that is being asked as a job requirement
+
+If you wanted an easy explanation of what redux is, you are in luck! In this article, we will dive into the world of redux and learn how to get started with redux in react native.
 
 ## Understanding Redux
 
@@ -396,9 +398,105 @@ export default function TabTwoScreen({}: RootTabScreenProps<'TabTwo'>) {
 
 Go to the app and click on the `Deposit` button. You will see that the balance state is updated to 10$ in both the `TabOneScreen` and `TabTwoScreen` components. Click on the `Withdraw` button. You will see that the balance state is updated to 0$ in both the `TabOneScreen` and `TabTwoScreen` components.
 
+## Bonus: Rect Native Debugger with Redux Extension
+
+We can use the [React Native Debugger](https://github.com/jhen0409/react-native-debugger) to debug our React Native app. This awesome debugger already includes [Redux DevTools Extension](https://github.com/zalmoxisus/redux-devtools-extension) to debug our Redux store. The advantages of redux devtools are:
+
+- Time travel: go back and forth between the previous and next states of the store
+- Jump to a specific state
+- Lock the state to prevent it from changing
+- Pause the state changes
+- Dispatch actions manually
+- Inspect the state and actions
+- and a lot more
+
+This makes debugging our Redux store very easy. Let's see how we can use the React Native Debugger to debug our Redux store.
+
+<VideoPlayer height={500}  url="/videos/posts/2022-12-24-react-native-redux-toolkit/redux-debugger.mp4" />
+
+## Extra Bonus: Persisting our redux store with redux-persist
+
+Now what if we want to store the `balance` state in the device storage so that we can access it even after the app is closed. We can use [redux-persist](https://github.com/rt2zz/redux-persist#readme) to persist our redux store. Let's see how we can use redux-persist to persist our redux store.
+
+### Install redux-persist
+
+Install `redux-persist` using the following command:
+
+```bash
+npm install redux-persist
+```
+
+We will also need to install `@react-native-async-storage/async-storage` to use `AsyncStorage` as our storage engine.
+
+```bash
+npx expo install @react-native-async-storage/async-storage
+```
+
+### Create a persistor
+
+Go to `store.js`. We will do some modifications to set up our redux store with redux-persist.
+
+```tsx
+import { configureStore } from '@reduxjs/toolkit';
+import { persistStore, persistReducer } from 'redux-persist';
+
+// adding our persist configs
+const persistConfig = {
+  key: 'root',
+  version: 1,
+  storage: AsyncStorage,
+};
+
+// adding our rootReducer
+const rootReducer = combineReducers({
+  balance: balanceReducer,
+});
+
+// persisting our rootReducer
+const persistedReducer = persistReducer(persistConfig, rootReducer);
+
+// creating our store and exporting it
+export const store = configureStore({
+  reducer: persistedReducer,
+});
+```
+
+Once our store is created, we need to create a persistor and provide it to our store. Let's go to `App.tsx` and add the following code:
+
+```tsx
+........
+........
+import { persistStore } from "redux-persist";
+import { PersistGate } from "redux-persist/integration/react";
+import { store } from "./store";
+
+let persistor = persistStore(store);
+
+export default function App() {
+  ......
+  ......
+  if (!isLoadingComplete) {
+    return null;
+  } else {
+    return (
+      <Provider store={store}>
+        <PersistGate loading={null} persistor={persistor}>
+          .....
+          .....
+        </PersistGate>
+      </Provider>
+    );
+  }
+}
+```
+
+We have imported `persistStore` and `PersistGate` from `redux-persist`. We have also imported our store from `store.js`. We have created a persistor using the `persistStore` function and provided it to the `PersistGate` component. The `PersistGate` component will wait until the store is persisted and then it will render the app.
+
+To test if our balance state is persisted, deposit or withdraw some amount. Close the app and open it again. You will see that the balance state is persisted and the app is rendered with the persisted balance state.
+
 ## Conclusion
 
-In this tutorial, we have learned how to use Redux Toolkit to manage the state of our React Native app. We have created a slice for the `balance` state. We have also created two action creators, one for deposit and one for withdraw. We have also exported the reducer function so that it can be added to the store. We have also accessed the `balance` state from the store and dispatched actions to the store. We have also seen how the `balance` state is updated when we dispatch the actions and at the same time the components are re-rendered with the updated `balance` state.
+In this tutorial, we have learned how to use Redux Toolkit to manage the state of our React Native app. We have also learned how to persist our redux store using redux-persist. At the same time we have also learned how to use the React Native Debugger to debug our React Native app, specifically our Redux store. I hope you enjoyed this tutorial!
 
 ## Source Code
 
