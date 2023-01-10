@@ -28,16 +28,17 @@ author: Saad
 import YoutubeVideo from "../../../src/components/shared/YoutubeVideo/YoutubeVideo";
 import Snack from '../../../src/components/shared/Snack/Snack';
 import VideoPlayer from '../../../src/components/shared/VideoPlayer/VideoPlayer';
+import PostExtraInfo from '../../../src/components/shared/PostExtraInfo/PostExtraInfo';
 
-It's very rare to find a react native app without a global state management library. It's also very rare to find a react native app without redux. Redux is one of the most used state management libraries in React / React Native and a tool that is being asked as a job requirement
+It's very rare to find a react native app without a global state management library. It's also very common to find a react native app with redux. Redux is one of the most used state management libraries in React / React Native and a tool that is being asked as a job requirement.
 
 If you wanted an easy explanation of what redux is, you are in luck! In this article, we will dive into the world of redux and learn how to get started with redux in react native.
 
 ## Understanding Redux
 
-Before we go into the implementation of redux in react native, let's first understand what redux is. Redux is a state management library that helps you manage the state of your react native app. It is a predictable state container for JavaScript apps. It helps you write applications that behave consistently, run in different environments (client, server, and native), and are easy to test.
+Before we go into the implementation of redux in react native, let's first understand what redux is. [Redux](https://redux.js.org/) is a state management library that helps you manage the state of your react native app. It is a predictable state container for JavaScript apps. It helps you write applications that behave consistently, run in different environments (client, server, and native), and are easy to test.
 
-Chances are you have come across a lot of negative comments on Redux. But thanks to the awesome maintainers of Redux, they have made it easier and simpler to use Redux. They come up with `Redux-Toolkit` aka **Modern Redux** which is a package that helps you write Redux logic in a very simple manner. It is intended to be the standard way to write Redux logic. It was originally created to help address three common concerns about Redux:
+Chances are you have come across a lot of negative comments on Redux. But thanks to the awesome maintainers of Redux, they have made it easier and simpler to use Redux. They came up with [Redux-Toolkit](https://redux-toolkit.js.org/) aka **Modern Redux** which is a package that helps you write Redux logic in a very simple manner. It is intended to be the standard way to write Redux logic. It was originally created to help address three common concerns about Redux:
 
 1. "Configuring a Redux store is too complicated"
 2. "I have to add a lot of packages to get Redux to do anything useful"
@@ -47,11 +48,13 @@ In this blog post, we will be using `Redux-Toolkit` to get started with Redux in
 
 ### High Level Architecture of Redux
 
-Before we describe the terms and concepts of Redux, let's first see the high level architecture of Redux. The following diagram shows the high level architecture of Redux.
+Before we describe the terms and concepts of Redux, let's first see the high level architecture of Redux. This will give you a better understanding of how Redux works.
+
+Imagine that you have an app, the app has two buttons. **Deposit** and **Withdraw**. When you click on the **Deposit** button, the amount is added to the balance. When you click on the **Withdraw** button, the amount is subtracted from the balance. You want your balance to be available throught the whole app. You want to be able to access the balance from any components/screens in the app. Basically, you want to have a global state that is available throughout the app. This is where Redux comes in.
 
 ![Redux Architecture](./images/ReduxDataFlowDiagram.gif)
 
-Imagine that you have an app, the app has two buttons. **Deposit** and **Withdraw**. When you click on the **Deposit** button, the amount is added to the balance. When you click on the **Withdraw** button, the amount is subtracted from the balance. You want your balance to be available throught the whole app. You want to be able to access the balance from any components/screens in the app. Basically, you want to have a global state that is available throughout the app. This is where Redux comes in.
+<b> Image Credits - Redux documentation </b>
 
 The diagram has mainly three parts.
 
@@ -61,7 +64,7 @@ The diagram has mainly three parts.
 
 ### Actions
 
-Now if you look at the diagram again, you will see that at the bottom there is the UI part which has the buttons. This is typically the React Native part of the app. When the users click on the buttons. Something gets triggered. Depending on which button is clicked, the trigger will be different. This is what we call an **Action**. An action is a plain JavaScript object that has a type property. The type property describes the type of action that happened. For example, if the user clicks on the **Deposit** button, the action will be something like this:
+Now if you look at the diagram again, you will see that at the bottom there is the UI part which has the buttons. This is typically the React Native part of the app. When the users click on the buttons, something gets triggered. Depending on which button is clicked, the trigger will be different. This is what we call an **Action**. An action is a plain JavaScript object that has a type property. The type property describes the type of action that happened. For example, if the user clicks on the **Deposit** button, the action will be something like this:
 
 ```js
 {
@@ -85,7 +88,7 @@ Similarly, if the user clicks on the **Withdraw** button, the action will be som
 
 ### Reducers
 
-Now that we have the actions, we need to have a way to handle these actions. This is where the reducers come in. Reducers are the functions that take the current state and an action as arguments, and return a new state result. The reducer is a pure function that takes the previous state and an action, and returns the next state. (previousState, action) => newState
+Now that we have the actions, we need to have a way to handle these actions. This is where the reducers come in. Reducers are the functions that take the current state and an action as arguments, and return a new state result. The reducer is a pure function that takes the previous state and an action, and returns the next state. `(previousState, action) => newState`
 
 Let's see how the reducer will look like for the deposit action. The reducer will take the current state and the action as arguments. The current state will be the current balance. The action will be the deposit action. The reducer will return the new balance. The new balance will be the current balance plus the amount that the user wants to deposit.
 
@@ -106,7 +109,7 @@ const reducer = (state, action) => {
 
 ### Store
 
-Now that we have the actions and the reducers, we need to have a way to store the state. This is where the store comes in. The store is the global state of the app. It is the single source of truth. The store can have mutiple reuder functions.
+Now that we have the actions and the reducers, we need to have a way to store the state. This is where the store comes in. The store is the global state of the app. It is the single source of truth. The store can have mutiple reducer functions.
 
 ![Store](./images/store.png)
 
@@ -160,17 +163,6 @@ import { StyleSheet, Button } from 'react-native';
 import { Text, View } from '../components/Themed';
 import { RootTabScreenProps } from '../types';
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-  title: {
-    fontSize: 20,
-    fontWeight: 'bold',
-  },
-});
 export default function TabOneScreen({}: RootTabScreenProps<'TabOne'>) {
   return (
     <View style={styles.container}>
@@ -185,6 +177,18 @@ export default function TabOneScreen({}: RootTabScreenProps<'TabOne'>) {
     </View>
   );
 }
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  title: {
+    fontSize: 20,
+    fontWeight: 'bold',
+  },
+});
 ```
 
 This is the UI that we will be working with. We have two buttons, one for deposit and one for withdraw. We also have a text that shows the current balance.
@@ -193,7 +197,7 @@ This is the UI that we will be working with. We have two buttons, one for deposi
 
 ### Create the Redux Store
 
-Create a file named store.js. Import the `configureStore` API from Redux Toolkit. We'll start by creating an empty Redux store, and exporting it:
+Create a file named store.js in our root directory. Import the `configureStore` from Redux Toolkit. We'll start by creating an empty Redux store, and exporting it:
 
 ```js
 import { configureStore } from '@reduxjs/toolkit';
@@ -203,11 +207,11 @@ export const store = configureStore({
 });
 ```
 
-This creates a Redux store. In order to create the store we need to pass a reducer function to the `configureStore` API. We will be creating the reducer function in the next step.
+This creates a Redux store. In order to create a store we need to pass a reducer function to the `configureStore` function. We will be adding the reducer function in the next step. The reducer is still empty. We will be adding the reducer in the next step.
 
 ### Provide the Store to the App
 
-Go to `App.tsx` and import the `Provider` component from `react-redux`. Wrap the `SafeAreaProvider` component with the `Provider` component. Pass the `store` prop to the `Provider` component.
+Go to `App.tsx` and import the `Provider` component from `react-redux`. Wrap the `SafeAreaProvider` component with the `Provider` component. We need to also import our store that we created in our last step. Pass the `store` prop to the `Provider` component.
 
 ```tsx
 import { store } from './store'
@@ -238,7 +242,7 @@ Create a file named `balanceSlice.js`. Import the `createSlice` API from Redux T
 
 Creating a slice requires a string name to identify the slice, an initial state value, and one or more reducer functions to define how the state can be updated. Once a slice is created, we can export the generated Redux action creators and the reducer function for the whole slice.
 
-Redux requires that we write all state updates immutably, by making copies of data and updating the copies. However, Redux Toolkit's createSlice and createReducer APIs use Immer inside to allow us to write "mutating" update logic that becomes correct immutable updates. So we don't really need to worry about immutability.
+<PostExtraInfo info={` Redux requires that we write all state updates immutably, by making copies of data and updating the copies. However, Redux Toolkit's createSlice and createReducer APIs use Immer inside to allow us to write "mutating" update logic that becomes correct immutable updates. So we don't really need to worry about immutability.`} />
 
 Let's create a slice for the `balance` state. Add the following code to the `balanceSlice.js` file:
 
@@ -274,7 +278,9 @@ export const { deposit, withdraw } = balanceSlice.actions;
 export default balanceSlice.reducer;
 ```
 
-We have created a slice for the `balance` state. We have also created two action creators, one for deposit and one for withdraw. We have also exported the reducer function so that it can be added to the store.
+We have created a slice for the `balance` state. We have also created two action creators, one for deposit and one for withdraw. We have also exported the reducer function so that it can be added to the store. We have previously explain what actions are. What about action creators? Action creators are simply functions that create actions. An action is a plain JavaScript object that has a type field. The type field should be a string that describes the nature of the action. The type field is required. The payload field is optional. The payload field can be any type of data. The payload field is used to pass data to the reducer function.
+
+You should be asking me now where are my type fields and payload fields inside action creators. Well, Redux Toolkit's `createSlice` function automatically generates action creators that return an action with the correct type and payload. We can see that in the `deposit` and `withdraw` action creators. We are passing the payload as an argument to the action creator. The action creator will automatically create an action with the correct type and payload.
 
 ### Add the Reducer to the Store
 
@@ -330,6 +336,8 @@ Go to `TabOneScreen` component and import the `useDispatch` hook from `react-red
 ```tsx
 ......
 import { useSelector, useDispatch } from 'react-redux';
+import { deposit, withdraw } from '../balanceSlice';
+
 
 export default function TabOneScreen({}: RootTabScreenProps<'TabOne'>) {
   ......
@@ -398,7 +406,7 @@ export default function TabTwoScreen({}: RootTabScreenProps<'TabTwo'>) {
 
 Go to the app and click on the `Deposit` button. You will see that the balance state is updated to 10$ in both the `TabOneScreen` and `TabTwoScreen` components. Click on the `Withdraw` button. You will see that the balance state is updated to 0$ in both the `TabOneScreen` and `TabTwoScreen` components.
 
-## Bonus: Rect Native Debugger with Redux Extension
+## Bonus: React Native Debugger with Redux Extension
 
 We can use the [React Native Debugger](https://github.com/jhen0409/react-native-debugger) to debug our React Native app. This awesome debugger already includes [Redux DevTools Extension](https://github.com/zalmoxisus/redux-devtools-extension) to debug our Redux store. The advantages of redux devtools are:
 
@@ -439,6 +447,7 @@ Go to `store.js`. We will do some modifications to set up our redux store with r
 ```tsx
 import { configureStore } from '@reduxjs/toolkit';
 import { persistStore, persistReducer } from 'redux-persist';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
 // adding our persist configs
 const persistConfig = {
