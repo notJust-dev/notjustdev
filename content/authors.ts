@@ -1,6 +1,7 @@
 import Lukas from '../public/images/authors/lukas.jpeg';
 import Vadim from '../public/images/authors/vadim.jpg';
 import Wynstan from '../public/images/authors/wynstan.png';
+import Saad from '../public/images/authors/saad.jpeg';
 
 const authors: Author[] = [
   {
@@ -57,6 +58,21 @@ I am also a proud ex-Amazon SDE and Certified AWS Architect, Developer and SysOp
       // Twitter: 'GrinLukas',
     },
     // buyMeACoffee: 'LukasGrin',
+  },
+  {
+    id: 'Saad',
+    name: 'Saad Bin Bashar',
+    image: Saad,
+    description: `Hey there! 👋  I\'m Saad, I am a senior mobile enginner focused mainly on React Native. 
+
+    I have been working with React Native for over 4 years now. I have worked on a variety of projects ranging from small to large scale projects. I have also worked on a few open source projects.
+    
+    I love sharing my knowledge with others and helping them become better developers.`,
+    socials: {
+      LinkedIn: 'https://www.linkedin.com/in/saad-khan27/',
+      Instagram: '',
+      Twitter: 'https://twitter.com/saad_khan27',
+    },
   },
 ];
 
