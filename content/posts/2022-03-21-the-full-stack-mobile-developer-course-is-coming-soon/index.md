@@ -10,8 +10,8 @@ keywords: react native course, fullstack, mobile developer, aws amplify
 author: vadim
 ---
 
-import Button from '../../../src/components/shared/Button';
-import CountdownTimer from '../../../src/components/shared/CountdownTimer';
+import Button from '../../../src/components/shared/Button/Button';
+import CountdownTimer from '../../../src/components/shared/CountdownTimer/CountdownTimer';
 
 Hey notJust Developers 👋
 

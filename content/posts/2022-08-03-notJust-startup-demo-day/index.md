@@ -12,7 +12,7 @@ keywords: startup, notJust startup
 author: vadim
 ---
 
-import Button from '../../../src/components/shared/Button';
+import Button from '../../../src/components/shared/Button/Button';
 
 The notJust Startup Challenge is coming to an end but for some of the startups started during the previous 7 weeks, this is just the beginning.
 

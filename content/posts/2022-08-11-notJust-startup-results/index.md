@@ -12,8 +12,8 @@ keywords: startup, notJust startup
 author: vadim
 ---
 
-import YoutubeVideo from "../../../src/components/shared/YoutubeVideo";
-import Button from '../../../src/components/shared/Button';
+import YoutubeVideo from "../../../src/components/shared/YoutubeVideo/YoutubeVideo";
+import Button from '../../../src/components/shared/Button/Button';
 
 The #notJustStartup Challenge approached the final phase.
 
