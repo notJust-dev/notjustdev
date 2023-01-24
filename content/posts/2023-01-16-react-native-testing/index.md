@@ -23,13 +23,7 @@ Testing is an important part of any software development process. It helps you t
 
 ## Setting up the project
 
-As always we will try learning by real life example. So let's create a simple React Native app and then we will add testing to it. We will use expo to create our app. If you don't have expo installed on your machine, you can install it by running the following command:
-
-```bash
-npm install -g expo-cli
-```
-
-Now we can create our app by running the following command:
+As always we will try learning by real life example. So let's create a simple React Native app and then we will add testing to it. We will use expo to create our app.
 
 ```bash
 npx create-expo-app react-native-testing
@@ -54,14 +48,13 @@ We will be using React Native Testing Library to test our React Native app. This
 
 React Native Testing Library (RNTL) requires some other libraries to work. If you don't have them installed, you will get errors. So we will first install the required ones. We need to install the following libraries:
 
-1. react-test-renderer &
+1. react-test-renderer
 2. jest
 
 Run the following commands to install these libraries:
 
 ```bash
-npm install --save-dev react-test-renderer
-npm install --save-dev jest
+npm install --save-dev react-test-renderer jest
 ```
 
 Once those libraries are integrated, we can install React Native Testing Library by running the following command:
@@ -70,7 +63,7 @@ Once those libraries are integrated, we can install React Native Testing Library
 npm install --save-dev @testing-library/react-native
 ```
 
-Next, in order to use addtional React Native-specific jest matchers, we will need `@testing-library/jest-native package`.
+Next, in order to use addtional React Native-specific jest matchers, we will need `@testing-library/jest-native` package.
 
 ```bash
 npm install --save-dev @testing-library/jest-native
@@ -85,7 +78,7 @@ module.exports = {
 };
 ```
 
-Now question is, how do we even run the test in our app? We need to add a script to our `package.json` file. Let's add the following code to the `scripts` section of our `package.json` file:
+Now the question is, how do we even run the test in our app? We need to add a script to our `package.json` file. Let's add the following code to the `scripts` section of our `package.json` file:
 
 ```json
 "scripts": {
@@ -171,7 +164,7 @@ const styles = StyleSheet.create({
 export default Profile;
 ```
 
-and in the `components` folder, Add `SocialLinks.js` and the following code to it:
+Now in the `components` folder, Add `SocialLinks.js` and the following code to it:
 
 ```js
 import React from 'react';
@@ -225,17 +218,18 @@ const styles = StyleSheet.create({
 export default SocialLinks;
 ```
 
+You also need the assets in the `assets` folder. You will be able to get the asssets from this [repo](https://github.com/notJust-dev/react-native-testing)
+
 You should be able to see the following screen in your app now:
 
 ![react-native-testing-preview.png](./images/preview.png)
 
-## Writing the first test
+## Test if the social links' labels are rendered properly
 
 The component that we will be testing is the `<SocialLinks />`.It's always best to plan out the test. As a rule of the best practices, we should test the cases that our users see and interact. Let's dissect our `SocialLinks` component and see what are the cases that our users will see.
 
 1. The user will see the label of the social link.
 2. The user will see the icon of the social link.
-3. The user will see the social link is clickable.
 
 Also what will be some of the interactions / behaviors that our users will do with the component?
 
@@ -283,28 +277,28 @@ You will see the following output:
 
 ![react-native-testing-test-1.png](./images/test-1-pass.png)
 
-It's so satisfying to see the test pass with a green tick. Isn't it? ;) However, it's always a good idea to fail the test as well to see if the test is working or not. Let's change the label of the social link to something else and run the test again. We will see the following output:
+It's so satisfying to see the test pass with a green tick. Isn't it? ;) However, it's always a good idea to fail the test as well to see if the test is working or not. However, let's say a new developer came in and he hardcoded the label as "Twitter" in the component. Let's see what will happen if we run the test again:
 
 ```js
 test('should render the label of the social link', () => {
   const { getByText } = render(
     <SocialLinks
+      label={"John Doe's Twitter"}
       type="twitter"
-      label="John Doe's Twitter"
       link="https://twitter.com/"
     />,
   );
 
-  const label = getByText("John Doe's Twitter 123");
+  const label = getByText("John Doe's Twitter");
   expect(label).toBeTruthy();
 });
 ```
 
 ![react-native-testing-test-1-fail.png](./images/test-1-fail.png)
 
-Why did the test fail? Because in our test function we are expecting the label to be "John Doe's Twitter 123" but in the component we are passing the label as "John Doe's Twitter".
+Why did the test fail? Because in our test function we are expecting the label to be "John Doe's Twitter" but in the component we are having a hardcoded label "Twitter". So the test failed. This is how we can test the first case that the user will see the right label of the social link.
 
-## Testing the second case : The user will see the icon of the social link
+## Test if the social links' icons are rendered properly
 
 Let's now test the second case that the user will see the icon of the social link. Let's add the following code to the test file:
 
@@ -331,7 +325,7 @@ If you run the test now, you will see the following output:
 
 Great, we have now made sure that our SocialLinks component is rendering the label and the icon of the social link.
 
-## Testing the third and fourth case : Clicking on the social link should open the correct link
+## Testing user interactions
 
 Now onto our third & fourth case. We will be testing if users go to twitter.com when they click on the twitter link. Let's add the following code to the test file:
 
@@ -353,7 +347,7 @@ test('should open the twiiter link when the twitter link is pressed', () => {
 });
 ```
 
-Similarly to the previous test cases, let's break down the code. We are using the `fireEvent` method to fire the `press` event on the label. We are then using the `toHaveBeenCalledWith` matcher to check if the `Linking.openURL` method is called with the correct link. If the link is correct, the test will pass. If the link is not correct, the test will fail.
+Similarly to the previous test cases, let's break down the code. We are using the `fireEvent` method to fire the `press` event on the label. We are then using the `toHaveBeenCalledWith` matcher to check if the `Linking.openURL` method is called with the correct link. If the link is correct, the test will pass. If the link is not correct, the test will fail. Here we are using Linking.openURL in our test to imitate the user clicking on the link.
 
 We can do exactly the same thing for the instagram link as well. Let's add the following code to the test file:
 
@@ -389,4 +383,4 @@ You can find the GitHub repository for this article [here](https://github.com/no
 
 We have now properly tested our SocialLinks component. We have made sure that the component is rendering the label and the icon of the social link. We have also made sure that the component is opening the correct link when the user clicks on the social link.
 
-Even though the test cases were fairly simple in this article, you can use the same approach to test more complex components as well. I hope you found this article will help you in your journey of learning React Native testing.
+Even though the test cases were fairly simple in this article, you can use the same approach to test more complex components as well. I hope you enjoyed this aritcle and get a better understanding of how to test your React Native components.
