@@ -3,7 +3,7 @@ import {
   PageObjectResponse,
   PartialPageObjectResponse,
 } from '@notionhq/client/build/src/api-endpoints';
-import { bundleMDX } from 'mdx-bundler';
+import { serialize } from 'next-mdx-remote/serialize';
 import { NotionToMarkdown } from 'notion-to-md';
 import { dirname } from 'path';
 import { downloadImage } from '../utils/imageDownloader';
@@ -32,7 +32,7 @@ const richTextToPlain = (richText: any[]) => {
 };
 
 const parseNotionPageMeta = async (
-  page: PageObjectResponse,
+  page: PageObjectResponse | PartialPageObjectResponse,
 ): Promise<NotionBlogMeta> => {
   const notionBlog: NotionBlogMeta = {
     updatedOn: page.last_edited_time,
@@ -64,6 +64,31 @@ export const getAllPosts = async (): Promise<NotionBlogMeta[]> => {
   return Promise.all(response.results.map(parseNotionPageMeta));
 };
 
+const downloadAndReplaceMDXImages = async (mdString: string, slug: string) => {
+  // re-create folder for images
+  const dir = `${rootDir}/public/images/notion/${slug}`;
+  if (fs.existsSync(dir)) {
+    fs.rmSync(dir, { recursive: true });
+  }
+  fs.mkdirSync(dir);
+
+  const matches = mdString.matchAll(MD_IMAGE_REGEX);
+
+  for (const match of matches) {
+    if (match.groups?.url) {
+      const imageName = `${(
+        match.groups.alt || slug + `-${uuidv4()}`
+      ).replaceAll(' ', '-')}.png`; // use the ALT property as the name, or the slug of the post
+      const uri = await downloadImage(
+        match.groups.url,
+        `/images/notion/${slug}/${imageName}`,
+      );
+      mdString = mdString.replace(match.groups?.url, uri);
+    }
+  }
+  return mdString;
+};
+
 export const getPostBySLug = async (slug: string): Promise<Post> => {
   const response = await notion.databases.query({
     database_id: NOTION_DATABASE,
@@ -85,72 +110,61 @@ export const getPostBySLug = async (slug: string): Promise<Post> => {
     .replaceAll('“', '"')
     .replaceAll('”', '"');
 
-  // create folder for images
-  const dir = `${rootDir}/public/images/notion/${slug}`;
-  if (!fs.existsSync(dir)) {
-    fs.mkdirSync(dir);
-  }
+  mdString = await downloadAndReplaceMDXImages(mdString, slug);
 
-  const matches = mdString.matchAll(MD_IMAGE_REGEX);
-
-  for (const match of matches) {
-    if (match.groups?.url) {
-      const uri = await downloadImage(
-        match.groups.url,
-        `/images/notion/${slug}/${match.groups.alt.replaceAll(' ', '-')}.png`,
-      );
-      mdString = mdString.replace(match.groups?.url, uri);
-    }
-  }
-
-  const { code, frontmatter } = await bundleMDX({
-    source: mdString,
-    cwd: process.cwd(),
-    mdxOptions: (options) => ({
-      ...options,
-      remarkPlugins: [...(options.remarkPlugins ?? []), remarkImagesSize],
-      rehypePlugins: [
-        ...(options.rehypePlugins ?? []),
-        rehypeSlug,
-        () =>
-          rehypeAutolinkHeadings({
-            behavior: 'append',
-            properties: {
-              className: 'heading-copy-link',
-              'aria-hidden': 'true',
-              tabIndex: -1,
-            },
-          }),
-      ],
-    }),
-    // esbuildOptions: (options) => ({
-    //   ...options,
-    //   outdir: join(outDir, realSlug),
-    //   loader: {
-    //     ...options.loader,
-    //     '.png': 'file',
-    //     '.jpeg': 'file',
-    //     '.jpg': 'file',
-    //     '.gif': 'file',
-    //   },
-    //   publicPath: `/images/content/posts/${realSlug}`,
-    //   write: true,
-    // }),
-  });
-
-  const post = {
+  return {
     ...(await parseNotionPageMeta(page)),
-    // slug,
-    // title: 'Title',
-    // publishedOn: '123',
-    // image: '',
-    // description: '1321',
-    // category: 'abc',
-    // tags: ['a', 'b'],
-    code,
-    ...frontmatter,
-    // slug: realSlug,
-    // toc,
-  } as Post;
-  return post;
+    content: await serialize(mdString),
+  };
+
+  // const mdxSource = await serialize(mdString);
+  // , {
+  //   cwd: process.cwd(),
+  //   mdxOptions: (options) => ({
+  //     ...options,
+  //     remarkPlugins: [...(options.remarkPlugins ?? []), remarkImagesSize],
+  //     rehypePlugins: [
+  //       ...(options.rehypePlugins ?? []),
+  //       rehypeSlug,
+  //       () =>
+  //         rehypeAutolinkHeadings({
+  //           behavior: 'append',
+  //           properties: {
+  //             className: 'heading-copy-link',
+  //             'aria-hidden': 'true',
+  //             tabIndex: -1,
+  //           },
+  //         }),
+  //     ],
+  //   }),
+  // esbuildOptions: (options) => ({
+  //   ...options,
+  //   outdir: join(outDir, realSlug),
+  //   loader: {
+  //     ...options.loader,
+  //     '.png': 'file',
+  //     '.jpeg': 'file',
+  //     '.jpg': 'file',
+  //     '.gif': 'file',
+  //   },
+  //   publicPath: `/images/content/posts/${realSlug}`,
+  //   write: true,
+  // }),
+  // });
+
+  // const post = {
+  //   ...(await parseNotionPageMeta(page)),
+  //   // slug,
+  //   // title: 'Title',
+  //   // publishedOn: '123',
+  //   // image: '',
+  //   // description: '1321',
+  //   // category: 'abc',
+  //   // tags: ['a', 'b'],
+  //   code: mdxSource,
+  //   // ...frontmatter,
+  //   // slug: realSlug,
+  //   // toc,
+  // } as Post;
+  // return post;
 };

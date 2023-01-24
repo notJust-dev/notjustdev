@@ -1,5 +1,5 @@
 import fs from 'fs';
-import client from 'https';
+import https from 'https';
 import { join } from 'path';
 
 const publicDir = join(process.cwd(), 'public');
@@ -12,7 +12,7 @@ export const downloadImage = (
     ? filepath
     : join(publicDir, filepath);
   return new Promise((resolve, reject) => {
-    client.get(url, (res) => {
+    https.get(url, (res) => {
       if (res.statusCode === 200) {
         res
           .pipe(fs.createWriteStream(fullPath))

@@ -11,15 +11,15 @@
     "prepare": "husky install"
   },
   "dependencies": {
-    "@notionhq/client": "^2.2.1",
+    "@notionhq/client": "^2.2.3",
     "@tailwindcss/aspect-ratio": "^0.4.0",
     "@types/mdast": "^3.0.10",
     "esbuild": "^0.14.41",
     "github-slugger": "^1.4.0",
     "image-size": "^1.0.2",
     "mdast-util-mdx": "^2.0.0",
-    "mdx-bundler": "^9.0.1",
-    "next": "^13.0.0",
+    "next": "^13.1.2",
+    "next-mdx-remote": "^4.2.1",
     "notion-to-md": "^2.5.5",
     "prism-react-renderer": "^1.3.3",
     "react": "^18.2.0",
