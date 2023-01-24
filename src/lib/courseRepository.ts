@@ -42,6 +42,20 @@ export async function getCourseBySlug(slug: string) {
       },
       publicPath: `/images/content/courses/${realSlug}`,
       write: true,
+      define: {
+        'process.env.__NEXT_TRAILING_SLASH': JSON.stringify(
+          process.env.__NEXT_TRAILING_SLASH,
+        ),
+        'process.env.__NEXT_IMAGE_OPTS': JSON.stringify(
+          process.env.__NEXT_IMAGE_OPTS,
+        ),
+        'process.env.__NEXT_REACT_ROOT': JSON.stringify(
+          process.env.__NEXT_REACT_ROOT,
+        ),
+        'process.env.__NEXT_OPTIMIZE_FONTS': JSON.stringify(
+          process.env.__NEXT_OPTIMIZE_FONTS,
+        ),
+      },
     }),
   });
 
