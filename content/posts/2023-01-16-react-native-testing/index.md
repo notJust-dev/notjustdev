@@ -1,6 +1,6 @@
 ---
 title: 'Getting Started with Testing in React Native with Jest and React Native Testing Library'
-image: /images/thumbnails/posts/2022-12-24-redux-react-native.png
+image: /images/thumbnails/posts/2023-01-06-react-native-testing.png
 publishedOn: '2023-01-06'
 description: 'Learn how to test your React Native app with Jest and React Native Testing Library'
 category: React Native
