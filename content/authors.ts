@@ -20,7 +20,7 @@ I am also a proud ex-Amazon SDE and Certified AWS Architect, Developer and SysOp
     socials: {
       Twitter: 'VadimNotJustDev',
       Github: 'Savinvadim1312',
-      LinkedIn: 'vadimsavin/',
+      LinkedIn: 'vadimsavin',
       Youtube: 'UCYSa_YLoJokZAwHhlwJntIA',
       Instagram: 'VadimNotJustDev/',
       Facebook: 'vadik.savin.9',

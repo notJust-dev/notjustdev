@@ -1,8 +1,17 @@
 type Author = {
   id: string;
   name: string;
-  image: import('next/image').StaticImageData;
-  description: string;
-  socials: { [key in SocialMediaPlatform]?: string };
+  bio: string;
+
+  image?: string;
+  // socials
+  Facebook?: string;
+  LinkedIn?: string;
+  Github?: string;
+  Twitter?: string;
+  Youtube?: string;
+  Instagram?: string;
+
+  // donation
   buyMeACoffee?: string;
 };

@@ -1,4 +1,4 @@
-import React, { useEffect, useMemo, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import Image from 'next/image';
 import { MDXRemote } from 'next-mdx-remote';
 
@@ -14,14 +14,13 @@ import BlogCard from '../../../components/BlogCard';
 import TableOfContents from '../../../components/TableOfContents';
 import { getAllPosts, getPostBySLug } from '../../../lib/notion';
 
-import YoutubeVideo from '../../../components/shared/YoutubeVideo';
-import { serialize } from 'next-mdx-remote/serialize';
+import * as sharedComponents from '../../../components/shared';
 
 const components = {
-  YoutubeVideo,
   pre: StaticCodeSnippet,
   code: InlineCodeSnippet,
   img: MDXImage,
+  ...sharedComponents,
 };
 
 const dateFormat = {
@@ -37,7 +36,6 @@ interface Props {
 
 function BlogPostPage({ post, recommendedPosts }: Props) {
   const [activeHeadingId, setActiveHeadingId] = useState('');
-  // const Component = useMemo(() => getMDXComponent(post?.code), [post]);
 
   useEffect(() => {
     const callback: IntersectionObserverCallback = (headings) => {
@@ -71,7 +69,8 @@ function BlogPostPage({ post, recommendedPosts }: Props) {
       description={post.description}
       image={post.image}
       pageType="article"
-      keywords={post.keywords}
+      // keywords={post.keywords}
+      hideNewsletterForm={post.hideNewsletterForm}
     >
       <MaxWidthWrapper>
         {post.image && !post.hideImageHeader && (
@@ -116,7 +115,12 @@ function BlogPostPage({ post, recommendedPosts }: Props) {
           )}
         </div>
 
-        {post.author && <AuthorDetails authorId={post.author} />}
+        {post.authors.length && <AuthorDetails author={post.authors[0]} />}
+
+        {/* Displaying multiple authors (Needs a bit of style adjustment) */}
+        {/* {post.authors.map((author) => (
+          <AuthorDetails key={author.id} author={author} />
+        ))} */}
 
         <h3 className="text-2xl mt-10">Read next</h3>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-5 my-5">
@@ -141,7 +145,6 @@ export const getStaticPaths: GetStaticPaths = async () => {
 export const getStaticProps: GetStaticProps<Props> = async ({
   params,
 }: GetStaticPropsContext) => {
-  console.log('params', params);
   const post = await getPostBySLug(params?.slug as string);
   // const recommendedPosts = post?.slug
   //   ? await getRecommendedPostsMeta(post.slug)
