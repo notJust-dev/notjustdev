@@ -2,14 +2,14 @@ import React from 'react';
 import { GetStaticProps } from 'next';
 import Layout from '../../components/Layout/Layout';
 import MaxWidthWrapper from '../../components/MaxWidthWrapper';
-import { getCoursesMetaByType } from '../../lib/courseRepository';
 import ProjectCard from '../../components/ProjectCard';
+import { getAllPosts } from '../../lib/notion';
 
 interface CourseProps {
-  courses: CourseMeta[];
+  projects: PostMeta[];
 }
 
-function Projects({ courses }: CourseProps) {
+function Projects({ projects }: CourseProps) {
   return (
     <Layout title="notJust Development Projects">
       <MaxWidthWrapper>
@@ -21,10 +21,10 @@ function Projects({ courses }: CourseProps) {
           </p>
 
           <div className="my-5">
-            {courses.map((course, index) => (
+            {projects.map((project, index) => (
               <ProjectCard
-                course={course}
-                key={course.slug}
+                project={project}
+                key={project.slug}
                 mirrored={index % 2 === 1}
                 priority={index < 2}
               />
@@ -40,6 +40,6 @@ export default Projects;
 
 export const getStaticProps: GetStaticProps<CourseProps> = async () => ({
   props: {
-    courses: await getCoursesMetaByType({ type: 'free' }),
+    projects: await getAllPosts({type:'Project'}),
   },
 });

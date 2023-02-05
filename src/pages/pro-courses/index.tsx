@@ -2,14 +2,14 @@ import React from 'react';
 import { GetStaticProps } from 'next';
 import Layout from '../../components/Layout/Layout';
 import MaxWidthWrapper from '../../components/MaxWidthWrapper';
-import { getCoursesMetaByType } from '../../lib/courseRepository';
 import ProjectCard from '../../components/ProjectCard';
+import coursesData from '../../data/courses';
 
-interface IProCourses {
-  courses: CourseMeta[];
+interface Props {
+  courses: PostMeta[];
 }
 
-function ProCourses({ courses }: IProCourses) {
+function ProCourses({ courses }: Props) {
   return (
     <Layout title="Pro course to become a full stack mobile developer">
       <MaxWidthWrapper>
@@ -23,7 +23,7 @@ function ProCourses({ courses }: IProCourses) {
           <div className="my-5">
             {courses.map((course, index) => (
               <ProjectCard
-                course={course}
+                project={course}
                 key={course.slug}
                 mirrored={index % 2 === 1}
                 priority={index < 2}
@@ -38,8 +38,6 @@ function ProCourses({ courses }: IProCourses) {
 
 export default ProCourses;
 
-export const getStaticProps: GetStaticProps<IProCourses> = async () => ({
-  props: {
-    courses: await getCoursesMetaByType({ type: 'pro' }),
-  },
+export const getStaticProps: GetStaticProps<Props> = async () => ({
+  props: { courses: coursesData },
 });

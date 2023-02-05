@@ -6,14 +6,18 @@ type PostMeta = {
 
   description: string;
 
-  hideImageHeader: boolean;
-  hideNewsletterForm: boolean;
+  hideImageHeader?: boolean;
+  hideNewsletterForm?: boolean;
   authors: Author[];
+
+  redirect_url?: string;
   // ytVideoId?: string;
   // category: string;
   // tags: string[];
   // keywords?: string;
 };
+
+type PostType = 'Blog' | 'Project';
 
 type Post = PostMeta & {
   content: MDXRemoteSerializeResult;

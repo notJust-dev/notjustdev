@@ -100,7 +100,7 @@ function BlogPostPage({ post, recommendedPosts }: Props) {
         <hr className="my-4 border-gray-700" />
 
         <div className="flex flex-row">
-          <MaxWidthWrapper maxWidth={800} px={0}>
+          <MaxWidthWrapper maxWidth={800} noPadding>
             <article className="flex-1">
               <h2 id="introduction" className="invisible h-0 mt-0">
                 Introduction
@@ -134,7 +134,7 @@ function BlogPostPage({ post, recommendedPosts }: Props) {
 }
 
 export const getStaticPaths: GetStaticPaths = async () => {
-  const posts = await getAllPosts();
+  const posts = await getAllPosts({ type: 'Blog' });
   const paths = posts.map(({ slug }) => ({
     params: { slug },
   }));
@@ -149,11 +149,10 @@ export const getStaticProps: GetStaticProps<Props> = async ({
   // const recommendedPosts = post?.slug
   //   ? await getRecommendedPostsMeta(post.slug)
   //   : [];
-  // console.log(post);
   return {
     props: {
       post,
-      // recommendedPosts,
+      recommendedPosts: [],
     },
   };
 };

@@ -5,13 +5,13 @@ type Author = {
 
   image?: string;
   // socials
-  Facebook?: string;
-  LinkedIn?: string;
-  Github?: string;
-  Twitter?: string;
-  Youtube?: string;
-  Instagram?: string;
+  Facebook?: string | null;
+  LinkedIn?: string | null;
+  Github?: string | null;
+  Twitter?: string | null;
+  Youtube?: string | null;
+  Instagram?: string | null;
 
   // donation
-  buyMeACoffee?: string;
+  buyMeACoffee?: string | null;
 };

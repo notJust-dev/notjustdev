@@ -5,7 +5,7 @@ import { NotionToMarkdown } from 'notion-to-md';
 import { downloadImage } from '../utils/imageDownloader';
 import { v4 as uuidv4 } from 'uuid';
 import fs from 'fs';
-import remarkImagesSize from './remark-images-size';
+// import remarkImagesSize from './remark-images-size';
 import rehypeSlug from 'rehype-slug';
 import rehypeAutolinkHeadings from 'rehype-autolink-headings';
 import { getAuthorDetails } from './authors';
@@ -27,29 +27,6 @@ const n2m = new NotionToMarkdown({ notionClient: notion });
 
 const MD_IMAGE_REGEX = /!\[(?<alt>[^\]]*)\]\((?<url>.*?)(?=\"|\))\)/g;
 
-const parseNotionPageMeta = async (
-  page: PageObjectResponse,
-): Promise<PostMeta> => {
-  const post: PostMeta = {
-    updatedOn: page.last_edited_time,
-    slug: richTextToPlain(page.properties.slug.rich_text),
-    title: richTextToPlain(page.properties.Name.title),
-    description: richTextToPlain(page.properties.description.rich_text),
-    hideImageHeader: page.properties['Hide Image Header'].checkbox,
-    hideNewsletterForm: page.properties['Hide Newsletter'].checkbox,
-    authors: await Promise.all(
-      page.properties.Author.relation?.map((rel) => getAuthorDetails(rel.id)),
-    ),
-  };
-  if (page.cover?.file?.url) {
-    post.image = await downloadImage(
-      page.cover.file.url,
-      `/images/notion/thumbnails/${post.slug}.png`,
-    );
-  }
-  return post;
-};
-
 const getStatusFilter = () => {
   const statuses = ['Published'];
   // TODO check if the environment is Preview on vercel, show the draft posts.
@@ -67,10 +44,83 @@ const getStatusFilter = () => {
   };
 };
 
-export const getAllPosts = async (): Promise<PostMeta[]> => {
+const parseNotionPageMeta = async (
+  page: PageObjectResponse,
+): Promise<PostMeta> => {
+  const {
+    properties: {
+      slug,
+      Name,
+      description,
+      'Hide Image Header': hideImageHeader,
+      'Hide Newsletter': hideNewsletter,
+      Author,
+    },
+  } = page;
+
+  // validation
+  if (slug.type !== 'rich_text') {
+    throw new Error('Validation Error: slug is not a rich_text');
+  }
+  if (Name.type !== 'title') {
+    throw new Error('Validation Error: Name is not a title');
+  }
+  if (description.type !== 'rich_text') {
+    throw new Error('Validation Error: description is not a rich_text');
+  }
+  if (hideImageHeader.type !== 'checkbox') {
+    throw new Error('Validation Error: hideImageHeader is not a checkbox');
+  }
+  if (hideNewsletter.type !== 'checkbox') {
+    throw new Error('Validation Error: hideNewsletter is not a checkbox');
+  }
+  if (Author.type !== 'relation') {
+    throw new Error('Validation Error: Author is not a relation');
+  }
+
+  const post: PostMeta = {
+    updatedOn: page.last_edited_time,
+    slug: richTextToPlain(slug.rich_text),
+    title: richTextToPlain(Name.title),
+    description: richTextToPlain(description.rich_text),
+    hideImageHeader: hideImageHeader.checkbox,
+    hideNewsletterForm: hideNewsletter.checkbox,
+    authors: (
+      await Promise.all(Author.relation.map(({ id }) => getAuthorDetails(id)))
+    ).filter((a) => a !== null) as Author[],
+  };
+  if (page.cover?.type === 'file' && page.cover.file.url) {
+    post.image = await downloadImage(
+      page.cover.file.url,
+      `/images/notion/thumbnails/${post.slug}.png`,
+    );
+  }
+  return post;
+};
+
+interface GetAllPostsOption {
+  type: PostType;
+  pageSize?: number;
+}
+
+export const getAllPosts = async ({
+  type,
+  pageSize = 100,
+}: GetAllPostsOption): Promise<PostMeta[]> => {
   const response = await notion.databases.query({
     database_id: NOTION_DATABASE,
-    filter: getStatusFilter(),
+    page_size: pageSize,
+    filter: {
+      and: [
+        {
+          property: 'Type',
+          select: {
+            equals: type,
+          },
+        },
+        getStatusFilter(),
+      ],
+    },
   });
 
   return Promise.all(

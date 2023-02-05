@@ -14,20 +14,54 @@ export const getAuthorDetails = async (id: string): Promise<Author | null> => {
   if (!isFullPage(page)) {
     return null;
   }
+
+  const {
+    properties: {
+      Name,
+      Bio,
+      Facebook,
+      LinkedIn,
+      Github,
+      Twitter,
+      Youtube,
+      Instagram,
+      buyMeACoffee,
+    },
+  } = page;
+
+  // Validation
+  if (Name.type !== 'title') {
+    throw new Error('Validation Error: Name is not a title');
+  }
+  if (Bio.type !== 'rich_text') {
+    throw new Error('Validation Error: Bio is not a rich_text');
+  }
+  if (
+    Facebook.type !== 'url' ||
+    LinkedIn.type !== 'url' ||
+    Github.type !== 'url' ||
+    Twitter.type !== 'url' ||
+    Youtube.type !== 'url' ||
+    Instagram.type !== 'url' ||
+    buyMeACoffee.type !== 'url'
+  ) {
+    throw new Error('Validation Error: Some social is not a url');
+  }
+
   const author: Author = {
     id,
-    name: richTextToPlain(page.properties.Name.title),
-    bio: richTextToPlain(page.properties.Bio.rich_text),
-    Facebook: page.properties.Facebook.url,
-    LinkedIn: page.properties.LinkedIn.url,
-    Github: page.properties.Github.url,
-    Twitter: page.properties.Twitter.url,
-    Youtube: page.properties.Youtube.url,
-    Instagram: page.properties.Instagram.url,
-    buyMeACoffee: page.properties.buyMeACoffee.url,
+    name: richTextToPlain(Name.title),
+    bio: richTextToPlain(Bio.rich_text),
+    Facebook: Facebook.url,
+    LinkedIn: LinkedIn.url,
+    Github: Github.url,
+    Twitter: Twitter.url,
+    Youtube: Youtube.url,
+    Instagram: Instagram.url,
+    buyMeACoffee: buyMeACoffee.url,
   };
 
-  if (page.cover?.file?.url) {
+  if (page.cover?.type === 'file' && page.cover.file.url) {
     author.image = await downloadImage(
       page.cover.file.url,
       `/images/notion/authors/${id}.png`,

@@ -6,19 +6,18 @@ import HeroSection from '../components/HeroSection';
 import HomePageProjects from '../components/HomePageProjects';
 import BlogSection from '../components/BlogSection';
 import Layout from '../components/Layout/Layout';
-import { getAllPostsMeta } from '../lib/postRepository';
-import { getCoursesMetaByType } from '../lib/courseRepository';
+import { getAllPosts } from '../lib/notion';
+import courses from '../data/courses';
 
 const BLOG_POSTS_ON_HOME_PAGE = 4;
-const COURSES_ON_HOME_PAGE = 2;
+const PROJECTS_ON_HOME_PAGE = 2;
 
 interface Props {
   latestPosts: PostMeta[];
-  freeCourses: CourseMeta[];
-  proCourses: CourseMeta[];
+  projects: PostMeta[];
 }
 
-export default function Home({ latestPosts, freeCourses, proCourses }: Props) {
+export default function Home({ latestPosts, projects }: Props) {
   return (
     <Layout>
       <main className="grid gap-12">
@@ -29,7 +28,7 @@ export default function Home({ latestPosts, freeCourses, proCourses }: Props) {
         <TechLogos />
 
         {/* Projects */}
-        <HomePageProjects freeCourses={freeCourses} proCourses={proCourses} />
+        <HomePageProjects project={projects} courses={courses} />
 
         <Testimonials />
 
@@ -44,14 +43,13 @@ export default function Home({ latestPosts, freeCourses, proCourses }: Props) {
 
 export const getStaticProps: GetStaticProps<Props> = async () => ({
   props: {
-    latestPosts: await getAllPostsMeta({ limit: BLOG_POSTS_ON_HOME_PAGE }),
-    freeCourses: await getCoursesMetaByType({
-      type: 'free',
-      limit: COURSES_ON_HOME_PAGE,
+    latestPosts: await getAllPosts({
+      type: 'Blog',
+      pageSize: BLOG_POSTS_ON_HOME_PAGE,
     }),
-    proCourses: await getCoursesMetaByType({
-      type: 'pro',
-      limit: COURSES_ON_HOME_PAGE,
+    projects: await getAllPosts({
+      type: 'Project',
+      pageSize: PROJECTS_ON_HOME_PAGE,
     }),
   },
 });

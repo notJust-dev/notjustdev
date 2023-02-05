@@ -9,7 +9,7 @@ import {
 
 interface ISocialIconLink {
   type: SocialMediaPlatform;
-  url?: string;
+  url?: string | null;
 }
 
 const SocialIcons: { [key in SocialMediaPlatform]: typeof FaFacebookSquare } = {
@@ -20,7 +20,6 @@ const SocialIcons: { [key in SocialMediaPlatform]: typeof FaFacebookSquare } = {
   Youtube: FaYoutubeSquare,
   Instagram: FaInstagramSquare,
 };
-
 
 const SocialIconLink = ({ type, url }: ISocialIconLink) => {
   const Icon = SocialIcons[type];

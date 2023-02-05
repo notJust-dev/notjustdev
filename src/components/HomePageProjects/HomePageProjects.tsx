@@ -1,14 +1,14 @@
 import React from 'react';
 import Button from '../Button';
 import MaxWidthWrapper from '../MaxWidthWrapper';
-import CourseCard from '../ProjectCard';
+import ProjectCard from '../ProjectCard';
 
 interface Props {
-  freeCourses: CourseMeta[];
-  proCourses: CourseMeta[];
+  project: PostMeta[];
+  courses: PostMeta[];
 }
 
-export default function HomePageProjects({ freeCourses, proCourses }: Props) {
+export default function HomePageProjects({ project, courses }: Props) {
   return (
     <>
       <div className="relative py-10">
@@ -21,9 +21,9 @@ export default function HomePageProjects({ freeCourses, proCourses }: Props) {
             </p>
 
             <div className="my-5">
-              {freeCourses.map((course, index) => (
-                <CourseCard
-                  course={course}
+              {project.map((course, index) => (
+                <ProjectCard
+                  project={course}
                   key={course.slug}
                   mirrored={index % 2 === 1}
                 />
@@ -44,9 +44,9 @@ export default function HomePageProjects({ freeCourses, proCourses }: Props) {
             </p>
 
             <div className="my-5">
-              {proCourses.map((course, index) => (
-                <CourseCard
-                  course={course}
+              {courses.map((course, index) => (
+                <ProjectCard
+                  project={course}
                   key={course.slug}
                   mirrored={index % 2 === 1}
                 />
