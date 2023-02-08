@@ -1,6 +1,6 @@
 ---
 title: 'Getting Started with React Native Local Push Notifications in React Native'
-image: /images/thumbnails/posts/2023-01-06-react-native-testing.png
+image: /images/thumbnails/posts/2023-02-02-react-native-local-push-notifications.png
 publishedOn: '2023-01-06'
 description: 'Learn the basics of React Native Local Push Notifications in React Native. In this tutorial, we will be learning how to set up and use local push notifications in React Native.'
 category: React Native
@@ -32,15 +32,47 @@ Local push notifications are notifications that are sent from your app to the us
 
 ## Setting up our project
 
-As always we will be showing a real-life example of how to use local push notifications in React Native. We will be building a simple reminder app that will send a notification to the user when the reminder is set by the users. You can grab the starter code from the Github repo here.
-
-(https://github.com/notJust-dev/rn-local-push-notifications).
+As always we will be showing a real-life example of how to use local push notifications in React Native. We will be building a simple reminder app that will send a notification to the user when the reminder is set by the users. You can grab the starter code from the Github repo [here](https://github.com/notJust-dev/rn-local-push-notifications).
 
 1. Clone the repo.
+
+```bash
+
+git clone https://github.com/notJust-dev/rn-local-push-notifications
+
+```
+
 2. Checkout the `starter-code` branch.
+
+```bash
+
+git checkout starter-code
+
+```
+
 3. Run `yarn` to install the dependencies
+
+```bash
+
+yarn
+
+```
+
 4. Go to `ios` folder and run `pod install`
+
+```bash
+
+cd ios && pod install
+
+```
+
 5. Run `yarn ios` to run the app on iOS
+
+```bash
+
+yarn ios
+
+```
 
 ## Understanding the sample app
 
@@ -64,7 +96,7 @@ Great! Our app is up and running. Here comes the juicy part that we all want to 
 
 ## Integrate the Notifee library
 
-With the above tasks in mind, let's first set up the local push notification. We will be using the `Notifee` library. Notifee is a very well maintained library and it has been recently open sourced. It is a great library to use for local push notifications in React Native. Let's install the library first.
+With the above tasks in mind, let's first set up the local push notification. We will be using the [Notifee](https://notifee.app/) library. Notifee is a very well maintained library and it has been recently open sourced. It is a great library to use for local push notifications in React Native. Let's install the library first.
 
 ```bash
 
@@ -274,6 +306,14 @@ There are few scenarios when the user clicks on the notification. They are the f
 We will be handling all these scenarios in our app. Let's start with the first scenario. When the app is in the foreground and the user clicks on the notification, we will be using the `onForegroundEvent` event listener. Go to the `Notifications` class and modify the `constructor` method.
 
 ```tsx
+import notifee, {
+  AuthorizationStatus,
+  EventType,
+  Notification,
+  TimestampTrigger,
+  TriggerType,
+} from '@notifee/react-native';
+
 constructor() {
     ....
     // This event listener will be called when the app is in the foreground and the user clicks on the notification
@@ -411,7 +451,9 @@ Then we will call this method from the `Detail` screen when the user deletes the
 />
 ```
 
-Now when the user deletes the reminder, you will not be see any push notification. So far we have been testing on the iOS simulator. But it should work the same for the Android device as well.
+Now when the user deletes the reminder, he or she will not see any push notification!
+
+So far we have been testing on the iOS simulator. But it should work the same for the Android device as well.
 
 ## Conclusion
 
