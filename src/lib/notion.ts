@@ -28,12 +28,20 @@ const n2m = new NotionToMarkdown({ notionClient: notion });
 const MD_IMAGE_REGEX = /!\[(?<alt>[^\]]*)\]\((?<url>.*?)(?=\"|\))\)/g;
 
 const getStatusFilter = () => {
+  // In production, show only Published posts
   const statuses = ['Published'];
-  // TODO check if the environment is Preview on vercel, show the draft posts.
+
+  // On staging, show Published and Draft posts
+  if (process.env.VERCEL_ENV === 'preview') {
+    statuses.push('Draft');
+  }
+
+  // Locally, show Published, Draft and In progress posts
   if (process.env.NODE_ENV === 'development') {
     statuses.push('Draft');
     statuses.push('In progress');
   }
+
   return {
     or: statuses.map((status) => ({
       property: 'Status',
