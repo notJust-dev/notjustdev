@@ -148,12 +148,14 @@ const downloadAndReplaceMDXImages = async (mdString: string, slug: string) => {
 
   for (const match of matches) {
     if (match.groups?.url) {
-      const imageName = `${(
-        match.groups.alt || slug + `-${uuidv4()}`
-      ).replaceAll(' ', '-')}.png`; // use the ALT property as the name, or the slug of the post
+      // use the ALT property as the name, or the slug of the post
+      let imageName = match.groups.alt?.slice(0, 200) || `${slug}-${uuidv4()}`; 
+      // clean special characters from the image name
+      imageName = imageName.replace(/\W+/g, '-');
+
       const uri = await downloadImage(
         match.groups.url,
-        `/images/notion/${slug}/${imageName}`,
+        `/images/notion/${slug}/${imageName}.png`,
       );
       mdString = mdString.replace(match.groups?.url, uri);
     }
