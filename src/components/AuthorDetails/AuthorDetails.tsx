@@ -1,15 +1,12 @@
 import Image from 'next/image';
 import SocialIconLink from '../SocialIconLink/SocialIconLink';
-import authors from '../../../content/authors';
 import bmcButton from '../../../public/images/bmc-button.png';
 
-interface IAuthorDetails {
-  authorId: string;
+interface Props {
+  author: Author;
 }
 
-const AuthorDetails = ({ authorId }: IAuthorDetails) => {
-  const author = authors.find((a) => a.id === authorId);
-
+const AuthorDetails = ({ author }: Props) => {
   if (!author) {
     return null;
   }
@@ -20,29 +17,33 @@ const AuthorDetails = ({ authorId }: IAuthorDetails) => {
 
       <div className="flex flex-col sm:flex-row items-center sm:items-start">
         <div className="w-36 h-36 relative rounded-full overflow-hidden">
-          <Image src={author.image} alt={`${author.name} profile picture`} />
+          {author.image && (
+            <Image
+              src={author.image}
+              width={144}
+              height={144}
+              alt={`${author.name} profile picture`}
+            />
+          )}
         </div>
 
         <div className="flex-1 sm:ml-5 mt-5 sm:mt-0 text-center sm:text-left">
           <h2 className="text-4xl">{author.name}</h2>
 
           <div className="flex flex-row my-3 justify-center sm:justify-start">
-            <SocialIconLink type="Twitter" handle={author.socials.Twitter} />
-            <SocialIconLink type="LinkedIn" handle={author.socials.LinkedIn} />
-            <SocialIconLink type="Github" handle={author.socials.Github} />
-            <SocialIconLink type="Facebook" handle={author.socials.Facebook} />
-            <SocialIconLink
-              type="Instagram"
-              handle={author.socials.Instagram}
-            />
-            <SocialIconLink type="Youtube" handle={author.socials.Youtube} />
+            <SocialIconLink type="Twitter" url={author.Twitter} />
+            <SocialIconLink type="LinkedIn" url={author.LinkedIn} />
+            <SocialIconLink type="Github" url={author.Github} />
+            <SocialIconLink type="Facebook" url={author.Facebook} />
+            <SocialIconLink type="Instagram" url={author.Instagram} />
+            <SocialIconLink type="Youtube" url={author.Youtube} />
           </div>
 
           <p
             className="text-gray-400"
             // eslint-disable-next-line react/no-danger
             dangerouslySetInnerHTML={{
-              __html: author.description.replace(/(?:\r\n|\r|\n)/g, '<br>'),
+              __html: author.bio.replace(/(?:\r\n|\r|\n)/g, '<br>'),
             }}
           />
 
@@ -51,11 +52,7 @@ const AuthorDetails = ({ authorId }: IAuthorDetails) => {
               <p className="mt-5 mb-2 font-semibold">
                 If you want to support me personally, you can
               </p>
-              <a
-                href={`https://www.buymeacoffee.com/${author.buyMeACoffee}`}
-                target="_blank"
-                rel="noreferrer"
-              >
+              <a href={author.buyMeACoffee} target="_blank" rel="noreferrer">
                 <Image width={218} src={bmcButton} alt="Buy me a coffee" />
               </a>
             </>

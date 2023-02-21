@@ -4,7 +4,7 @@ import Button from '../Button';
 import MaxWidthWrapper from '../MaxWidthWrapper';
 
 interface Props {
-  posts: Post[];
+  posts: PostMeta[];
 }
 
 function BlogSection({ posts }: Props) {

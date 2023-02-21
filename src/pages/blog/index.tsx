@@ -3,7 +3,7 @@ import { GetStaticProps } from 'next';
 import BlogCard from '../../components/BlogCard';
 import Layout from '../../components/Layout/Layout';
 import MaxWidthWrapper from '../../components/MaxWidthWrapper';
-import { getAllPostsMeta } from '../../lib/postRepository';
+import { getAllPosts } from '../../lib/notion';
 
 interface BlogProps {
   posts: PostMeta[];
@@ -33,6 +33,6 @@ export default Blog;
 
 export const getStaticProps: GetStaticProps<BlogProps> = async () => ({
   props: {
-    posts: await getAllPostsMeta(),
+    posts: await getAllPosts({type: 'Blog'}),
   },
 });

@@ -9,7 +9,7 @@ import {
 
 interface ISocialIconLink {
   type: SocialMediaPlatform;
-  handle?: string;
+  url?: string | null;
 }
 
 const SocialIcons: { [key in SocialMediaPlatform]: typeof FaFacebookSquare } = {
@@ -21,25 +21,16 @@ const SocialIcons: { [key in SocialMediaPlatform]: typeof FaFacebookSquare } = {
   Instagram: FaInstagramSquare,
 };
 
-const SocialUrls: { [key in SocialMediaPlatform]: string } = {
-  Facebook: 'https://www.facebook.com/',
-  LinkedIn: 'https://www.linkedin.com/in/',
-  Github: 'https://github.com/',
-  Twitter: 'https://twitter.com/',
-  Youtube: 'https://www.youtube.com/channel/',
-  Instagram: 'https://www.instagram.com/',
-};
-
-const SocialIconLink = ({ type, handle }: ISocialIconLink) => {
+const SocialIconLink = ({ type, url }: ISocialIconLink) => {
   const Icon = SocialIcons[type];
 
-  if (!handle) {
+  if (!url) {
     return null;
   }
 
   return (
     <a
-      href={`${SocialUrls[type]}${handle}`}
+      href={url}
       target="_blank"
       rel="noreferrer"
       className="mr-1 hover:text-primary text-gray-100"

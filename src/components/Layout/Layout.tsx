@@ -13,7 +13,7 @@ type Props = {
   keywords: string;
   image: string;
   pageType: string;
-  hideNewsletterForm?: boolean;
+  hideNewsletterForm: boolean;
 };
 
 const Layout = ({

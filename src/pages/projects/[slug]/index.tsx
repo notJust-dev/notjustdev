@@ -1,22 +1,27 @@
-import { getMDXComponent } from 'mdx-bundler/client';
 import Image from 'next/image';
 import { GetStaticPaths, GetStaticProps, GetStaticPropsContext } from 'next';
-import { useMemo } from 'react';
 import Layout from '../../../components/Layout/Layout';
 import MaxWidthWrapper from '../../../components/MaxWidthWrapper';
-import { getCourseBySlug, getCourseSlugs } from '../../../lib/courseRepository';
 import StaticCodeSnippet from '../../../components/StaticCodeSnippet';
 import InlineCodeSnippet from '../../../components/InlineCodeSnippet';
 import MDXImage from '../../../components/MDXImage';
+import { MDXRemote } from 'next-mdx-remote';
+import * as sharedComponents from '../../../components/shared';
+import { getAllPosts, getPostBySLug } from '../../../lib/notion';
 
 interface Props {
-  course: Course | null;
+  post: Post | null;
 }
 
-function CoursePage({ course }: Props) {
-  const Component = useMemo(() => getMDXComponent(course?.code), [course]);
+const components = {
+  pre: StaticCodeSnippet,
+  code: InlineCodeSnippet,
+  img: MDXImage,
+  ...sharedComponents,
+};
 
-  if (!course) {
+function CoursePage({ post }: Props) {
+  if (!post) {
     return (
       <MaxWidthWrapper>
         <h3>Course not found!</h3>
@@ -26,16 +31,16 @@ function CoursePage({ course }: Props) {
 
   return (
     <Layout
-      title={course.title}
-      description={course.description}
-      image={course.thumbnail}
-      keywords={course.keywords}
+      title={post.title}
+      description={post.description}
+      image={post.image}
+      // keywords={post.keywords}
     >
       <MaxWidthWrapper>
-        {course.thumbnail && (
+        {post.image && (
           <div className="relative w-full aspect-w-16 aspect-h-9">
             <Image
-              src={course.thumbnail}
+              src={post.image}
               alt="Course Thumbnail"
               width={1280}
               height={720}
@@ -43,16 +48,10 @@ function CoursePage({ course }: Props) {
             />
           </div>
         )}
-        <h1 className="text-5xl text-center my-10">{course.title}</h1>
+        <h1 className="text-5xl text-center my-10">{post.title}</h1>
 
         <div className="mdx-post">
-          <Component
-            components={{
-              pre: StaticCodeSnippet,
-              code: InlineCodeSnippet,
-              img: MDXImage,
-            }}
-          />
+          <MDXRemote {...post.content} components={components} />
         </div>
       </MaxWidthWrapper>
     </Layout>
@@ -60,9 +59,9 @@ function CoursePage({ course }: Props) {
 }
 
 export const getStaticPaths: GetStaticPaths = async () => {
-  const courses = await getCourseSlugs();
+  const posts = await getAllPosts({ type: 'Project' });
 
-  const paths = courses.map((slug) => ({
+  const paths = posts.map(({ slug }) => ({
     params: { slug },
   }));
 
@@ -72,11 +71,11 @@ export const getStaticPaths: GetStaticPaths = async () => {
 export const getStaticProps: GetStaticProps<Props> = async ({
   params,
 }: GetStaticPropsContext) => {
-  const course = await getCourseBySlug(params?.slug as string);
+  const post = await getPostBySLug(params?.slug as string);
 
   return {
     props: {
-      course,
+      post,
     },
   };
 };

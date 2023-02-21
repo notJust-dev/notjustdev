@@ -1,22 +1,27 @@
-import React, { useEffect, useMemo, useState } from 'react';
-import { getMDXComponent } from 'mdx-bundler/client';
+import React, { useEffect, useState } from 'react';
 import Image from 'next/image';
+import { MDXRemote } from 'next-mdx-remote';
+
 import { GetStaticPaths, GetStaticProps, GetStaticPropsContext } from 'next';
 
 import Layout from '../../../components/Layout/Layout';
 import MaxWidthWrapper from '../../../components/MaxWidthWrapper';
-import {
-  getPostBySlug,
-  getPostSlugs,
-  getRecommendedPostsMeta,
-} from '../../../lib/postRepository';
 import StaticCodeSnippet from '../../../components/StaticCodeSnippet';
 import InlineCodeSnippet from '../../../components/InlineCodeSnippet';
 import MDXImage from '../../../components/MDXImage';
 import AuthorDetails from '../../../components/AuthorDetails';
 import BlogCard from '../../../components/BlogCard';
 import TableOfContents from '../../../components/TableOfContents';
-import YoutubeVideo from '../../../components/shared/YoutubeVideo';
+import { getAllPosts, getPostBySLug } from '../../../lib/notion';
+
+import * as sharedComponents from '../../../components/shared';
+
+const components = {
+  pre: StaticCodeSnippet,
+  code: InlineCodeSnippet,
+  img: MDXImage,
+  ...sharedComponents,
+};
 
 const dateFormat = {
   month: 'short' as 'short',
@@ -31,7 +36,6 @@ interface Props {
 
 function BlogPostPage({ post, recommendedPosts }: Props) {
   const [activeHeadingId, setActiveHeadingId] = useState('');
-  const Component = useMemo(() => getMDXComponent(post?.code), [post]);
 
   useEffect(() => {
     const callback: IntersectionObserverCallback = (headings) => {
@@ -65,24 +69,20 @@ function BlogPostPage({ post, recommendedPosts }: Props) {
       description={post.description}
       image={post.image}
       pageType="article"
-      keywords={post.keywords}
+      // keywords={post.keywords}
       hideNewsletterForm={post.hideNewsletterForm}
     >
       <MaxWidthWrapper>
         {post.image && !post.hideImageHeader && (
           <div className="relative w-full aspect-w-16 aspect-h-9">
-            {post.ytVideoId ? (
-              <YoutubeVideo id={post.ytVideoId} title={post.title} />
-            ) : (
-              <Image
-                src={post.image}
-                alt="post image"
-                width={1280}
-                height={720}
-                priority
-                sizes="(max-width: 1100px) 100vw, 1100px"
-              />
-            )}
+            <Image
+              src={post.image}
+              alt="post image"
+              width={1280}
+              height={720}
+              priority
+              sizes="(max-width: 1100px) 100vw, 1100px"
+            />
           </div>
         )}
         <h1 className="text-5xl text-center my-10">{post.title}</h1>
@@ -90,10 +90,10 @@ function BlogPostPage({ post, recommendedPosts }: Props) {
         <hr className="my-4 border-gray-700" />
         <div>
           <h4>
-            Published on:
+            Last updated on:
             <b>
               {' '}
-              {new Date(post.publishedOn).toLocaleString('en-US', dateFormat)}
+              {new Date(post.updatedOn).toLocaleString('en-US', dateFormat)}
             </b>
           </h4>
         </div>
@@ -106,13 +106,7 @@ function BlogPostPage({ post, recommendedPosts }: Props) {
                 Introduction
               </h2>
               <div className="mdx-post">
-                <Component
-                  components={{
-                    pre: StaticCodeSnippet,
-                    code: InlineCodeSnippet,
-                    img: MDXImage,
-                  }}
-                />
+                <MDXRemote {...post.content} components={components} />
               </div>
             </article>
           </MaxWidthWrapper>
@@ -121,27 +115,27 @@ function BlogPostPage({ post, recommendedPosts }: Props) {
           )}
         </div>
 
-        {post.author && <AuthorDetails authorId={post.author} />}
+        {post.authors.length && <AuthorDetails author={post.authors[0]} />}
 
-        {!post.hideReadNext && (
-          <>
-            <h3 className="text-2xl mt-10">Read next</h3>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-5 my-5">
-              {recommendedPosts.map((recommendedPost) => (
-                <BlogCard post={recommendedPost} key={recommendedPost.slug} />
-              ))}
-            </div>
-          </>
-        )}
+        {/* Displaying multiple authors (Needs a bit of style adjustment) */}
+        {/* {post.authors.map((author) => (
+          <AuthorDetails key={author.id} author={author} />
+        ))} */}
+
+        <h3 className="text-2xl mt-10">Read next</h3>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-5 my-5">
+          {recommendedPosts?.map((recommendedPost) => (
+            <BlogCard post={recommendedPost} key={recommendedPost.slug} />
+          ))}
+        </div>
       </MaxWidthWrapper>
     </Layout>
   );
 }
 
 export const getStaticPaths: GetStaticPaths = async () => {
-  const posts = await getPostSlugs();
-
-  const paths = posts.map((slug) => ({
+  const posts = await getAllPosts({ type: 'Blog' });
+  const paths = posts.map(({ slug }) => ({
     params: { slug },
   }));
 
@@ -151,15 +145,14 @@ export const getStaticPaths: GetStaticPaths = async () => {
 export const getStaticProps: GetStaticProps<Props> = async ({
   params,
 }: GetStaticPropsContext) => {
-  const post = await getPostBySlug(params?.slug as string);
-  const recommendedPosts = post?.slug
-    ? await getRecommendedPostsMeta(post.slug)
-    : [];
-
+  const post = await getPostBySLug(params?.slug as string);
+  // const recommendedPosts = post?.slug
+  //   ? await getRecommendedPostsMeta(post.slug)
+  //   : [];
   return {
     props: {
       post,
-      recommendedPosts,
+      recommendedPosts: [],
     },
   };
 };

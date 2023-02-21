@@ -9,8 +9,8 @@ tags:
   - Hackathon
   - notJustEvents
 keywords: notJust Hack, hackathon, react native, aws amplify
-hideReadNext: true
 hideNewsletterForm: true
+# hideReadNext: true
 ---
 
 import OptInForm from '../../../src/components/shared/OptInForm/OptInForm';
