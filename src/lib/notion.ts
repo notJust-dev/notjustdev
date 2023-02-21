@@ -149,7 +149,7 @@ const downloadAndReplaceMDXImages = async (mdString: string, slug: string) => {
   for (const match of matches) {
     if (match.groups?.url) {
       // use the ALT property as the name, or the slug of the post
-      let imageName = match.groups.alt?.slice(0, 200) || `${slug}-${uuidv4()}`; 
+      let imageName = match.groups.alt?.slice(0, 200) || `${slug}-${uuidv4()}`;
       // clean special characters from the image name
       imageName = imageName.replace(/\W+/g, '-');
 
@@ -222,6 +222,8 @@ export const getPostBySLug = async (slug: string): Promise<Post> => {
     .toMarkdownString(mdBlocks)
     .replaceAll('“', '"')
     .replaceAll('”', '"');
+
+  console.log(mdBlocks);
 
   mdString = await downloadAndReplaceMDXImages(mdString, slug);
   // TODO maybe this should be a rehype plugin?
