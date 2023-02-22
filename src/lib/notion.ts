@@ -2,7 +2,7 @@ import { Client, isFullPage } from '@notionhq/client';
 import { PageObjectResponse } from '@notionhq/client/build/src/api-endpoints';
 import { serialize } from 'next-mdx-remote/serialize';
 import { NotionToMarkdown } from 'notion-to-md';
-import { downloadImage } from '../utils/imageDownloader';
+import { downloadImage } from './utils/imageDownloader';
 import { v4 as uuidv4 } from 'uuid';
 import fs from 'fs';
 // import remarkImagesSize from './remark-images-size';
@@ -10,12 +10,12 @@ import rehypeSlug from 'rehype-slug';
 import rehypeAutolinkHeadings from 'rehype-autolink-headings';
 import { getAuthorDetails } from './authors';
 import { richTextToPlain } from './utils';
-import GithubSlugger from 'github-slugger';
+import { buildToC, shiftHeadings } from './utils/tableOfContents';
+import { processVideos } from './utils/videos';
 
 const { NOTION_KEY, NOTION_DATABASE = '' } = process.env;
 
 const rootDir = process.cwd();
-const slugger = new GithubSlugger();
 
 // Initializing a client
 const notion = new Client({
@@ -137,13 +137,6 @@ export const getAllPosts = async ({
 };
 
 const downloadAndReplaceMDXImages = async (mdString: string, slug: string) => {
-  // re-create folder for images
-  const dir = `${rootDir}/public/images/notion/${slug}`;
-  if (fs.existsSync(dir)) {
-    fs.rmSync(dir, { recursive: true });
-  }
-  fs.mkdirSync(dir);
-
   const matches = mdString.matchAll(MD_IMAGE_REGEX);
 
   for (const match of matches) {
@@ -163,44 +156,6 @@ const downloadAndReplaceMDXImages = async (mdString: string, slug: string) => {
   return mdString;
 };
 
-// Shift heading one way smaller (H1 becomes H2, H2 -> H3)
-const shiftHeadings = (mdString: string) => {
-  const headings = mdString
-    .split(/\r?\n/)
-    .filter((line) => line.trim().startsWith('#'));
-
-  headings.forEach(
-    (heading) => (mdString = mdString.replace(heading, `#${heading.trim()}`)),
-  );
-  return mdString;
-};
-
-const isHeader2or3 = (line: string) => {
-  const trimmed = line.trim();
-  return trimmed.startsWith('## ') || trimmed.startsWith('### ');
-};
-
-const buildToC = (mdString: string): ToCHeading[] => {
-  const headings = mdString.split(/\r?\n/).filter(isHeader2or3);
-
-  const toc = headings.map((h) => {
-    const depth = h.split(' ', 1)[0].length;
-    const title = h
-      .slice(depth)
-      .replaceAll('_', '')
-      .replace(/\[([^\[\]]*)\]\((.*?)\)/gm, '$1')
-      .trim();
-    return {
-      slug: slugger.slug(title),
-      title,
-      depth,
-    };
-  });
-
-  toc.unshift({ slug: 'introduction', title: 'Introduction', depth: 2 });
-  return toc;
-};
-
 export const getPostBySLug = async (slug: string): Promise<Post> => {
   const response = await notion.databases.query({
     database_id: NOTION_DATABASE,
@@ -217,12 +172,23 @@ export const getPostBySLug = async (slug: string): Promise<Post> => {
     throw new Error('Cannot find page!');
   }
 
-  const mdBlocks = await n2m.pageToMarkdown(page.id);
+  // re-create folder for images
+  const dir = `${rootDir}/public/images/notion/${slug}`;
+  if (fs.existsSync(dir)) {
+    fs.rmSync(dir, { recursive: true });
+  }
+  fs.mkdirSync(dir);
+
+  let mdBlocks = await n2m.pageToMarkdown(page.id);
+
+  mdBlocks = await Promise.all(mdBlocks.map((b) => processVideos(b, slug)));
+
   let mdString = n2m
     .toMarkdownString(mdBlocks)
     .replaceAll('“', '"')
     .replaceAll('”', '"');
 
+  // To them based on blocks, similar to videos?
   mdString = await downloadAndReplaceMDXImages(mdString, slug);
   // TODO maybe this should be a rehype plugin?
   mdString = shiftHeadings(mdString);

@@ -1,6 +1,6 @@
 import { Client, isFullPage } from '@notionhq/client';
 
-import { downloadImage } from '../utils/imageDownloader';
+import { downloadImage } from './utils/imageDownloader';
 import { richTextToPlain } from './utils';
 
 const { NOTION_KEY } = process.env;
