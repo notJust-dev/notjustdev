@@ -56,3 +56,4 @@ amplifytools.xcconfig
 # generated public images
 public/images/content
 public/images/notion/*
+!public/images/notion/.gitkeep 
