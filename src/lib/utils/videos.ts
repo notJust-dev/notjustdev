@@ -22,7 +22,7 @@ export const processVideos = async (
 
   return {
     type: 'paragraph',
-    parent: `<VideoPlayer height={500} width={300} url="${uri}" />`,
+    parent: `<VideoPlayer height={450} url="${uri}" />`,
     children: [],
   };
 };
