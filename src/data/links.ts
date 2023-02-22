@@ -10,19 +10,19 @@ export type CustomLinkData = {
 
 export const mainLinks: CustomLinkData[] = [
   {
-    text: 'notJust.YTChannel',
+    text: 'Youtube',
     Icon: FaYoutube,
-    href: 'https://www.youtube.com/@notjustdev?sub_confirmation=1',
+    href: 'http://bit.ly/3KrjgEz',
   },
   {
-    text: 'notJust.Academy',
+    text: 'Academy',
     Icon: HiAcademicCap,
-    href: 'https://academy.notjust.dev',
+    href: 'http://bit.ly/3So5d4l',
   },
   {
-    text: 'notJust.Blog',
+    text: 'Blog',
     Icon: MdArticle,
-    href: 'https://www.notjust.dev/blog',
+    href: 'http://bit.ly/3Ze10m9',
   },
 ];
 
@@ -30,16 +30,16 @@ export const socialLinks = [
   {
     name: 'Twitter',
     Icon: FaTwitter,
-    href: 'https://twitter.com/VadimNotJustDev',
+    href: 'http://bit.ly/3ZfCGAa',
   },
   {
     name: 'Instagram',
     Icon: FaInstagram,
-    href: 'https://www.instagram.com/vadimnotjustdev/',
+    href: 'http://bit.ly/3Eup4Jo',
   },
   {
     name: 'Discord',
     Icon: FaDiscord,
-    href: 'https://discord.gg/VpURUN2',
+    href: 'http://bit.ly/3ILxRJF',
   },
 ];
