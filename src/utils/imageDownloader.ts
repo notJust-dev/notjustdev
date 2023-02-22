@@ -1,6 +1,6 @@
 import fs from 'fs';
 import https from 'https';
-import { join } from 'path';
+import { join, parse } from 'path';
 
 const publicDir = join(process.cwd(), 'public');
 
@@ -11,6 +11,11 @@ export const downloadImage = (
   const fullPath = filepath.includes(publicDir)
     ? filepath
     : join(publicDir, filepath);
+
+  const dir = parse(fullPath).dir;
+  if (!fs.existsSync(dir)) {
+    fs.mkdirSync(dir);
+  }
   return new Promise((resolve, reject) => {
     https.get(url, (res) => {
       if (res.statusCode === 200) {
