@@ -16,9 +16,14 @@ export const downloadImage = (
   if (!fs.existsSync(dir)) {
     fs.mkdirSync(dir);
   }
+
   return new Promise((resolve, reject) => {
     https.get(url, (res) => {
       if (res.statusCode === 200) {
+        // const fileInfo = {
+        //   mime: res.headers['content-type'],
+        //   size: parseInt(res.headers['content-length'] || '0', 10),
+        // };
         res
           .pipe(fs.createWriteStream(fullPath))
           .on('error', reject)
