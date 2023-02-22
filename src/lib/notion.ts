@@ -223,8 +223,6 @@ export const getPostBySLug = async (slug: string): Promise<Post> => {
     .replaceAll('“', '"')
     .replaceAll('”', '"');
 
-  console.log(mdBlocks);
-
   mdString = await downloadAndReplaceMDXImages(mdString, slug);
   // TODO maybe this should be a rehype plugin?
   mdString = shiftHeadings(mdString);

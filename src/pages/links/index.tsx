@@ -3,7 +3,7 @@ import Link from 'next/link';
 import React from 'react';
 import MaxWidthWrapper from '../../components/MaxWidthWrapper';
 import logo from '../../../public/images/logo/white.png';
-import { mainLinks, socialLinks, CustomLinkData } from './links';
+import { mainLinks, socialLinks, CustomLinkData } from '../../data/links';
 
 const CustomLink = ({ text, Icon, href }: CustomLinkData) => (
   <Link
