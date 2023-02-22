@@ -80,9 +80,9 @@ function MyApp({ Component, pageProps }: AppProps) {
           fbq('track', 'PageView');
         `}
       </Script>
-  
+
       {/* <!-- End Meta Pixel Code --> */}
-      <Component {...pageProps} />;
+      <Component {...pageProps} />
     </>
   );
 }
