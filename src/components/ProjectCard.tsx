@@ -11,7 +11,7 @@ interface Props {
 const ProjectCard = ({ project, mirrored, priority }: Props) => {
   const float = mirrored ? 'left' : 'right';
   return (
-    <Link href={`/projects/${project.slug}`}>
+    <Link href={project.redirect_url ?? `/projects/${project.slug}`}>
       <div className="relative w-full my-3 flex flex-col items-stretch md:flex-row cursor-pointer">
         <div
           className={`absolute ${float}-0 bottom-0 bg-custom-blue-500 w-full md:w-2/3 h-2/3 md:h-full`}
