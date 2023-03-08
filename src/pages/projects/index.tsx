@@ -42,5 +42,5 @@ export const getStaticProps: GetStaticProps<CourseProps> = async () => ({
   props: {
     projects: await getAllPosts({ type: 'Project' }),
   },
-  revalidate: 10,
+  // revalidate: 10,
 });
