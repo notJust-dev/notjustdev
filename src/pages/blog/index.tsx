@@ -33,6 +33,7 @@ export default Blog;
 
 export const getStaticProps: GetStaticProps<BlogProps> = async () => ({
   props: {
-    posts: await getAllPosts({type: 'Blog'}),
+    posts: await getAllPosts({ type: 'Blog' }),
   },
+  revalidate: 10,
 });
