@@ -40,6 +40,7 @@ export default Projects;
 
 export const getStaticProps: GetStaticProps<CourseProps> = async () => ({
   props: {
-    projects: await getAllPosts({type:'Project'}),
+    projects: await getAllPosts({ type: 'Project' }),
   },
+  revalidate: 10,
 });

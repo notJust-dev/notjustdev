@@ -52,4 +52,5 @@ export const getStaticProps: GetStaticProps<Props> = async () => ({
       pageSize: PROJECTS_ON_HOME_PAGE,
     }),
   },
+  revalidate: 10,
 });

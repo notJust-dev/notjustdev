@@ -164,6 +164,7 @@ export const getStaticProps: GetStaticProps<Props> = async ({
       post,
       recommendedPosts: [],
     },
+    revalidate: 10,
   };
 };
 
