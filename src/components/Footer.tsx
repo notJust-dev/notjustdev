@@ -46,6 +46,9 @@ const Footer = ({ hideNewsletterForm = false }: FooterProps) => (
                 <Link href="/blog" className="text-gray-300 my-2">
                   Blog
                 </Link>
+                <Link href="/testimonials" className="text-gray-300 my-2">
+                  Testimonials
+                </Link>
               </div>
             </div>
 
@@ -88,7 +91,7 @@ const Footer = ({ hideNewsletterForm = false }: FooterProps) => (
     </div>
 
     <p className="text-center p-5 text-gray-400">
-      Copyright © 2021 notjust.dev All rights reserved.
+      Copyright © 2023 notjust.dev All rights reserved.
     </p>
   </footer>
 );
