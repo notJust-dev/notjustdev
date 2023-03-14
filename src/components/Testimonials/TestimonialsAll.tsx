@@ -75,7 +75,7 @@ const Testimonials = () => (
       <iframe
         id="testimonialto-carousel-all-the-full-stack-mobile-developer-dark"
         src="https://embed-v2.testimonial.to/carousel/all/the-full-stack-mobile-developer?theme=dark&autoplay=on&showmore=off&one-row=on&hideDate=on&same-height=off"
-        frameborder="0"
+        frameBorder="0"
         scrolling="no"
         width="100%"
       ></iframe>
