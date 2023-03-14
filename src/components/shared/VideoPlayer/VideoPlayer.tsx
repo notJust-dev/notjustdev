@@ -8,12 +8,14 @@ interface VideoPlayerProps {
   url: string;
   width?: number | string;
   height?: number | string;
+  autoplay?: boolean;
 }
 
 export default function VideoPlayer({
   url,
   width = '100%',
   height = '100%',
+  autoplay = false,
 }: VideoPlayerProps) {
   return (
     <ReactPlayer
@@ -22,6 +24,8 @@ export default function VideoPlayer({
       controls={true}
       width={width}
       height={height}
+      muted={autoplay}
+      playing={autoplay}
     />
   );
 }

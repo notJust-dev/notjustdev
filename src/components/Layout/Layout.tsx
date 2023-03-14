@@ -14,6 +14,7 @@ type Props = {
   image: string;
   pageType: string;
   hideNewsletterForm: boolean;
+  isLandingPage: boolean;
 };
 
 const Layout = ({
@@ -25,6 +26,7 @@ const Layout = ({
   image,
   pageType,
   hideNewsletterForm,
+  isLandingPage,
 }: Props) => {
   const router = useRouter();
 
@@ -55,11 +57,11 @@ const Layout = ({
         <meta name="twitter:image:alt" content={title} />
         <meta property="twitter:creator" content={SEO.twitter} />
       </Head>
-      <Navbar />
+      {!isLandingPage && <Navbar />}
 
       <main>{children}</main>
 
-      <Footer hideNewsletterForm={hideNewsletterForm} />
+      {!isLandingPage && <Footer hideNewsletterForm={hideNewsletterForm} />}
     </div>
   );
 };
@@ -71,6 +73,7 @@ Layout.defaultProps = {
   keywords: SEO.keywords,
   image: SEO.image,
   pageType: 'website',
+  isLandingPage: false,
 } as Partial<Props>;
 
 export default Layout;
