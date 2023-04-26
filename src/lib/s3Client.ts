@@ -43,9 +43,11 @@ const existsInS3 = async (fileName: string) => {
     // I always get 200 for my testing if the object exists
     return data.$metadata.httpStatusCode === 200;
   } catch (error) {
+    //@ts-ignore
     if (error.$metadata?.httpStatusCode === 404) {
       // doesn't exist and permission policy includes s3:ListBucket
       return false;
+      //@ts-ignore
     } else if (error.$metadata?.httpStatusCode === 403) {
       // doesn't exist, permission policy WITHOUT s3:ListBucket
       return false;
