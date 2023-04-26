@@ -1,6 +1,6 @@
 module.exports = {
   images: {
-    domains: [],
+    domains: ['notjustdev-media.s3.amazonaws.com'],
   },
   async rewrites() {
     return [

@@ -11,6 +11,7 @@
     "prepare": "husky install"
   },
   "dependencies": {
+    "@aws-sdk/client-s3": "^3.319.0",
     "@notionhq/client": "^2.2.3",
     "@tailwindcss/aspect-ratio": "^0.4.0",
     "@types/mdast": "^3.0.10",

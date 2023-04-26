@@ -2,20 +2,15 @@ import { Client, isFullPage } from '@notionhq/client';
 import { PageObjectResponse } from '@notionhq/client/build/src/api-endpoints';
 import { serialize } from 'next-mdx-remote/serialize';
 import { NotionToMarkdown } from 'notion-to-md';
-import { downloadImage } from './utils/imageDownloader';
-import { v4 as uuidv4 } from 'uuid';
-import fs from 'fs';
-// import remarkImagesSize from './remark-images-size';
 import rehypeSlug from 'rehype-slug';
 import rehypeAutolinkHeadings from 'rehype-autolink-headings';
 import { getAuthorDetails } from './authors';
 import { richTextToPlain } from './utils';
 import { buildToC, shiftHeadings } from './utils/tableOfContents';
 import { processVideos } from './utils/videos';
+import { copyFileToS3 } from './s3Client';
 
 const { NOTION_KEY, NOTION_DATABASE = '' } = process.env;
-
-const rootDir = process.cwd();
 
 // Initializing a client
 const notion = new Client({
@@ -54,6 +49,7 @@ const getStatusFilter = () => {
 
 const parseNotionPageMeta = async (
   page: PageObjectResponse,
+  includeAuthors = false,
 ): Promise<PostMeta> => {
   const {
     properties: {
@@ -93,15 +89,16 @@ const parseNotionPageMeta = async (
     description: richTextToPlain(description.rich_text),
     hideImageHeader: hideImageHeader.checkbox,
     hideNewsletterForm: hideNewsletter.checkbox,
-    authors: (
-      await Promise.all(Author.relation.map(({ id }) => getAuthorDetails(id)))
-    ).filter((a) => a !== null) as Author[],
+    authors: [],
   };
+  if (includeAuthors) {
+    post.authors = (
+      await Promise.all(Author.relation.map(({ id }) => getAuthorDetails(id)))
+    ).filter((a) => a !== null) as Author[];
+  }
+
   if (page.cover?.type === 'file' && page.cover.file.url) {
-    post.image = await downloadImage(
-      page.cover.file.url,
-      `/images/notion/thumbnails/${post.slug}.png`,
-    );
+    post.image = await copyFileToS3(page.cover.file.url);
   }
   return post;
 };
@@ -132,24 +129,18 @@ export const getAllPosts = async ({
   });
 
   return Promise.all(
-    response.results.filter(isFullPage).map(parseNotionPageMeta),
+    response.results
+      .filter(isFullPage)
+      .map((page) => parseNotionPageMeta(page)),
   );
 };
 
-const downloadAndReplaceMDXImages = async (mdString: string, slug: string) => {
+const downloadAndReplaceMDXImages = async (mdString: string) => {
   const matches = mdString.matchAll(MD_IMAGE_REGEX);
 
   for (const match of matches) {
     if (match.groups?.url) {
-      // use the ALT property as the name, or the slug of the post
-      let imageName = match.groups.alt?.slice(0, 200) || `${slug}-${uuidv4()}`;
-      // clean special characters from the image name
-      imageName = imageName.replace(/\W+/g, '-');
-
-      const uri = await downloadImage(
-        match.groups.url,
-        `/images/notion/${slug}/${imageName}.png`,
-      );
+      const uri = await copyFileToS3(match.groups.url);
       mdString = mdString.replace(match.groups?.url, uri);
     }
   }
@@ -172,24 +163,17 @@ export const getPostBySLug = async (slug: string): Promise<Post> => {
     throw new Error('Cannot find page!');
   }
 
-  // re-create folder for images
-  const dir = `${rootDir}/public/images/notion/${slug}`;
-  if (fs.existsSync(dir)) {
-    fs.rmSync(dir, { recursive: true });
-  }
-  fs.mkdirSync(dir);
-
   let mdBlocks = await n2m.pageToMarkdown(page.id);
 
-  mdBlocks = await Promise.all(mdBlocks.map((b) => processVideos(b, slug)));
+  mdBlocks = await Promise.all(mdBlocks.map(processVideos));
 
   let mdString = n2m
     .toMarkdownString(mdBlocks)
     .replaceAll('“', '"')
     .replaceAll('”', '"');
 
-  // To them based on blocks, similar to videos?
-  mdString = await downloadAndReplaceMDXImages(mdString, slug);
+  // TODO them based on blocks, similar to videos?
+  mdString = await downloadAndReplaceMDXImages(mdString);
   // TODO maybe this should be a rehype plugin?
   mdString = shiftHeadings(mdString);
   const toc = buildToC(mdString);
@@ -212,7 +196,7 @@ export const getPostBySLug = async (slug: string): Promise<Post> => {
   });
 
   return {
-    ...(await parseNotionPageMeta(page)),
+    ...(await parseNotionPageMeta(page, true)),
     content,
     toc,
   };
