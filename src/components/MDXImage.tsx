@@ -16,6 +16,7 @@ const MDXImage = ({ src, alt, children, width, height }: Props) => (
       alt={alt as string}
       width={Number(width)}
       height={Number(height)}
+      unoptimized={src?.endsWith('.gif')}
     />
     {children}
   </span>
