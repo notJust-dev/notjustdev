@@ -8,5 +8,5 @@
     "amplify/backend/amplify-meta.json": true,
     "amplify/backend/awscloudformation": true
   },
-  "cSpell.words": ["Hasura", "Nhost", "outdir", "rehype"]
+  "cSpell.words": ["Hasura", "Nhost", "outdir", "rehype", "unoptimized"]
 }

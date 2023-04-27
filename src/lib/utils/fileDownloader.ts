@@ -1,18 +1,12 @@
 import fs from 'fs';
 import https from 'https';
-import { join, parse } from 'path';
+import { parse } from 'path';
 
-const publicDir = join(process.cwd(), 'public');
-
-export const downloadImage = (
+export const downloadFile = (
   url: string,
   filepath: string,
 ): Promise<string> => {
-  const fullPath = filepath.includes(publicDir)
-    ? filepath
-    : join(publicDir, filepath);
-
-  const dir = parse(fullPath).dir;
+  const dir = parse(filepath).dir;
   if (!fs.existsSync(dir)) {
     fs.mkdirSync(dir);
   }
@@ -20,12 +14,8 @@ export const downloadImage = (
   return new Promise((resolve, reject) => {
     https.get(url, (res) => {
       if (res.statusCode === 200) {
-        // const fileInfo = {
-        //   mime: res.headers['content-type'],
-        //   size: parseInt(res.headers['content-length'] || '0', 10),
-        // };
         res
-          .pipe(fs.createWriteStream(fullPath))
+          .pipe(fs.createWriteStream(filepath))
           .on('error', reject)
           .once('close', () => resolve(filepath));
       } else {

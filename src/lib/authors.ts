@@ -1,7 +1,7 @@
 import { Client, isFullPage } from '@notionhq/client';
 
-import { downloadImage } from './utils/imageDownloader';
 import { richTextToPlain } from './utils';
+import { copyFileToS3 } from './s3Client';
 
 const { NOTION_KEY } = process.env;
 
@@ -9,7 +9,13 @@ const notion = new Client({
   auth: NOTION_KEY,
 });
 
+const authors: { [key: string]: Author } = {};
+
 export const getAuthorDetails = async (id: string): Promise<Author | null> => {
+  if (authors[id]) {
+    return authors[id];
+  }
+
   const page = await notion.pages.retrieve({ page_id: id });
   if (!isFullPage(page)) {
     return null;
@@ -62,10 +68,9 @@ export const getAuthorDetails = async (id: string): Promise<Author | null> => {
   };
 
   if (page.cover?.type === 'file' && page.cover.file.url) {
-    author.image = await downloadImage(
-      page.cover.file.url,
-      `/images/notion/authors/${id}.png`,
-    );
+    author.image = await copyFileToS3(page.cover.file.url);
   }
+
+  authors[id] = author;
   return author;
 };
