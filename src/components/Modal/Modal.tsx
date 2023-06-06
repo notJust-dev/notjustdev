@@ -1,3 +1,5 @@
+// Source: https://tailwindui.com/components/application-ui/overlays/modals
+
 import { FC, PropsWithChildren } from 'react';
 import { MdClose } from 'react-icons/md';
 
