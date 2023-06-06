@@ -15,6 +15,7 @@
     "@notionhq/client": "^2.2.4",
     "@tailwindcss/aspect-ratio": "^0.4.2",
     "@types/mdast": "^3.0.11",
+    "@vercel/analytics": "^1.0.1",
     "esbuild": "^0.14.54",
     "github-slugger": "^1.5.0",
     "image-size": "^1.0.2",
