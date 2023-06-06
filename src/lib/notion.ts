@@ -5,7 +5,7 @@ import { NotionToMarkdown } from 'notion-to-md';
 import rehypeSlug from 'rehype-slug';
 import rehypeAutolinkHeadings from 'rehype-autolink-headings';
 import { getAuthorDetails } from './authors';
-import { richTextToPlain } from './utils';
+import { richTextToPlain, shuffle } from './utils';
 import { buildToC, shiftHeadings } from './utils/tableOfContents';
 import { processVideos } from './utils/videos';
 import { copyFileToS3 } from './s3Client';
@@ -59,6 +59,7 @@ const parseNotionPageMeta = async (
       'Hide Image Header': hideImageHeader,
       'Hide Newsletter': hideNewsletter,
       Author,
+      Type,
     },
   } = page;
 
@@ -81,6 +82,9 @@ const parseNotionPageMeta = async (
   if (Author.type !== 'relation') {
     throw new Error('Validation Error: Author is not a relation');
   }
+  if (Type.type !== 'select' || !Type.select) {
+    throw new Error('Validation Error: Type is not a select');
+  }
 
   const post: PostMeta = {
     updatedOn: page.last_edited_time,
@@ -90,6 +94,7 @@ const parseNotionPageMeta = async (
     hideImageHeader: hideImageHeader.checkbox,
     hideNewsletterForm: hideNewsletter.checkbox,
     authors: [],
+    type: Type.select.name as PostType,
   };
   if (includeAuthors) {
     post.authors = (
@@ -200,4 +205,17 @@ export const getPostBySLug = async (slug: string): Promise<Post> => {
     content,
     toc,
   };
+};
+
+export const getRecommendedPostsMeta = async (
+  forPost: PostMeta,
+  limit: number = 2,
+) => {
+  const all = (await getAllPosts({ type: forPost.type })).filter(
+    (p) => p.slug !== forPost.slug,
+  );
+
+  let random2 = shuffle(all).slice(0, limit > 0 ? limit : 2);
+
+  return random2;
 };

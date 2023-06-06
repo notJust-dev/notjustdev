@@ -3,6 +3,7 @@ type PostMeta = {
   title: string;
   updatedOn: string;
   image?: string;
+  type: PostType;
 
   description: string;
 
