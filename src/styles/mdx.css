@@ -42,6 +42,10 @@
   @apply mb-2 pl-1;
 }
 
+.mdx-post li p {
+  @apply my-0;
+}
+
 .mdx-post hr {
   @apply my-6 border-gray-700;
 }
