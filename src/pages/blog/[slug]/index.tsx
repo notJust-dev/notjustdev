@@ -19,6 +19,7 @@ import {
 } from '../../../lib/notion';
 
 import * as sharedComponents from '../../../components/shared';
+import Tags from '../../../components/Tags';
 
 const components = {
   pre: StaticCodeSnippet,
@@ -89,7 +90,9 @@ function BlogPostPage({ post, recommendedPosts }: Props) {
             />
           </div>
         )}
-        <h1 className="text-5xl text-center my-10">{post.title}</h1>
+        <h1 className="text-5xl my-10">{post.title}</h1>
+
+        <Tags tags={post.tags} />
 
         <hr className="my-4 border-gray-700" />
         <div>

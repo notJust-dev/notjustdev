@@ -12,10 +12,27 @@ type PostMeta = {
   authors: Author[];
 
   redirect_url?: string;
+
+  tags: NotionMultiSelect[];
   // ytVideoId?: string;
   // category: string;
-  // tags: string[];
   // keywords?: string;
+};
+
+type NotionMultiSelect = {
+  color:
+    | 'blue'
+    | 'brown'
+    | 'default'
+    | 'gray'
+    | 'green'
+    | 'orange'
+    | 'pink'
+    | 'purple'
+    | 'red'
+    | 'yellow';
+  id: string;
+  name: string;
 };
 
 type PostType = 'Blog' | 'Project';

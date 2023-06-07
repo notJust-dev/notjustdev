@@ -60,6 +60,7 @@ const parseNotionPageMeta = async (
       'Hide Newsletter': hideNewsletter,
       Author,
       Type,
+      tags,
     },
   } = page;
 
@@ -85,6 +86,9 @@ const parseNotionPageMeta = async (
   if (Type.type !== 'select' || !Type.select) {
     throw new Error('Validation Error: Type is not a select');
   }
+  if (tags.type !== 'multi_select') {
+    throw new Error('Validation Error: Tags is not a multi-select');
+  }
 
   const post: PostMeta = {
     updatedOn: page.last_edited_time,
@@ -95,6 +99,7 @@ const parseNotionPageMeta = async (
     hideNewsletterForm: hideNewsletter.checkbox,
     authors: [],
     type: Type.select.name as PostType,
+    tags: tags.multi_select,
   };
   if (includeAuthors) {
     post.authors = (
@@ -212,7 +217,7 @@ export const getPostBySLug = async (slug: string): Promise<Post> => {
 export const getRecommendedPostsMeta = async (
   forPost: PostMeta,
   limit: number = 2,
-) => {
+): Promise<Post[]> => {
   const all = (await getAllPosts({ type: forPost.type })).filter(
     (p) => p.slug !== forPost.slug,
   );

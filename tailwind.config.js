@@ -1,3 +1,5 @@
+const colors = require('tailwindcss/colors');
+
 module.exports = {
   content: [
     './src/pages/**/*.{js,ts,jsx,tsx}',
@@ -10,7 +12,7 @@ module.exports = {
         primary: '#ffe031',
         secondary: '#8bd2bd',
         'custom-blue-500': '#29313D',
-        orange: '#E89736',
+        'brand-orange': '#E89736',
       },
       textColor: {
         primary: '#ffe031',

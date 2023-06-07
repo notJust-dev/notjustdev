@@ -11,5 +11,5 @@
 }
 
 .tertiary {
-  @apply text-orange;
+  @apply text-brand-orange;
 }
