@@ -8,6 +8,7 @@ const courses: PostMeta[] = [
       'Join the Full Stack Mobile Developer course and learn the full lifecycle of developing mobile applications. Master both frontend and backend skills by building complex real-world projects with React Native and AWS Amplify',
     redirect_url: 'https://academy.notjust.dev/',
     authors: [],
+    type: 'Project',
   },
 ];
 

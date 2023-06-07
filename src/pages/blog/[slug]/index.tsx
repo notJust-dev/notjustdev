@@ -12,7 +12,11 @@ import MDXImage from '../../../components/MDXImage';
 import AuthorDetails from '../../../components/AuthorDetails';
 import BlogCard from '../../../components/BlogCard';
 import TableOfContents from '../../../components/TableOfContents';
-import { getAllPosts, getPostBySLug } from '../../../lib/notion';
+import {
+  getAllPosts,
+  getPostBySLug,
+  getRecommendedPostsMeta,
+} from '../../../lib/notion';
 
 import * as sharedComponents from '../../../components/shared';
 
@@ -156,13 +160,12 @@ export const getStaticProps: GetStaticProps<Props> = async ({
   params,
 }: GetStaticPropsContext) => {
   const post = await getPostBySLug(params?.slug as string);
-  // const recommendedPosts = post?.slug
-  //   ? await getRecommendedPostsMeta(post.slug)
-  //   : [];
+  const recommendedPosts = await getRecommendedPostsMeta(post);
+
   return {
     props: {
       post,
-      recommendedPosts: [],
+      recommendedPosts,
     },
     revalidate: 10,
   };
