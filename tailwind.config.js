@@ -1,10 +1,9 @@
 module.exports = {
-  purge: [
+  content: [
     './src/pages/**/*.{js,ts,jsx,tsx}',
     './src/components/**/*.{js,ts,jsx,tsx}',
     './content/**/components/**/*.{js,ts,jsx,tsx}',
   ],
-  darkMode: false, // or 'media' or 'class'
   theme: {
     extend: {
       colors: {
@@ -18,9 +17,6 @@ module.exports = {
         secondary: '#8bd2bd',
       },
     },
-  },
-  variants: {
-    extend: {},
   },
   plugins: [require('@tailwindcss/aspect-ratio')],
 };

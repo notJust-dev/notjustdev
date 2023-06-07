@@ -174,10 +174,12 @@ export const getPostBySLug = async (slug: string): Promise<Post> => {
 
   let mdString = n2m
     .toMarkdownString(mdBlocks)
-    .replaceAll('“', '"')
+    .parent.replaceAll('“', '"')
     .replaceAll('”', '"');
 
   // TODO them based on blocks, similar to videos?
+  // There is also custom transformers
+  // https://github.com/souvikinator/notion-to-md/blob/master/README.md#custom-transformers
   mdString = await downloadAndReplaceMDXImages(mdString);
   // TODO maybe this should be a rehype plugin?
   mdString = shiftHeadings(mdString);

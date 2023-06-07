@@ -119,7 +119,9 @@ function BlogPostPage({ post, recommendedPosts }: Props) {
           )}
         </div>
 
-        {post.authors.length && <AuthorDetails author={post.authors[0]} />}
+        {post.authors.length ? (
+          <AuthorDetails author={post.authors[0]} />
+        ) : null}
 
         {/* Displaying multiple authors (Needs a bit of style adjustment) */}
         {/* {post.authors.map((author) => (

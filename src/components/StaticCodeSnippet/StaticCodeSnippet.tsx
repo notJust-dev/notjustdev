@@ -1,8 +1,6 @@
 /* eslint-disable react/jsx-key */
-/* eslint-disable react/jsx-props-no-spreading */
 import React, { isValidElement } from 'react';
-import palenight from 'prism-react-renderer/themes/palenight';
-import Highlight, { defaultProps } from 'prism-react-renderer';
+import { Highlight, themes } from 'prism-react-renderer';
 
 interface Props {
   children?: React.ReactNode;
@@ -23,12 +21,7 @@ const StaticCodeSnippet = ({ children }: Props) => {
   }
 
   return (
-    <Highlight
-      {...defaultProps}
-      code={code}
-      language={language}
-      theme={palenight}
-    >
+    <Highlight code={code} language={language} theme={themes.palenight}>
       {({ className, style, tokens, getLineProps, getTokenProps }) => (
         <div className="relative">
           {language && (
