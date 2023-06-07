@@ -3,7 +3,7 @@ import Link from 'next/link';
 const colors: { [key: string]: string } = {
   blue: 'bg-blue-500 text-blue-50',
   brown: 'bg-amber-700 text-amber-50',
-  default: 'bg-custom-blue-500 text-white',
+  default: 'bg-slate-600 text-white',
   gray: 'bg-gray-300 text-gray-700',
   green: 'bg-lime-400 text-lime-950',
   orange: 'bg-orange-500 text-orange-50',
@@ -23,7 +23,7 @@ export default function Tag({
   return (
     <Link
       onClick={(e) => e.stopPropagation()}
-      href={`/tag/${tag.name}`}
+      href={`/tag/${encodeURIComponent(tag.name)}`}
       className={`${colors[tag.color]} ${
         dimmed && 'opacity-50'
       } pl-2 pr-3 py-1  rounded text-xs font-bold font-mono`}
