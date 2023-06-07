@@ -1,5 +1,8 @@
 import { Client, isFullPage } from '@notionhq/client';
-import { PageObjectResponse } from '@notionhq/client/build/src/api-endpoints';
+import {
+  PageObjectResponse,
+  QueryDatabaseParameters,
+} from '@notionhq/client/build/src/api-endpoints';
 import { serialize } from 'next-mdx-remote/serialize';
 import { NotionToMarkdown } from 'notion-to-md';
 import rehypeSlug from 'rehype-slug';
@@ -60,6 +63,7 @@ const parseNotionPageMeta = async (
       'Hide Newsletter': hideNewsletter,
       Author,
       Type,
+      tags,
     },
   } = page;
 
@@ -85,6 +89,9 @@ const parseNotionPageMeta = async (
   if (Type.type !== 'select' || !Type.select) {
     throw new Error('Validation Error: Type is not a select');
   }
+  if (tags.type !== 'multi_select') {
+    throw new Error('Validation Error: Tags is not a multi-select');
+  }
 
   const post: PostMeta = {
     updatedOn: page.last_edited_time,
@@ -95,6 +102,7 @@ const parseNotionPageMeta = async (
     hideNewsletterForm: hideNewsletter.checkbox,
     authors: [],
     type: Type.select.name as PostType,
+    tags: tags.multi_select,
   };
   if (includeAuthors) {
     post.authors = (
@@ -109,29 +117,41 @@ const parseNotionPageMeta = async (
 };
 
 interface GetAllPostsOption {
-  type: PostType;
+  type?: PostType;
+  tag?: NotionMultiSelect;
   pageSize?: number;
 }
 
 export const getAllPosts = async ({
   type,
   pageSize = 100,
+  tag,
 }: GetAllPostsOption): Promise<PostMeta[]> => {
-  const response = await notion.databases.query({
+  const filter: any = { and: [getStatusFilter()] };
+  if (type) {
+    filter.and.push({
+      property: 'Type',
+      select: {
+        equals: type,
+      },
+    });
+  }
+  if (tag) {
+    filter.and.push({
+      property: 'tags',
+      multi_select: {
+        contains: tag.name,
+      },
+    });
+  }
+
+  const query: QueryDatabaseParameters = {
     database_id: NOTION_DATABASE,
     page_size: pageSize,
-    filter: {
-      and: [
-        {
-          property: 'Type',
-          select: {
-            equals: type,
-          },
-        },
-        getStatusFilter(),
-      ],
-    },
-  });
+    filter,
+  };
+
+  const response = await notion.databases.query(query);
 
   return Promise.all(
     response.results
@@ -174,10 +194,12 @@ export const getPostBySLug = async (slug: string): Promise<Post> => {
 
   let mdString = n2m
     .toMarkdownString(mdBlocks)
-    .replaceAll('“', '"')
+    .parent.replaceAll('“', '"')
     .replaceAll('”', '"');
 
   // TODO them based on blocks, similar to videos?
+  // There is also custom transformers
+  // https://github.com/souvikinator/notion-to-md/blob/master/README.md#custom-transformers
   mdString = await downloadAndReplaceMDXImages(mdString);
   // TODO maybe this should be a rehype plugin?
   mdString = shiftHeadings(mdString);
@@ -210,7 +232,7 @@ export const getPostBySLug = async (slug: string): Promise<Post> => {
 export const getRecommendedPostsMeta = async (
   forPost: PostMeta,
   limit: number = 2,
-) => {
+): Promise<Post[]> => {
   const all = (await getAllPosts({ type: forPost.type })).filter(
     (p) => p.slug !== forPost.slug,
   );
@@ -218,4 +240,13 @@ export const getRecommendedPostsMeta = async (
   let random2 = shuffle(all).slice(0, limit > 0 ? limit : 2);
 
   return random2;
+};
+export const getAllPostTags = async (): Promise<NotionMultiSelect[]> => {
+  const response = await notion.databases.retrieve({
+    database_id: NOTION_DATABASE,
+  });
+  if (response.properties.tags.type !== 'multi_select') {
+    throw new Error('Validation Error: Tags is not a multi-select');
+  }
+  return response.properties.tags.multi_select.options;
 };

@@ -8,6 +8,7 @@ import MDXImage from '../../../components/MDXImage';
 import { MDXRemote } from 'next-mdx-remote';
 import * as sharedComponents from '../../../components/shared';
 import { getAllPosts, getPostBySLug } from '../../../lib/notion';
+import Tags from '../../../components/Tags';
 
 interface Props {
   post: Post | null;
@@ -48,7 +49,8 @@ function CoursePage({ post }: Props) {
             />
           </div>
         )}
-        <h1 className="text-5xl text-center my-10">{post.title}</h1>
+        <h1 className="text-5xl my-10">{post.title}</h1>
+        <Tags tags={post.tags} />
 
         <div className="mdx-post">
           <MDXRemote {...post.content} components={components} />

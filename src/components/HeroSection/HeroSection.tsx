@@ -42,7 +42,7 @@ function HeroSection() {
               (max-width: 1100px) 50vw,
               550px"
           />
-          <div className="absolute bottom-0 right-0 w-14 transform translate-y-9 md:w-24 md:translate-y-16 md:translate-x-6">
+          <div className="absolute bottom-0 right-0 w-14 translate-y-9 md:w-24 md:translate-y-16 md:translate-x-6">
             <Image src={pattern4} width={100} height={200} alt="" />
           </div>
         </div>
