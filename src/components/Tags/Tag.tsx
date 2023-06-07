@@ -1,15 +1,4 @@
-// const colors: { [key: string]: string } = {
-//   blue: 'bg-blue-50 text-blue-600',
-//   brown: 'bg-amber-50 text-amber-600',
-//   default: 'bg-custom-blue-500 text-gray-300',
-//   gray: 'bg-gray-50 text-gray-600',
-//   green: 'bg-green-50 text-green-600',
-//   orange: 'bg-orange-50 text-orange-600',
-//   pink: 'bg-pink-50 text-pink-600',
-//   purple: 'bg-purple-50 text-purple-600',
-//   red: 'bg-rose-50 text-rose-600',
-//   yellow: 'bg-yellow-50 text-yellow-500',
-// };
+import Link from 'next/link';
 
 const colors: { [key: string]: string } = {
   blue: 'bg-blue-500 text-blue-50',
@@ -24,14 +13,23 @@ const colors: { [key: string]: string } = {
   yellow: 'bg-yellow-400 text-yellow-950',
 };
 
-export default function Tag({ tag }: { tag: NotionMultiSelect }) {
+export default function Tag({
+  tag,
+  dimmed = false,
+}: {
+  tag: NotionMultiSelect;
+  dimmed?: boolean;
+}) {
   return (
-    <span
-      className={`${
-        colors[tag.color]
-      } px-3 py-1 rounded text-xs font-bold font-mono`}
+    <Link
+      onClick={(e) => e.stopPropagation()}
+      href={`/tag/${tag.name}`}
+      className={`${colors[tag.color]} ${
+        dimmed && 'opacity-50'
+      } pl-2 pr-3 py-1  rounded text-xs font-bold font-mono`}
     >
+      <span className="opacity-60 mr-1 font-normal">#</span>
       {tag.name}
-    </span>
+    </Link>
   );
 }

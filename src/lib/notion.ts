@@ -1,5 +1,8 @@
 import { Client, isFullPage } from '@notionhq/client';
-import { PageObjectResponse } from '@notionhq/client/build/src/api-endpoints';
+import {
+  PageObjectResponse,
+  QueryDatabaseParameters,
+} from '@notionhq/client/build/src/api-endpoints';
 import { serialize } from 'next-mdx-remote/serialize';
 import { NotionToMarkdown } from 'notion-to-md';
 import rehypeSlug from 'rehype-slug';
@@ -114,29 +117,41 @@ const parseNotionPageMeta = async (
 };
 
 interface GetAllPostsOption {
-  type: PostType;
+  type?: PostType;
+  tag?: NotionMultiSelect;
   pageSize?: number;
 }
 
 export const getAllPosts = async ({
   type,
   pageSize = 100,
+  tag,
 }: GetAllPostsOption): Promise<PostMeta[]> => {
-  const response = await notion.databases.query({
+  const filter: any = { and: [getStatusFilter()] };
+  if (type) {
+    filter.and.push({
+      property: 'Type',
+      select: {
+        equals: type,
+      },
+    });
+  }
+  if (tag) {
+    filter.and.push({
+      property: 'tags',
+      multi_select: {
+        contains: tag.name,
+      },
+    });
+  }
+
+  const query: QueryDatabaseParameters = {
     database_id: NOTION_DATABASE,
     page_size: pageSize,
-    filter: {
-      and: [
-        {
-          property: 'Type',
-          select: {
-            equals: type,
-          },
-        },
-        getStatusFilter(),
-      ],
-    },
-  });
+    filter,
+  };
+
+  const response = await notion.databases.query(query);
 
   return Promise.all(
     response.results
@@ -225,4 +240,13 @@ export const getRecommendedPostsMeta = async (
   let random2 = shuffle(all).slice(0, limit > 0 ? limit : 2);
 
   return random2;
+};
+export const getAllPostTags = async (): Promise<NotionMultiSelect[]> => {
+  const response = await notion.databases.retrieve({
+    database_id: NOTION_DATABASE,
+  });
+  if (response.properties.tags.type !== 'multi_select') {
+    throw new Error('Validation Error: Tags is not a multi-select');
+  }
+  return response.properties.tags.multi_select.options;
 };
