@@ -2,6 +2,7 @@ import Image from 'next/image';
 import Button from './Button';
 import Tags from './Tags';
 import { useRouter } from 'next/router';
+import path from 'path';
 
 interface Props {
   project: PostMeta;
@@ -13,7 +14,11 @@ const ProjectCard = ({ project, mirrored, priority }: Props) => {
   const router = useRouter();
 
   const float = mirrored ? 'left' : 'right';
-  const projectUrl = project.redirect_url ?? `/projects/${project.slug}`;
+  const projectUrl = path.join(
+    '/projects',
+    project.parentSlug || '',
+    project.slug,
+  );
   return (
     <div
       onClick={() => router.push(projectUrl)}

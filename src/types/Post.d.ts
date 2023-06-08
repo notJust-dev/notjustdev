@@ -1,4 +1,5 @@
 type PostMeta = {
+  id: string;
   slug: string;
   title: string;
   updatedOn: string;
@@ -17,6 +18,9 @@ type PostMeta = {
   // ytVideoId?: string;
   // category: string;
   // keywords?: string;
+
+  parentPageId?: string;
+  parentSlug?: string;
 };
 
 type NotionMultiSelect = {
