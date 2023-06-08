@@ -101,18 +101,18 @@ function ProjectPage({
         {pagination && parentPost && (
           <>
             <hr className="my-5 border-gray-500" />
-            <p className="mb-5 flex flex-row items-center">
-              Check other episodes for &nbsp;
+            <p className="mb-5 text-xl">
+              Check other episodes from the &nbsp;
               <Link
                 className="text-primary"
                 href={`/projects/${parentPost.slug}`}
               >
                 {parentPost.title}&nbsp;
               </Link>
-              series:
+              series
             </p>
 
-            <div className="flex flex-row gap-5">
+            <div className="flex flex-col sm:flex-row gap-5">
               {/* prev part */}
               {pagination.prev && (
                 <Link
