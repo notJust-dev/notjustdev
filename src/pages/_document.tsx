@@ -1,4 +1,5 @@
 import Document, { Html, Head, Main, NextScript } from 'next/document';
+import { GTM } from '../lib/config';
 
 export default class MyDocument extends Document {
   render() {
@@ -22,7 +23,7 @@ export default class MyDocument extends Document {
           {/* <!-- Google Tag Manager (noscript) --> */}
           <noscript>
             <iframe
-              src="https://www.googletagmanager.com/ns.html?id=GTM-58HCJGW"
+              src={`https://www.googletagmanager.com/ns.html?id=${GTM}`}
               height="0"
               width="0"
               style={{ display: 'none', visibility: 'hidden' }}
