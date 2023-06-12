@@ -1,34 +1,29 @@
-import { useEffect } from 'react';
-import { useRouter } from 'next/router';
-import type { AppProps } from 'next/app';
+import type { AppProps, NextWebVitalsMetric } from 'next/app';
 import 'react-lite-youtube-embed/dist/LiteYouTubeEmbed.css';
 import Script from 'next/script';
-import * as gtag from '../lib/gtag';
 import { Analytics } from '@vercel/analytics/react';
-
-import { GA_TRACKING_ID } from '../lib/config';
+import { GoogleAnalytics, event } from 'nextjs-google-analytics';
 import '../styles/globals.css';
 
+export function reportWebVitals({
+  id,
+  name,
+  label,
+  value,
+}: NextWebVitalsMetric) {
+  event(name, {
+    category: label === 'web-vital' ? 'Web Vitals' : 'Next.js custom metric',
+    value: Math.round(name === 'CLS' ? value * 1000 : value), // values must be integers
+    label: id, // id unique to current page load
+    nonInteraction: true, // avoids affecting bounce rate.
+  });
+}
+
 function MyApp({ Component, pageProps }: AppProps) {
-  const router = useRouter();
-
-  useEffect(() => {
-    const handleRouteChange = (url: string) => {
-      gtag.pageview(url);
-    };
-    router.events.on('routeChangeComplete', handleRouteChange);
-    return () => {
-      router.events.off('routeChangeComplete', handleRouteChange);
-    };
-  }, [router.events]);
-
-  // eslint-disable-next-line react/jsx-props-no-spreading
   return (
     <>
-      <Script
-        src={`https://www.googletagmanager.com/gtag/js?id=${GA_TRACKING_ID}`}
-        strategy="afterInteractive"
-      />
+      <GoogleAnalytics trackPageViews />
+
       {/* <!-- Google Tag Manager --> */}
       <Script id="setup-tag-manager" strategy="afterInteractive">
         {`
@@ -40,14 +35,7 @@ function MyApp({ Component, pageProps }: AppProps) {
         `}
       </Script>
       {/* <!-- End Google Tag Manager --> */}
-      <Script id="setup-ga">{`
-        window.dataLayer = window.dataLayer || [];
-        function gtag(){window.dataLayer.push(arguments);}
-        gtag('js', new Date());
-        gtag('config', '${GA_TRACKING_ID}', {
-          'send_page_view': false
-        });
-      `}</Script>
+
       {/* Yandex.Metrika counter */}
       <Script id="setup-yandex" strategy="afterInteractive">
         {`
