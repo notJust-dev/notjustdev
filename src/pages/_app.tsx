@@ -1,37 +1,36 @@
-import type { AppProps, NextWebVitalsMetric } from 'next/app';
+import type { AppProps } from 'next/app';
 import 'react-lite-youtube-embed/dist/LiteYouTubeEmbed.css';
 import Script from 'next/script';
 import { Analytics } from '@vercel/analytics/react';
-import { GoogleAnalytics, event } from 'nextjs-google-analytics';
 import '../styles/globals.css';
+import { GTM } from '../lib/config';
 
-export function reportWebVitals({
-  id,
-  name,
-  label,
-  value,
-}: NextWebVitalsMetric) {
-  event(name, {
-    category: label === 'web-vital' ? 'Web Vitals' : 'Next.js custom metric',
-    value: Math.round(name === 'CLS' ? value * 1000 : value), // values must be integers
-    label: id, // id unique to current page load
-    nonInteraction: true, // avoids affecting bounce rate.
-  });
-}
+// export function reportWebVitals({
+//   id,
+//   name,
+//   label,
+//   value,
+// }: NextWebVitalsMetric) {
+//   event(name, {
+//     category: label === 'web-vital' ? 'Web Vitals' : 'Next.js custom metric',
+//     value: Math.round(name === 'CLS' ? value * 1000 : value), // values must be integers
+//     label: id, // id unique to current page load
+//     nonInteraction: true, // avoids affecting bounce rate.
+//   });
+// }
 
+// TODO: move other tags to the Google Tag Manager
 function MyApp({ Component, pageProps }: AppProps) {
   return (
     <>
-      <GoogleAnalytics trackPageViews />
-
       {/* <!-- Google Tag Manager --> */}
       <Script id="setup-tag-manager" strategy="afterInteractive">
         {`
-        (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-        new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-        j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-        'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-        })(window,document,'script','dataLayer','GTM-58HCJGW');
+          (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+          new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+          j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+          'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+          })(window,document,'script','dataLayer','${GTM}');
         `}
       </Script>
       {/* <!-- End Google Tag Manager --> */}
@@ -55,7 +54,7 @@ function MyApp({ Component, pageProps }: AppProps) {
       </Script>
       {/* /Yandex.Metrika counter */}
       {/* <!-- Meta Pixel Code --> */}
-      <Script id="setuo-pixel">
+      <Script id="setup-pixel">
         {`
           !function(f,b,e,v,n,t,s)
           {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
