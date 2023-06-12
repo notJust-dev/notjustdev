@@ -26,9 +26,17 @@ function MyApp({ Component, pageProps }: AppProps) {
   return (
     <>
       <Script
+        async
         src={`https://www.googletagmanager.com/gtag/js?id=${GA_TRACKING_ID}`}
         strategy="afterInteractive"
       />
+      <Script strategy="afterInteractive" id="setup-ga">{`
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', '${GA_TRACKING_ID}');
+      `}</Script>
+
       {/* <!-- Google Tag Manager --> */}
       <Script id="setup-tag-manager" strategy="afterInteractive">
         {`
@@ -40,14 +48,7 @@ function MyApp({ Component, pageProps }: AppProps) {
         `}
       </Script>
       {/* <!-- End Google Tag Manager --> */}
-      <Script id="setup-ga">{`
-        window.dataLayer = window.dataLayer || [];
-        function gtag(){window.dataLayer.push(arguments);}
-        gtag('js', new Date());
-        gtag('config', '${GA_TRACKING_ID}', {
-          'send_page_view': false
-        });
-      `}</Script>
+
       {/* Yandex.Metrika counter */}
       <Script id="setup-yandex" strategy="afterInteractive">
         {`
