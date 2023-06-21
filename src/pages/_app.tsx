@@ -4,7 +4,6 @@ import type { AppProps } from 'next/app';
 import 'react-lite-youtube-embed/dist/LiteYouTubeEmbed.css';
 import Script from 'next/script';
 import * as gtag from '../lib/gtag';
-import { Analytics } from '@vercel/analytics/react';
 
 import { GA_TRACKING_ID } from '../lib/config';
 import '../styles/globals.css';
@@ -84,8 +83,6 @@ function MyApp({ Component, pageProps }: AppProps) {
 
       {/* <!-- End Meta Pixel Code --> */}
       <Component {...pageProps} />
-
-      <Analytics />
     </>
   );
 }
