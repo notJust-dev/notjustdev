@@ -15,7 +15,6 @@
     "@notionhq/client": "^2.2.5",
     "@tailwindcss/aspect-ratio": "^0.4.2",
     "@types/mdast": "^3.0.11",
-    "@vercel/analytics": "^1.0.1",
     "esbuild": "^0.17.19",
     "github-slugger": "^2.0.0",
     "image-size": "^1.0.2",
@@ -38,8 +37,6 @@
     "uuid": "^9.0.0"
   },
   "devDependencies": {
-    "@types/github-slugger": "^2.0.0",
-    "@types/gtag.js": "^0.0.12",
     "@types/node": "^17.0.45",
     "@types/react": "^18.2.8",
     "@types/uuid": "^9.0.1",

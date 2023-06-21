@@ -64,6 +64,8 @@ const parseNotionPageMeta = async (
       Author,
       Type,
       tags,
+      'Parent page': parentPage,
+      'Parent slug': parentSlug,
     },
   } = page;
 
@@ -93,7 +95,16 @@ const parseNotionPageMeta = async (
     throw new Error('Validation Error: Tags is not a multi-select');
   }
 
+  if (parentPage.type !== 'relation') {
+    throw new Error('Validation Error: Parent page is not a relation');
+  }
+
+  if (parentSlug.type !== 'rollup' || parentSlug.rollup.type !== 'array') {
+    throw new Error('Validation Error: Parent slug is not a rollup');
+  }
+
   const post: PostMeta = {
+    id: page.id,
     updatedOn: page.last_edited_time,
     slug: richTextToPlain(slug.rich_text),
     title: richTextToPlain(Name.title),
@@ -104,6 +115,16 @@ const parseNotionPageMeta = async (
     type: Type.select.name as PostType,
     tags: tags.multi_select,
   };
+  if (parentPage.relation.length > 0) {
+    post.parentPageId = parentPage.relation[0]?.id;
+  }
+  if (parentSlug.rollup.array.length > 0) {
+    post.parentSlug =
+      parentSlug.rollup.array[0].type !== 'rich_text'
+        ? 'parse_error'
+        : richTextToPlain(parentSlug.rollup.array[0].rich_text);
+  }
+
   if (includeAuthors) {
     post.authors = (
       await Promise.all(Author.relation.map(({ id }) => getAuthorDetails(id)))
@@ -120,12 +141,14 @@ interface GetAllPostsOption {
   type?: PostType;
   tag?: NotionMultiSelect;
   pageSize?: number;
+  subPageFilter?: 'all' | 'main_pages' | 'sub_pages';
 }
 
 export const getAllPosts = async ({
   type,
   pageSize = 100,
   tag,
+  subPageFilter = 'main_pages',
 }: GetAllPostsOption): Promise<PostMeta[]> => {
   const filter: any = { and: [getStatusFilter()] };
   if (type) {
@@ -144,11 +167,42 @@ export const getAllPosts = async ({
       },
     });
   }
+  if (subPageFilter !== 'all') {
+    const condition =
+      subPageFilter === 'main_pages'
+        ? { is_empty: true }
+        : { is_not_empty: true };
+    filter.and.push({
+      property: 'Parent page',
+      relation: condition,
+    });
+  }
 
   const query: QueryDatabaseParameters = {
     database_id: NOTION_DATABASE,
     page_size: pageSize,
     filter,
+  };
+
+  const response = await notion.databases.query(query);
+
+  return Promise.all(
+    response.results
+      .filter(isFullPage)
+      .map((page) => parseNotionPageMeta(page)),
+  );
+};
+
+export const getSubPostsFor = async (id: string) => {
+  const query: QueryDatabaseParameters = {
+    database_id: NOTION_DATABASE,
+    page_size: 100,
+    filter: {
+      property: 'Parent page',
+      relation: {
+        contains: id,
+      },
+    },
   };
 
   const response = await notion.databases.query(query);
@@ -172,16 +226,38 @@ const downloadAndReplaceMDXImages = async (mdString: string) => {
   return mdString;
 };
 
-export const getPostBySLug = async (slug: string): Promise<Post> => {
+export const getPostBySLug = async (
+  slug: string,
+  parentSlug?: string,
+): Promise<Post> => {
+  const filter: any = {
+    and: [
+      {
+        property: 'slug',
+        rich_text: {
+          equals: slug,
+        },
+      },
+    ],
+  };
+  if (parentSlug) {
+    filter.and.push({
+      property: 'Parent slug',
+      rollup: {
+        any: {
+          rich_text: {
+            contains: parentSlug,
+          },
+        },
+      },
+    });
+  }
+
   const response = await notion.databases.query({
     database_id: NOTION_DATABASE,
-    filter: {
-      property: 'slug',
-      rich_text: {
-        equals: slug,
-      },
-    },
+    filter,
   });
+
   const page = response.results?.[0];
   if (!page || !isFullPage(page)) {
     console.error(`Page with slug "${slug}" NOT FOUND!`);
@@ -249,4 +325,10 @@ export const getAllPostTags = async (): Promise<NotionMultiSelect[]> => {
     throw new Error('Validation Error: Tags is not a multi-select');
   }
   return response.properties.tags.multi_select.options;
+};
+
+export const getPage = async (page_id: string) => {
+  // WIP
+  const response = notion.pages.retrieve({ page_id });
+  console.log(response);
 };

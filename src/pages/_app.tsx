@@ -1,7 +1,7 @@
 import type { AppProps } from 'next/app';
 import 'react-lite-youtube-embed/dist/LiteYouTubeEmbed.css';
 import Script from 'next/script';
-import { Analytics } from '@vercel/analytics/react';
+
 import '../styles/globals.css';
 import { GTM } from '../lib/config';
 
@@ -71,8 +71,6 @@ function MyApp({ Component, pageProps }: AppProps) {
 
       {/* <!-- End Meta Pixel Code --> */}
       <Component {...pageProps} />
-
-      <Analytics />
     </>
   );
 }

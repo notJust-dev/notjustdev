@@ -1,5 +1,6 @@
 const courses: PostMeta[] = [
   {
+    id: 'the-full-stack-mobile-developer',
     slug: 'the-full-stack-mobile-developer',
     updatedOn: '2023-02-01T20:11:06.794Z',
     title: 'The Full Stack Mobile Developer',
