@@ -8,3 +8,4 @@ export { default as VideoPlayer } from './VideoPlayer';
 export { default as Mentors } from './Mentors';
 export { default as Snack } from './Snack';
 export { default as PostExtraInfo } from './PostExtraInfo';
+export { default as PageMention } from './PageMention';

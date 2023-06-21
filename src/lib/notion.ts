@@ -326,3 +326,9 @@ export const getAllPostTags = async (): Promise<NotionMultiSelect[]> => {
   }
   return response.properties.tags.multi_select.options;
 };
+
+export const getPage = async (page_id: string) => {
+  // WIP
+  const response = notion.pages.retrieve({ page_id });
+  console.log(response);
+};
