@@ -16,6 +16,10 @@ module.exports = {
         source: '/hack',
         destination: '/blog/2022-11-03-notJust-Hack',
       },
+      {
+        source: '/banner/appjs2023',
+        destination: '/links',
+      },
     ];
   },
   async redirects() {

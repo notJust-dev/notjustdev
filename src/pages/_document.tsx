@@ -1,19 +1,13 @@
 import Document, { Html, Head, Main, NextScript } from 'next/document';
+import { GTM } from '../lib/config';
 
 export default class MyDocument extends Document {
   render() {
     return (
       <Html lang="en">
-        <Head>
-          {/* Can we already delete it? */}
-          <meta
-            name="facebook-domain-verification"
-            content="ybnih1fjzxz7h3ib5g8deqvb49hz79"
-          />
-        </Head>
+        <Head />
         <body>
           {/* Yandex.Metrika counter */}
-
           <noscript>
             <div>
               {/* eslint-disable-next-line @next/next/no-img-element */}
@@ -29,7 +23,7 @@ export default class MyDocument extends Document {
           {/* <!-- Google Tag Manager (noscript) --> */}
           <noscript>
             <iframe
-              src="https://www.googletagmanager.com/ns.html?id=GTM-58HCJGW"
+              src={`https://www.googletagmanager.com/ns.html?id=${GTM}`}
               height="0"
               width="0"
               style={{ display: 'none', visibility: 'hidden' }}
