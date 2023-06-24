@@ -6,6 +6,7 @@ import petrImage from '../../../public/images/testimonials/petr.jpeg';
 import andrewDay from '../../../public/images/testimonials/andrew_day.jpeg';
 import veloshan from '../../../public/images/testimonials/veloshan.png';
 import luigiPiscitelli from '../../../public/images/testimonials/LuigiPiscitelli.jpeg';
+import rogelio from '../../../public/images/testimonials/rogelio.jpeg';
 
 import andreiImage from '../../../public/images/testimonials/andrei.jpeg';
 import screenshot1 from '../../../public/images/testimonials/screenshot1.png';
@@ -45,6 +46,18 @@ const Testimonials = () => (
             'https://notjustdev-media.s3.amazonaws.com/testimonials/videos/2.+Veloshan+Pillay+Testimonial.mp4'
           }
           poster="/images/testimonials/veloshanPoster.png"
+        />
+
+        <TestimonialCard
+          name="Rogelio Zamora"
+          occupation="Software Engineer"
+          image={rogelio}
+          href=""
+          quote="If you truly have a passion for mobile development, if you truly want to learn and take your skills to the next level, you have to invest in yourself. notJust.dev provides quality content and help you every step of the way."
+          videoUrl={
+            'https://notjustdev-media.s3.amazonaws.com/testimonials/videos/5.+Rogelio+Zamora+Testimonial.mp4'
+          }
+          poster="/images/testimonials/rogelioPoster.png"
         />
 
         <TestimonialCard

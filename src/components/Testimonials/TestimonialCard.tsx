@@ -44,9 +44,7 @@ function TestimonialCard({
           </div>
         </div>
 
-        {quote && (
-          <p className="leading-normal text-lg ">&quot;{quote}&quot;</p>
-        )}
+        {quote && <p className="leading-normal text-lg">&quot;{quote}&quot;</p>}
 
         {Testimonial && (
           <p className="leading-loose text-gray-400">
