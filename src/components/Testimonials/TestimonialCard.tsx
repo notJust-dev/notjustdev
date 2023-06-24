@@ -11,6 +11,7 @@ interface TestimonialCardProps {
   quote?: string;
   videoUrl?: string;
   autoplay?: boolean;
+  poster?: string;
 }
 
 function TestimonialCard({
@@ -22,6 +23,7 @@ function TestimonialCard({
   quote,
   videoUrl,
   autoplay,
+  poster,
 }: TestimonialCardProps) {
   return (
     <div className="bg-custom-blue-500 p-5 my-3 md:mx-2 shadow-md w-full rounded-md">
@@ -33,6 +35,7 @@ function TestimonialCard({
               alt={`${name} profile picture`}
               className="rounded-full"
               sizes="64px"
+              fill
             />
           </div>
           <div>
@@ -42,7 +45,7 @@ function TestimonialCard({
         </div>
 
         {quote && (
-          <p className="leading-loose text-lg ">&quot; {quote} &quot;</p>
+          <p className="leading-normal text-lg ">&quot;{quote}&quot;</p>
         )}
 
         {Testimonial && (
@@ -54,7 +57,7 @@ function TestimonialCard({
 
       {videoUrl && (
         <div className="pt-3">
-          <VideoPlayer url={videoUrl} autoplay={autoplay} />
+          <VideoPlayer url={videoUrl} autoplay={autoplay} poster={poster} />
         </div>
       )}
     </div>

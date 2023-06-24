@@ -3,6 +3,10 @@ import Script from 'next/script';
 import React from 'react';
 import MaxWidthWrapper from '../MaxWidthWrapper';
 import petrImage from '../../../public/images/testimonials/petr.jpeg';
+import andrewDay from '../../../public/images/testimonials/andrew_day.jpeg';
+import veloshan from '../../../public/images/testimonials/veloshan.png';
+import luigiPiscitelli from '../../../public/images/testimonials/LuigiPiscitelli.jpeg';
+
 import andreiImage from '../../../public/images/testimonials/andrei.jpeg';
 import screenshot1 from '../../../public/images/testimonials/screenshot1.png';
 import screenshot2 from '../../../public/images/testimonials/screenshot2.png';
@@ -16,6 +20,44 @@ const Testimonials = () => (
   <MaxWidthWrapper>
     <section className="flex flex-col items-center my-5">
       <h1>Success stories from our students</h1>
+
+      <TestimonialCard
+        name="Luigi Piscitelli"
+        occupation="CoFounder & CEO at ANTHILL "
+        image={luigiPiscitelli}
+        href="https://www.linkedin.com/in/gigipiscitelli/"
+        quote="I teach the Master's at the University, and this course equals to that in the sense that you've got all you need to achieve your goals in terms of development. My goals were to build my own app in a professional way."
+        videoUrl={
+          'https://notjustdev-media.s3.amazonaws.com/testimonials/videos/4.+Luigi+Piscitelli+Testimonial.mp4'
+        }
+        poster="/images/testimonials/LuigiPoster.png"
+        autoplay
+      />
+
+      <TestimonialCard
+        name="Veloshan Pillay"
+        occupation="Head of Data Analytics and AI at Tune Protect Group"
+        image={veloshan}
+        href="https://www.linkedin.com/in/veloshan-pillay-14aa3842/"
+        quote="If you have an idea, especially in the mobile app development, by dedicating some time and effort and by following your course - they can possibly land that 6 figure job at a top organization!"
+        videoUrl={
+          'https://notjustdev-media.s3.amazonaws.com/testimonials/videos/2.+Veloshan+Pillay+Testimonial.mp4'
+        }
+        poster="/images/testimonials/veloshanPoster.png"
+      />
+
+      <TestimonialCard
+        name="Andrew Day"
+        occupation="React Developer"
+        image={andrewDay}
+        href="https://www.linkedin.com/in/reactnetau/"
+        quote="It's a bit expensive, but it did teach me things that I can't find anywhere else!"
+        videoUrl={
+          'https://notjustdev-media.s3.amazonaws.com/testimonials/videos/3.+Andrew+Day+Testimonial.mp4'
+        }
+        poster="/images/testimonials/andrewPoster.png"
+      />
+
       <TestimonialCard
         name="Petr Brantalík"
         occupation="Frontend Engineer at STRV"
@@ -25,7 +67,6 @@ const Testimonials = () => (
         videoUrl={
           'https://notjustdev-media.s3.amazonaws.com/testimonials/videos/Testimonial+Petr+Brantalik.mp4'
         }
-        autoplay
       />
 
       <TestimonialCard
