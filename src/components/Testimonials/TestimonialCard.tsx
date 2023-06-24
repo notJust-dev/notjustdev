@@ -26,7 +26,7 @@ function TestimonialCard({
   poster,
 }: TestimonialCardProps) {
   return (
-    <div className="bg-custom-blue-500 p-5 my-3 md:mx-2 shadow-md w-full rounded-md">
+    <div className="bg-custom-blue-500 p-5 md:mx-2 shadow-md w-full rounded-md">
       <a href={href} target="blank">
         <div className="flex row mb-4 items-center">
           <div className="relative w-16 h-16 mr-2">

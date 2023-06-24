@@ -21,83 +21,85 @@ const Testimonials = () => (
     <section className="flex flex-col items-center my-5">
       <h1>Success stories from our students</h1>
 
-      <TestimonialCard
-        name="Luigi Piscitelli"
-        occupation="CoFounder & CEO at ANTHILL "
-        image={luigiPiscitelli}
-        href="https://www.linkedin.com/in/gigipiscitelli/"
-        quote="I teach the Master's at the University, and this course equals to that in the sense that you've got all you need to achieve your goals in terms of development. My goals were to build my own app in a professional way."
-        videoUrl={
-          'https://notjustdev-media.s3.amazonaws.com/testimonials/videos/4.+Luigi+Piscitelli+Testimonial.mp4'
-        }
-        poster="/images/testimonials/LuigiPoster.png"
-        autoplay
-      />
+      <div className="grid grid-cols-2 gap-5">
+        <TestimonialCard
+          name="Luigi Piscitelli"
+          occupation="CoFounder & CEO at ANTHILL "
+          image={luigiPiscitelli}
+          href="https://www.linkedin.com/in/gigipiscitelli/"
+          quote="I teach the Master's at the University, and this course equals to that in the sense that you've got all you need to achieve your goals in terms of development. My goals were to build my own app in a professional way."
+          videoUrl={
+            'https://notjustdev-media.s3.amazonaws.com/testimonials/videos/4.+Luigi+Piscitelli+Testimonial.mp4'
+          }
+          poster="/images/testimonials/LuigiPoster.png"
+          // autoplay
+        />
 
-      <TestimonialCard
-        name="Veloshan Pillay"
-        occupation="Head of Data Analytics and AI at Tune Protect Group"
-        image={veloshan}
-        href="https://www.linkedin.com/in/veloshan-pillay-14aa3842/"
-        quote="If you have an idea, especially in the mobile app development, by dedicating some time and effort and by following your course - they can possibly land that 6 figure job at a top organization!"
-        videoUrl={
-          'https://notjustdev-media.s3.amazonaws.com/testimonials/videos/2.+Veloshan+Pillay+Testimonial.mp4'
-        }
-        poster="/images/testimonials/veloshanPoster.png"
-      />
+        <TestimonialCard
+          name="Veloshan Pillay"
+          occupation="Head of Data Analytics and AI at Tune Protect Group"
+          image={veloshan}
+          href="https://www.linkedin.com/in/veloshan-pillay-14aa3842/"
+          quote="If you have an idea, especially in the mobile app development, by dedicating some time and effort and by following your course - they can possibly land that 6 figure job at a top organization!"
+          videoUrl={
+            'https://notjustdev-media.s3.amazonaws.com/testimonials/videos/2.+Veloshan+Pillay+Testimonial.mp4'
+          }
+          poster="/images/testimonials/veloshanPoster.png"
+        />
 
-      <TestimonialCard
-        name="Andrew Day"
-        occupation="React Developer"
-        image={andrewDay}
-        href="https://www.linkedin.com/in/reactnetau/"
-        quote="It's a bit expensive, but it did teach me things that I can't find anywhere else!"
-        videoUrl={
-          'https://notjustdev-media.s3.amazonaws.com/testimonials/videos/3.+Andrew+Day+Testimonial.mp4'
-        }
-        poster="/images/testimonials/andrewPoster.png"
-      />
+        <TestimonialCard
+          name="Andrew Day"
+          occupation="React Developer"
+          image={andrewDay}
+          href="https://www.linkedin.com/in/reactnetau/"
+          quote="It's a bit expensive, but it did teach me things that I can't find anywhere else!"
+          videoUrl={
+            'https://notjustdev-media.s3.amazonaws.com/testimonials/videos/3.+Andrew+Day+Testimonial.mp4'
+          }
+          poster="/images/testimonials/andrewPoster.png"
+        />
 
-      <TestimonialCard
-        name="Petr Brantalík"
-        occupation="Frontend Engineer at STRV"
-        image={petrImage}
-        href="https://www.linkedin.com/in/petr-brantal%C3%ADk-9475001a7/"
-        quote="It's a shame that I didn't run into this course when I started"
-        videoUrl={
-          'https://notjustdev-media.s3.amazonaws.com/testimonials/videos/Testimonial+Petr+Brantalik.mp4'
-        }
-      />
+        <TestimonialCard
+          name="Petr Brantalík"
+          occupation="Frontend Engineer at STRV"
+          image={petrImage}
+          href="https://www.linkedin.com/in/petr-brantal%C3%ADk-9475001a7/"
+          quote="It's a shame that I didn't run into this course when I started"
+          videoUrl={
+            'https://notjustdev-media.s3.amazonaws.com/testimonials/videos/Testimonial+Petr+Brantalik.mp4'
+          }
+        />
 
-      <TestimonialCard
-        name="Andrei Terus"
-        occupation="Software Engineer at Profuse"
-        image={andreiImage}
-        href="https://www.linkedin.com/posts/andrei-terus-38a772184_developer-reactnative-future-activity-7037115497254969345-aS8T?utm_source=share&utm_medium=member_desktop"
-        Testimonial={() => (
-          <>
-            I want to give a special shoutout to my friend Vadim Savin and the{' '}
-            <b>notJust.dev</b> team for being an incredible resource throughout
-            my learning journey.{' '}
-            <span
-              className=" text-gray-800 font-bold  py-1"
-              style={{ backgroundColor: '#e89736' }}
-            >
-              His tutorials and courses on React Native were incredibly useful
-              and helped me
-            </span>{' '}
-            gain the knowledge and skills needed{' '}
-            <span
-              className=" text-gray-800 font-bold  py-1"
-              style={{ backgroundColor: '#e89736' }}
-            >
-              to land my dream job
-            </span>{' '}
-            at Profuse. Thank you so much for all your hard work and dedication
-            to the React Native community.
-          </>
-        )}
-      />
+        <TestimonialCard
+          name="Andrei Terus"
+          occupation="Software Engineer at Profuse"
+          image={andreiImage}
+          href="https://www.linkedin.com/posts/andrei-terus-38a772184_developer-reactnative-future-activity-7037115497254969345-aS8T?utm_source=share&utm_medium=member_desktop"
+          Testimonial={() => (
+            <>
+              I want to give a special shoutout to my friend Vadim Savin and the{' '}
+              <b>notJust.dev</b> team for being an incredible resource
+              throughout my learning journey.{' '}
+              <span
+                className=" text-gray-800 font-bold  py-1"
+                style={{ backgroundColor: '#e89736' }}
+              >
+                His tutorials and courses on React Native were incredibly useful
+                and helped me
+              </span>{' '}
+              gain the knowledge and skills needed{' '}
+              <span
+                className=" text-gray-800 font-bold  py-1"
+                style={{ backgroundColor: '#e89736' }}
+              >
+                to land my dream job
+              </span>{' '}
+              at Profuse. Thank you so much for all your hard work and
+              dedication to the React Native community.
+            </>
+          )}
+        />
+      </div>
 
       <div className="p-10" />
 
