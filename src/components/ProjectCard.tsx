@@ -14,11 +14,9 @@ const ProjectCard = ({ project, mirrored, priority }: Props) => {
   const router = useRouter();
 
   const float = mirrored ? 'left' : 'right';
-  const projectUrl = path.join(
-    '/projects',
-    project.parentSlug || '',
-    project.slug,
-  );
+  const projectUrl =
+    project.redirect_url ||
+    path.join('/projects', project.parentSlug || '', project.slug);
   return (
     <div
       onClick={() => router.push(projectUrl)}
