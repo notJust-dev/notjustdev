@@ -16,11 +16,18 @@ import screenshot4 from '../../../public/images/testimonials/screenshot4.png';
 import screenshot5 from '../../../public/images/testimonials/screenshot5.png';
 
 import TestimonialCard from './TestimonialCard';
+import { VideoPlayer } from '../shared';
 
 const Testimonials = () => (
   <MaxWidthWrapper>
     <section className="flex flex-col items-center my-5">
-      <h1>Success stories from our students</h1>
+      <h1 className="text-3xl">Success stories from our students</h1>
+      <div className="p-5">
+        <VideoPlayer
+          url="https://notjustdev-media.s3.amazonaws.com/testimonials/videos/Course+Testimonial+Compilation+Long.mp4"
+          autoplay={true}
+        />
+      </div>
 
       <div className="grid grid-cols-2 gap-5">
         <TestimonialCard
