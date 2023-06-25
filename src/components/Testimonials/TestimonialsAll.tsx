@@ -17,6 +17,19 @@ import screenshot5 from '../../../public/images/testimonials/screenshot5.png';
 
 import TestimonialCard from './TestimonialCard';
 import { VideoPlayer } from '../shared';
+import Link from 'next/link';
+
+const CTA = () => (
+  <div className="my-20 flex justify-center">
+    <Link
+      href="https://academy.notjust.dev/"
+      className="inline-block text-l py-5 px-7 rounded bg-primary"
+      style={{ color: '#111827' }}
+    >
+      Enroll now for the <b>Full Stack Mobile Developer</b> course
+    </Link>
+  </div>
+);
 
 const Testimonials = () => (
   <MaxWidthWrapper>
@@ -27,6 +40,8 @@ const Testimonials = () => (
           url="https://notjustdev-media.s3.amazonaws.com/testimonials/videos/Course+Testimonial+Compilation+Long.mp4"
           autoplay={true}
         />
+
+        <CTA />
       </div>
 
       <div className="grid grid-cols-2 gap-5">
@@ -120,6 +135,7 @@ const Testimonials = () => (
           )}
         />
       </div>
+      <CTA />
 
       <div className="p-10" />
 
@@ -175,6 +191,8 @@ const Testimonials = () => (
           />
         </div>
       </div>
+
+      <CTA />
     </section>
   </MaxWidthWrapper>
 );

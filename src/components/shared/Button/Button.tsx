@@ -3,10 +3,10 @@ import React from 'react';
 interface ButtonProps {
   href: string;
   title: string;
-  target: '_blank' | '_self';
+  target?: '_blank' | '_self';
 }
 
-const Button = ({ title, href, target }: ButtonProps) => (
+const Button = ({ title, href, target = '_self' }: ButtonProps) => (
   <a
     href={href}
     target={target}
