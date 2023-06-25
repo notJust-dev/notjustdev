@@ -1,5 +1,6 @@
 import React from 'react';
 import dynamic from 'next/dynamic';
+import { Config } from 'react-player';
 
 // https://github.com/cookpete/react-player/issues/1474#issuecomment-1184645105
 const ReactPlayer = dynamic(() => import('react-player/lazy'), { ssr: false });
@@ -9,6 +10,7 @@ interface VideoPlayerProps {
   width?: number | string;
   height?: number | string;
   autoplay?: boolean;
+  poster?: string;
 }
 
 export default function VideoPlayer({
@@ -16,7 +18,17 @@ export default function VideoPlayer({
   width = '100%',
   height = '100%',
   autoplay = false,
+  poster,
 }: VideoPlayerProps) {
+  const config: Config = {};
+  if (poster) {
+    config.file = {
+      attributes: {
+        poster,
+      },
+    };
+  }
+
   return (
     <ReactPlayer
       className="react-player"
@@ -26,6 +38,7 @@ export default function VideoPlayer({
       height={height}
       muted={autoplay}
       playing={autoplay}
+      config={config}
     />
   );
 }
