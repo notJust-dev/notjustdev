@@ -16,6 +16,7 @@ const s3Client = new S3Client({});
 
 const fileNameRegex = /(?<=secure\.notion-static\.com\/)[^?]+/;
 const unsplashFileNameRegex = /https:\/\/images\.unsplash\.com\/([^?/]+)/;
+const giphyRegex = /https:\/\/media4\.giphy\.com\/media\/([^\/]+)\/giphy\.gif/;
 
 const uploadLocalFileToS3 = async (localUri: string, key: string) => {
   // Create an object and upload it to the Amazon S3 bucket.
@@ -63,7 +64,8 @@ const existsInS3 = async (fileName: string) => {
 export const copyFileToS3 = async (fileUrl: string) => {
   const fileName =
     fileUrl.match(fileNameRegex)?.[0] ||
-    fileUrl.match(unsplashFileNameRegex)?.[1];
+    fileUrl.match(unsplashFileNameRegex)?.[1] ||
+    fileUrl.match(giphyRegex)?.[1];
   if (!fileName) {
     throw Error(`Can't parse the S3 image url from Notion: ${fileUrl}`);
   }
