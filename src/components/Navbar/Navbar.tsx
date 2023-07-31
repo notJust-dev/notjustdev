@@ -55,6 +55,8 @@ const Navbar = () => {
             <ActiveLink href="/pro-courses" title="Premium Courses" />
 
             <ActiveLink href="/blog" title="Blog" />
+
+            <ActiveLink href="/pro" title="PRO Community" />
           </div>
         </nav>
       </MaxWidthWrapper>
