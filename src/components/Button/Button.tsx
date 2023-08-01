@@ -3,7 +3,7 @@ import Link from 'next/link';
 
 import styles from './Button.module.css';
 
-type ButtonType = 'primary' | 'secondary' | 'tertiary';
+type ButtonType = 'primary' | 'secondary' | 'tertiary' | 'outline';
 
 interface ButtonProps {
   href: string;

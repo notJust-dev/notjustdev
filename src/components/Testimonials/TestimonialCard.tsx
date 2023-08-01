@@ -5,8 +5,8 @@ import { VideoPlayer } from '../shared';
 interface TestimonialCardProps {
   name: string;
   occupation: string;
-  image: StaticImageData;
-  href: string;
+  image?: StaticImageData;
+  href?: string;
   Testimonial?: React.FC;
   quote?: string;
   videoUrl?: string;
@@ -26,10 +26,10 @@ function TestimonialCard({
   poster,
 }: TestimonialCardProps) {
   return (
-    <div className="bg-custom-blue-500 p-5 md:mx-2 shadow-md w-full rounded-md">
-      <a href={href} target="blank">
+    <div className="bg-custom-blue-500 p-5 md:mx-2 my-2 md:my-0 shadow-md w-full rounded-md">
+      <a href={href || ""} target="blank">
         <div className="flex row mb-4 items-center">
-          <div className="relative w-16 h-16 mr-2">
+          {image && <div className="relative w-16 h-16 mr-2">
             <Image
               src={image}
               alt={`${name} profile picture`}
@@ -37,17 +37,17 @@ function TestimonialCard({
               sizes="64px"
               fill
             />
-          </div>
+          </div>}
           <div>
             <h2>{name}</h2>
             <p className="text-secondary">{occupation}</p>
           </div>
         </div>
 
-        {quote && <p className="leading-normal text-lg">&quot;{quote}&quot;</p>}
+        {quote && <p className="leading-loose  text-gray-300">&quot;{quote}&quot;</p>}
 
         {Testimonial && (
-          <p className="leading-loose text-gray-400">
+          <p className="leading-loose text-gray-300">
             <Testimonial />{' '}
           </p>
         )}
