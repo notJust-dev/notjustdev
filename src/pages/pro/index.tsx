@@ -18,10 +18,12 @@ const ProPage = ({}: ProPageProps) => (
         <p className="text-s text-secondary font-mono">
           Become a Part of Something Bigger
         </p>
-        <h1 className="text-4xl leading-relaxed text-center">notJust.dev PRO Community</h1>
+        <h1 className="text-4xl leading-relaxed text-center">
+          notJust.dev PRO Community
+        </h1>
         <p className="text-xl text-gray-300 my-4 leading-relaxed text-center">
-          With our Pro Membership It&apos;s notJust about building apps - It&apos;s about
-          growing together.
+          With our Pro Membership It&apos;s notJust about building apps -
+          It&apos;s about growing together.
         </p>
         {/* button */}
         <Button
@@ -33,7 +35,7 @@ const ProPage = ({}: ProPageProps) => (
     </section>
 
     {/*  Benefits */}
-    <section className='my-20'>
+    <section className="my-20">
       <MaxWidthWrapper maxWidth={750}>
         <h2 className="text-3xl text-center my-10">
           What&apos;s included in your Pro Membership?
@@ -44,7 +46,7 @@ const ProPage = ({}: ProPageProps) => (
             description="Access exclusive private calls with Vadim, an industry expert who's ready to share insider knowledge, answer your queries, and guide your journey to the top."
           />
           <BenefitItem
-            title="Private Community with succsesful developers"
+            title="Private Community with successful developers"
             description="Engage with an exclusive network of successful developers. Share, learn, and grow together in an environment that fosters creativity, mutual support, and knowledge exchange."
           />
           <BenefitItem
@@ -66,15 +68,13 @@ const ProPage = ({}: ProPageProps) => (
     {/* Testimonials */}
     <section className="flex flex-col items-center my-20">
       <MaxWidthWrapper>
-
         <h2 className="text-3xl text-center my-10">What do members say?</h2>
 
         <div className="flex flex-col md:flex-row justify-center my-5">
-   
           <TestimonialCard
             name="Cristian Sanchez"
             occupation="React Native Dev"
-            quote='I am continuing to grow and learn my skills as a React developer and @Vadim Savin has been the best teacher that i have come across. Hoping to transition from my regular day to day job, to becoming a react developer. @Vadim Savin has been a big hope of mine to make the dream come true! '
+            quote="I am continuing to grow and learn my skills as a React developer and @Vadim Savin has been the best teacher that i have come across. Hoping to transition from my regular day to day job, to becoming a react developer. @Vadim Savin has been a big hope of mine to make the dream come true! "
           />
 
           <TestimonialCard
@@ -82,9 +82,8 @@ const ProPage = ({}: ProPageProps) => (
             occupation="CoFounder & CEO at ANTHILL"
             image={LuigiImage}
             href="https://www.linkedin.com/in/gigipiscitelli/"
-            quote='Thanks to Vadim and this community I’m only a few weeks away from releasing the app 🚀🚀🚀 Happy to connect and open to collaborations.'
+            quote="Thanks to Vadim and this community I’m only a few weeks away from releasing the app 🚀🚀🚀 Happy to connect and open to collaborations."
           />
-
 
           <TestimonialCard
             name="Peter"
@@ -97,22 +96,37 @@ const ProPage = ({}: ProPageProps) => (
 
     {/* Pricing */}
     <section className="flex flex-col items-center my-20">
-      <MaxWidthWrapper className='flex flex-col md:flex-row'>
+      <MaxWidthWrapper className="flex flex-col md:flex-row">
         <div>
           <h2 className="text-3xl my-10">The PRO Community is for you if:</h2>
-          
-          <h3 className='text-white text-xl'>You Love Creating Apps</h3>
-          <p className='my-2 leading-7 text-slate-400'> You have a passion for mobile app development and are excited about learning more.</p>
-          
-          <h3 className='text-white text-xl mt-5'>You Want to Join a Like-Minded Group</h3>
-          <p className='my-2 leading-7 text-slate-400'> You want to be part of a community where everyone shares your interests and supports each other.</p>
-          
-          <h3 className='text-white text-xl mt-3'>You&apos;re Eager to Learn from Experts</h3>
-          <p className='my-2 leading-7 text-slate-400'> You&apos;re looking for guidance and insights from professionals in the field.</p>
+
+          <h3 className="text-white text-xl">You Love Creating Apps</h3>
+          <p className="my-2 leading-7 text-slate-400">
+            {' '}
+            You have a passion for mobile app development and are excited about
+            learning more.
+          </p>
+
+          <h3 className="text-white text-xl mt-5">
+            You Want to Join a Like-Minded Group
+          </h3>
+          <p className="my-2 leading-7 text-slate-400">
+            {' '}
+            You want to be part of a community where everyone shares your
+            interests and supports each other.
+          </p>
+
+          <h3 className="text-white text-xl mt-3">
+            You&apos;re Eager to Learn from Experts
+          </h3>
+          <p className="my-2 leading-7 text-slate-400">
+            {' '}
+            You&apos;re looking for guidance and insights from professionals in
+            the field.
+          </p>
         </div>
 
         <PricingCard />
-
       </MaxWidthWrapper>
     </section>
   </Layout>
