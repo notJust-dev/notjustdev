@@ -5,9 +5,16 @@ import MaxWidthWrapper from '../MaxWidthWrapper';
 import ActiveLink from './ActiveLink';
 import logo from '../../../public/images/logo/white.png';
 import Announcement from '../Announcement';
+import Button  from '../Button';
+import { useRouter } from 'next/router';
+import {PRO_MEMBERSHIP_CHECKOUT_URL} from '../../lib/config';
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
+
+  const router = useRouter();
+
+  const isOnPro = router.asPath === '/pro';
 
   return (
     <>
@@ -56,7 +63,12 @@ const Navbar = () => {
 
             <ActiveLink href="/blog" title="Blog" />
 
-            <ActiveLink href="/pro" title="PRO Community" />
+            <Button 
+              text='Become PRO' 
+              href={isOnPro ? PRO_MEMBERSHIP_CHECKOUT_URL : '/pro'}
+              type={isOnPro ? 'primary' : 'outline'} 
+              className={isOnPro ? 'font-bold' : 'font-normal'} 
+            />
           </div>
         </nav>
       </MaxWidthWrapper>

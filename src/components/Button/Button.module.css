@@ -13,3 +13,7 @@
 .tertiary {
   @apply text-brand-orange;
 }
+
+.outline {
+  @apply text-primary border-primary border;
+}

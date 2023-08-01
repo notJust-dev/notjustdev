@@ -6,10 +6,7 @@ import BenefitItem from './BenefitItem';
 
 import LuigiImage from '../../../public/images/testimonials/LuigiPiscitelli.jpeg';
 import PricingCard from './PricingCard';
-
-// const CHECKOUT_URL = 'https://academy.notjust.dev/offers/2SzqqoYt/checkout';
-const CHECKOUT_URL =
-  'https://academy.notjust.dev/offers/2SzqqoYt?coupon_code=LAUNCH';
+import { PRO_MEMBERSHIP_CHECKOUT_URL } from '../../lib/config';
 
 interface ProPageProps {}
 
@@ -28,7 +25,7 @@ const ProPage = ({}: ProPageProps) => (
         </p>
         {/* button */}
         <Button
-          href={CHECKOUT_URL}
+          href={PRO_MEMBERSHIP_CHECKOUT_URL}
           text="Join PRO"
           className="w-48 text-xl font-bold"
         />
@@ -114,7 +111,7 @@ const ProPage = ({}: ProPageProps) => (
           <p className='my-2 leading-7 text-slate-400'> You&apos;re looking for guidance and insights from professionals in the field.</p>
         </div>
 
-        <PricingCard checkoutUrl={CHECKOUT_URL} />
+        <PricingCard />
 
       </MaxWidthWrapper>
     </section>
