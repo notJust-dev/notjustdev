@@ -1,7 +1,8 @@
-import Button from '../../components/Button'
-import MaxWidthWrapper from '../../components/MaxWidthWrapper'
+import Button from '../../components/Button';
+import MaxWidthWrapper from '../../components/MaxWidthWrapper';
+import { PRO_MEMBERSHIP_CHECKOUT_URL } from '../../lib/config';
 
-export default function PricingCard({checkoutUrl}: {checkoutUrl: string}) {
+export default function PricingCard() {
   return (
     <MaxWidthWrapper maxWidth={550} noPadding className='my-10 md:ml-5'>
       <div className='bg-custom-blue-500 p-5 md:p-10 rounded-lg'>
@@ -17,7 +18,7 @@ export default function PricingCard({checkoutUrl}: {checkoutUrl: string}) {
           </div>
         </div>
         <Button
-          href={checkoutUrl}
+          href={PRO_MEMBERSHIP_CHECKOUT_URL}
           text="Join PRO"
           className="my-5 font-bold w-full"
         />

@@ -12,7 +12,8 @@ interface ActiveLinkProps {
 function ActiveLink({ href, title }: ActiveLinkProps) {
   const router = useRouter();
 
-  let isActive = router.asPath.startsWith(href);
+  const segments = router.asPath.split('/');
+  let isActive = segments?.[1] === href.split('/')?.[1];
   if (href === '/') {
     isActive = router.asPath === '/';
   }
