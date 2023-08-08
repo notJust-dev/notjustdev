@@ -13,10 +13,6 @@ module.exports = {
         destination: 'https://assets.notjust.dev/masterclass',
       },
       {
-        source: '/hack',
-        destination: '/blog/2022-11-03-notJust-Hack',
-      },
-      {
         source: '/banner/appjs2023',
         destination: '/links',
       },
@@ -40,6 +36,11 @@ module.exports = {
         destination:
           'https://events.zoom.us/ev/Ajc5bJBZEl2f2uhIDg-bt7cHDY4mqF1eFudjFVJuXnDqRCteHPvC~AggLXsr32QYFjq8BlYLZ5I06Dg',
         permanent: false,
+      },
+      {
+        source: '/hack',
+        destination: '/blog/2022-11-03-notJust-Hack',
+        permanent: true,
       },
     ];
   },
