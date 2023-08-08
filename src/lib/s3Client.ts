@@ -16,7 +16,7 @@ const s3Client = new S3Client({});
 
 const fileNameRegex = /(?<=secure\.notion-static\.com\/)[^?]+/;
 const unsplashFileNameRegex = /https:\/\/images\.unsplash\.com\/([^?/]+)/;
-const giphyRegex = /https:\/\/media4\.giphy\.com\/media\/([^\/]+)\/giphy\.gif/;
+const giphyRegex = /https:\/\/media4\.giphy\.com\/media\/([^\/]+\/giphy\.gif)/;
 
 const uploadLocalFileToS3 = async (localUri: string, key: string) => {
   // Create an object and upload it to the Amazon S3 bucket.
