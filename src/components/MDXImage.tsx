@@ -25,8 +25,8 @@ const MDXImage = ({ src, alt, children, width, height }: Props) => (
 MDXImage.defaultProps = {
   src: '',
   alt: '',
-  width: 1920,
-  height: 1080,
+  width: 1280,
+  height: 720,
 } as Partial<Props>;
 
 export default MDXImage;
