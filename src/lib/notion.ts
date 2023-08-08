@@ -1,6 +1,9 @@
-import { Client, isFullPage } from '@notionhq/client';
+import { Client } from '@notionhq/client';
 import {
   PageObjectResponse,
+  PartialPageObjectResponse,
+  DatabaseObjectResponse,
+  PartialDatabaseObjectResponse,
   QueryDatabaseParameters,
 } from '@notionhq/client/build/src/api-endpoints';
 import { serialize } from 'next-mdx-remote/serialize';
@@ -15,13 +18,28 @@ import { copyFileToS3 } from './s3Client';
 
 const { NOTION_KEY, NOTION_DATABASE = '' } = process.env;
 
+// TODO: temporary fix. It should be imported from notion client:
+//import {  isFullPage } from '@notionhq/client';
+function isFullPage(
+  response:
+    | PageObjectResponse
+    | PartialPageObjectResponse
+    | DatabaseObjectResponse
+    | PartialDatabaseObjectResponse,
+): response is PageObjectResponse {
+  return 'url' in response;
+}
+
 // Initializing a client
 const notion = new Client({
   auth: NOTION_KEY,
 });
 
 // passing notion client to the option
-const n2m = new NotionToMarkdown({ notionClient: notion });
+const n2m = new NotionToMarkdown({
+  notionClient: notion,
+  config: { parseChildPages: false },
+});
 
 const MD_IMAGE_REGEX = /!\[(?<alt>[^\]]*)\]\((?<url>.*?)(?=\"|\))\)/g;
 
