@@ -3,7 +3,7 @@ import {
   getAllPosts,
   getPostBySLug,
   getSubPostsFor,
-} from '../../../lib/notion';
+} from '../../../lib/notion/notion';
 import ProjectPage from '../../../views/ProjectPage';
 
 interface Props {

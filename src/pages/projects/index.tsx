@@ -3,7 +3,7 @@ import { GetStaticProps } from 'next';
 import Layout from '../../components/Layout/Layout';
 import MaxWidthWrapper from '../../components/MaxWidthWrapper';
 import ProjectCard from '../../components/ProjectCard';
-import { getAllPosts } from '../../lib/notion';
+import { getAllPosts } from '../../lib/notion/notion';
 
 interface CourseProps {
   projects: PostMeta[];

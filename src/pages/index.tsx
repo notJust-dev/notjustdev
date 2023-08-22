@@ -6,18 +6,22 @@ import HeroSection from '../components/HeroSection';
 import HomePageProjects from '../components/HomePageProjects';
 import BlogSection from '../components/BlogSection';
 import Layout from '../components/Layout/Layout';
-import { getAllPosts } from '../lib/notion';
+import { getAllPosts } from '../lib/notion/notion';
 import courses from '../data/courses';
+import HomePageEvents from '../components/EventsOverview/EventsOverview';
+import { getAllEvents } from '../lib/events';
 
 const BLOG_POSTS_ON_HOME_PAGE = 4;
 const PROJECTS_ON_HOME_PAGE = 2;
+const EVENTS_ON_HOME_PAGE = 2;
 
 interface Props {
   latestPosts: PostMeta[];
   projects: PostMeta[];
+  events: EventMeta[];
 }
 
-export default function Home({ latestPosts, projects }: Props) {
+export default function Home({ latestPosts, projects, events }: Props) {
   return (
     <Layout>
       <main className="grid gap-12">
@@ -31,6 +35,8 @@ export default function Home({ latestPosts, projects }: Props) {
         <HomePageProjects project={projects} courses={courses} />
 
         <Testimonials />
+
+        <HomePageEvents events={events} />
 
         {/* Blog */}
         <BlogSection posts={latestPosts} />
@@ -50,6 +56,9 @@ export const getStaticProps: GetStaticProps<Props> = async () => ({
     projects: await getAllPosts({
       type: 'Project',
       pageSize: PROJECTS_ON_HOME_PAGE,
+    }),
+    events: await getAllEvents({
+      pageSize: EVENTS_ON_HOME_PAGE,
     }),
   },
   revalidate: 10,

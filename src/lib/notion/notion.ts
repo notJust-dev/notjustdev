@@ -1,34 +1,20 @@
 import { Client } from '@notionhq/client';
 import {
   PageObjectResponse,
-  PartialPageObjectResponse,
-  DatabaseObjectResponse,
-  PartialDatabaseObjectResponse,
   QueryDatabaseParameters,
 } from '@notionhq/client/build/src/api-endpoints';
 import { serialize } from 'next-mdx-remote/serialize';
 import { NotionToMarkdown } from 'notion-to-md';
 import rehypeSlug from 'rehype-slug';
 import rehypeAutolinkHeadings from 'rehype-autolink-headings';
-import { getAuthorDetails } from './authors';
-import { richTextToPlain, shuffle } from './utils';
-import { buildToC, shiftHeadings } from './utils/tableOfContents';
-import { processVideos } from './utils/videos';
-import { copyFileToS3 } from './s3Client';
+import { getAuthorDetails } from '../authors';
+import { richTextToPlain, shuffle } from '../utils';
+import { buildToC, shiftHeadings } from '../utils/tableOfContents';
+import { processVideos } from '../utils/videos';
+import { copyFileToS3 } from '../s3Client';
+import { isFullPage } from './utils';
 
 const { NOTION_KEY, NOTION_DATABASE = '' } = process.env;
-
-// TODO: temporary fix. It should be imported from notion client:
-//import {  isFullPage } from '@notionhq/client';
-function isFullPage(
-  response:
-    | PageObjectResponse
-    | PartialPageObjectResponse
-    | DatabaseObjectResponse
-    | PartialDatabaseObjectResponse,
-): response is PageObjectResponse {
-  return 'url' in response;
-}
 
 // Initializing a client
 const notion = new Client({
