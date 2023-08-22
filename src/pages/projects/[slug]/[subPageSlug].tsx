@@ -3,7 +3,7 @@ import {
   getAllPosts,
   getPostBySLug,
   getSubPostsFor,
-} from '../../../lib/notion';
+} from '../../../lib/notion/notion';
 import ProjectPage, {
   ProjectPageProps,
 } from '../../../views/ProjectPage/ProjectPage';
@@ -31,7 +31,7 @@ export const getStaticProps: GetStaticProps<ProjectPageProps> = async ({
   const parentPost = await getPostBySLug(params?.slug as string); // We only need post meta
   // Maybe later
   // const subPosts = await getSubPostsFor(post.id);
-  
+
   const siblingPosts = (await getSubPostsFor(parentPost.id)).reverse();
   const currentPostIndex = siblingPosts.findIndex((s) => s.id === post.id);
   const pagination = {

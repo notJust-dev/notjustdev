@@ -3,7 +3,7 @@ import { GetStaticPaths, GetStaticProps } from 'next';
 import BlogCard from '../../components/BlogCard';
 import Layout from '../../components/Layout/Layout';
 import MaxWidthWrapper from '../../components/MaxWidthWrapper';
-import { getAllPostTags, getAllPosts } from '../../lib/notion';
+import { getAllPostTags, getAllPosts } from '../../lib/notion/notion';
 import Tag from '../../components/Tags/Tag';
 import ProjectCard from '../../components/ProjectCard';
 import Tags from '../../components/Tags/Tags';
