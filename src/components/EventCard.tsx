@@ -1,6 +1,6 @@
 import Image from 'next/image';
 // import Button from './Button';
-// import { useRouter } from 'next/router';
+import { useRouter } from 'next/router';
 import { MdOutlineDateRange } from 'react-icons/md';
 import dayjs from 'dayjs';
 import LocalizedFormat from 'dayjs/plugin/localizedFormat';
@@ -14,13 +14,13 @@ export interface EventCardProps {
 }
 
 const EventCard = ({ event, priority = false }: EventCardProps) => {
-  // const router = useRouter();
+  const router = useRouter();
 
-  // const url = `/events/${event.slug}`;
+  const url = `/events/${event.slug}`;
 
   return (
     <div
-      // onClick={() => router.push(url)}
+      onClick={() => router.push(url)}
       className="bg-custom-blue-500 p-2 pb-5 flex flex-col  cursor-pointer h-full"
     >
       {event.image && (

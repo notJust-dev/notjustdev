@@ -2,13 +2,12 @@ type EventMeta = {
   id: string;
   slug: string;
   title: string;
+  description: string;
   updatedOn: string;
   image?: string;
 
   date: string;
   isPro: boolean;
-
-  // description: string;
 
   // authors: Author[];
 
@@ -21,4 +20,8 @@ type EventMeta = {
 
   // parentPageId?: string;
   // parentSlug?: string;
+};
+
+type EventWithContent = EventMeta & {
+  content: MDXRemoteSerializeResult;
 };

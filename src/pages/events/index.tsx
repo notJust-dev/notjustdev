@@ -9,7 +9,7 @@ interface EventsProps {
   events: EventMeta[];
 }
 
-function Events({ events }: EventsProps) {
+export default function Events({ events }: EventsProps) {
   return (
     <Layout title="notJust Development Projects">
       <MaxWidthWrapper>
@@ -29,8 +29,6 @@ function Events({ events }: EventsProps) {
     </Layout>
   );
 }
-
-export default Events;
 
 export const getStaticProps: GetStaticProps<EventsProps> = async () => ({
   props: {
