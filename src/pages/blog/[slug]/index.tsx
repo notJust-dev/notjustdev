@@ -16,7 +16,7 @@ import {
   getAllPosts,
   getPostBySLug,
   getRecommendedPostsMeta,
-} from '../../../lib/notion';
+} from '../../../lib/notion/notion';
 
 import * as sharedComponents from '../../../components/shared';
 import Tags from '../../../components/Tags';

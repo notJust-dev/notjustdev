@@ -3,7 +3,7 @@ import { GetStaticProps } from 'next';
 import BlogCard from '../../components/BlogCard';
 import Layout from '../../components/Layout/Layout';
 import MaxWidthWrapper from '../../components/MaxWidthWrapper';
-import { getAllPosts } from '../../lib/notion';
+import { getAllPosts } from '../../lib/notion/notion';
 
 interface BlogProps {
   posts: PostMeta[];

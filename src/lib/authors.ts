@@ -66,7 +66,7 @@ export const getAuthorDetails = async (id: string): Promise<Author | null> => {
     Instagram: Instagram.url,
     buyMeACoffee: buyMeACoffee.url,
   };
-
+  
   if (page.cover?.type === 'file' && page.cover.file.url) {
     author.image = await copyFileToS3(page.cover.file.url);
   }
