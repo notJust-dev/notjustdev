@@ -9,6 +9,7 @@ import MaxWidthWrapper from '../../../components/MaxWidthWrapper';
 import StaticCodeSnippet from '../../../components/StaticCodeSnippet';
 import InlineCodeSnippet from '../../../components/InlineCodeSnippet';
 import MDXImage from '../../../components/MDXImage';
+import AuthorDetails from '../../../components/AuthorDetails';
 
 import * as sharedComponents from '../../../components/shared';
 import { getAllEvents, getEventBySLug } from '../../../lib/events';
@@ -64,7 +65,7 @@ function EventPage({ event }: Props) {
         <hr className="my-4 border-gray-700" />
         <div className="flex">
           <p className="flex items-center">
-            <MdOutlineDateRange size={24} className="mr-2" />
+            <MdOutlineDateRange size={24} className="mr-2" color="#c5c5c5" />
             {dayjs(event.date).format('ll LT')}
           </p>
           {event.isPro && (
@@ -84,18 +85,15 @@ function EventPage({ event }: Props) {
 
         <div className="flex flex-row">
           <article className="flex-1">
-            <h2 id="introduction" className="invisible h-0 mt-0">
-              Introduction 123
-            </h2>
             <div className="mdx-post">
               <MDXRemote {...event.content} components={components} />
             </div>
           </article>
         </div>
 
-        {/* {event.authors.length ? (
-          <AuthorDetails author={post.authors[0]} />
-        ) : null} */}
+        {event.authors.length ? (
+          <AuthorDetails sectionTitle="Speaker" author={event.authors[0]} />
+        ) : null}
 
         {/* Displaying multiple authors (Needs a bit of style adjustment) */}
         {/* {post.authors.map((author) => (

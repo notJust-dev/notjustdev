@@ -9,7 +9,7 @@ type EventMeta = {
   date: string;
   isPro: boolean;
 
-  // authors: Author[];
+  authors: Author[];
 
   // redirect_url?: string;
 

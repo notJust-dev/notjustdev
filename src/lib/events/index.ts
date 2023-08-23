@@ -6,6 +6,7 @@ import {
 import { getStatusFilter, isFullPage, notionPageToMDX } from '../notion/utils';
 import { richTextToPlain } from '../utils';
 import { copyFileToS3 } from '../s3Client';
+import { getAuthorDetails } from '../authors';
 const { NOTION_KEY, NOTION_EVENTS_DATABASE = '' } = process.env;
 
 // Initializing a client
@@ -22,9 +23,10 @@ interface GetAllEventsOption {
 
 const parseEventPageMeta = async (
   page: PageObjectResponse,
+  includeAuthors = false,
 ): Promise<EventMeta> => {
   const {
-    properties: { slug, Name, pro, date, description },
+    properties: { slug, Name, pro, date, description, Author },
   } = page;
 
   // validation
@@ -43,6 +45,9 @@ const parseEventPageMeta = async (
   if (date.type !== 'date' || !date.date?.start) {
     throw new Error('Validation Error: Date is not a date');
   }
+  if (Author.type !== 'relation') {
+    throw new Error('Validation Error: Author is not a relation');
+  }
 
   const event: EventMeta = {
     id: page.id,
@@ -52,7 +57,14 @@ const parseEventPageMeta = async (
     isPro: pro.checkbox,
     date: date.date.start,
     description: richTextToPlain(description.rich_text),
+    authors: [],
   };
+
+  if (includeAuthors) {
+    event.authors = (
+      await Promise.all(Author.relation.map(({ id }) => getAuthorDetails(id)))
+    ).filter((a) => a !== null) as Author[];
+  }
 
   if (page.cover?.type === 'file' && page.cover.file.url) {
     event.image = await copyFileToS3(page.cover.file.url);
@@ -113,7 +125,7 @@ export const getEventBySLug = async (
   }
 
   return {
-    ...(await parseEventPageMeta(page)),
+    ...(await parseEventPageMeta(page, true)),
     ...(await notionPageToMDX(page)),
   };
 };

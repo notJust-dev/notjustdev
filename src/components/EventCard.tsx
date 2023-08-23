@@ -39,7 +39,7 @@ const EventCard = ({ event, priority = false }: EventCardProps) => {
       )}
       <h2 className="my-2 w-full text-center md:text-left">{event.title}</h2>
       <p className="flex items-center">
-        <MdOutlineDateRange size={24} className="mr-2" />
+        <MdOutlineDateRange size={24} className="mr-2" color="#c5c5c5" />
         {dayjs(event.date).format('ll LT')}
       </p>
       <div className="my-2">
