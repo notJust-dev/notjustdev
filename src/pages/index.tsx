@@ -9,7 +9,7 @@ import Layout from '../components/Layout/Layout';
 import { getAllPosts } from '../lib/notion/notion';
 import courses from '../data/courses';
 import HomePageEvents from '../components/EventsOverview/EventsOverview';
-import { getAllEvents } from '../lib/events';
+import { getUpcomingEvents } from '../lib/events';
 
 const BLOG_POSTS_ON_HOME_PAGE = 4;
 const PROJECTS_ON_HOME_PAGE = 2;
@@ -57,7 +57,7 @@ export const getStaticProps: GetStaticProps<Props> = async () => ({
       type: 'Project',
       pageSize: PROJECTS_ON_HOME_PAGE,
     }),
-    events: await getAllEvents({
+    events: await getUpcomingEvents({
       pageSize: EVENTS_ON_HOME_PAGE,
     }),
   },

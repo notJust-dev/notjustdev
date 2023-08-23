@@ -4,16 +4,23 @@ import bmcButton from '../../../public/images/bmc-button.png';
 
 interface Props {
   author: Author;
+  sectionTitle?: string;
 }
 
-const AuthorDetails = ({ author }: Props) => {
+const AuthorDetails = ({ author, sectionTitle }: Props) => {
   if (!author) {
     return null;
   }
 
   return (
     <div>
-      <hr className="my-10 border-gray-700" />
+      <hr className="mt-10 mb-5 border-gray-700" />
+
+      {sectionTitle && (
+        <h2 className="text-2xl my-3 text-center text-gray-400">
+          {sectionTitle}
+        </h2>
+      )}
 
       <div className="flex flex-col sm:flex-row items-center sm:items-start">
         <div className="w-36 h-36 relative rounded-full overflow-hidden">

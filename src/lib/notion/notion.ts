@@ -3,16 +3,10 @@ import {
   PageObjectResponse,
   QueryDatabaseParameters,
 } from '@notionhq/client/build/src/api-endpoints';
-import { serialize } from 'next-mdx-remote/serialize';
-import { NotionToMarkdown } from 'notion-to-md';
-import rehypeSlug from 'rehype-slug';
-import rehypeAutolinkHeadings from 'rehype-autolink-headings';
 import { getAuthorDetails } from '../authors';
 import { richTextToPlain, shuffle } from '../utils';
-import { buildToC, shiftHeadings } from '../utils/tableOfContents';
-import { processVideos } from '../utils/videos';
 import { copyFileToS3 } from '../s3Client';
-import { isFullPage } from './utils';
+import { getStatusFilter, isFullPage, notionPageToMDX } from './utils';
 
 const { NOTION_KEY, NOTION_DATABASE = '' } = process.env;
 
@@ -20,39 +14,6 @@ const { NOTION_KEY, NOTION_DATABASE = '' } = process.env;
 const notion = new Client({
   auth: NOTION_KEY,
 });
-
-// passing notion client to the option
-const n2m = new NotionToMarkdown({
-  notionClient: notion,
-  config: { parseChildPages: false },
-});
-
-const MD_IMAGE_REGEX = /!\[(?<alt>[^\]]*)\]\((?<url>.*?)(?=\"|\))\)/g;
-
-const getStatusFilter = () => {
-  // In production, show only Published posts
-  const statuses = ['Published'];
-
-  // On staging, show Published and Draft posts
-  if (process.env.VERCEL_ENV === 'preview') {
-    statuses.push('Draft');
-  }
-
-  // Locally, show Published, Draft and In progress posts
-  if (process.env.NODE_ENV === 'development') {
-    statuses.push('Draft');
-    statuses.push('In progress');
-  }
-
-  return {
-    or: statuses.map((status) => ({
-      property: 'Status',
-      status: {
-        equals: status,
-      },
-    })),
-  };
-};
 
 const parseNotionPageMeta = async (
   page: PageObjectResponse,
@@ -218,18 +179,6 @@ export const getSubPostsFor = async (id: string) => {
   );
 };
 
-const downloadAndReplaceMDXImages = async (mdString: string) => {
-  const matches = mdString.matchAll(MD_IMAGE_REGEX);
-
-  for (const match of matches) {
-    if (match.groups?.url) {
-      const uri = await copyFileToS3(match.groups.url);
-      mdString = mdString.replace(match.groups?.url, uri);
-    }
-  }
-  return mdString;
-};
-
 export const getPostBySLug = async (
   slug: string,
   parentSlug?: string,
@@ -268,44 +217,9 @@ export const getPostBySLug = async (
     throw new Error('Cannot find page!');
   }
 
-  let mdBlocks = await n2m.pageToMarkdown(page.id);
-
-  mdBlocks = await Promise.all(mdBlocks.map(processVideos));
-
-  let mdString = n2m
-    .toMarkdownString(mdBlocks)
-    .parent.replaceAll('“', '"')
-    .replaceAll('”', '"');
-
-  // TODO them based on blocks, similar to videos?
-  // There is also custom transformers
-  // https://github.com/souvikinator/notion-to-md/blob/master/README.md#custom-transformers
-  mdString = await downloadAndReplaceMDXImages(mdString);
-  // TODO maybe this should be a rehype plugin?
-  mdString = shiftHeadings(mdString);
-  const toc = buildToC(mdString);
-
-  const content = await serialize(mdString, {
-    mdxOptions: {
-      rehypePlugins: [
-        rehypeSlug,
-        () =>
-          rehypeAutolinkHeadings({
-            behavior: 'append',
-            properties: {
-              className: 'heading-copy-link',
-              'aria-hidden': 'true',
-              tabIndex: -1,
-            },
-          }),
-      ],
-    },
-  });
-
   return {
     ...(await parseNotionPageMeta(page, true)),
-    content,
-    toc,
+    ...(await notionPageToMDX(page)),
   };
 };
 

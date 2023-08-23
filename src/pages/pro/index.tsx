@@ -152,6 +152,12 @@ export const getStaticProps: GetStaticProps<ProPageProps> = async () => ({
       filter: {
         isPro: true,
       },
+      sorts: [
+        {
+          property: 'date',
+          direction: 'descending',
+        },
+      ],
     }),
   },
   revalidate: 10,

@@ -1,6 +1,6 @@
 import Image from 'next/image';
 // import Button from './Button';
-// import { useRouter } from 'next/router';
+import { useRouter } from 'next/router';
 import { MdOutlineDateRange } from 'react-icons/md';
 import dayjs from 'dayjs';
 import LocalizedFormat from 'dayjs/plugin/localizedFormat';
@@ -14,13 +14,13 @@ export interface EventCardProps {
 }
 
 const EventCard = ({ event, priority = false }: EventCardProps) => {
-  // const router = useRouter();
+  const router = useRouter();
 
-  // const url = `/events/${event.slug}`;
+  const url = `/events/${event.slug}`;
 
   return (
     <div
-      // onClick={() => router.push(url)}
+      onClick={() => router.push(url)}
       className="bg-custom-blue-500 p-2 pb-5 flex flex-col  cursor-pointer h-full"
     >
       {event.image && (
@@ -39,7 +39,7 @@ const EventCard = ({ event, priority = false }: EventCardProps) => {
       )}
       <h2 className="my-2 w-full text-center md:text-left">{event.title}</h2>
       <p className="flex items-center">
-        <MdOutlineDateRange size={24} className="mr-2" />
+        <MdOutlineDateRange size={24} className="mr-2" color="#c5c5c5" />
         {dayjs(event.date).format('ll LT')}
       </p>
       <div className="my-2">
