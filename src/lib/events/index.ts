@@ -3,7 +3,7 @@ import {
   PageObjectResponse,
   QueryDatabaseParameters,
 } from '@notionhq/client/build/src/api-endpoints';
-import { isFullPage } from '../notion/utils';
+import { getStatusFilter, isFullPage } from '../notion/utils';
 import { richTextToPlain } from '../utils';
 import { copyFileToS3 } from '../s3Client';
 const { NOTION_KEY, NOTION_EVENTS_DATABASE = '' } = process.env;
@@ -62,8 +62,7 @@ export const getAllEvents = async ({
   pageSize = 100,
   filter,
 }: GetAllEventsOption): Promise<EventMeta[]> => {
-  // const filter: any = { and: [getStatusFilter()] };
-  const notionFilter: any = { and: [] };
+  const notionFilter: any = { and: [getStatusFilter()] };
   if (filter?.isPro) {
     notionFilter.and.push({
       property: 'pro',
@@ -72,7 +71,6 @@ export const getAllEvents = async ({
       },
     });
   }
-  console.log(notionFilter);
 
   const query: QueryDatabaseParameters = {
     database_id: NOTION_EVENTS_DATABASE,

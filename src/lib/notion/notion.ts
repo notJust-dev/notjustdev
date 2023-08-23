@@ -12,7 +12,7 @@ import { richTextToPlain, shuffle } from '../utils';
 import { buildToC, shiftHeadings } from '../utils/tableOfContents';
 import { processVideos } from '../utils/videos';
 import { copyFileToS3 } from '../s3Client';
-import { isFullPage } from './utils';
+import { getStatusFilter, isFullPage } from './utils';
 
 const { NOTION_KEY, NOTION_DATABASE = '' } = process.env;
 
@@ -28,31 +28,6 @@ const n2m = new NotionToMarkdown({
 });
 
 const MD_IMAGE_REGEX = /!\[(?<alt>[^\]]*)\]\((?<url>.*?)(?=\"|\))\)/g;
-
-const getStatusFilter = () => {
-  // In production, show only Published posts
-  const statuses = ['Published'];
-
-  // On staging, show Published and Draft posts
-  if (process.env.VERCEL_ENV === 'preview') {
-    statuses.push('Draft');
-  }
-
-  // Locally, show Published, Draft and In progress posts
-  if (process.env.NODE_ENV === 'development') {
-    statuses.push('Draft');
-    statuses.push('In progress');
-  }
-
-  return {
-    or: statuses.map((status) => ({
-      property: 'Status',
-      status: {
-        equals: status,
-      },
-    })),
-  };
-};
 
 const parseNotionPageMeta = async (
   page: PageObjectResponse,
