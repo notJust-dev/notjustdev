@@ -9,6 +9,9 @@ type EventMeta = {
   date: string;
   isPro: boolean;
 
+  cta?: string;
+  ctaUrl?: string;
+
   authors: Author[];
 
   // redirect_url?: string;

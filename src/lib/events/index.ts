@@ -18,7 +18,10 @@ interface GetAllEventsOption {
   pageSize?: number;
   filter?: {
     isPro?: boolean;
+    beforeDate?: Date;
+    afterDate?: Date;
   };
+  sorts?: QueryDatabaseParameters['sorts'];
 }
 
 const parseEventPageMeta = async (
@@ -26,7 +29,7 @@ const parseEventPageMeta = async (
   includeAuthors = false,
 ): Promise<EventMeta> => {
   const {
-    properties: { slug, Name, pro, date, description, Author },
+    properties: { slug, Name, pro, date, description, Author, cta, ctaUrl },
   } = page;
 
   // validation
@@ -49,6 +52,14 @@ const parseEventPageMeta = async (
     throw new Error('Validation Error: Author is not a relation');
   }
 
+  if (cta.type !== 'rich_text') {
+    throw new Error('Validation Error: cta is not a rich_text');
+  }
+
+  if (ctaUrl.type !== 'url') {
+    throw new Error('Validation Error: ctaUrl is not a url');
+  }
+
   const event: EventMeta = {
     id: page.id,
     updatedOn: page.last_edited_time,
@@ -58,7 +69,11 @@ const parseEventPageMeta = async (
     date: date.date.start,
     description: richTextToPlain(description.rich_text),
     authors: [],
+    cta: richTextToPlain(cta.rich_text),
   };
+  if (ctaUrl.url) {
+    event.ctaUrl = ctaUrl.url;
+  }
 
   if (includeAuthors) {
     event.authors = (
@@ -75,6 +90,7 @@ const parseEventPageMeta = async (
 export const getAllEvents = async ({
   pageSize = 100,
   filter,
+  sorts = [],
 }: GetAllEventsOption): Promise<EventMeta[]> => {
   const notionFilter: any = { and: [getStatusFilter()] };
   if (filter?.isPro) {
@@ -86,10 +102,29 @@ export const getAllEvents = async ({
     });
   }
 
+  if (filter?.afterDate) {
+    notionFilter.and.push({
+      property: 'date',
+      date: {
+        on_or_after: filter.afterDate.toISOString(),
+      },
+    });
+  }
+
+  if (filter?.beforeDate) {
+    notionFilter.and.push({
+      property: 'date',
+      date: {
+        before: filter.beforeDate.toISOString(),
+      },
+    });
+  }
+
   const query: QueryDatabaseParameters = {
     database_id: NOTION_EVENTS_DATABASE,
     page_size: pageSize,
     filter: notionFilter,
+    sorts,
   };
 
   const response = await notion.databases.query(query);
@@ -97,6 +132,40 @@ export const getAllEvents = async ({
   return Promise.all(
     response.results.filter(isFullPage).map((page) => parseEventPageMeta(page)),
   );
+};
+
+export const getUpcomingEvents = async ({
+  pageSize = 100,
+  filter = {},
+}: GetAllEventsOption): Promise<EventMeta[]> => {
+  filter.afterDate = new Date();
+  return getAllEvents({
+    pageSize,
+    filter,
+    sorts: [
+      {
+        property: 'date',
+        direction: 'ascending',
+      },
+    ],
+  });
+};
+
+export const getPastEvents = async ({
+  pageSize = 100,
+  filter = {},
+}: GetAllEventsOption): Promise<EventMeta[]> => {
+  filter.beforeDate = new Date();
+  return getAllEvents({
+    pageSize,
+    filter,
+    sorts: [
+      {
+        property: 'date',
+        direction: 'descending',
+      },
+    ],
+  });
 };
 
 export const getEventBySLug = async (

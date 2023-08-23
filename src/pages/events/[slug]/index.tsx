@@ -17,6 +17,7 @@ import { MdOutlineDateRange } from 'react-icons/md';
 import dayjs from 'dayjs';
 import LocalizedFormat from 'dayjs/plugin/localizedFormat';
 import Link from 'next/link';
+import Button from '../../../components/Button';
 
 dayjs.extend(LocalizedFormat);
 
@@ -90,6 +91,14 @@ function EventPage({ event }: Props) {
             </div>
           </article>
         </div>
+
+        {event.ctaUrl && (
+          <Button
+            text={event.cta || 'Read more'}
+            href={event.ctaUrl}
+            target="_blank"
+          />
+        )}
 
         {event.authors.length ? (
           <AuthorDetails sectionTitle="Speaker" author={event.authors[0]} />
