@@ -40,8 +40,14 @@ const Footer = ({ hideNewsletterForm = false }: FooterProps) => (
                 <Link href="/" className="text-gray-300 my-2">
                   Home
                 </Link>
+                <Link href="/accelerator" className="text-gray-300 my-2">
+                  🚀 Accelerator
+                </Link>
                 <Link href="/projects" className="text-gray-300 my-2">
                   Project Tutorials
+                </Link>
+                <Link href="/events" className="text-gray-300 my-2">
+                  Events
                 </Link>
                 <Link href="/blog" className="text-gray-300 my-2">
                   Blog
@@ -57,13 +63,17 @@ const Footer = ({ hideNewsletterForm = false }: FooterProps) => (
                 Project Tutorials
               </h2>
               <div className="flex flex-col">
-                <Link href="/" className="text-gray-300 my-2">
-                  WhatsApp Clone
+                <Link href="/projects/linkedin" className="text-gray-300 my-2">
+                  LinkedIn Clone
                 </Link>
-                <Link href="/" className="text-gray-300 my-2">
-                  Instagram Clone
+                <Link href="/projects/imessages" className="text-gray-300 my-2">
+                  iMessage Clone
                 </Link>
-                <Link href="/" passHref className="text-gray-300 my-2">
+                <Link
+                  href="/projects/twitter"
+                  passHref
+                  className="text-gray-300 my-2"
+                >
                   Twitter Clone
                 </Link>
               </div>

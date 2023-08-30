@@ -55,13 +55,14 @@ const Navbar = () => {
               !isOpen && 'hidden'
             }`}
           >
-            <ActiveLink href="/" title="Home" />
+            {/* <ActiveLink href="/" title="Home" /> */}
+            <ActiveLink href="/accelerator" title="🚀 Accelerator" />
 
             <ActiveLink href="/projects" title="Projects" />
 
-            <ActiveLink href="/pro-courses" title="Premium Courses" />
+            <ActiveLink href="/pro-courses" title="Courses" />
 
-            <ActiveLink href="/events" title="Events" />
+            {/* <ActiveLink href="/events" title="Events" /> */}
 
             <ActiveLink href="/blog" title="Blog" />
 
