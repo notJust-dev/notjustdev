@@ -20,10 +20,7 @@ export default function AcceleratorPage({}: AcceleratorProps) {
   return (
     <Layout title="notJust Development Blog" isLandingPage>
       {/* HERO */}
-      <div
-        className="fixed top-0 bottom-0 left-0 right-0"
-        style={{ backgroundColor: '#100936' }}
-      >
+      <div className="fixed top-0 bottom-0 left-0 right-0 bg-gradient-to-br from-indigo-950 to-purple-800 ">
         <Image
           src={BG}
           alt="background"
@@ -31,11 +28,12 @@ export default function AcceleratorPage({}: AcceleratorProps) {
           layout="fill"
           objectFit="cover"
           objectPosition="center"
+          className="invisible md:visible"
         />
       </div>
 
       <div className="animate-bounce absolute top-10 w-full  text-center">
-        <span className="text-xl text-white font-bold font-mono my-4 leading-relaxed bg-purple-800 p-2.5 px-5 rounded-full">
+        <span className="md:text-xl text-white font-bold font-mono my-4 leading-relaxed bg-purple-800 p-2.5 px-5 rounded-full">
           📅 Next batch: <u>Jan 2024</u>
         </span>
       </div>
@@ -43,11 +41,13 @@ export default function AcceleratorPage({}: AcceleratorProps) {
       <MaxWidthWrapper className=" flex flex-col md:flex-row mt-24 md:mt-0 min-h-screen items-center">
         <div className="flex-1 my-5">
           <p className="text-s text-secondary font-mono">From Idea to Market</p>
-          <h1 className="text-5xl leading-relaxed">notJust Accelerator</h1>
-          <h2 className="text-3xl leading-relaxed text-purple-200">
+          <h1 className="text-2xl md:text-5xl md:leading-relaxed">
+            notJust Accelerator
+          </h1>
+          <h2 className="text-xl md:text-3xl md:leading-relaxed text-purple-200">
             Turn your mobile app ideas into reality in just 3 months.
           </h2>
-          <p className="text-xl text-purple-300 my-4 leading-relaxed">
+          <p className="md:text-xl text-purple-300 my-4 md:leading-relaxed">
             Resources, mentorship, and the network you need to successfully
             launch and scale your applications.
           </p>

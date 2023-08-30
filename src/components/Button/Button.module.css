@@ -19,5 +19,5 @@
 }
 
 .xl {
-  @apply py-4 px-20 text-xl font-bold;
+  @apply py-3 md:py-4 px-14 md:px-20 md:text-xl font-bold;
 }
