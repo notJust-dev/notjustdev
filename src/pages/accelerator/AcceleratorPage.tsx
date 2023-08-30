@@ -20,7 +20,10 @@ export default function AcceleratorPage({}: AcceleratorProps) {
   return (
     <Layout title="notJust Development Blog" isLandingPage>
       {/* HERO */}
-      <div className="fixed top-0 bottom-0 left-0 right-0">
+      <div
+        className="fixed top-0 bottom-0 left-0 right-0"
+        style={{ backgroundColor: '#100936' }}
+      >
         <Image
           src={BG}
           alt="background"
@@ -37,7 +40,7 @@ export default function AcceleratorPage({}: AcceleratorProps) {
         </span>
       </div>
 
-      <MaxWidthWrapper className="flex flex-col md:flex-row mt-24 md:mt-0 min-h-screen items-center">
+      <MaxWidthWrapper className=" flex flex-col md:flex-row mt-24 md:mt-0 min-h-screen items-center">
         <div className="flex-1 my-5">
           <p className="text-s text-secondary font-mono">From Idea to Market</p>
           <h1 className="text-5xl leading-relaxed">notJust Accelerator</h1>
@@ -61,7 +64,7 @@ export default function AcceleratorPage({}: AcceleratorProps) {
           />
         </div>
         <div className="flex-1">
-          <Image src={Rocket} alt="Rocket" />
+          <Image src={Rocket} alt="Rocket" priority />
         </div>
       </MaxWidthWrapper>
     </Layout>
