@@ -11,7 +11,7 @@ interface IOptInForm {
 function OptInForm({ formId, formSrc, title, children }: IOptInForm) {
   const scriptRef = useRef<HTMLDivElement | null>(null);
 
-  useScript(formSrc, scriptRef, { uid: formId });
+  useScript(formSrc, formId, { uid: formId }, scriptRef);
 
   return (
     <div className="bg-gray-900 shadow-lg p-3 md:p-5 my-2 max-w-5xl mr-auto ml-auto">
