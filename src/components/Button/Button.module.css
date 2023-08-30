@@ -17,3 +17,7 @@
 .outline {
   @apply text-primary border-primary border;
 }
+
+.xl {
+  @apply py-4 px-20 text-xl font-bold;
+}

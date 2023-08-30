@@ -11,14 +11,25 @@ interface ButtonProps {
   type: ButtonType;
   className: string;
   target: '_blank' | '_self';
+  data?: { [key: string]: string };
+  size: 'md' | 'l' | 'xl';
 }
 
-const Button = ({ text, href, type, className, target }: ButtonProps) =>
+const Button = ({
+  text,
+  href,
+  type,
+  className,
+  target,
+  data,
+  size,
+}: ButtonProps) =>
   href ? (
     <Link
       href={href}
       target={target}
-      className={`${styles.button} ${styles[type]} ${className}`}
+      className={`${styles.button} ${styles[type]} ${styles[size]} ${className}`}
+      {...data}
     >
       {text}
     </Link>
