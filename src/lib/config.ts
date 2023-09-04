@@ -2,7 +2,7 @@
 export const CONTACT_EMAIL = process.env.NEXT_PUBLIC_CONTACT_EMAIL;
 export const GTM = process.env.NEXT_PUBLIC_GTM;
 export const PRO_MEMBERSHIP_CHECKOUT_URL =
-'https://academy.notjust.dev/offers/2SzqqoYt?coupon_code=LAUNCH';
+  'https://academy.notjust.dev/offers/2SzqqoYt';
 
 export const SOCIALS: { [k: string]: string } = {
   Youtube: 'https://www.youtube.com/channel/UCYSa_YLoJokZAwHhlwJntIA',
