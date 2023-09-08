@@ -15,6 +15,8 @@ const s3BaseUrl = 'https://notjustdev-media.s3.amazonaws.com/';
 const s3Client = new S3Client({});
 
 const fileNameRegex = /(?<=secure\.notion-static\.com\/)[^?]+/;
+const fileNameRegexNew =
+  /https:\/\/prod-files-secure\.s3\.us-west-2\.amazonaws\.com\/[a-f0-9]{8}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{12}\/([^?]+)/;
 const unsplashFileNameRegex = /https:\/\/images\.unsplash\.com\/([^?/]+)/;
 const giphyRegex = /https:\/\/[^\/]+\.giphy\.com\/media\/([^\/]+\/giphy\.gif)/;
 
@@ -65,7 +67,9 @@ export const copyFileToS3 = async (fileUrl: string) => {
   const fileName =
     fileUrl.match(fileNameRegex)?.[0] ||
     fileUrl.match(unsplashFileNameRegex)?.[1] ||
-    fileUrl.match(giphyRegex)?.[1];
+    fileUrl.match(giphyRegex)?.[1] ||
+    fileUrl.match(fileNameRegexNew)?.[1];
+
   if (!fileName) {
     throw Error(`Can't parse the S3 image url from Notion: ${fileUrl}`);
   }
