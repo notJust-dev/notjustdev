@@ -21,9 +21,9 @@ export default function Events({ upcomingEvents, pastEvents }: EventsProps) {
           </p>
 
           {!!upcomingEvents.length && (
-            <section className="my-4">
+            <section className="my-4 w-full">
               <h2 className="text-center mb-5">Upcoming events</h2>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-5 ">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
                 {upcomingEvents.map((event, index) => (
                   <EventCard
                     event={event}
@@ -35,7 +35,7 @@ export default function Events({ upcomingEvents, pastEvents }: EventsProps) {
             </section>
           )}
           {!!pastEvents.length && (
-            <section className="my-4">
+            <section className="my-4 w-full">
               <h2 className="text-center  mb-5">Past events</h2>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
                 {pastEvents.map((event, index) => (

@@ -39,7 +39,7 @@ module.exports = {
       },
       {
         source: '/hack',
-        destination: '/blog/2022-11-03-notJust-Hack',
+        destination: '/events/notjust-hack-2023',
         permanent: true,
       },
     ];

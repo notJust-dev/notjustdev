@@ -62,7 +62,7 @@ const Navbar = () => {
 
             <ActiveLink href="/pro-courses" title="Courses" />
 
-            {/* <ActiveLink href="/events" title="Events" /> */}
+            <ActiveLink href="/events" title="Events" />
 
             <ActiveLink href="/blog" title="Blog" />
 
