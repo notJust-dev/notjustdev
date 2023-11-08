@@ -22,7 +22,7 @@ export default function EventsOverview({ events, title }: Props) {
             Workshops, Trainings, and Webinars for Mobile Developers
           </p>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-5 my-10">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-5 my-10 w-full">
             {events.map((event) => (
               <EventCard event={event} key={event.slug} />
             ))}
