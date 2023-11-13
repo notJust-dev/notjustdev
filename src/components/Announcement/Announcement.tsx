@@ -1,5 +1,5 @@
-// import Link from 'next/link';
-// import MaxWidthWrapper from '../MaxWidthWrapper';
+import Link from 'next/link';
+import MaxWidthWrapper from '../MaxWidthWrapper';
 // import { useCallback, useEffect, useState } from 'react';
 
 const Announcement = () => {
@@ -22,41 +22,42 @@ const Announcement = () => {
   //   };
   // }, []);
 
-  // let height = scrollY > 100 ? 100 : 300;
-  // let height = 300 ->  300 - scrollY -> 100
+  // // let height = scrollY > 100 ? 100 : 300;
+  // // let height = 300 ->  300 - scrollY -> 100
   // let height = Math.max(300 - scrollY, 100);
 
-  return null;
+  // return null;
 
-  // return (
-  //   <div
-  //     className="justify-center p-3 py-10 sticky top-0 z-50"
-  //     style={{ backgroundColor: '#F3EAC0' }}
-  //   >
-  //     <MaxWidthWrapper>
-  //       <div className="flex flex-col sm:flex-row items-start lg:items-center justify-between">
-  //         <div>
-  //           <div
-  //             className={`text-custom-blue-500 font-bold transition-all text-2xl lg:text-5xl`}
-  //           >
-  //             Save 25% on our courses
-  //           </div>
-  //           <div className="text-custom-blue-500 text-l lg:text-3xl">
-  //             Limited-time offer!
-  //           </div>
-  //         </div>
+  return (
+    <div
+      className="justify-center p-3 py-7 sticky top-0 z-50"
+      style={{ backgroundColor: '#F3EAC0' }}
+    >
+      <MaxWidthWrapper>
+        <div className="flex flex-col sm:flex-row items-start lg:items-center justify-between">
+          <div>
+            <div
+              className={`text-custom-blue-500 transition-all text-lg lg:text-2xl`}
+            >
+              <b>notJust.Hack: </b>Build a mobile app and win a <b>MacBook</b>{' '}
+              💻
+            </div>
+            <div className="text-gray-600 text-base lg:text-lg">
+              November 20th - 22nd 📅
+            </div>
+          </div>
 
-  //         <div className="mt-5 lg:mt-0 lg:m-5">
-  //           <Link href="https://academy.notjust.dev/">
-  //             <span className="text-custom-blue-500 rounded text-lg lg:text-xl py-4 lg:py-7 px-5 lg:px-10 bg-custom-blue-500 text-primary ">
-  //               Secure your spot now!
-  //             </span>
-  //           </Link>
-  //         </div>
-  //       </div>
-  //     </MaxWidthWrapper>
-  //   </div>
-  // );
+          <div className="mt-5 lg:mt-0 lg:m-5 ">
+            <Link href="/hack">
+              <span className="shadow-md rounded text-lg lg:text-xl py-2 lg:py-4 px-5 lg:px-10 bg-custom-blue-500 text-primary ">
+                Sign up!
+              </span>
+            </Link>
+          </div>
+        </div>
+      </MaxWidthWrapper>
+    </div>
+  );
 };
 
 export default Announcement;
