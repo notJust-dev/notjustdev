@@ -34,23 +34,19 @@ const Announcement = () => {
       style={{ backgroundColor: '#F3EAC0' }}
     >
       <MaxWidthWrapper>
-        <div className="flex flex-col sm:flex-row items-start lg:items-center justify-between">
+        <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between">
           <div>
             <div
               className={`text-custom-blue-500 transition-all text-lg lg:text-2xl`}
             >
-              <b>notJust.Hack: </b>Build a mobile app and win a <b>MacBook</b>{' '}
-              💻
-            </div>
-            <div className="text-gray-600 text-base lg:text-lg">
-              November 20th - 22nd 📅
+              <b>🚨 Black Friday Deal: 50% off </b> on our Academy courses 🎓
             </div>
           </div>
 
-          <div className="mt-5 lg:mt-0 lg:m-5 ">
-            <Link href="/hack">
-              <span className="shadow-md rounded text-lg lg:text-xl py-2 lg:py-4 px-5 lg:px-10 bg-custom-blue-500 text-primary ">
-                Sign up!
+          <div className="mt-5 sm:mt-0">
+            <Link href="https://academy.notjust.dev/">
+              <span className="shadow-md rounded-md font-bold text-lg lg:text-xl py-2 lg:py-4 px-5 lg:px-10 bg-custom-blue-500 text-primary ">
+                View Offer
               </span>
             </Link>
           </div>
