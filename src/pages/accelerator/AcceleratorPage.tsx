@@ -2,7 +2,7 @@ import Button from '../../components/Button';
 import Layout from '../../components/Layout/Layout';
 import MaxWidthWrapper from '../../components/MaxWidthWrapper';
 import useScript from '../../hooks/useScript';
-import Rocket from '../../../public/images/accelerator/rocket.png';
+// import Rocket from '../../../public/images/accelerator/rocket.png';
 import BG from '../../../public/images/accelerator/bg.webp';
 
 import Image from 'next/image';
@@ -39,7 +39,10 @@ export default function AcceleratorPage({}: AcceleratorProps) {
         </span>
       </div>
 
-      <MaxWidthWrapper className=" flex flex-col md:flex-row mt-24 md:mt-0 min-h-screen items-center">
+      <MaxWidthWrapper
+        maxWidth={1300}
+        className="flex flex-col md:flex-row mt-24 md:mt-0 min-h-screen items-center gap-4"
+      >
         <div className="flex-1 my-5">
           <p className="text-s text-secondary font-mono">From Idea to Market</p>
           <h1 className="text-2xl md:text-5xl md:leading-relaxed">
@@ -75,8 +78,21 @@ export default function AcceleratorPage({}: AcceleratorProps) {
             Limited spots: Only 10 projects will be selected
           </p>
         </div>
-        <div className="flex-1">
-          <Image src={Rocket} alt="Rocket" priority />
+        <div className="flex-1 flex flex-col items-center">
+          {/* <Image src={Rocket} alt="Rocket" priority /> */}
+          <h3 className="mb-5 text-xl">
+            Success stories from previous batch 👇
+          </h3>
+          <iframe
+            width="100%"
+            height="315"
+            src="https://www.youtube.com/embed/qmQOsfQXSKg?si=DqWYN1Xta1-qg2zb"
+            title="YouTube video player"
+            // @ts-ignore
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            allowfullscreen
+          />
         </div>
       </MaxWidthWrapper>
     </Layout>
