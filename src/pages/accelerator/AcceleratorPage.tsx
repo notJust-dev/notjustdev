@@ -8,6 +8,7 @@ import BG from '../../../public/images/accelerator/bg.webp';
 import Image from 'next/image';
 
 const FORM_SRC = 'https://awesome-teacher-1065.ck.page/5a9ee192f2';
+const applicationFormUrl = 'https://forms.gle/L6kRnPuQ8dVyRHWe8';
 const FORM_UID = '5a9ee192f2';
 
 interface AcceleratorProps {}
@@ -53,7 +54,8 @@ export default function AcceleratorPage({}: AcceleratorProps) {
           </p>
 
           {/* button */}
-          <Button
+
+          {/* <Button
             href={FORM_SRC}
             text="Join the Waitlist"
             className="w-full"
@@ -61,7 +63,17 @@ export default function AcceleratorPage({}: AcceleratorProps) {
             data={{
               'data-formkit-toggle': FORM_UID,
             }}
+          /> */}
+          <Button
+            href={applicationFormUrl}
+            target="_blank"
+            text="Apply now"
+            className="w-full"
+            size="xl"
           />
+          <p className="md:text-xl text-purple-100 my-4 md:leading-relaxed">
+            Limited spots: Only 10 projects will be selected
+          </p>
         </div>
         <div className="flex-1">
           <Image src={Rocket} alt="Rocket" priority />
