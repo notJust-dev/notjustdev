@@ -2,8 +2,8 @@ import Button from '../../components/Button';
 import Layout from '../../components/Layout/Layout';
 import MaxWidthWrapper from '../../components/MaxWidthWrapper';
 import useScript from '../../hooks/useScript';
-// import Rocket from '../../../public/images/accelerator/rocket.png';
-import BG from '../../../public/images/accelerator/bg.webp';
+// import Rocket from '../../../public/images/incubator/rocket.png';
+import BG from '../../../public/images/incubator/bg.webp';
 
 import Image from 'next/image';
 
@@ -11,10 +11,10 @@ const FORM_SRC = 'https://awesome-teacher-1065.ck.page/5a9ee192f2';
 const applicationFormUrl = 'https://forms.gle/L6kRnPuQ8dVyRHWe8';
 const FORM_UID = '5a9ee192f2';
 
-interface AcceleratorProps {}
+interface IncubatorProps {}
 
-export default function AcceleratorPage({}: AcceleratorProps) {
-  useScript(`${FORM_SRC}/index.js`, 'accelerator-signup', {
+export default function IncubatorPage({}: IncubatorProps) {
+  useScript(`${FORM_SRC}/index.js`, 'incubator-signup', {
     uid: FORM_UID,
   });
 
@@ -35,7 +35,7 @@ export default function AcceleratorPage({}: AcceleratorProps) {
 
       <div className="animate-bounce absolute top-10 w-full  text-center">
         <span className="md:text-xl text-white font-bold font-mono my-4 leading-relaxed bg-purple-800 p-2.5 px-5 rounded-full">
-          📅 Next batch: <u>Jan 2024</u>
+          📅 Next batch: <u>Feb 2024</u>
         </span>
       </div>
 
@@ -46,7 +46,7 @@ export default function AcceleratorPage({}: AcceleratorProps) {
         <div className="flex-1 my-5">
           <p className="text-s text-secondary font-mono">From Idea to Market</p>
           <h1 className="text-2xl md:text-5xl md:leading-relaxed">
-            notJust Accelerator
+            notJust Incubator
           </h1>
           <h2 className="text-xl md:text-3xl md:leading-relaxed text-purple-200">
             Turn your mobile app ideas into reality in just 3 months.

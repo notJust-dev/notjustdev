@@ -40,8 +40,8 @@ const Footer = ({ hideNewsletterForm = false }: FooterProps) => (
                 <Link href="/" className="text-gray-300 my-2">
                   Home
                 </Link>
-                <Link href="/accelerator" className="text-gray-300 my-2">
-                  🚀 Accelerator
+                <Link href="/incubator" className="text-gray-300 my-2">
+                  🚀 Incubator
                 </Link>
                 <Link href="/projects" className="text-gray-300 my-2">
                   Project Tutorials

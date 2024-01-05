@@ -36,13 +36,13 @@ const Announcement = () => {
           <div>
             <div className={`text-gray-100 transition-all text-md lg:text-lg`}>
               We are looking for the next projects for{' '}
-              <b>notJust.Accelerator</b>
+              <b>notJust.Incubator</b>
               🚀
             </div>
           </div>
 
           <div className="mt-5 sm:mt-0">
-            <Link href="/accelerator">
+            <Link href="/incubator">
               <span className="shadow-md rounded-md font-bold text-md lg:text-lg py-2 lg:py-3 px-4 lg:px-7 text-custom-blue-500 bg-primary ">
                 Read more
               </span>

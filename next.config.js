@@ -42,6 +42,11 @@ module.exports = {
         destination: '/events/notjust-hack-2023',
         permanent: true,
       },
+      {
+        source: '/accelerator',
+        destination: '/incubator',
+        permanent: true,
+      },
     ];
   },
 };
