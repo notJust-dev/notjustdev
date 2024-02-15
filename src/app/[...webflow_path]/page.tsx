@@ -62,9 +62,11 @@ export default async function Page({
   const fetchUrl = process.env.WEBFLOW_URL + url;
 
   // Fetch HTML
-  let res = await fetch(fetchUrl).catch((err) => {
-    console.error(err);
-  });
+  let res = await fetch(fetchUrl, { next: { tags: ['webflow_page'] } }).catch(
+    (err) => {
+      console.error(err);
+    },
+  );
   const html = await res?.text();
 
   // Parse HTML with Cheerio
