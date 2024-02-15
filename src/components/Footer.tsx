@@ -101,7 +101,7 @@ const Footer = ({ hideNewsletterForm = false }: FooterProps) => (
     </div>
 
     <p className="text-center p-5 text-gray-400">
-      Copyright © 2023 notjust.dev All rights reserved.
+      Copyright © 2024 notJust.dev All rights reserved.
     </p>
   </footer>
 );
