@@ -12,6 +12,8 @@ type PostMeta = {
   hideNewsletterForm?: boolean;
   authors: Author[];
 
+  youtubeID?: string;
+
   redirect_url?: string;
 
   tags: NotionMultiSelect[];
@@ -51,4 +53,3 @@ type ToCHeading = {
   title: string;
   depth: number;
 };
-

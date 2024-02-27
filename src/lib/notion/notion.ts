@@ -31,6 +31,7 @@ const parseNotionPageMeta = async (
       tags,
       'Parent page': parentPage,
       'Parent slug': parentSlug,
+      'Youtube ID': youtubeID,
     },
   } = page;
 
@@ -59,11 +60,12 @@ const parseNotionPageMeta = async (
   if (tags.type !== 'multi_select') {
     throw new Error('Validation Error: Tags is not a multi-select');
   }
-
   if (parentPage.type !== 'relation') {
     throw new Error('Validation Error: Parent page is not a relation');
   }
-
+  if (youtubeID.type !== 'rich_text') {
+    throw new Error('Validation Error: youtubeID is not a rich_text');
+  }
   if (parentSlug.type !== 'rollup' || parentSlug.rollup.type !== 'array') {
     throw new Error('Validation Error: Parent slug is not a rollup');
   }
@@ -79,6 +81,7 @@ const parseNotionPageMeta = async (
     authors: [],
     type: Type.select.name as PostType,
     tags: tags.multi_select,
+    youtubeID: richTextToPlain(youtubeID.rich_text),
   };
   if (parentPage.relation.length > 0) {
     post.parentPageId = parentPage.relation[0]?.id;
