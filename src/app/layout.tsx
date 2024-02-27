@@ -1,5 +1,6 @@
 import { GtmNoscript, GtmScript } from '../components/GTM';
 import { SEO } from '../lib/config';
+import { SpeedInsights } from '@vercel/speed-insights/next';
 
 export const metadata = {
   title: SEO.title,
@@ -20,6 +21,8 @@ export default function RootLayout({
         <GtmNoscript />
 
         {children}
+
+        <SpeedInsights />
       </body>
     </html>
   );
