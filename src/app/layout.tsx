@@ -1,3 +1,4 @@
+import { GtmNoscript, GtmScript } from '../components/GTM';
 import { SEO } from '../lib/config';
 
 export const metadata = {
@@ -12,7 +13,14 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body>{children}</body>
+      <head>
+        <GtmScript />
+      </head>
+      <body>
+        <GtmNoscript />
+
+        {children}
+      </body>
     </html>
   );
 }
