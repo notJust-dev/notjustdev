@@ -7,11 +7,8 @@ const useScript = (
   mountOnRef?: RefObject<HTMLDivElement>,
 ) => {
   useEffect(() => {
-    console.log('script rerender.');
-    console.log('Data: ', JSON.stringify({ data, id, src }));
-    if (document.getElementById(id)) {
-      console.log('Script already exists');
-      // TODO should we instead remove it and recreate the script?
+    if (mountOnRef?.current?.hasChildNodes()) {
+      // mountOnRef is not empty. The script was already added.
       return;
     }
 
@@ -25,21 +22,11 @@ const useScript = (
       script.dataset[key] = data[key];
     });
 
-    if (mountOnRef?.current) {
-      mountOnRef.current.appendChild(script);
-    } else {
+    if (!mountOnRef?.current) {
       document.body.appendChild(script);
+    } else {
+      mountOnRef.current.appendChild(script);
     }
-    console.log(`Script with id ${id} has been setup`);
-
-    // The script losses it's id for some reason. Maybe impacted by Nextjs optimisation
-    // return () => {
-    //   console.log(`Script with id ${id} has been removed`);
-    //   document.getElementById(id)?.remove();
-    // if (ref?.current?.firstChild === script) {
-    //   ref?.current?.removeChild(script);
-    // }
-    // };
   }, [data, id, src, mountOnRef]);
 };
 

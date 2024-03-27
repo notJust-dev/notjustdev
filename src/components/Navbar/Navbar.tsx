@@ -56,7 +56,7 @@ const Navbar = () => {
             }`}
           >
             {/* <ActiveLink href="/" title="Home" /> */}
-            <ActiveLink href="/accelerator" title="🚀 Accelerator" />
+            <ActiveLink href="/incubator" title="🚀 Incubator" />
 
             <ActiveLink href="/projects" title="Projects" />
 

@@ -11,6 +11,8 @@ import ProjectCard from '../../components/ProjectCard';
 import Link from 'next/link';
 import { IoIosOpen } from 'react-icons/io';
 
+const { YoutubeVideo } = sharedComponents;
+
 export interface ProjectPageProps {
   post: Post | null;
   parentPost?: Post;
@@ -50,16 +52,20 @@ function ProjectPage({
       // keywords={post.keywords}
     >
       <MaxWidthWrapper>
-        {post.image && (
-          <div className="relative w-full aspect-w-16 aspect-h-9">
-            <Image
-              src={post.image}
-              alt="Course Thumbnail"
-              width={1280}
-              height={720}
-              priority
-            />
-          </div>
+        {post.youtubeID ? (
+          <YoutubeVideo id={post.youtubeID} title={post.title} />
+        ) : (
+          !!post.image && (
+            <div className="relative w-full aspect-w-16 aspect-h-9">
+              <Image
+                src={post.image}
+                alt="Course Thumbnail"
+                width={1280}
+                height={720}
+                priority
+              />
+            </div>
+          )
         )}
         <h1 className="text-5xl mt-10">{post.title}</h1>
 

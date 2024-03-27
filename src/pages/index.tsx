@@ -40,7 +40,7 @@ export default function Home({ latestPosts, projects, events }: Props) {
 
         {/* Blog */}
         <BlogSection posts={latestPosts} />
-
+        
         <AboutUsSection />
       </main>
     </Layout>

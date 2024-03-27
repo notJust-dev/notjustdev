@@ -21,6 +21,8 @@ import {
 import * as sharedComponents from '../../../components/shared';
 import Tags from '../../../components/Tags';
 
+const { YoutubeVideo } = sharedComponents;
+
 const components = {
   pre: StaticCodeSnippet,
   code: InlineCodeSnippet,
@@ -78,17 +80,22 @@ function BlogPostPage({ post, recommendedPosts }: Props) {
       hideNewsletterForm={post.hideNewsletterForm}
     >
       <MaxWidthWrapper>
-        {post.image && !post.hideImageHeader && (
-          <div className="relative w-full aspect-w-16 aspect-h-9">
-            <Image
-              src={post.image}
-              alt="post image"
-              width={1280}
-              height={720}
-              priority
-              sizes="(max-width: 1100px) 100vw, 1100px"
-            />
-          </div>
+        {post.youtubeID ? (
+          <YoutubeVideo id={post.youtubeID} title={post.title} />
+        ) : (
+          !!post.image &&
+          !post.hideImageHeader && (
+            <div className="relative w-full aspect-w-16 aspect-h-9">
+              <Image
+                src={post.image}
+                alt="post image"
+                width={1280}
+                height={720}
+                priority
+                sizes="(max-width: 1100px) 100vw, 1100px"
+              />
+            </div>
+          )
         )}
         <h1 className="text-5xl my-10">{post.title}</h1>
 
