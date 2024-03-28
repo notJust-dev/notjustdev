@@ -11,7 +11,7 @@ const margins = [
 ];
 
 const TableOfContents = ({ toc, activeHeadingId }: TableOfContentsProps) => (
-  <aside className="w-80 ml-16 py-5 sticky top-0 self-start max-h-screen overflow-scroll hidden lg:block">
+  <aside className="w-80 ml-16 py-5 sticky top-0 self-start max-h-screen overflow-scroll no-scrollbar hidden lg:block">
     <nav aria-label="Table of Contents">
       <h3>Table of Contents</h3>
       <ul>
