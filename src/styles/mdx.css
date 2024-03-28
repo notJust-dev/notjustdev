@@ -6,11 +6,11 @@
 }
 
 .mdx-post h2 {
-  @apply mt-10 mb-4 text-3xl;
+  @apply mt-10 mb-4 text-3xl font-bold tracking-wide before:border-l-4 before:border-primary before:-ml-3 before:mr-3;
 }
 
 .mdx-post h3 {
-  @apply mt-8 mb-4 text-2xl;
+  @apply mt-8 mb-4 text-2xl font-bold tracking-wide before:border-l-4 before:border-primary before:-ml-3 before:mr-3;
 }
 
 .mdx-post h4 {
@@ -26,7 +26,7 @@
 }
 
 .mdx-post p {
-  @apply my-5 text-lg leading-8;
+  @apply my-5 text-xl leading-8;
 }
 
 .mdx-post a {

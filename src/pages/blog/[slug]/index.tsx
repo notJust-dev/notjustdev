@@ -99,7 +99,7 @@ function BlogPostPage({ post, recommendedPosts }: Props) {
               </div>
             )
           )}
-          <h1 className="text-5xl my-10">{post.title}</h1>
+          <h1 className="text-5xl leading-snug my-10">{post.title}</h1>
 
           <Tags tags={post.tags} />
 
