@@ -21,7 +21,7 @@ const StaticCodeSnippet = ({ children }: Props) => {
   }
 
   return (
-    <Highlight code={code} language={language} theme={themes.palenight}>
+    <Highlight code={code} language={language} theme={themes.vsDark}>
       {({ className, style, tokens, getLineProps, getTokenProps }) => (
         <div className="relative">
           {language && (

@@ -16,6 +16,9 @@ module.exports = {
         'custom-blue-600': '#242c36',
         'custom-blue-800': '#14181e',
         'brand-orange': '#E89736',
+
+        'gray-900': '#212121',
+        'gray-800': '#242424',
       },
       textColor: {
         primary: '#ffe031',

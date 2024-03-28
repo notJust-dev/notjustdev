@@ -80,80 +80,82 @@ function BlogPostPage({ post, recommendedPosts }: Props) {
       // keywords={post.keywords}
       hideNewsletterForm={post.hideNewsletterForm}
     >
-      <MaxWidthWrapper maxWidth={1200}>
-        {post.youtubeID ? (
-          <YoutubeVideo id={post.youtubeID} title={post.title} />
-        ) : (
-          !!post.image &&
-          !post.hideImageHeader && (
-            <div className="relative w-full aspect-w-16 aspect-h-9">
-              <Image
-                src={post.image}
-                alt="post image"
-                width={1280}
-                height={720}
-                priority
-                sizes="(max-width: 1100px) 100vw, 1100px"
-              />
-            </div>
-          )
-        )}
-        <h1 className="text-5xl my-10">{post.title}</h1>
-
-        <Tags tags={post.tags} />
-
-        <hr className="my-4 border-gray-700" />
-        <div>
-          <h4>
-            Last updated on:
-            <b>
-              {' '}
-              {new Date(post.updatedOn).toLocaleString('en-US', dateFormat)}
-            </b>
-          </h4>
-        </div>
-        <hr className="my-4 border-gray-700" />
-
-        <div className="flex flex-row gap-20">
-          <MaxWidthWrapper maxWidth={750} noPadding>
-            <article className="flex-1">
-              <h2 id="introduction" className="invisible h-0 mt-0">
-                Introduction
-              </h2>
-              <div className="mdx-post">
-                <MDXRemote {...post.content} components={components} />
-              </div>
-            </article>
-          </MaxWidthWrapper>
-          <aside className="flex-col flex-1 py-5 sticky top-0 self-start max-h-screen overflow-scroll no-scrollbar hidden lg:block">
-            <div className="flex flex-col gap-5">
-              <PostLinks post={post} />
-              {post.toc && (
-                <TableOfContents
-                  toc={post.toc}
-                  activeHeadingId={activeHeadingId}
+      <div className="bg-gray-900 pt-10">
+        <MaxWidthWrapper maxWidth={1200}>
+          {post.youtubeID ? (
+            <YoutubeVideo id={post.youtubeID} title={post.title} />
+          ) : (
+            !!post.image &&
+            !post.hideImageHeader && (
+              <div className="relative w-full aspect-w-16 aspect-h-9">
+                <Image
+                  src={post.image}
+                  alt="post image"
+                  width={1280}
+                  height={720}
+                  priority
+                  sizes="(max-width: 1100px) 100vw, 1100px"
                 />
-              )}
-            </div>
-          </aside>
-        </div>
+              </div>
+            )
+          )}
+          <h1 className="text-5xl my-10">{post.title}</h1>
 
-        {post.authors.length ? (
-          <AuthorDetails author={post.authors[0]} />
-        ) : null}
+          <Tags tags={post.tags} />
 
-        {/* Displaying multiple authors (Needs a bit of style adjustment) */}
-        {/* {post.authors.map((author) => (
+          <hr className="my-4 border-gray-700" />
+          <div>
+            <h4>
+              Last updated on:
+              <b>
+                {' '}
+                {new Date(post.updatedOn).toLocaleString('en-US', dateFormat)}
+              </b>
+            </h4>
+          </div>
+          <hr className="my-4 border-gray-700" />
+
+          <div className="flex flex-row gap-20">
+            <MaxWidthWrapper maxWidth={750} noPadding>
+              <article className="flex-1">
+                <h2 id="introduction" className="invisible h-0 mt-0">
+                  Introduction
+                </h2>
+                <div className="mdx-post">
+                  <MDXRemote {...post.content} components={components} />
+                </div>
+              </article>
+            </MaxWidthWrapper>
+            <aside className="flex-col flex-1 py-5 sticky top-0 self-start max-h-screen overflow-scroll no-scrollbar hidden lg:block">
+              <div className="flex flex-col gap-5">
+                <PostLinks post={post} />
+                {post.toc && (
+                  <TableOfContents
+                    toc={post.toc}
+                    activeHeadingId={activeHeadingId}
+                  />
+                )}
+              </div>
+            </aside>
+          </div>
+
+          {post.authors.length ? (
+            <AuthorDetails author={post.authors[0]} />
+          ) : null}
+
+          {/* Displaying multiple authors (Needs a bit of style adjustment) */}
+          {/* {post.authors.map((author) => (
           <AuthorDetails key={author.id} author={author} />
         ))} */}
 
-        <h3 className="text-2xl mt-10">Read next</h3>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-5 my-5">
-          {recommendedPosts?.map((recommendedPost) => (
-            <BlogCard post={recommendedPost} key={recommendedPost.slug} />
-          ))}
-        </div>
-      </MaxWidthWrapper>
+          <h3 className="text-2xl mt-10">Read next</h3>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-5 my-5">
+            {recommendedPosts?.map((recommendedPost) => (
+              <BlogCard post={recommendedPost} key={recommendedPost.slug} />
+            ))}
+          </div>
+        </MaxWidthWrapper>
+      </div>
     </Layout>
   );
 }

@@ -11,7 +11,7 @@ const InlineCodeSnippet = ({ children }: Props) => (
   <Highlight
     code={children as string}
     language="javascript"
-    theme={themes.palenight}
+    theme={themes.vsDark}
   >
     {({ className, style, tokens, getLineProps, getTokenProps }) => {
       const line = tokens[0];
