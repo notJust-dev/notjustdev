@@ -20,7 +20,7 @@ const Navbar = () => {
     <>
       <Announcement />
       <MaxWidthWrapper>
-        <nav className="flex items-center justify-between flex-wrap bg-teal pt-6 pb-16">
+        <nav className="flex items-center justify-between flex-wrap bg-teal py-6">
           <Link href="/" passHref>
             <div className="cursor-pointer w-44">
               <Image

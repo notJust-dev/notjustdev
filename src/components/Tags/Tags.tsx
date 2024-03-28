@@ -9,7 +9,7 @@ export default function Tags({
 }) {
   return (
     <div
-      className="flex flex-wrap gap-2 self-start justify-center md:justify-start  w-full
+      className="flex-1 flex flex-wrap gap-2 items-center justify-center md:justify-end 
     "
     >
       {tags.map((tag) => (

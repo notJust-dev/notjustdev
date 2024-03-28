@@ -13,6 +13,7 @@ type PostMeta = {
   authors: Author[];
 
   youtubeID?: string;
+  githubUrl?: string | null;
 
   redirect_url?: string;
 

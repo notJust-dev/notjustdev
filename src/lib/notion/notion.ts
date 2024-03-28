@@ -32,6 +32,7 @@ const parseNotionPageMeta = async (
       'Parent page': parentPage,
       'Parent slug': parentSlug,
       'Youtube ID': youtubeID,
+      Github,
     },
   } = page;
 
@@ -69,6 +70,9 @@ const parseNotionPageMeta = async (
   if (parentSlug.type !== 'rollup' || parentSlug.rollup.type !== 'array') {
     throw new Error('Validation Error: Parent slug is not a rollup');
   }
+  if (Github.type !== 'url') {
+    throw new Error('Validation Error: Github is not a url');
+  }
 
   const post: PostMeta = {
     id: page.id,
@@ -82,6 +86,7 @@ const parseNotionPageMeta = async (
     type: Type.select.name as PostType,
     tags: tags.multi_select,
     youtubeID: richTextToPlain(youtubeID.rich_text),
+    githubUrl: Github.url,
   };
   if (parentPage.relation.length > 0) {
     post.parentPageId = parentPage.relation[0]?.id;
