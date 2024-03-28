@@ -1,6 +1,5 @@
 import Image from 'next/image';
 import Button from './Button';
-import Tags from './Tags';
 import { useRouter } from 'next/router';
 
 export interface BlogCardProps {
@@ -34,7 +33,6 @@ const BlogCard = ({ post, priority = false }: BlogCardProps) => {
         </div>
       )}
       <h2 className="my-2 w-full text-center md:text-left">{post.title}</h2>
-      <Tags tags={post.tags} />
       <p className="my-2 text-center md:text-left font-light">
         {post.description?.slice(0, MAX_DESCRIPTION_LENGTH)}
         {post.description?.length > MAX_DESCRIPTION_LENGTH && '...'}

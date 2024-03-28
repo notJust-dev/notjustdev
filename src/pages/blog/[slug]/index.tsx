@@ -71,6 +71,8 @@ function BlogPostPage({ post, recommendedPosts }: Props) {
     );
   }
 
+  const author = post.authors[0];
+
   return (
     <Layout
       title={post.title}
@@ -82,6 +84,33 @@ function BlogPostPage({ post, recommendedPosts }: Props) {
     >
       <div className="bg-gray-900 pt-10">
         <MaxWidthWrapper maxWidth={1200}>
+          <div className="my-10">
+            <h1 className="text-5xl leading-snug mt-10 mb-5">{post.title}</h1>
+
+            <div className="flex flex-col md:flex-row items-start md:items-center gap-3 my-5">
+              <div className="flex gap-3">
+                {author?.image && (
+                  <Image
+                    src={author.image}
+                    width={50}
+                    height={50}
+                    alt={`${author.name} profile picture`}
+                  />
+                )}
+                <div className="flex flex-col w-full">
+                  <span className="font-bold text-lg">{author?.name}</span>
+                  <span className="text-gray-400">
+                    {new Date(post.updatedOn).toLocaleString(
+                      'en-US',
+                      dateFormat,
+                    )}
+                  </span>
+                </div>
+              </div>
+              <Tags tags={post.tags} />
+            </div>
+          </div>
+
           {post.youtubeID ? (
             <YoutubeVideo id={post.youtubeID} title={post.title} />
           ) : (
@@ -99,21 +128,6 @@ function BlogPostPage({ post, recommendedPosts }: Props) {
               </div>
             )
           )}
-          <h1 className="text-5xl leading-snug my-10">{post.title}</h1>
-
-          <Tags tags={post.tags} />
-
-          <hr className="my-4 border-gray-700" />
-          <div>
-            <h4>
-              Last updated on:
-              <b>
-                {' '}
-                {new Date(post.updatedOn).toLocaleString('en-US', dateFormat)}
-              </b>
-            </h4>
-          </div>
-          <hr className="my-4 border-gray-700" />
 
           <div className="flex flex-row gap-20">
             <MaxWidthWrapper maxWidth={750} noPadding>
