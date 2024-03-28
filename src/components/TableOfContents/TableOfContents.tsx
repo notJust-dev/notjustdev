@@ -11,38 +11,38 @@ const margins = [
 ];
 
 const TableOfContents = ({ toc, activeHeadingId }: TableOfContentsProps) => (
-  <aside className="w-80 ml-16 py-5 sticky top-0 self-start max-h-screen overflow-scroll no-scrollbar hidden lg:block">
-    <nav aria-label="Table of Contents">
-      <h3>Table of Contents</h3>
-      <ul>
-        {toc.map((h) => (
-          <li
-            key={h.title}
-            className={`${
-              margins[h.depth]
-            } my-2 hover:text-primary font-light text-sm ${
-              h.slug === activeHeadingId
-                ? 'text-primary font-bold'
-                : 'text-gray-400'
-            }`}
+  <nav aria-label="Table of Contents">
+    <h3 className="mb-4 pl-3 border-l-4 border-secondary text-xl">
+      Table of Contents
+    </h3>
+    <ul>
+      {toc.map((h) => (
+        <li
+          key={h.title}
+          className={`${
+            margins[h.depth]
+          } my-2 hover:text-primary font-light text-sm ${
+            h.slug === activeHeadingId
+              ? 'text-primary font-bold'
+              : 'text-gray-400'
+          }`}
+        >
+          <a
+            href={`#${h.slug}`}
+            onClick={(e) => {
+              e.preventDefault();
+              history.replaceState(undefined, '', `#${h.slug}`);
+              document.querySelector(`#${h.slug}`)?.scrollIntoView({
+                behavior: 'smooth',
+              });
+            }}
           >
-            <a
-              href={`#${h.slug}`}
-              onClick={(e) => {
-                e.preventDefault();
-                history.replaceState(undefined, '', `#${h.slug}`);
-                document.querySelector(`#${h.slug}`)?.scrollIntoView({
-                  behavior: 'smooth',
-                });
-              }}
-            >
-              {h.title}
-            </a>
-          </li>
-        ))}
-      </ul>
-    </nav>
-  </aside>
+            {h.title}
+          </a>
+        </li>
+      ))}
+    </ul>
+  </nav>
 );
 
 export default TableOfContents;

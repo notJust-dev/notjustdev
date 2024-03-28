@@ -20,6 +20,7 @@ import {
 
 import * as sharedComponents from '../../../components/shared';
 import Tags from '../../../components/Tags';
+import PostLinks from '../../../components/PostLinks';
 
 const { YoutubeVideo } = sharedComponents;
 
@@ -79,7 +80,7 @@ function BlogPostPage({ post, recommendedPosts }: Props) {
       // keywords={post.keywords}
       hideNewsletterForm={post.hideNewsletterForm}
     >
-      <MaxWidthWrapper>
+      <MaxWidthWrapper maxWidth={1200}>
         {post.youtubeID ? (
           <YoutubeVideo id={post.youtubeID} title={post.title} />
         ) : (
@@ -113,8 +114,8 @@ function BlogPostPage({ post, recommendedPosts }: Props) {
         </div>
         <hr className="my-4 border-gray-700" />
 
-        <div className="flex flex-row">
-          <MaxWidthWrapper maxWidth={800} noPadding>
+        <div className="flex flex-row gap-20">
+          <MaxWidthWrapper maxWidth={750} noPadding>
             <article className="flex-1">
               <h2 id="introduction" className="invisible h-0 mt-0">
                 Introduction
@@ -124,9 +125,17 @@ function BlogPostPage({ post, recommendedPosts }: Props) {
               </div>
             </article>
           </MaxWidthWrapper>
-          {post.toc && (
-            <TableOfContents toc={post.toc} activeHeadingId={activeHeadingId} />
-          )}
+          <aside className="flex-col flex-1 py-5 sticky top-0 self-start max-h-screen overflow-scroll no-scrollbar hidden lg:block">
+            <div className="flex flex-col gap-5">
+              <PostLinks post={post} />
+              {post.toc && (
+                <TableOfContents
+                  toc={post.toc}
+                  activeHeadingId={activeHeadingId}
+                />
+              )}
+            </div>
+          </aside>
         </div>
 
         {post.authors.length ? (
