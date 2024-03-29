@@ -17,7 +17,7 @@ interface TaggedPostsProps {
 const TaggedPosts = ({ posts, tag, allTags }: TaggedPostsProps) => {
   if (!tag) {
     return (
-      <Layout title="notJust Development Blog">
+      <Layout title="notJust.dev Tags">
         <MaxWidthWrapper>
           <section className="flex flex-col items-center my-5">
             <h1>Could not find posts for this tag</h1>
@@ -31,7 +31,10 @@ const TaggedPosts = ({ posts, tag, allTags }: TaggedPostsProps) => {
   const blogs = posts.filter((post) => post.type === 'Blog');
 
   return (
-    <Layout title="notJust Development Blog">
+    <Layout
+      title={`notJust.dev content: ${tag}`}
+      description={`Dive into mobile development and learn more about ${tag}. Master React Native & Expo and start building your mobile app ideas today.`}
+    >
       <MaxWidthWrapper>
         <section className="flex flex-col items-center my-5">
           <Tags tags={allTags} highlighted={tag} />

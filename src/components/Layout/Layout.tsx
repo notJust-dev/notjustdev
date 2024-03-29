@@ -68,7 +68,6 @@ const Layout = ({
 
 Layout.defaultProps = {
   title: SEO.title,
-  description: SEO.description,
   author: SEO.author,
   keywords: SEO.keywords,
   image: SEO.image,

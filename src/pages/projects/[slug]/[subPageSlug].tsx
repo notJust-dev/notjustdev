@@ -4,9 +4,9 @@ import {
   getPostBySLug,
   getSubPostsFor,
 } from '../../../lib/notion/notion';
-import ProjectPage, {
-  ProjectPageProps,
-} from '../../../views/ProjectPage/ProjectPage';
+import PostPage, { PostPageProps } from '../../../views/PostPage';
+
+export default PostPage;
 
 export const getStaticPaths: GetStaticPaths = async () => {
   const posts = await getAllPosts({
@@ -21,7 +21,7 @@ export const getStaticPaths: GetStaticPaths = async () => {
   return { paths, fallback: 'blocking' };
 };
 
-export const getStaticProps: GetStaticProps<ProjectPageProps> = async ({
+export const getStaticProps: GetStaticProps<PostPageProps> = async ({
   params,
 }: GetStaticPropsContext) => {
   const post = await getPostBySLug(
@@ -45,12 +45,9 @@ export const getStaticProps: GetStaticProps<ProjectPageProps> = async ({
   return {
     props: {
       post,
-      subPosts: [], // a sub page can also have subpages,
       parentPost,
       pagination,
     },
     revalidate: 10,
   };
 };
-
-export default ProjectPage;

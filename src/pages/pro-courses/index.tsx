@@ -11,7 +11,10 @@ interface Props {
 
 function ProCourses({ courses }: Props) {
   return (
-    <Layout title="Pro course to become a full stack mobile developer">
+    <Layout
+      title="Premium React Native Courses by notJust.dev"
+      description="Master React Native & Expo with premium courses by notJust.dev. In-depth content that will take you from 0 to React Native Mastery!"
+    >
       <MaxWidthWrapper>
         <section className="flex flex-col items-center">
           <h1>Premium Course</h1>
