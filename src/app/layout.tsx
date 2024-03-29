@@ -4,7 +4,6 @@ import { SpeedInsights } from '@vercel/speed-insights/next';
 
 export const metadata = {
   title: SEO.title,
-  description: SEO.description,
 };
 
 export default function RootLayout({
