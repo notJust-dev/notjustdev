@@ -32,8 +32,8 @@ const TaggedPosts = ({ posts, tag, allTags }: TaggedPostsProps) => {
 
   return (
     <Layout
-      title={`notJust.dev content: ${tag}`}
-      description={`Dive into mobile development and learn more about ${tag}. Master React Native & Expo and start building your mobile app ideas today.`}
+      title={`notJust.dev content: ${tag.name}`}
+      description={`Dive into mobile development and learn more about ${tag.name}. Master React Native & Expo and start building your mobile app ideas today.`}
     >
       <MaxWidthWrapper>
         <section className="flex flex-col items-center my-5">
