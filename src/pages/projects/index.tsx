@@ -11,7 +11,10 @@ interface CourseProps {
 
 function Projects({ projects }: CourseProps) {
   return (
-    <Layout title="notJust Development Projects">
+    <Layout
+      title="notJust.dev Projects"
+      description="Master React Native & Expo development by building real-world project with step-by-step guides and video tutorials"
+    >
       <MaxWidthWrapper>
         <section className="flex flex-col items-center">
           <h1>Project Based Tutorials</h1>

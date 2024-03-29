@@ -23,7 +23,7 @@ interface Props {
 
 export default function Home({ latestPosts, projects, events }: Props) {
   return (
-    <Layout>
+    <Layout description="Start your journey in mobile development with notjust.dev. Master React Native & Expo with project-based tutorials designed for beginners and web developers moving to mobile. Explore our step-by-step guides to build your first app today!">
       <main className="grid gap-12">
         {/* Hero */}
         <HeroSection />
@@ -40,7 +40,7 @@ export default function Home({ latestPosts, projects, events }: Props) {
 
         {/* Blog */}
         <BlogSection posts={latestPosts} />
-        
+
         <AboutUsSection />
       </main>
     </Layout>

@@ -10,7 +10,10 @@ interface BlogProps {
 }
 
 const Blog = ({ posts }: BlogProps) => (
-  <Layout title="notJust Development Blog">
+  <Layout
+    title="notJust Development Blog"
+    description="Dive into mobile development on our blog. Master React Native & Expo and start building your mobile app ideas today."
+  >
     <MaxWidthWrapper>
       <section className="flex flex-col items-center my-5">
         <h1>Blog</h1>

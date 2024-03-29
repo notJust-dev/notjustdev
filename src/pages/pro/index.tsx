@@ -17,7 +17,11 @@ interface ProPageProps {
 
 export default function ProPage({ events }: ProPageProps) {
   return (
-    <Layout title="notJust Development Blog" hideNewsletterForm>
+    <Layout
+      title="notJust.dev PRO Community"
+      description="Join the PRO Community and grow together with other notJust Developers. Monthly PRO Calls, private community, exclusive events, and more."
+      hideNewsletterForm
+    >
       {/* HERO */}
       <section className="py-40">
         <MaxWidthWrapper maxWidth={600} className="flex flex-col items-center">

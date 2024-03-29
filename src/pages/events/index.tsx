@@ -12,7 +12,7 @@ interface EventsProps {
 
 export default function Events({ upcomingEvents, pastEvents }: EventsProps) {
   return (
-    <Layout title="notJust Development Projects">
+    <Layout title="notJust Development Events" description='Workshops, Trainings and Webinars to help you master mobile development with React Native & Expo'>
       <MaxWidthWrapper>
         <section className="flex flex-col items-center">
           <h1>notJust.Events</h1>
