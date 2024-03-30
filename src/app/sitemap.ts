@@ -3,7 +3,7 @@ import { getAllPostTags, getAllPosts } from '../lib/notion/notion';
 import { getAllEvents } from '../lib/events';
 import { XMLParser } from 'fast-xml-parser';
 
-const root = 'https://notjust.dev';
+const root = 'https://www.notjust.dev';
 
 const getWebflowSiteMap = async (): Promise<MetadataRoute.Sitemap> => {
   try {
