@@ -4,8 +4,13 @@ export default function robots(): MetadataRoute.Robots {
   return {
     rules: {
       userAgent: '*',
+      disallow: [
+        '/email-preferences-updated',
+        '/form-success',
+        '/subscription-success',
+      ],
       allow: '/',
     },
-    // sitemap: 'https://acme.com/sitemap.xml',
+    sitemap: 'https://notjust.dev/sitemap.xml',
   };
 }
