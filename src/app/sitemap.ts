@@ -13,7 +13,7 @@ const getWebflowSiteMap = async (): Promise<MetadataRoute.Sitemap> => {
 
     const parser = new XMLParser();
     const sitemapObj = parser.parse(sitemapXML);
-    const links = sitemapObj.urlset.url.map((l) => l.loc);
+    const links = sitemapObj?.urlset?.url?.map((l: { loc: string }) => l.loc);
 
     const urls: MetadataRoute.Sitemap = [];
 
