@@ -1,9 +1,36 @@
 import { MetadataRoute } from 'next';
 import { getAllPostTags, getAllPosts } from '../lib/notion/notion';
 import { getAllEvents } from '../lib/events';
-import GetSitemapLinks from 'sitemap-links';
+import { XMLParser } from 'fast-xml-parser';
 
 const root = 'https://notjust.dev';
+
+const getWebflowSiteMap = async (): Promise<MetadataRoute.Sitemap> => {
+  try {
+    const sitemapLink = process.env.WEBFLOW_URL + `/sitemap.xml`;
+    const response = await fetch(sitemapLink);
+    const sitemapXML = await response.text();
+
+    const parser = new XMLParser();
+    const sitemapObj = parser.parse(sitemapXML);
+    const links = sitemapObj.urlset.url.map((l) => l.loc);
+
+    const urls: MetadataRoute.Sitemap = [];
+
+    for (let link of links) {
+      let url = new URL(link);
+      const path = url.pathname.replace(`/`, ``).split(`/`);
+      if (!path.length || !path[0]) continue;
+      urls.push({
+        url: `${root}/${path}`,
+      });
+    }
+    return urls;
+  } catch (e) {
+    console.log('Failed to fetch and parse webflow sitemap');
+    return [];
+  }
+};
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const urls: MetadataRoute.Sitemap = [
@@ -83,20 +110,6 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   );
 
   // webflow
-  const sitemapLink = process.env.WEBFLOW_URL + `/sitemap.xml`;
-  const links = await GetSitemapLinks(sitemapLink).catch((err: Error) => {
-    console.error(err);
-  });
-
-  // Extract paths from absolute links
-  for (let link of links) {
-    let url = new URL(link);
-    const path = url.pathname.replace(`/`, ``).split(`/`);
-    if (!path.length || !path[0]) continue;
-    urls.push({
-      url: `${root}/${path}`,
-    });
-  }
-
+  urls.push(...(await getWebflowSiteMap()));
   return urls;
 }

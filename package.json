@@ -19,6 +19,7 @@
     "cheerio": "^1.0.0-rc.12",
     "dayjs": "^1.11.9",
     "esbuild": "^0.17.19",
+    "fast-xml-parser": "^4.3.6",
     "github-slugger": "^2.0.0",
     "html-react-parser": "^5.1.5",
     "image-size": "^1.0.2",
@@ -36,7 +37,6 @@
     "rehype-slug": "^5.1.0",
     "remark-mdx-images": "^1.0.3",
     "sharp": "^0.32.4",
-    "sitemap-links": "^1.0.3",
     "unified": "^10.1.2",
     "unist-util-visit": "^4.1.2",
     "uuid": "^9.0.0"
