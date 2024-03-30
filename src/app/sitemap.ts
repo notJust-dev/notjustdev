@@ -6,32 +6,27 @@ import GetSitemapLinks from 'sitemap-links';
 const root = 'https://notjust.dev';
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
-  const urls = [
+  const urls: MetadataRoute.Sitemap = [
     {
       url: root,
     },
     {
       url: `${root}/links`,
-      lastModified: new Date(),
     },
     {
       url: `${root}/pro`,
-      lastModified: new Date(),
     },
     {
       url: `${root}/pro-courses`,
-      lastModified: new Date(),
     },
     {
       url: `${root}/testimonials`,
-      lastModified: new Date(),
     },
   ];
 
   //blog
   urls.push({
     url: `${root}/blog`,
-    lastModified: new Date(),
   });
 
   const posts = await getAllPosts({ type: 'Blog' });
@@ -45,7 +40,6 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   //projects
   urls.push({
     url: `${root}/projects`,
-    lastModified: new Date(),
   });
 
   const projects = await getAllPosts({ type: 'Project' });
@@ -71,7 +65,6 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   //events
   urls.push({
     url: `${root}/events`,
-    lastModified: new Date(),
   });
   const events = await getAllEvents({});
   urls.push(
@@ -86,7 +79,6 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   urls.push(
     ...tags.map(({ name }) => ({
       url: `${root}/tag/${encodeURIComponent(name)}`,
-      lastModified: new Date(),
     })),
   );
 
@@ -103,7 +95,6 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     if (!path.length || !path[0]) continue;
     urls.push({
       url: `${root}/${path}`,
-      lastModified: new Date(),
     });
   }
 
