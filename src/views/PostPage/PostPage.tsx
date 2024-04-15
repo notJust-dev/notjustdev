@@ -118,6 +118,7 @@ export default function PostPage({
                     width={50}
                     height={50}
                     alt={`${author.name} profile picture`}
+                    className="rounded-full"
                   />
                 )}
                 <div className="flex flex-col w-full">

@@ -42,7 +42,7 @@
 }
 
 .mdx-post li {
-  @apply mb-2 pl-1;
+  @apply mb-2 pl-1 text-xl leading-8;
 }
 
 .mdx-post li p {
