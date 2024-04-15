@@ -50,6 +50,7 @@ module.exports = {
       {
         source: '/stickersheet',
         destination: 'https://bit.ly/3KrjgEz',
+        permanent: false,
       },
     ];
   },
