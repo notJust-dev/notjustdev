@@ -47,6 +47,10 @@ module.exports = {
         destination: '/incubator',
         permanent: true,
       },
+      {
+        source: '/stickersheet',
+        destination: 'https://bit.ly/3KrjgEz',
+      },
     ];
   },
 };
