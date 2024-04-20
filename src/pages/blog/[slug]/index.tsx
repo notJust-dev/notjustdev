@@ -23,7 +23,8 @@ export const getStaticProps: GetStaticProps<PostPageProps> = async ({
   params,
 }: GetStaticPropsContext) => {
   const post = await getPostBySLug(params?.slug as string);
-  const recommendedPosts = await getRecommendedPostsMeta(post);
+
+  const recommendedPosts = post ? await getRecommendedPostsMeta(post) : [];
 
   return {
     props: {

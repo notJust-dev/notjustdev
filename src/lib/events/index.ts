@@ -170,7 +170,7 @@ export const getPastEvents = async ({
 
 export const getEventBySLug = async (
   slug: string,
-): Promise<EventWithContent> => {
+): Promise<EventWithContent | null> => {
   const filter: any = {
     and: [
       {
@@ -190,7 +190,7 @@ export const getEventBySLug = async (
   const page = response.results?.[0];
   if (!page || !isFullPage(page)) {
     console.error(`Page with slug "${slug}" NOT FOUND!`);
-    throw new Error('Cannot find page!');
+    return null;
   }
 
   return {

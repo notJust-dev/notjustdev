@@ -31,7 +31,7 @@ export const getStaticProps: GetStaticProps<PostPageProps> = async ({
   params,
 }: GetStaticPropsContext) => {
   const post = await getPostBySLug(params?.slug as string);
-  const subPosts = (await getSubPostsFor(post.id)).reverse();
+  const subPosts = post ? (await getSubPostsFor(post.id)).reverse() : [];
 
   return {
     props: {

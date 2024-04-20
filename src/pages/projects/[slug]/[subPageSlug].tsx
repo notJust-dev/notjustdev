@@ -28,11 +28,21 @@ export const getStaticProps: GetStaticProps<PostPageProps> = async ({
     params?.subPageSlug as string,
     params?.slug as string,
   );
+  
+  if (!post) {
+    return {
+      props: { post: null },
+      revalidate: 10,
+    };
+  }
+
   const parentPost = await getPostBySLug(params?.slug as string); // We only need post meta
   // Maybe later
   // const subPosts = await getSubPostsFor(post.id);
 
-  const siblingPosts = (await getSubPostsFor(parentPost.id)).reverse();
+  const siblingPosts = parentPost
+    ? (await getSubPostsFor(parentPost.id)).reverse()
+    : [];
   const currentPostIndex = siblingPosts.findIndex((s) => s.id === post.id);
   const pagination = {
     prev: currentPostIndex > 0 ? siblingPosts[currentPostIndex - 1] : null,

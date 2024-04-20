@@ -36,7 +36,7 @@ const dateFormat = {
 export type PostPageProps = {
   post: Post | null;
   recommendedPosts?: PostMeta[];
-  parentPost?: Post;
+  parentPost?: Post | null;
   subPosts?: PostMeta[];
   pagination?: {
     prev: PostMeta | null;

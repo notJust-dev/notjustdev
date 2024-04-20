@@ -190,7 +190,7 @@ export const getSubPostsFor = async (id: string) => {
 export const getPostBySLug = async (
   slug: string,
   parentSlug?: string,
-): Promise<Post> => {
+): Promise<Post | null> => {
   const filter: any = {
     and: [
       {
@@ -222,7 +222,7 @@ export const getPostBySLug = async (
   const page = response.results?.[0];
   if (!page || !isFullPage(page)) {
     console.error(`Page with slug "${slug}" NOT FOUND!`);
-    throw new Error('Cannot find page!');
+    return null;
   }
 
   return {
