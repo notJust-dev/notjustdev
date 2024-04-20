@@ -8,6 +8,7 @@ export default function robots(): MetadataRoute.Robots {
         '/email-preferences-updated',
         '/form-success',
         '/subscription-success',
+        '/password/new',
       ],
       allow: '/',
     },
