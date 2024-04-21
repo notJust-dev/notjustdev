@@ -83,7 +83,7 @@ export default function PostPage({
 
   return (
     <Layout
-      title={post.title}
+      title={post.seoTitle || post.title}
       description={post.description}
       image={post.image}
       pageType="article"

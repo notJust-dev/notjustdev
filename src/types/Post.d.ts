@@ -6,6 +6,7 @@ type PostMeta = {
   image?: string;
   type: PostType;
 
+  seoTitle: string;
   description: string;
 
   hideImageHeader?: boolean;

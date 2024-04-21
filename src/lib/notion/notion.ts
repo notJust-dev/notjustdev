@@ -33,6 +33,7 @@ const parseNotionPageMeta = async (
       'Parent slug': parentSlug,
       'Youtube ID': youtubeID,
       Github,
+      seo_title: seoTitle,
     },
   } = page;
 
@@ -42,6 +43,9 @@ const parseNotionPageMeta = async (
   }
   if (Name.type !== 'title') {
     throw new Error('Validation Error: Name is not a title');
+  }
+  if (seoTitle.type !== 'rich_text') {
+    throw new Error('Validation Error: seo_title is not a rich_text');
   }
   if (description.type !== 'rich_text') {
     throw new Error('Validation Error: description is not a rich_text');
@@ -79,6 +83,7 @@ const parseNotionPageMeta = async (
     updatedOn: page.last_edited_time,
     slug: richTextToPlain(slug.rich_text),
     title: richTextToPlain(Name.title),
+    seoTitle: richTextToPlain(seoTitle.rich_text),
     description: richTextToPlain(description.rich_text),
     hideImageHeader: hideImageHeader.checkbox,
     hideNewsletterForm: hideNewsletter.checkbox,
