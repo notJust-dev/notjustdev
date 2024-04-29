@@ -28,7 +28,6 @@ function Projects({ projects }: CourseProps) {
               <ProjectCard
                 project={project}
                 key={project.slug}
-                mirrored={index % 2 === 1}
                 priority={index < 2}
               />
             ))}

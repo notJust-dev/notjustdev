@@ -1,6 +1,6 @@
 import Image from 'next/image';
-import Button from './Button';
-import { useRouter } from 'next/router';
+import Link from 'next/link';
+import { MdArrowRightAlt } from 'react-icons/md';
 
 export interface BlogCardProps {
   post: PostMeta;
@@ -10,16 +10,14 @@ export interface BlogCardProps {
 const MAX_DESCRIPTION_LENGTH = 256;
 
 const BlogCard = ({ post, priority = false }: BlogCardProps) => {
-  const router = useRouter();
-
   const blogUrl = `/blog/${post.slug}`;
   return (
-    <div
-      onClick={() => router.push(blogUrl)}
-      className="bg-custom-blue-500 p-2 pb-5 flex flex-col items-center cursor-pointer h-full"
+    <Link
+      href={blogUrl}
+      className="bg-gray-800 flex flex-col cursor-pointer h-full group rounded-md overflow-hidden"
     >
       {post.image && (
-        <div className="relative w-full aspect-w-16 aspect-h-9 mb-2">
+        <div className="relative w-full aspect-w-16 aspect-h-9 group-hover:scale-105 duration-500">
           <Image
             src={post.image}
             alt={post.title}
@@ -32,18 +30,20 @@ const BlogCard = ({ post, priority = false }: BlogCardProps) => {
           />
         </div>
       )}
-      <h2 className="my-2 w-full text-center md:text-left">{post.title}</h2>
-      <p className="my-2 text-center md:text-left font-light">
-        {post.description?.slice(0, MAX_DESCRIPTION_LENGTH)}
-        {post.description?.length > MAX_DESCRIPTION_LENGTH && '...'}
-      </p>
-      <Button
-        href={blogUrl}
-        text="Read more"
-        type="tertiary"
-        className="m-2 mt-auto"
-      />{' '}
-    </div>
+      <div className="p-3 flex flex-col h-full">
+        <h2 className="my-2 w-full text-center md:text-left group-hover:text-secondary duration-500">
+          {post.title}
+        </h2>
+        <p className="my-2 text-center md:text-left font-light w-full text-gray-300">
+          {post.description?.slice(0, MAX_DESCRIPTION_LENGTH)}
+          {post.description?.length > MAX_DESCRIPTION_LENGTH && '...'}
+        </p>
+        <div className="mt-auto font-semibold justify-center md:justify-start text-sm group-hover:text-secondary duration-500 flex gap-1 group-hover:gap-3">
+          Read more
+          <MdArrowRightAlt className="text-xl" />
+        </div>
+      </div>
+    </Link>
   );
 };
 
