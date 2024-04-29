@@ -16,7 +16,7 @@ function OptInForm({ formId, formSrc, title, children }: IOptInForm) {
   return (
     <div className="bg-gray-900 shadow-lg p-3 md:p-5 my-2 max-w-5xl mr-auto ml-auto">
       <div className="mb-5 md:mx-3">
-        <h1>{title}</h1>
+        <h2 className="text-2xl">{title}</h2>
         <p>{children}</p>
       </div>
 
