@@ -1,53 +1,9 @@
-import Link from 'next/link';
 import { load } from 'cheerio';
-import parseHtml, {
-  domToReact,
-  type HTMLReactParserOptions,
-  type DOMNode,
-  Element,
-} from 'html-react-parser';
+
 import { Metadata } from 'next';
+import dynamic from 'next/dynamic';
 
-// Determines if URL is internal or external
-function isUrlInternal(link: string) {
-  if (
-    !link ||
-    link.indexOf(`https:`) === 0 ||
-    link.indexOf(`#`) === 0 ||
-    link.indexOf(`http`) === 0 ||
-    link.indexOf(`://`) === 0
-  ) {
-    return false;
-  }
-  return true;
-}
-
-const parseOptions: HTMLReactParserOptions = {
-  replace(node) {
-    if (!(node instanceof Element)) {
-      return;
-    }
-    const attribs = node.attribs || {};
-
-    // Replace links with Next links
-    if (node.name === `a` && isUrlInternal(attribs.href)) {
-      const { href, ...props } = attribs;
-      if (props.class) {
-        props.className = props.class;
-        delete props.class;
-      }
-      return (
-        <Link href={href}>
-          <a {...props}>
-            {!!node.children &&
-              !!node.children.length &&
-              domToReact(node.children as DOMNode[], parseOptions)}
-          </a>
-        </Link>
-      );
-    }
-  },
-};
+const PageUI = dynamic(() => import('./PageUI'), { ssr: false });
 
 type Props = {
   params: { webflow_path: string[] };
@@ -82,15 +38,7 @@ export default async function Page({ params }: Props) {
   // remove meta
   $('title').remove();
 
-  const bodyContent = $(`body`).html();
-  const headContent = $(`head`).html();
-
-  return (
-    <>
-      {headContent && parseHtml(headContent)}
-      {bodyContent && parseHtml(bodyContent, parseOptions)}
-    </>
-  );
+  return <PageUI head={$(`body`).html()} body={$(`head`).html()} />;
 }
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
