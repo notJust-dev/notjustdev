@@ -2,6 +2,7 @@ import { load } from 'cheerio';
 
 import { Metadata } from 'next';
 import dynamic from 'next/dynamic';
+import Script from 'next/script';
 
 const PageUI = dynamic(() => import('./PageUI'), { ssr: false });
 
@@ -38,7 +39,22 @@ export default async function Page({ params }: Props) {
   // remove meta
   $('title').remove();
 
-  return <PageUI head={$(`body`).html()} body={$(`head`).html()} />;
+  return (
+    <>
+      <PageUI head={$(`body`).html()} body={$(`head`).html()} />
+      {/* eslint-disable-next-line @next/next/no-sync-scripts*/}
+      <script
+        src="https://d3e54v103j8qbb.cloudfront.net/js/jquery-3.5.1.min.dc5e7f18c8.js?site=65cd13813bd3677534fa7c0b"
+        type="text/javascript"
+        crossOrigin="anonymous"
+      ></script>
+      {/* TODO get url dynamically: Not sure if this "webflow.5bed71c6e.js" is dynamic or not */}
+      <Script
+        src="https://assets-global.website-files.com/65cd13813bd3677534fa7c0b/js/webflow.5bed71c6e.js"
+        type="text/javascript"
+      />
+    </>
+  );
 }
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {

@@ -12,7 +12,14 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en">
+    <html
+      lang="en"
+      // TODO this will probably break webflow animations and interactions later.
+      // The page id should be dynamically set
+      data-wf-domain="notjust-dev.webflow.io"
+      data-wf-page="65cd13813bd3677534fa7c15"
+      data-wf-site="65cd13813bd3677534fa7c0b"
+    >
       <head>
         <GtmScript />
       </head>
