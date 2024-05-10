@@ -85,3 +85,7 @@ h3 {
     scrollbar-width: none; /* Firefox */
   }
 }
+
+.w-webflow-badge {
+  display: none !important;
+}
