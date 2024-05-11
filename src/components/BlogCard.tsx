@@ -14,7 +14,7 @@ const BlogCard = ({ post, priority = false }: BlogCardProps) => {
   return (
     <Link
       href={blogUrl}
-      className="bg-gray-800 flex flex-col cursor-pointer h-full group rounded-md overflow-hidden"
+      className="bg-gray-800 flex flex-col cursor-pointer group rounded-md overflow-hidden"
     >
       {post.image && (
         <div className="relative w-full aspect-w-16 aspect-h-9 group-hover:scale-105 duration-500">
