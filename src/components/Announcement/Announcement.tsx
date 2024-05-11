@@ -32,7 +32,7 @@ const Announcement = () => {
   return (
     <Link
       href="/react-native-mastery"
-      className="justify-center p-3 py-3 sm:py-7 sticky top-0 z-50 bg-gradient-to-r from-gray-900 to-yellow-950"
+      className="justify-center p-3 py-3 sm:py-7 sticky top-0 z-50 bg-gradient-to-r from-gray-900 to-yellow-950/50 backdrop-blur-xl drop-shadow-lg"
     >
       <MaxWidthWrapper>
         <div className="flex flex-col sm:flex-row items-center sm:items-center justify-between text-center">
