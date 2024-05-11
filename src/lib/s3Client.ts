@@ -58,6 +58,7 @@ const existsInS3 = async (fileName: string) => {
     } else {
       // some other error
       console.log('Unexpected error getting the Head of the S3 Object.');
+      console.log(error);
       throw error;
     }
   }
