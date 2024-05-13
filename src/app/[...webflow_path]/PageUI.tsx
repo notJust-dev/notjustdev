@@ -49,15 +49,9 @@ const parseOptions: HTMLReactParserOptions = {
 };
 
 type PageUIProps = {
-  head: string | null;
   body: string | null;
 };
 
-export default function PageUI({ head, body }: PageUIProps) {
-  return (
-    <>
-      {head && parseHtml(head)}
-      {body && parseHtml(body, parseOptions)}
-    </>
-  );
+export default function PageUI({ body }: PageUIProps) {
+  return <>{body && parseHtml(body, parseOptions)}</>;
 }
