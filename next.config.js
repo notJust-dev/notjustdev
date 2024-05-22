@@ -52,6 +52,11 @@ module.exports = {
         destination: 'https://bit.ly/3KrjgEz',
         permanent: false,
       },
+      {
+        source: '/sketchbook',
+        destination: 'https://bit.ly/3KrjgEz',
+        permanent: false,
+      },
     ];
   },
 };
