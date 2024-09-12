@@ -158,7 +158,7 @@ export const getStaticProps: GetStaticProps<ProPageProps> = async () => ({
       },
       sorts: [
         {
-          property: 'date',
+          property: 'Date',
           direction: 'descending',
         },
       ],

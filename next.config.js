@@ -1,6 +1,9 @@
 module.exports = {
   images: {
-    domains: ['notjustdev-media.s3.amazonaws.com'],
+    domains: [
+      'notjustdev-media.s3.amazonaws.com',
+      'embed.filekitcdn.com', // convertkit,
+    ],
   },
   async rewrites() {
     return [
