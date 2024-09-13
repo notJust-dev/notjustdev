@@ -11,4 +11,5 @@ type Broadcast = {
   subject: string;
   public: boolean;
   thumbnail_url: url | null;
+  content: string;
 };
