@@ -2,6 +2,7 @@ import { getBroadcast } from '@/lib/convertkit/broadcasts';
 import dayjs from 'dayjs';
 import RelativeTime from 'dayjs/plugin/relativeTime';
 import * as cheerio from 'cheerio';
+import { Metadata } from 'next';
 
 dayjs.extend(RelativeTime);
 
@@ -34,4 +35,20 @@ export default async function NewsletterIssue({
       </div>
     </div>
   );
+}
+
+export async function generateMetadata({
+  params: { id },
+}: NewsletterIssueProps): Promise<Metadata> {
+  const broadcast = await getBroadcast(id);
+  const title = broadcast?.subject || 'Newsletter broadcast';
+  return {
+    title,
+    openGraph: {
+      url: `https://www.notjust.dev/newsletter/${id}`,
+      title,
+      type: 'article',
+      images: { url: broadcast?.thumbnail_url || '', alt: title },
+    },
+  };
 }

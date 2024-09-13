@@ -1,6 +1,5 @@
 import React from 'react';
 import Head from 'next/head';
-// import { useRouter, usePathname } from 'next/navigation';
 import Navbar from '../Navbar';
 import Footer from '../Footer';
 import { SEO } from '../../lib/config';
@@ -29,11 +28,7 @@ const Layout = ({
   hideNewsletterForm,
   isLandingPage,
 }: Props) => {
-  // const router = useRouter();
-  // const path = usePathname();
-
-  // TODO fix
-  const url = SEO.hostname + '/abc';
+  const url = SEO.hostname;
   const imageUrl = SEO.hostname + image;
   const siteName = 'notJust.dev';
 

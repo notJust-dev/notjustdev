@@ -12,3 +12,8 @@ export default async function NewsletterIssue() {
     </div>
   );
 }
+
+export const metadata = {
+  title: 'notJust Development Newsletter Archive',
+  description: 'Dive into all the issues from notJust Development Newsletter',
+};
