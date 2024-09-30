@@ -41,12 +41,15 @@ export default async function Page({ params }: Props) {
 
   const head = $(`head`).html();
   const body = $(`body`).html();
+  const bodyClass = $(`body`).attr('class');
 
   return (
     <>
       {head && parseHtml(head)}
 
-      <PageUI body={body} />
+      <div className={bodyClass}>
+        <PageUI body={body} />
+      </div>
       {/* eslint-disable-next-line @next/next/no-sync-scripts*/}
       <script
         src="https://d3e54v103j8qbb.cloudfront.net/js/jquery-3.5.1.min.dc5e7f18c8.js?site=65cd13813bd3677534fa7c0b"
