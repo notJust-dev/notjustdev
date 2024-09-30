@@ -2,6 +2,7 @@ import { MetadataRoute } from 'next';
 import { getAllPostTags, getAllPosts } from '../lib/notion/notion';
 import { getAllEvents } from '../lib/events';
 import { XMLParser } from 'fast-xml-parser';
+import { getPublicBroadcasts } from '../lib/convertkit/broadcasts';
 
 const root = 'https://www.notjust.dev';
 
@@ -30,6 +31,14 @@ const getWebflowSiteMap = async (): Promise<MetadataRoute.Sitemap> => {
     console.log('Failed to fetch and parse webflow sitemap');
     return [];
   }
+};
+
+const getNewsletterSiteMap = async (): Promise<MetadataRoute.Sitemap> => {
+  const broadcasts = await getPublicBroadcasts();
+
+  return broadcasts.map((broadcast) => ({
+    url: `${root}/newsletter/${broadcast.id}`,
+  }));
 };
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
@@ -111,5 +120,8 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
 
   // webflow
   urls.push(...(await getWebflowSiteMap()));
+
+  // Newsletter public posts
+  urls.push(...(await getNewsletterSiteMap()));
   return urls;
 }

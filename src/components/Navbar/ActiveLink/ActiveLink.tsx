@@ -1,6 +1,6 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 
-import { useRouter } from 'next/router';
+import { usePathname } from 'next/navigation';
 import Link from 'next/link';
 import styles from './ActiveLink.module.css';
 
@@ -10,12 +10,12 @@ interface ActiveLinkProps {
 }
 
 function ActiveLink({ href, title }: ActiveLinkProps) {
-  const router = useRouter();
+  const path = usePathname();
 
-  const segments = router.asPath.split('/');
+  const segments = path?.split('/');
   let isActive = segments?.[1] === href.split('/')?.[1];
   if (href === '/') {
-    isActive = router.asPath === '/';
+    isActive = path === '/';
   }
 
   return (

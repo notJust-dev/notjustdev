@@ -29,7 +29,7 @@ const parseEventPageMeta = async (
   includeAuthors = false,
 ): Promise<EventMeta> => {
   const {
-    properties: { slug, Name, pro, date, description, Author, cta, ctaUrl },
+    properties: { slug, Name, pro, Date, description, Author, cta, ctaUrl },
   } = page;
 
   // validation
@@ -45,7 +45,7 @@ const parseEventPageMeta = async (
   if (pro.type !== 'checkbox') {
     throw new Error('Validation Error: Pro is not a checkbox');
   }
-  if (date.type !== 'date' || !date.date?.start) {
+  if (Date.type !== 'date' || !Date.date?.start) {
     throw new Error('Validation Error: Date is not a date');
   }
   if (Author.type !== 'relation') {
@@ -66,7 +66,7 @@ const parseEventPageMeta = async (
     slug: richTextToPlain(slug.rich_text),
     title: richTextToPlain(Name.title),
     isPro: pro.checkbox,
-    date: date.date.start,
+    date: Date.date.start,
     description: richTextToPlain(description.rich_text),
     authors: [],
     cta: richTextToPlain(cta.rich_text),
@@ -104,7 +104,7 @@ export const getAllEvents = async ({
 
   if (filter?.afterDate) {
     notionFilter.and.push({
-      property: 'date',
+      property: 'Date',
       date: {
         on_or_after: filter.afterDate.toISOString(),
       },
@@ -113,7 +113,7 @@ export const getAllEvents = async ({
 
   if (filter?.beforeDate) {
     notionFilter.and.push({
-      property: 'date',
+      property: 'Date',
       date: {
         before: filter.beforeDate.toISOString(),
       },
@@ -144,7 +144,7 @@ export const getUpcomingEvents = async ({
     filter,
     sorts: [
       {
-        property: 'date',
+        property: 'Date',
         direction: 'ascending',
       },
     ],
@@ -161,7 +161,7 @@ export const getPastEvents = async ({
     filter,
     sorts: [
       {
-        property: 'date',
+        property: 'Date',
         direction: 'descending',
       },
     ],

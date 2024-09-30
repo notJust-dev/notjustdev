@@ -1,0 +1,23 @@
+.newsletter-broadcast ul {
+  @apply list-disc	pl-7;
+}
+
+.newsletter-broadcast ol {
+  @apply list-decimal pl-7;
+}
+
+.newsletter-broadcast li {
+  @apply pl-2 mb-6;
+}
+
+.newsletter-broadcast table {
+  border-collapse: inherit;
+}
+
+.newsletter-broadcast p {
+  @apply mb-6;
+}
+
+.newsletter-broadcast :is(h1, h2, h3) {
+  @apply my-12 mb-7;
+}
