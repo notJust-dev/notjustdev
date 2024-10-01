@@ -1,8 +1,16 @@
+const { hostname } = require('os');
+
 module.exports = {
   images: {
-    domains: [
-      'notjustdev-media.s3.amazonaws.com',
-      'embed.filekitcdn.com', // convertkit,
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: 'notjustdev-media.s3.amazonaws.com',
+      },
+      {
+        protocol: 'https',
+        hostname: 'embed.filekitcdn.com', // convertkit,
+      },
     ],
   },
   async rewrites() {
