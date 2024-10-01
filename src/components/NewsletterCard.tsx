@@ -7,10 +7,10 @@ dayjs.extend(RelativeTime);
 
 interface Props {
   broadcast: Broadcast;
-  priority: boolean;
+  priority?: boolean;
 }
 
-const NewsletterCard = ({ broadcast, priority }: Props) => {
+const NewsletterCard = ({ broadcast, priority = false }: Props) => {
   return (
     <Link
       href={`/newsletter/${broadcast.id}`}
@@ -44,9 +44,5 @@ const NewsletterCard = ({ broadcast, priority }: Props) => {
     </Link>
   );
 };
-
-NewsletterCard.defaultProps = {
-  priority: false,
-} as Partial<Props>;
 
 export default NewsletterCard;

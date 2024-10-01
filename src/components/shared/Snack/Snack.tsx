@@ -2,13 +2,19 @@ import React from 'react';
 
 interface SnackProps {
   snackId: string;
-  platform: 'mydevice' | 'ios' | 'android' | 'web';
-  preview: boolean;
-  theme: 'dark' | 'light';
-  height: number;
+  platform?: 'mydevice' | 'ios' | 'android' | 'web';
+  preview?: boolean;
+  theme?: 'dark' | 'light';
+  height?: number;
 }
 
-const Snack = ({ snackId, platform, preview, theme, height }: SnackProps) => (
+const Snack = ({
+  snackId,
+  platform = 'web',
+  preview = true,
+  theme = 'dark',
+  height = 500,
+}: SnackProps) => (
   <div>
     <div
       data-snack-id={snackId}
@@ -21,12 +27,5 @@ const Snack = ({ snackId, platform, preview, theme, height }: SnackProps) => (
     <script defer src="https://snack.expo.io/embed.js" />
   </div>
 );
-
-Snack.defaultProps = {
-  platform: 'web',
-  preview: true,
-  theme: 'dark',
-  height: 500,
-} as Partial<SnackProps>;
 
 export default Snack;

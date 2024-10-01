@@ -8,9 +8,9 @@ type ButtonType = 'primary' | 'secondary' | 'tertiary' | 'outline';
 interface ButtonProps {
   href: string;
   text: string;
-  type: ButtonType;
-  className: string;
-  target: '_blank' | '_self';
+  type?: ButtonType;
+  className?: string;
+  target?: '_blank' | '_self';
   data?: { [key: string]: string };
   size: 'md' | 'l' | 'xl';
 }
@@ -18,9 +18,9 @@ interface ButtonProps {
 const Button = ({
   text,
   href,
-  type,
-  className,
-  target,
+  type = 'primary',
+  className = '',
+  target = '_self',
   data,
   size,
 }: ButtonProps) =>
@@ -38,11 +38,5 @@ const Button = ({
       {text}
     </span>
   );
-
-Button.defaultProps = {
-  type: 'primary',
-  className: '',
-  target: '_self',
-} as Partial<ButtonProps>;
 
 export default Button;

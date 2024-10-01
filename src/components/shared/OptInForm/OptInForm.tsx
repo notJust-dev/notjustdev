@@ -25,8 +25,4 @@ function OptInForm({ formId, formSrc, title, children }: IOptInForm) {
   );
 }
 
-OptInForm.defaultProps = {
-  children: null,
-};
-
 export default OptInForm;

@@ -39,7 +39,10 @@ export const getBroadcast = async (id: number): Promise<Broadcast | null> => {
     const data = await response.json();
     return data?.broadcast || null;
   } catch (e) {
-    console.log('Failed to fetch broadcasts!');
+    console.log(
+      `Failed to fetch broadcast with id ${id}. Error: ${(e as Error).message}`,
+    );
+    console.log(e);
     return null;
   }
 };

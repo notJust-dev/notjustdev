@@ -2,16 +2,16 @@ import React from 'react';
 
 interface MaxWidthWrapperProps {
   children: React.ReactNode;
-  maxWidth: number;
-  noPadding: boolean;
+  maxWidth?: number;
+  noPadding?: boolean;
   className?: string;
 }
 
 function MaxWidthWrapper({
   children,
-  maxWidth,
-  noPadding,
-  className,
+  maxWidth = 1100,
+  noPadding = false,
+  className = '',
 }: MaxWidthWrapperProps) {
   return (
     <div
@@ -24,11 +24,5 @@ function MaxWidthWrapper({
     </div>
   );
 }
-
-MaxWidthWrapper.defaultProps = {
-  maxWidth: 1100,
-  noPadding: false,
-  className: '',
-} as Partial<MaxWidthWrapperProps>;
 
 export default MaxWidthWrapper;

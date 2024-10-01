@@ -50,8 +50,4 @@ const StaticCodeSnippet = ({ children }: Props) => {
   );
 };
 
-StaticCodeSnippet.defaultProps = {
-  children: null,
-};
-
 export default StaticCodeSnippet;
