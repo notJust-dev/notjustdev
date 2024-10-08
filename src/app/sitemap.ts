@@ -28,7 +28,7 @@ const getWebflowSiteMap = async (): Promise<MetadataRoute.Sitemap> => {
     }
     return urls;
   } catch (e) {
-    console.log('Failed to fetch and parse webflow sitemap');
+    console.log('Failed to fetch and parse webflow sitemap', e);
     return [];
   }
 };
