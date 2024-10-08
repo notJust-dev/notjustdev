@@ -148,13 +148,12 @@ export const getAllPosts = async ({
     });
   }
   if (subPageFilter !== 'all') {
-    const condition =
-      subPageFilter === 'main_pages'
-        ? { is_empty: true }
-        : { is_not_empty: true };
     filter.and.push({
       property: 'Parent page',
-      relation: condition,
+      relation:
+        subPageFilter === 'main_pages'
+          ? { is_empty: true }
+          : { is_not_empty: true },
     });
   }
 

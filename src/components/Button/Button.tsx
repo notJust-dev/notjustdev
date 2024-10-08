@@ -12,7 +12,7 @@ interface ButtonProps {
   className?: string;
   target?: '_blank' | '_self';
   data?: { [key: string]: string };
-  size: 'md' | 'l' | 'xl';
+  size?: 'md' | 'l' | 'xl';
 }
 
 const Button = ({
@@ -22,7 +22,7 @@ const Button = ({
   className = '',
   target = '_self',
   data,
-  size,
+  size = 'md',
 }: ButtonProps) =>
   href ? (
     <Link
