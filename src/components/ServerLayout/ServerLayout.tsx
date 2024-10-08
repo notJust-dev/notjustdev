@@ -7,26 +7,26 @@ import MaxWidthWrapper from '../MaxWidthWrapper';
 
 type Props = {
   children: React.ReactNode;
-  title: string;
-  description: string;
-  author: string;
-  keywords: string;
-  image: string;
-  pageType: string;
-  hideNewsletterForm: boolean;
-  isLandingPage: boolean;
+  title?: string;
+  description?: string;
+  author?: string;
+  keywords?: string;
+  image?: string;
+  pageType?: string;
+  hideNewsletterForm?: boolean;
+  isLandingPage?: boolean;
 };
 
 const Layout = ({
   children,
-  title,
+  title = SEO.title,
   description,
-  author,
-  keywords,
-  image,
-  pageType,
-  hideNewsletterForm,
-  isLandingPage,
+  author = SEO.author,
+  keywords = SEO.keywords,
+  image = SEO.image,
+  pageType = 'website',
+  hideNewsletterForm = false,
+  isLandingPage = false,
 }: Props) => {
   const url = SEO.hostname;
   const imageUrl = SEO.hostname + image;
@@ -64,14 +64,5 @@ const Layout = ({
     </div>
   );
 };
-
-Layout.defaultProps = {
-  title: SEO.title,
-  author: SEO.author,
-  keywords: SEO.keywords,
-  image: SEO.image,
-  pageType: 'website',
-  isLandingPage: false,
-} as Partial<Props>;
 
 export default Layout;

@@ -6,7 +6,6 @@ import MaxWidthWrapper from '../MaxWidthWrapper';
 import ActiveLink from './ActiveLink';
 import logo from '../../../public/images/logo/white.png';
 import Announcement from '../Announcement';
-import Button from '../Button';
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -51,22 +50,23 @@ const Navbar = () => {
             }`}
           >
             {/* <ActiveLink href="/" title="Home" /> */}
-            <ActiveLink href="/incubator" title="🚀 Incubator" />
+            {/* <ActiveLink href="/incubator" title="🚀 Incubator" /> */}
 
-            <ActiveLink href="/projects" title="Projects" />
+            <ActiveLink href="/projects" title="Tutorials" />
 
             <ActiveLink href="/pro-courses" title="Courses" />
 
-            <ActiveLink href="/events" title="Events" />
+            {/* <ActiveLink href="/events" title="Events" /> */}
 
             <ActiveLink href="/blog" title="Blog" />
+            <ActiveLink href="/newsletter" title="Newsletter" />
 
-            <Button
+            {/* <Button
               text="Become PRO"
               href="/pro"
               type="outline"
               className="font-normal"
-            />
+            /> */}
           </div>
         </nav>
       </MaxWidthWrapper>

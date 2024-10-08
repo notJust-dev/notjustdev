@@ -27,10 +27,10 @@ const components = {
   ...sharedComponents,
 };
 
-const dateFormat = {
-  month: 'short' as 'short',
-  day: 'numeric' as 'numeric',
-  year: 'numeric' as 'numeric',
+const dateFormat: Intl.DateTimeFormatOptions = {
+  month: 'short',
+  day: 'numeric',
+  year: 'numeric',
 };
 
 export type PostPageProps = {

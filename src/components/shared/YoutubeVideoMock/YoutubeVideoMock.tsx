@@ -48,18 +48,15 @@ const YoutubeVideoMock = ({
           {url}
         </div>
       </div>
-      <img
-        className="h-48 object-cover"
-        src={imageUri}
-        alt={`Thumbnail for ${title}`}
-      />
+      {imageUri && (
+        <img
+          className="h-48 object-cover"
+          src={imageUri}
+          alt={`Thumbnail for ${title}`}
+        />
+      )}
     </div>
   </a>
 );
-
-YoutubeVideoMock.defaultProps = {
-  description: '',
-  imageUri: undefined,
-} as Partial<IYoutubeVideoMock>;
 
 export default YoutubeVideoMock;

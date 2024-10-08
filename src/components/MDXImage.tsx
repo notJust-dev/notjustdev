@@ -9,7 +9,13 @@ interface Props {
   height?: number | string;
 }
 
-const MDXImage = ({ src, alt, children, width, height }: Props) => {
+const MDXImage = ({
+  children,
+  src = '',
+  alt = '',
+  width = 1280,
+  height = 720,
+}: Props) => {
   return (
     <span className="relative block my-7 text-center">
       <Image
@@ -24,12 +30,5 @@ const MDXImage = ({ src, alt, children, width, height }: Props) => {
     </span>
   );
 };
-
-MDXImage.defaultProps = {
-  src: '',
-  alt: '',
-  width: 1280,
-  height: 720,
-} as Partial<Props>;
 
 export default MDXImage;

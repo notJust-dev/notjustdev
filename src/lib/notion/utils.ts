@@ -1,12 +1,7 @@
 // TODO: temporary fix. It should be imported from notion client:
 
 import { Client } from '@notionhq/client';
-import {
-  DatabaseObjectResponse,
-  PageObjectResponse,
-  PartialDatabaseObjectResponse,
-  PartialPageObjectResponse,
-} from '@notionhq/client/build/src/api-endpoints';
+import { PageObjectResponse } from '@notionhq/client/build/src/api-endpoints';
 import { NotionToMarkdown } from 'notion-to-md';
 import { processVideos } from '../utils/videos';
 import { copyFileToS3 } from '../s3Client';
@@ -43,14 +38,14 @@ const downloadAndReplaceMDXImages = async (mdString: string) => {
 };
 
 // TODO: temporary fix. It should be imported from notion client:
-//import {  isFullPage } from '@notionhq/client';
-export const isFullPage = (
-  response:
-    | PageObjectResponse
-    | PartialPageObjectResponse
-    | DatabaseObjectResponse
-    | PartialDatabaseObjectResponse,
-): response is PageObjectResponse => 'url' in response;
+// import { isFullPage } from '@notionhq/client';
+// export const isFullPage = (
+//   response:
+//     | PageObjectResponse
+//     | PartialPageObjectResponse
+//     | DatabaseObjectResponse
+//     | PartialDatabaseObjectResponse,
+// ): response is PageObjectResponse => 'url' in response;
 
 export const getStatusFilter = () => {
   // In production, show only Published posts

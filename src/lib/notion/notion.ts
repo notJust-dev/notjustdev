@@ -1,12 +1,17 @@
-import { Client } from '@notionhq/client';
+import {
+  APIErrorCode,
+  Client,
+  isFullPage,
+  isNotionClientError,
+} from '@notionhq/client';
 import {
   PageObjectResponse,
   QueryDatabaseParameters,
 } from '@notionhq/client/build/src/api-endpoints';
 import { getAuthorDetails } from '../authors';
-import { richTextToPlain, shuffle } from '../utils';
+import { richTextToPlain } from '../utils';
 import { copyFileToS3 } from '../s3Client';
-import { getStatusFilter, isFullPage, notionPageToMDX } from './utils';
+import { getStatusFilter, notionPageToMDX } from './utils';
 
 const { NOTION_KEY, NOTION_DATABASE = '' } = process.env;
 
@@ -128,7 +133,9 @@ export const getAllPosts = async ({
   tag,
   subPageFilter = 'main_pages',
 }: GetAllPostsOption): Promise<PostMeta[]> => {
-  const filter: any = { and: [getStatusFilter()] };
+  const filter: QueryDatabaseParameters['filter'] = {
+    and: [getStatusFilter()],
+  };
   if (type) {
     filter.and.push({
       property: 'Type',
@@ -146,13 +153,12 @@ export const getAllPosts = async ({
     });
   }
   if (subPageFilter !== 'all') {
-    const condition =
-      subPageFilter === 'main_pages'
-        ? { is_empty: true }
-        : { is_not_empty: true };
     filter.and.push({
       property: 'Parent page',
-      relation: condition,
+      relation:
+        subPageFilter === 'main_pages'
+          ? { is_empty: true }
+          : { is_not_empty: true },
     });
   }
 
@@ -162,13 +168,22 @@ export const getAllPosts = async ({
     filter,
   };
 
-  const response = await notion.databases.query(query);
+  try {
+    const response = await notion.databases.query(query);
 
-  return Promise.all(
-    response.results
-      .filter(isFullPage)
-      .map((page) => parseNotionPageMeta(page)),
-  );
+    return Promise.all(
+      response.results
+        .filter(isFullPage)
+        .map((page) => parseNotionPageMeta(page)),
+    );
+  } catch (error: unknown) {
+    if (isNotionClientError(error)) {
+      if (error.code === APIErrorCode.RateLimited) {
+        console.log('Rate limited... TODO: what todo?');
+      }
+    }
+    throw error;
+  }
 };
 
 export const getSubPostsFor = async (id: string) => {
@@ -196,7 +211,7 @@ export const getPostBySLug = async (
   slug: string,
   parentSlug?: string,
 ): Promise<Post | null> => {
-  const filter: any = {
+  const filter: QueryDatabaseParameters['filter'] = {
     and: [
       {
         property: 'slug',
@@ -239,14 +254,17 @@ export const getPostBySLug = async (
 export const getRecommendedPostsMeta = async (
   forPost: PostMeta,
   limit: number = 2,
-): Promise<Post[]> => {
-  const all = (await getAllPosts({ type: forPost.type })).filter(
-    (p) => p.slug !== forPost.slug,
-  );
+): Promise<PostMeta[]> => {
+  // TODO: fix and improve the performance
+  console.log(forPost.id, limit);
+  return [];
+  // const all = (await getAllPosts({ type: forPost.type })).filter(
+  //   (p) => p.slug !== forPost.slug,
+  // );
 
-  let random2 = shuffle(all).slice(0, limit > 0 ? limit : 2);
+  // const random2 = shuffle(all).slice(0, limit > 0 ? limit : 2);
 
-  return random2;
+  // return random2;
 };
 export const getAllPostTags = async (): Promise<NotionMultiSelect[]> => {
   const response = await notion.databases.retrieve({

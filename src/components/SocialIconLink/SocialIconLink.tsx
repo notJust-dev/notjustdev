@@ -40,8 +40,4 @@ const SocialIconLink = ({ type, url }: ISocialIconLink) => {
   );
 };
 
-SocialIconLink.defaultProps = {
-  href: undefined,
-} as Partial<ISocialIconLink>;
-
 export default SocialIconLink;

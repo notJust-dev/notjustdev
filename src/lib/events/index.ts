@@ -1,9 +1,9 @@
-import { Client } from '@notionhq/client';
+import { Client, isFullPage } from '@notionhq/client';
 import {
   PageObjectResponse,
   QueryDatabaseParameters,
 } from '@notionhq/client/build/src/api-endpoints';
-import { getStatusFilter, isFullPage, notionPageToMDX } from '../notion/utils';
+import { getStatusFilter, notionPageToMDX } from '../notion/utils';
 import { richTextToPlain } from '../utils';
 import { copyFileToS3 } from '../s3Client';
 import { getAuthorDetails } from '../authors';
@@ -92,7 +92,9 @@ export const getAllEvents = async ({
   filter,
   sorts = [],
 }: GetAllEventsOption): Promise<EventMeta[]> => {
-  const notionFilter: any = { and: [getStatusFilter()] };
+  const notionFilter: QueryDatabaseParameters['filter'] = {
+    and: [getStatusFilter()],
+  };
   if (filter?.isPro) {
     notionFilter.and.push({
       property: 'pro',
@@ -171,7 +173,7 @@ export const getPastEvents = async ({
 export const getEventBySLug = async (
   slug: string,
 ): Promise<EventWithContent | null> => {
-  const filter: any = {
+  const filter: QueryDatabaseParameters['filter'] = {
     and: [
       {
         property: 'slug',

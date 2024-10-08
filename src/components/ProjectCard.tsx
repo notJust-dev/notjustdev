@@ -6,11 +6,15 @@ import { MdArrowRightAlt } from 'react-icons/md';
 
 interface Props {
   project: PostMeta;
-  mirrored: boolean;
-  priority: boolean;
+  mirrored?: boolean;
+  priority?: boolean;
 }
 
-const ProjectCard = ({ project, mirrored, priority }: Props) => {
+const ProjectCard = ({
+  project,
+  mirrored = false,
+  priority = false,
+}: Props) => {
   const float = mirrored ? 'left' : 'right';
   const projectUrl =
     project.redirect_url ||
@@ -65,10 +69,5 @@ const ProjectCard = ({ project, mirrored, priority }: Props) => {
     </Link>
   );
 };
-
-ProjectCard.defaultProps = {
-  mirrored: false,
-  priority: false,
-} as Partial<Props>;
 
 export default ProjectCard;

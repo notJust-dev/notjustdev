@@ -144,7 +144,7 @@ const Testimonials = () => (
         type="text/javascript"
         src="https://testimonial.to/js/iframeResizer.min.js"
         onLoad={() => {
-          // @ts-ignore
+          // @ts-expect-error no-idea
           iFrameResize(
             { log: false, checkOrigin: false },
             '#testimonialto-carousel-all-the-full-stack-mobile-developer-dark',

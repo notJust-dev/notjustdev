@@ -6,6 +6,7 @@ export default async function NewsletterIssue() {
 
   return (
     <div className="flex flex-col gap-3">
+      <h3 className="text-center my-5 text-3xl">notJust Newsletter Archive</h3>
       {broadcasts.map((broadcast) => (
         <NewsletterCard key={broadcast.id} broadcast={broadcast} />
       ))}

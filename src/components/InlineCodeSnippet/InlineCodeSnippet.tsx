@@ -30,8 +30,4 @@ const InlineCodeSnippet = ({ children }: Props) => (
   </Highlight>
 );
 
-InlineCodeSnippet.defaultProps = {
-  children: null,
-};
-
 export default InlineCodeSnippet;
