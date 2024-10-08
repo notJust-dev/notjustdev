@@ -128,7 +128,9 @@ export const getAllPosts = async ({
   tag,
   subPageFilter = 'main_pages',
 }: GetAllPostsOption): Promise<PostMeta[]> => {
-  const filter: any = { and: [getStatusFilter()] };
+  const filter: QueryDatabaseParameters['filter'] = {
+    and: [getStatusFilter()],
+  };
   if (type) {
     filter.and.push({
       property: 'Type',
@@ -196,7 +198,7 @@ export const getPostBySLug = async (
   slug: string,
   parentSlug?: string,
 ): Promise<Post | null> => {
-  const filter: any = {
+  const filter: QueryDatabaseParameters['filter'] = {
     and: [
       {
         property: 'slug',
@@ -239,12 +241,12 @@ export const getPostBySLug = async (
 export const getRecommendedPostsMeta = async (
   forPost: PostMeta,
   limit: number = 2,
-): Promise<Post[]> => {
+): Promise<PostMeta[]> => {
   const all = (await getAllPosts({ type: forPost.type })).filter(
     (p) => p.slug !== forPost.slug,
   );
 
-  let random2 = shuffle(all).slice(0, limit > 0 ? limit : 2);
+  const random2 = shuffle(all).slice(0, limit > 0 ? limit : 2);
 
   return random2;
 };

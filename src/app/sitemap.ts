@@ -18,8 +18,8 @@ const getWebflowSiteMap = async (): Promise<MetadataRoute.Sitemap> => {
 
     const urls: MetadataRoute.Sitemap = [];
 
-    for (let link of links) {
-      let url = new URL(link);
+    for (const link of links) {
+      const url = new URL(link);
       const path = url.pathname.replace(`/`, ``).split(`/`);
       if (!path.length || !path[0]) continue;
       urls.push({

@@ -1,5 +1,6 @@
 import { join } from 'path';
 import fs from 'fs';
+import { RichTextItemResponse } from '@notionhq/client/build/src/api-endpoints';
 
 export const getFileContents = (path: string) => fs.readFileSync(path, 'utf8');
 
@@ -19,7 +20,7 @@ export const getFullPath = (slug: string, dirname: string) => {
   throw new Error(`MDX file not found: ${fullPath}`);
 };
 
-export const shuffle = (array: any[]) => {
+export function shuffle<Type>(array: Type[]) {
   let currentIndex = array.length,
     randomIndex;
 
@@ -37,8 +38,8 @@ export const shuffle = (array: any[]) => {
   }
 
   return array;
-};
+}
 
-export const richTextToPlain = (richText: any[]) => {
+export const richTextToPlain = (richText: RichTextItemResponse[]) => {
   return richText.map((rt) => rt.plain_text).join(' ');
 };

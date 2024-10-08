@@ -6,8 +6,8 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint ./",
-    "lint-fix": "eslint --fix ./",
+    "lint": "next lint",
+    "lint-fix": "next lint --fix",
     "prepare": "husky install"
   },
   "dependencies": {
@@ -48,9 +48,8 @@
     "@typescript-eslint/eslint-plugin": "^7.18.0",
     "@typescript-eslint/parser": "^7.18.0",
     "autoprefixer": "^10.4.14",
-    "eslint": "^8.56.0",
     "eslint-config-airbnb-typescript": "^18.0.0",
-    "eslint-config-next": "^13.4.13",
+    "eslint-config-next": "^14.2.14",
     "eslint-config-prettier": "^8.10.0",
     "eslint-plugin-import": "^2.28.0",
     "eslint-plugin-jsx-a11y": "^6.7.1",
