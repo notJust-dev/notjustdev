@@ -19,12 +19,14 @@ const Footer = ({ hideNewsletterForm = false }: FooterProps) => (
         <div className="py-10 flex flex-col md:flex-row">
           <div className="md:w-1/3 mb-7 md:mr-7">
             <div style={{ maxWidth: 200 }}>
-              <Image
-                src={logo}
-                alt="notJust Development Logo"
-                placeholder="blur"
-                sizes="200px"
-              />
+              <Link href="/">
+                <Image
+                  src={logo}
+                  alt="notJust Development Logo"
+                  placeholder="blur"
+                  sizes="200px"
+                />
+              </Link>
             </div>
 
             <p className="pt-5 text-gray-300 leading-relaxed">
@@ -37,20 +39,35 @@ const Footer = ({ hideNewsletterForm = false }: FooterProps) => (
             <div>
               <h2 className="text-white-400 mt-2 font-bold">Company</h2>
               <div className="flex flex-col">
-                <Link href="/" className="text-gray-300 my-2">
-                  Home
-                </Link>
-                <Link href="/incubator" className="text-gray-300 my-2">
-                  🚀 Incubator
-                </Link>
                 <Link href="/projects" className="text-gray-300 my-2">
-                  Project Tutorials
+                  Tutorials
+                </Link>
+                <Link href="/blog" className="text-gray-300 my-2">
+                  Blog
+                </Link>
+                <Link href="/newsletter" className="text-gray-300 my-2">
+                  Newsletter
                 </Link>
                 <Link href="/events" className="text-gray-300 my-2">
                   Events
                 </Link>
-                <Link href="/blog" className="text-gray-300 my-2">
-                  Blog
+              </div>
+            </div>
+
+            <div>
+              <h2 className="text-white-400 mt-2 font-bold">Products</h2>
+              <div className="flex flex-col">
+                <Link
+                  href="/react-native-mastery"
+                  className="text-gray-300 my-2"
+                >
+                  React Native Mastery
+                </Link>
+                <Link href="/pro" className="text-gray-300 my-2">
+                  PRO Community
+                </Link>
+                <Link href="/incubator" className="text-gray-300 my-2">
+                  🚀 Incubator
                 </Link>
                 <Link href="/testimonials" className="text-gray-300 my-2">
                   Testimonials
@@ -58,7 +75,7 @@ const Footer = ({ hideNewsletterForm = false }: FooterProps) => (
               </div>
             </div>
 
-            <div>
+            {/* <div>
               <h2 className="text-white-400 mt-2 font-bold">
                 Project Tutorials
               </h2>
@@ -77,7 +94,7 @@ const Footer = ({ hideNewsletterForm = false }: FooterProps) => (
                   Twitter Clone
                 </Link>
               </div>
-            </div>
+            </div> */}
 
             <div>
               <h2 className="text-white-400 mt-2 font-bold">On Social</h2>
