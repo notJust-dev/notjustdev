@@ -1,13 +1,12 @@
 import NewsletterCard from '@/components/NewsletterCard';
-// import { getPublicBroadcasts } from '@/lib/convertkit/broadcasts';
+import { getPublicBroadcasts } from '@/lib/convertkit/broadcasts';
 
 export default async function NewsletterIssue() {
-  // const broadcasts = await getPublicBroadcasts();
-  const broadcasts: Broadcast[] = [];
+  const broadcasts = await getPublicBroadcasts();
 
   return (
     <div className="flex flex-col gap-3">
-      <h3 className="text-center my-5 text-3xl">Coming soon...</h3>
+      <h3 className="text-center my-5 text-3xl">notJust Newsletter Archive</h3>
       {broadcasts.map((broadcast) => (
         <NewsletterCard key={broadcast.id} broadcast={broadcast} />
       ))}

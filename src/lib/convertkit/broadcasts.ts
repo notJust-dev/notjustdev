@@ -1,44 +1,28 @@
 // import dummyBroadcasts from './dummyBroadcasts';
-
 const CK_URL = 'https://api.kit.com/v4';
+
+const fetchCK = (path: string) => {
+  return fetch(`${CK_URL}/${path}`, {
+    headers: {
+      'X-Kit-Api-Key': process.env.KIT_API_KEY || '',
+    },
+  });
+};
 
 const listBroadcasts = async (): Promise<Broadcast[]> => {
   try {
-    const response = await fetch(`${CK_URL}/broadcasts`, {
-      headers: {
-        'X-Kit-Api-Key': process.env.KIT_API_KEY,
-      },
-    });
-
+    const response = await fetchCK('/broadcasts');
     const data = await response.json();
     return data?.broadcasts || [];
   } catch (e) {
-    console.log('Failed to fetch broadcasts!');
-    console.log(e);
+    console.log('Failed to fetch broadcasts!', e);
     return [];
   }
 };
 
-// export const listAllBroadcasts = async (): Promise<BroadcastListItem[]> => {
-//   const allBroadcasts: BroadcastListItem[] = [];
-//   let page = 1;
-
-//   while (true) {
-//     const newItems = await listBroadcasts(page);
-//     allBroadcasts.push(...newItems);
-//     page += 1;
-//     if (!newItems || newItems.length === 0) {
-//       break;
-//     }
-//   }
-//   return allBroadcasts;
-// };
-
 export const getBroadcast = async (id: number): Promise<Broadcast | null> => {
   try {
-    const response = await fetch(
-      `${CK_URL}/broadcasts/${id}?api_secret=${process.env.KIT_API_KEY}`,
-    );
+    const response = await fetchCK(`/broadcasts/${id}`);
     const data = await response.json();
     return data?.broadcast || null;
   } catch (e) {
@@ -50,27 +34,9 @@ export const getBroadcast = async (id: number): Promise<Broadcast | null> => {
 };
 
 export const getPublicBroadcasts = async (): Promise<Broadcast[]> => {
-  // return dummyBroadcasts;
   const broadcasts = await listBroadcasts();
-  console.log(broadcasts);
-  // const broadcasts = await Promise.all(
-  //   broadcastsList.map((b) => getBroadcast(b.id)),
-  // );
 
-  const publicBroadCasts = broadcasts.filter((b) => b?.public) as Broadcast[];
-  // console.log(
-  //   JSON.stringify(
-  //     publicBroadCasts.map((b) => ({
-  //       id: b.id,
-  //       subject: b.subject,
-  //       public: b.public,
-  //       thumbnail_url: b.thumbnail_url,
-  //       published_at: b.published_at,
-  //     })),
-  //     null,
-  //     2,
-  //   ),
-  // );
+  const publicBroadCasts = broadcasts.filter((b) => b?.public);
 
   return publicBroadCasts;
 };
