@@ -1,4 +1,4 @@
-export default [
+const broadcasts = [
   {
     id: 16504481,
     subject:
@@ -264,3 +264,5 @@ export default [
     published_at: '2021-12-22T12:03:10.000Z',
   },
 ];
+
+export default broadcasts;
