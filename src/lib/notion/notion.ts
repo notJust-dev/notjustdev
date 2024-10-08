@@ -1,12 +1,17 @@
-import { Client } from '@notionhq/client';
+import {
+  APIErrorCode,
+  Client,
+  isFullPage,
+  isNotionClientError,
+} from '@notionhq/client';
 import {
   PageObjectResponse,
   QueryDatabaseParameters,
 } from '@notionhq/client/build/src/api-endpoints';
 import { getAuthorDetails } from '../authors';
-import { richTextToPlain, shuffle } from '../utils';
+import { richTextToPlain } from '../utils';
 import { copyFileToS3 } from '../s3Client';
-import { getStatusFilter, isFullPage, notionPageToMDX } from './utils';
+import { getStatusFilter, notionPageToMDX } from './utils';
 
 const { NOTION_KEY, NOTION_DATABASE = '' } = process.env;
 
@@ -163,13 +168,22 @@ export const getAllPosts = async ({
     filter,
   };
 
-  const response = await notion.databases.query(query);
+  try {
+    const response = await notion.databases.query(query);
 
-  return Promise.all(
-    response.results
-      .filter(isFullPage)
-      .map((page) => parseNotionPageMeta(page)),
-  );
+    return Promise.all(
+      response.results
+        .filter(isFullPage)
+        .map((page) => parseNotionPageMeta(page)),
+    );
+  } catch (error: unknown) {
+    if (isNotionClientError(error)) {
+      if (error.code === APIErrorCode.RateLimited) {
+        console.log('Rate limited... TODO: what todo?');
+      }
+    }
+    throw error;
+  }
 };
 
 export const getSubPostsFor = async (id: string) => {
@@ -241,13 +255,16 @@ export const getRecommendedPostsMeta = async (
   forPost: PostMeta,
   limit: number = 2,
 ): Promise<PostMeta[]> => {
-  const all = (await getAllPosts({ type: forPost.type })).filter(
-    (p) => p.slug !== forPost.slug,
-  );
+  // TODO: fix and improve the performance
+  console.log(forPost.id, limit);
+  return [];
+  // const all = (await getAllPosts({ type: forPost.type })).filter(
+  //   (p) => p.slug !== forPost.slug,
+  // );
 
-  const random2 = shuffle(all).slice(0, limit > 0 ? limit : 2);
+  // const random2 = shuffle(all).slice(0, limit > 0 ? limit : 2);
 
-  return random2;
+  // return random2;
 };
 export const getAllPostTags = async (): Promise<NotionMultiSelect[]> => {
   const response = await notion.databases.retrieve({

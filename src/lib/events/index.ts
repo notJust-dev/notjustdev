@@ -1,9 +1,9 @@
-import { Client } from '@notionhq/client';
+import { Client, isFullPage } from '@notionhq/client';
 import {
   PageObjectResponse,
   QueryDatabaseParameters,
 } from '@notionhq/client/build/src/api-endpoints';
-import { getStatusFilter, isFullPage, notionPageToMDX } from '../notion/utils';
+import { getStatusFilter, notionPageToMDX } from '../notion/utils';
 import { richTextToPlain } from '../utils';
 import { copyFileToS3 } from '../s3Client';
 import { getAuthorDetails } from '../authors';
