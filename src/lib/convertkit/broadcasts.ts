@@ -1,9 +1,11 @@
 // import dummyBroadcasts from './dummyBroadcasts';
 const CK_URL = 'https://api.kit.com/v4';
 
-const fetchCK = (path: string) => {
+const fetchCK = (path: string, init: RequestInit = {}) => {
   return fetch(`${CK_URL}/${path}`, {
+    ...init,
     headers: {
+      ...init.headers,
       'X-Kit-Api-Key': process.env.KIT_API_KEY || '',
     },
   });
@@ -11,7 +13,9 @@ const fetchCK = (path: string) => {
 
 const listBroadcasts = async (): Promise<Broadcast[]> => {
   try {
-    const response = await fetchCK('/broadcasts');
+    const response = await fetchCK('/broadcasts', {
+      next: { revalidate: 3600 }, // 1 hour
+    });
     const data = await response.json();
     return data?.broadcasts || [];
   } catch (e) {
