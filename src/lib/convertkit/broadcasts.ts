@@ -2,6 +2,7 @@
 const CK_URL = 'https://api.kit.com/v4';
 
 const fetchCK = (path: string, init: RequestInit = {}) => {
+  console.log(`${CK_URL}/${path}`);
   return fetch(`${CK_URL}/${path}`, {
     ...init,
     headers: {

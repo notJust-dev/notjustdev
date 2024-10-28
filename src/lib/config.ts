@@ -14,8 +14,8 @@ export const SOCIALS: { [k: string]: string } = {
 export const CONVERTKIT = {
   FORM_SRC: process.env.NEXT_PUBLIC_CONVERTKIT_FORM_SRC,
   FORM_ID: process.env.NEXT_PUBLIC_CONVERTKIT_FORM_ID,
-  subscribers: 40000,
-  subscribersUpdatedOn: '2024-03-01',
+  subscribers: 25986,
+  subscribersUpdatedOn: '2024-10-28',
   averageNewSubscribersPerDay: 50,
 };
 

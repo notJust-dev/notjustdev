@@ -4,6 +4,8 @@ import { getPublicBroadcasts } from '@/lib/convertkit/broadcasts';
 export default async function NewsletterIssue() {
   const broadcasts = await getPublicBroadcasts();
 
+  console.log(broadcasts[1]);
+
   return (
     <div className="flex flex-col gap-3">
       <h3 className="text-center my-5 text-3xl">notJust Newsletter Archive</h3>

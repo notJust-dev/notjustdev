@@ -14,7 +14,6 @@ export default async function NewsletterIssue({
   params: { id },
 }: NewsletterIssueProps) {
   const broadcast = await getBroadcast(id);
-
   if (!broadcast) {
     return <p>Not found!</p>;
   }

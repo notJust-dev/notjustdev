@@ -43,7 +43,8 @@ const Announcement = () => {
               React Native Mastery
             </b>
             <span className="text-gray-200 text-sm sm:text-base">
-              The Ultimate React Native and Expo Course 🚀
+              The Ultimate React Native and Expo Course. Launching{' '}
+              <b>November 26</b>
             </span>
           </div>
 

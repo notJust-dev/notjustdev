@@ -51,6 +51,14 @@ const Footer = ({ hideNewsletterForm = false }: FooterProps) => (
                 <Link href="/events" className="text-gray-300 my-2">
                   Events
                 </Link>
+
+                <Link
+                  href="https://notjusthack.com/"
+                  className="text-gray-300 my-2"
+                  target="_blank"
+                >
+                  notJust Hack
+                </Link>
               </div>
             </div>
 
