@@ -50,7 +50,7 @@ module.exports = {
       },
       {
         source: '/hack',
-        destination: '/events/notjust-hack-2023',
+        destination: 'https://www.notjusthack.com/',
         permanent: true,
       },
       {
