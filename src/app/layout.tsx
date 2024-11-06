@@ -1,6 +1,6 @@
+import Script from 'next/script';
 import { GtmNoscript, GtmScript } from '../components/GTM';
 import { SEO } from '../lib/config';
-import { SpeedInsights } from '@vercel/speed-insights/next';
 
 export const metadata = {
   title: SEO.title,
@@ -29,7 +29,10 @@ export default function RootLayout({
 
         {children}
 
-        <SpeedInsights />
+        <Script
+          src="https://cdn.paritydeals.com/banner.js"
+          strategy="lazyOnload"
+        />
       </body>
     </html>
   );

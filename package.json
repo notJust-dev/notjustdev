@@ -15,7 +15,6 @@
     "@notionhq/client": "^2.2.15",
     "@tailwindcss/aspect-ratio": "^0.4.2",
     "@types/mdast": "^3.0.12",
-    "@vercel/speed-insights": "^1.0.10",
     "cheerio": "^1.0.0-rc.12",
     "dayjs": "^1.11.9",
     "esbuild": "^0.17.19",
