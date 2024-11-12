@@ -58,7 +58,7 @@ export default async function Page({ params }: Props) {
       ></script>
       {/* TODO get url dynamically: Not sure if this "webflow.5bed71c6e.js" is dynamic or not */}
       <Script
-        src="https://assets-global.website-files.com/65cd13813bd3677534fa7c0b/js/webflow.5bed71c6e.js"
+        src="https://cdn.prod.website-files.com/65cd13813bd3677534fa7c0b/js/webflow.165c93b31.js"
         type="text/javascript"
       />
     </>
