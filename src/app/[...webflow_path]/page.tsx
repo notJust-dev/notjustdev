@@ -43,6 +43,14 @@ export default async function Page({ params }: Props) {
   const body = $(`body`).html();
   const bodyClass = $(`body`).attr('class');
 
+  // Use a regular expression to match the dynamic part in the src attribute
+  const scriptElement = $(
+    'script[src^="https://cdn.prod.website-files.com/65cd13813bd3677534fa7c0b/js/webflow."]',
+  );
+  const webflowJsSrc = scriptElement.length
+    ? scriptElement.attr('src')
+    : 'https://cdn.prod.website-files.com/65cd13813bd3677534fa7c0b/js/webflow.90d665a58.js';
+
   return (
     <>
       {head && parseHtml(head)}
@@ -56,11 +64,7 @@ export default async function Page({ params }: Props) {
         type="text/javascript"
         crossOrigin="anonymous"
       ></script>
-      {/* TODO get url dynamically: Not sure if this "webflow.5bed71c6e.js" is dynamic or not */}
-      <Script
-        src="https://cdn.prod.website-files.com/65cd13813bd3677534fa7c0b/js/webflow.165c93b31.js"
-        type="text/javascript"
-      />
+      <Script src={webflowJsSrc} type="text/javascript" />
     </>
   );
 }
