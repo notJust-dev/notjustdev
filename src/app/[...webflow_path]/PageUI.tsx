@@ -36,12 +36,10 @@ const parseOptions: HTMLReactParserOptions = {
         delete props.class;
       }
       return (
-        <Link href={href}>
-          <a {...props}>
-            {!!node.children &&
-              !!node.children.length &&
-              domToReact(node.children as DOMNode[], parseOptions)}
-          </a>
+        <Link href={href} {...props}>
+          {!!node.children &&
+            !!node.children.length &&
+            domToReact(node.children as DOMNode[], parseOptions)}
         </Link>
       );
     }

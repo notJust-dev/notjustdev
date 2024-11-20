@@ -11,13 +11,10 @@ type Props = {
 };
 
 const getWebflowUrl = (params: Props['params']) => {
-  // Use path to determine Webflow path
-  let url = params.webflow_path[0] || '';
-  // url = url.join(`/`);
-  if (url.charAt(0) !== `/`) {
-    url = `/${url}`;
-  }
-  return process.env.WEBFLOW_URL + url;
+  // Join all parts of the path into a single string
+  const url = params.webflow_path.join('/');
+
+  return `${process.env.WEBFLOW_URL}/${url}`;
 };
 
 const getWebflowHTML = async (url: string) => {
