@@ -40,17 +40,16 @@ const Announcement = () => {
             className={`transition-all flex flex-col items-center sm:items-start gap-1`}
           >
             <b className="text-lg sm:text-2xl bg-gradient-to-r from-primary to-yellow-100  inline-block text-transparent bg-clip-text">
-              React Native Mastery
+              React Native Mastery - Launched!
             </b>
             <span className="text-gray-200 text-sm sm:text-base">
-              The Ultimate React Native and Expo Course. Launching{' '}
-              <b>November 26</b>
+              Enroll Now with 20% Launch Discount
             </span>
           </div>
 
           <div className="hidden sm:block">
             <span className="shadow-md rounded-md font-bold text-lg py-3 px-7 text-custom-blue-500 bg-primary ">
-              Learn more
+              Enroll Now
             </span>
           </div>
         </div>
