@@ -43,7 +43,7 @@ const Announcement = () => {
               React Native Mastery - Launched!
             </b>
             <span className="text-gray-200 text-sm sm:text-base">
-              Enroll Now with 20% Launch Discount
+              Master React Native and Expo by building 7 real-world projects
             </span>
           </div>
 
