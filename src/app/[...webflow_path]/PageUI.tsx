@@ -6,6 +6,7 @@ import parseHtml, {
   Element,
 } from 'html-react-parser';
 import Link from 'next/link';
+import Script from 'next/script';
 
 // Determines if URL is internal or external
 function isUrlInternal(link: string) {
@@ -19,6 +20,16 @@ function isUrlInternal(link: string) {
     return false;
   }
   return true;
+}
+
+function generateBase64Id(text: string) {
+  const trimmed = text.trim();
+  const buffer = Buffer.from(trimmed, 'utf-8');
+  const encoded = buffer.toString('base64');
+
+  const sanitized = encoded.replace(/[^a-zA-Z0-9]/g, '');
+
+  return sanitized;
 }
 
 const parseOptions: HTMLReactParserOptions = {
@@ -41,6 +52,25 @@ const parseOptions: HTMLReactParserOptions = {
             !!node.children.length &&
             domToReact(node.children as DOMNode[], parseOptions)}
         </Link>
+      );
+    }
+
+    // Replace scripts
+    if (node.name === 'script') {
+      const { attribs = {}, children } = node;
+
+      if (attribs.src) {
+        return <Script src={attribs.src} />;
+      }
+
+      return (
+        <Script
+          id={`webflow_script_${generateBase64Id(
+            children[0].type === 'text' ? children[0].data : '',
+          )}`}
+        >
+          {children.map((child) => (child.type === 'text' ? child.data : ''))}
+        </Script>
       );
     }
   },
