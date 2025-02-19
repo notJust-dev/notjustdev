@@ -68,6 +68,11 @@ module.exports = {
         destination: 'https://bit.ly/3KrjgEz',
         permanent: false,
       },
+      {
+        source: '/02-25-business-card',
+        destination: 'https://www.notjust.dev/partnerships',
+        permanent: false,
+      },
     ];
   },
 };
