@@ -11,7 +11,7 @@ export async function GET() {
       (issue) => `
       <item>
         <title><![CDATA[${issue.subject}]]></title>
-        <link>https://www.notjust.dev/newsletter/${issue.id}</link>
+        <link>https://www.notjust.dev/newsletter/${issue.id}?utm_source=rss&utm_medium=feed&utm_campaign=newsletter</link>
         <guid>https://www.notjust.dev/newsletter/${issue.id}</guid>
         <pubDate>${new Date(issue.published_at).toUTCString()}</pubDate>
         <description><![CDATA[${
@@ -40,7 +40,7 @@ export async function GET() {
   <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
     <channel>
       <title>notJust.dev Feed</title>
-      <link>https://www.notjust.dev/</link>
+      <link>https://www.notjust.dev?utm_source=rss</link>
       <atom:link href="https://www.notjust.dev/rss.xml" rel="self" type="application/rss+xml"/>
 
       <description>React Native and mobile development news and tutorials</description>
