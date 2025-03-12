@@ -59,6 +59,11 @@ module.exports = {
         permanent: true,
       },
       {
+        source: '/club',
+        destination: 'https://www.youtube.com/channel/UCYSa_YLoJokZAwHhlwJntIA/join',
+        permanent: true,
+      },
+      {
         source: '/accelerator',
         destination: '/incubator',
         permanent: true,
