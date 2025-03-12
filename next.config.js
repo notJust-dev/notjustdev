@@ -54,6 +54,11 @@ module.exports = {
         permanent: true,
       },
       {
+        source: '/discord',
+        destination: 'https://discord.gg/VpURUN2',
+        permanent: true,
+      },
+      {
         source: '/accelerator',
         destination: '/incubator',
         permanent: true,
