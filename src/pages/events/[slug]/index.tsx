@@ -73,7 +73,7 @@ function EventPage({ event }: Props) {
             <>
               <span className="mx-3">·</span>
               <Link
-                href={`/pro`}
+                href={`/club`}
                 className={`bg-primary text-gray-900  pl-2 pr-3 py-1  rounded text-xs font-bold font-mono`}
               >
                 <span className="opacity-60 mr-1 font-normal">#</span>

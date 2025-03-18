@@ -71,11 +71,8 @@ const Footer = ({ hideNewsletterForm = false }: FooterProps) => (
                 >
                   React Native Mastery
                 </Link>
-                <Link href="/pro" className="text-gray-300 my-2">
-                  PRO Community
-                </Link>
-                <Link href="/incubator" className="text-gray-300 my-2">
-                  🚀 Incubator
+                <Link href="/club" className="text-gray-300 my-2">
+                  notJust.Club
                 </Link>
                 <Link href="/testimonials" className="text-gray-300 my-2">
                   Testimonials

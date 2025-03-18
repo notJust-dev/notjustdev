@@ -60,13 +60,6 @@ const Navbar = () => {
 
             <ActiveLink href="/blog" title="Blog" />
             <ActiveLink href="/newsletter" title="Newsletter" />
-
-            {/* <Button
-              text="Become PRO"
-              href="/pro"
-              type="outline"
-              className="font-normal"
-            /> */}
           </div>
         </nav>
       </MaxWidthWrapper>

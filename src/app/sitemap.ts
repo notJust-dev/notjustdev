@@ -50,9 +50,6 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       url: `${root}/links`,
     },
     {
-      url: `${root}/pro`,
-    },
-    {
       url: `${root}/pro-courses`,
     },
     {
