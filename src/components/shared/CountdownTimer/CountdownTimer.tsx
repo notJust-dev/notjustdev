@@ -1,4 +1,6 @@
-import React, { useEffect, useState } from 'react';
+'use client';
+
+import { useEffect, useState } from 'react';
 
 const Number = ({ value, label }: { value: number; label: string }) => (
   <div className="m-1 md:m-5 flex-1">

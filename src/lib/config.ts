@@ -19,6 +19,8 @@ export const CONVERTKIT = {
 
 export const SEO = {
   title: 'notJust Development',
+  description:
+    'Learn React Native & Expo with project-based tutorials designed for beginners and web developers moving to mobile.',
   author: 'Vadim Savin',
   keywords: 'React Native, React, Typescript, AWS Amplify',
   hostname: 'https://www.notjust.dev',

@@ -1,4 +1,6 @@
-import React, { useRef, ReactNode } from 'react';
+'use client';
+
+import { useRef, ReactNode } from 'react';
 import useScript from '../../../hooks/useScript';
 
 interface IOptInForm {

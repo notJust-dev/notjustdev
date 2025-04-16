@@ -5,6 +5,7 @@ import { inter, spaceGrotesk } from '@/styles/fonts';
 
 export const metadata = {
   title: SEO.title,
+  description: SEO.description,
 };
 
 export default function RootLayout({
