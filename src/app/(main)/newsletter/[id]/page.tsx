@@ -7,12 +7,12 @@ import { Metadata } from 'next';
 dayjs.extend(RelativeTime);
 
 type NewsletterIssueProps = {
-  params: { id: number };
+  params: Promise<{ id: number }>;
 };
 
-export default async function NewsletterIssue({
-  params: { id },
-}: NewsletterIssueProps) {
+export default async function NewsletterIssue(props: NewsletterIssueProps) {
+  const { id } = await props.params;
+
   const broadcast = await getBroadcast(id);
   if (!broadcast) {
     return <p>Not found!</p>;
@@ -36,9 +36,13 @@ export default async function NewsletterIssue({
   );
 }
 
-export async function generateMetadata({
-  params: { id },
-}: NewsletterIssueProps): Promise<Metadata> {
+export async function generateMetadata(
+  props: NewsletterIssueProps,
+): Promise<Metadata> {
+  const params = await props.params;
+
+  const { id } = params;
+
   const broadcast = await getBroadcast(id);
   const title = broadcast?.subject || 'Newsletter broadcast';
   return {

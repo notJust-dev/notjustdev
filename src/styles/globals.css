@@ -1,11 +1,11 @@
 /* ./styles/globals.css */
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
-
 @import url('./fonts.css');
 @import url('./mdx.css');
 @import url('./newsletter.css');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
 html,
 body {

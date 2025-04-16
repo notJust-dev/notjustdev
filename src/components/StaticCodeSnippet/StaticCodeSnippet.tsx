@@ -13,7 +13,9 @@ const StaticCodeSnippet = ({ children }: Props) => {
     );
   }
 
+  // @ts-expect-error - children is a valid element
   const code = children.props.children;
+  // @ts-expect-error - className is a valid prop
   const language = children.props.className?.replace('language-', '').trim();
 
   if (!code) {

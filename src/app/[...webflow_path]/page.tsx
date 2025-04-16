@@ -3,32 +3,33 @@ import parseHtml from 'html-react-parser';
 import { Metadata } from 'next';
 import dynamic from 'next/dynamic';
 import Script from 'next/script';
-
-const PageUI = dynamic(() => import('./PageUI'), { ssr: false });
+const PageUI = dynamic(() => import('./PageUI'), { ssr: !!false });
 
 type Props = {
-  params: { webflow_path: string[] };
+  params: Promise<{ webflow_path: string[] }>;
 };
 
-const getWebflowUrl = (params: Props['params']) => {
+const getWebflowUrl = (webflow_path: string[]) => {
   // Join all parts of the path into a single string
-  const url = params.webflow_path.join('/');
+  const url = webflow_path.join('/');
 
   return `${process.env.WEBFLOW_URL}/${url}`;
 };
 
 const getWebflowHTML = async (url: string) => {
   // Fetch HTML
-  const res = await fetch(url, { next: { tags: ['webflow_page'] } }).catch(
-    (err) => {
-      console.error(err);
-    },
-  );
+  const res = await fetch(url, {
+    next: { tags: ['webflow_page'] },
+    cache: 'force-cache',
+  }).catch((err) => {
+    console.error(err);
+  });
   return res?.text();
 };
 
-export default async function Page({ params }: Props) {
-  const fetchUrl = getWebflowUrl(params);
+export default async function Page(props: Props) {
+  const params = await props.params;
+  const fetchUrl = getWebflowUrl(params.webflow_path);
   const html = await getWebflowHTML(fetchUrl);
   // Parse HTML with Cheerio
   const $ = load(html || '');
@@ -66,10 +67,11 @@ export default async function Page({ params }: Props) {
   );
 }
 
-export async function generateMetadata({ params }: Props): Promise<Metadata> {
+export async function generateMetadata(props: Props): Promise<Metadata> {
+  const params = await props.params;
   const meta: Metadata = {};
 
-  const fetchUrl = getWebflowUrl(params);
+  const fetchUrl = getWebflowUrl(params.webflow_path);
   const html = await getWebflowHTML(fetchUrl);
 
   const $ = load(html || '');

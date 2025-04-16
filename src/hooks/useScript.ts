@@ -4,7 +4,7 @@ const useScript = (
   src: string,
   id: string,
   data: { [k: string]: string } = {},
-  mountOnRef?: RefObject<HTMLDivElement>,
+  mountOnRef?: RefObject<HTMLDivElement | null>,
 ) => {
   useEffect(() => {
     if (mountOnRef?.current?.hasChildNodes()) {
