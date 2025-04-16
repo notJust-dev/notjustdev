@@ -5,6 +5,7 @@ const fetchCK = (path: string, init: RequestInit = {}) => {
   console.log(`${CK_URL}/${path}`);
   return fetch(`${CK_URL}/${path}`, {
     ...init,
+    cache: 'force-cache',
     headers: {
       ...init.headers,
       'X-Kit-Api-Key': process.env.KIT_API_KEY || '',
