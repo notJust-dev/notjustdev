@@ -25,6 +25,10 @@ module.exports = {
         primary: '#ffe031',
         secondary: '#8bd2bd',
       },
+      fontFamily: {
+        'space-grotesk': ['var(--font-space-grotesk)'],
+        inter: ['var(--font-inter)'],
+      },
     },
   },
   plugins: [require('@tailwindcss/aspect-ratio')],

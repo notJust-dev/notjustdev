@@ -1,6 +1,7 @@
 import Script from 'next/script';
 import { GtmNoscript, GtmScript } from '../components/GTM';
 import { SEO } from '../lib/config';
+import { inter, spaceGrotesk } from '@/styles/fonts';
 
 export const metadata = {
   title: SEO.title,
@@ -14,6 +15,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
+      className={`${spaceGrotesk.variable} ${inter.variable}`}
       // TODO this will probably break webflow animations and interactions later.
       // The page id should be dynamically
       // data-wf-domain="notjust-dev.webflow.io"
