@@ -52,9 +52,9 @@ const ProjectCard = ({
       </div>
 
       <div className="flex flex-1 flex-col justify-center p-5 z-10 ">
-        <h1 className="text-center md:text-left group-hover:text-secondary duration-500">
+        <h3 className="text-center md:text-left group-hover:text-secondary duration-500">
           {project.title}
-        </h1>
+        </h3>
         {/* <div className="mb-3">
           <Tags tags={project.tags} />
         </div> */}

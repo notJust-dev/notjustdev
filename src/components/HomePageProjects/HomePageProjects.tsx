@@ -14,7 +14,7 @@ export default function HomePageProjects({ project, courses }: Props) {
       <div className="relative py-10">
         <MaxWidthWrapper>
           <section className="flex flex-col items-center">
-            <h1>Free Courses</h1>
+            <h2>Free Courses</h2>
             <p className="text-gray-500 text-center">
               &quot;You don&apos;t learn to walk by following rules. You learn
               by doing, and by falling over.&quot; ― Richard Branson

@@ -31,9 +31,9 @@ const BlogCard = ({ post, priority = false }: BlogCardProps) => {
         </div>
       )}
       <div className="p-3 flex flex-col h-full">
-        <h2 className="my-2 w-full font-medium text-center md:text-left group-hover:text-secondary duration-500">
+        <h3 className="my-2 w-full font-medium text-center md:text-left group-hover:text-secondary duration-500">
           {post.title}
-        </h2>
+        </h3>
         <p className="my-2 text-center md:text-left font-light w-full text-gray-300">
           {post.description?.slice(0, MAX_DESCRIPTION_LENGTH)}
           {post.description?.length > MAX_DESCRIPTION_LENGTH && '...'}
