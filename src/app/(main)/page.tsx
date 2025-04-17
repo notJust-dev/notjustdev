@@ -1,4 +1,3 @@
-import Testimonials from '../../components/Testimonials';
 import TechLogos from '../../components/TechLogos';
 import AboutUsSection from '../../components/AboutUsSection';
 import HeroSection from '../../components/HeroSection';
@@ -43,8 +42,6 @@ export default async function Home() {
 
       {/* Projects */}
       <HomePageProjects project={projects} courses={courses} />
-
-      <Testimonials />
 
       <HomePageEvents events={events} />
 

@@ -75,7 +75,7 @@ const Footer = ({ hideNewsletterForm = false }: FooterProps) => (
                   notJust.Club
                 </Link>
                 <Link href="/testimonials" className="text-gray-300 my-2">
-                  Testimonials
+                  Wall of love
                 </Link>
                 <Link href="/partnerships" className="text-gray-300 my-2">
                   Advertise
