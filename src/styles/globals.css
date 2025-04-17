@@ -97,4 +97,8 @@ h3 {
   .text-pill {
     @apply border border-primary rounded-full px-4 py-2 text-sm text-white-200;
   }
+
+  .text-primary-gradient {
+    @apply text-transparent from-primary to-yellow-100 bg-clip-text bg-gradient-to-r;
+  }
 }

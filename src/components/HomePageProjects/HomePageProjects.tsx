@@ -5,10 +5,9 @@ import ProjectCard from '../ProjectCard';
 
 interface Props {
   project: PostMeta[];
-  courses: PostMeta[];
 }
 
-export default function HomePageProjects({ project, courses }: Props) {
+export default function HomePageProjects({ project }: Props) {
   return (
     <>
       <div className="relative py-10">
@@ -34,29 +33,7 @@ export default function HomePageProjects({ project, courses }: Props) {
           </section>
         </MaxWidthWrapper>
       </div>
-      <div className="relative py-10">
-        <MaxWidthWrapper>
-          <section className="flex flex-col items-center">
-            <h1>Premium Courses</h1>
-            <p className="text-gray-500 text-center">
-              For determined developers that want to get to the next level as a{' '}
-              <b>Full Stack Mobile Developer</b>
-            </p>
-
-            <div className="my-5">
-              {courses.map((course, index) => (
-                <ProjectCard
-                  project={course}
-                  key={course.slug}
-                  mirrored={index % 2 === 1}
-                />
-              ))}
-            </div>
-
-            {/* <Button text="See all projects" href="/projects" type="secondary" /> */}
-          </section>
-        </MaxWidthWrapper>
-      </div>
+   
     </>
   );
 }

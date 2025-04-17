@@ -14,7 +14,7 @@ function HeroSection() {
             <span className="text-pill whitespace-pre">🌱{'  '}Grow</span>
           </div>
 
-          <h1 className="text-6xl font-semibold text-transparent from-primary to-yellow-100 bg-clip-text bg-gradient-to-r">
+          <h1 className="text-6xl font-semibold text-primary-gradient">
             Build apps with confidence
           </h1>
           <p className="text-xl text-white-100 leading-relaxed">
