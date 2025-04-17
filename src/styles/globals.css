@@ -35,7 +35,7 @@ h1 {
     Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans,
     sans-serif;
 
-  @apply text-2xl my-3 font-bold;
+  @apply text-3xl my-3 font-bold;
 }
 
 h2 {
@@ -43,7 +43,7 @@ h2 {
     Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans,
     sans-serif;
 
-  @apply text-xl;
+  @apply text-2xl;
 }
 
 h3 {
@@ -51,7 +51,7 @@ h3 {
     Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans,
     sans-serif;
 
-  @apply text-lg;
+  @apply text-xl;
 }
 
 .icon.icon-link {
