@@ -5,20 +5,21 @@ import ProjectCard from '../ProjectCard';
 
 interface Props {
   project: PostMeta[];
-  courses: PostMeta[];
 }
 
-export default function HomePageProjects({ project, courses }: Props) {
+export default function HomePageProjects({ project }: Props) {
   return (
     <>
       <div className="relative py-10">
         <MaxWidthWrapper>
-          <section className="flex flex-col items-center">
-            <h2>Free Courses</h2>
-            <p className="text-gray-500 text-center">
-              &quot;You don&apos;t learn to walk by following rules. You learn
-              by doing, and by falling over.&quot; ― Richard Branson
-            </p>
+          <section className="flex flex-col flex-start">
+            <div className="flex flex-col gap-8 items-start">
+              <h2 className="text-5xl text-primary-gradient">Projects</h2>
+              <p className="text-white-100 text-xl">
+                Follow along step-by-step and build real apps with React Native
+                & Expo.
+              </p>
+            </div>
 
             <div className="my-5">
               {project.map((course, index) => (
@@ -30,30 +31,12 @@ export default function HomePageProjects({ project, courses }: Props) {
               ))}
             </div>
 
-            <Button text="See all projects" href="/projects" type="secondary" />
-          </section>
-        </MaxWidthWrapper>
-      </div>
-      <div className="relative py-10">
-        <MaxWidthWrapper>
-          <section className="flex flex-col items-center">
-            <h1>Premium Courses</h1>
-            <p className="text-gray-500 text-center">
-              For determined developers that want to get to the next level as a{' '}
-              <b>Full Stack Mobile Developer</b>
-            </p>
-
-            <div className="my-5">
-              {courses.map((course, index) => (
-                <ProjectCard
-                  project={course}
-                  key={course.slug}
-                  mirrored={index % 2 === 1}
-                />
-              ))}
-            </div>
-
-            {/* <Button text="See all projects" href="/projects" type="secondary" /> */}
+            <Button
+              text="See all projects"
+              href="/projects"
+              type="secondary"
+              className="self-center"
+            />
           </section>
         </MaxWidthWrapper>
       </div>
