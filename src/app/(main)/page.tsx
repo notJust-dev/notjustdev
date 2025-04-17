@@ -7,7 +7,7 @@ import courses from '../../data/courses';
 import HomePageEvents from '../../components/EventsOverview/EventsOverview';
 import { getUpcomingEvents } from '../../lib/events';
 import SenjaWidget from '@/components/SenjaWidget';
-
+import Image from 'next/image';
 const BLOG_POSTS_ON_HOME_PAGE = 4;
 const PROJECTS_ON_HOME_PAGE = 2;
 const EVENTS_ON_HOME_PAGE = 2;
@@ -66,6 +66,27 @@ export default async function Home() {
             <span className="text-xl text-white-200 ">{stat.label}</span>
           </div>
         ))}
+      </div>
+
+      <div>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+          <div className="aspect-[2/1] relative">
+            <Image
+              src="/images/testimonials/charlie-cheever.avif"
+              alt="Testimonial from Charlie Cheever"
+              fill
+              className="object-cover rounded-lg"
+            />
+          </div>
+          <div className="aspect-[2/1] relative">
+            <Image
+              src="/images/testimonials/krzysztof-magiera.avif"
+              alt="Testimonial from Krzysztof Magiera"
+              fill
+              className="object-cover rounded-lg"
+            />
+          </div>
+        </div>
       </div>
 
       {/* Projects */}
