@@ -12,12 +12,14 @@ export default function HomePageProjects({ project }: Props) {
     <>
       <div className="relative py-10">
         <MaxWidthWrapper>
-          <section className="flex flex-col items-center">
-            <h2>Free Courses</h2>
-            <p className="text-gray-500 text-center">
-              &quot;You don&apos;t learn to walk by following rules. You learn
-              by doing, and by falling over.&quot; ― Richard Branson
-            </p>
+          <section className="flex flex-col flex-start">
+            <div className="flex flex-col gap-8 items-start">
+              <h2 className="text-5xl text-primary-gradient">Projects</h2>
+              <p className="text-white-100 text-xl">
+                Follow along step-by-step and build real apps with React Native
+                & Expo.
+              </p>
+            </div>
 
             <div className="my-5">
               {project.map((course, index) => (
@@ -29,11 +31,15 @@ export default function HomePageProjects({ project }: Props) {
               ))}
             </div>
 
-            <Button text="See all projects" href="/projects" type="secondary" />
+            <Button
+              text="See all projects"
+              href="/projects"
+              type="secondary"
+              className="self-center"
+            />
           </section>
         </MaxWidthWrapper>
       </div>
-   
     </>
   );
 }
