@@ -16,9 +16,9 @@ function OptInForm({ formId, formSrc, title, children }: IOptInForm) {
   useScript(formSrc, formId, { uid: formId }, scriptRef);
 
   return (
-    <div className="bg-gray-900 shadow-lg p-3 md:p-5 my-2 max-w-5xl mr-auto ml-auto">
-      <div className="mb-5 md:mx-3">
-        <h2 className="text-2xl">{title}</h2>
+    <div className="border border-white-100/25 rounded-xl shadow-lg p-3 md:p-5 my-2 max-w-5xl mr-auto ml-auto">
+      <div className="md:mx-3 space-y-2">
+        <h2 className="text-2xl font-medium">{title}</h2>
         <p>{children}</p>
       </div>
 
