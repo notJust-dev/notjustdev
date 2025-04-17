@@ -1,9 +1,9 @@
 .button {
-  @apply inline-block relative py-2 px-7 rounded text-center;
+  @apply inline-block relative py-4 px-8 rounded-xl text-center text-lg leading-none font-medium font-space-grotesk;
 }
 
 .primary {
-  @apply bg-primary text-gray-900;
+  @apply bg-primary text-gray-900 shadow-primary/30 hover:shadow-lg hover:shadow-primary/50 transition-all;
 }
 
 .secondary {
@@ -15,7 +15,7 @@
 }
 
 .outline {
-  @apply text-primary border-primary border;
+  @apply text-primary border-primary border-2 hover:bg-primary hover:text-gray-900 transition-all;
 }
 
 .xl {
