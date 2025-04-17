@@ -3,7 +3,9 @@ import dynamic from 'next/dynamic';
 import { Config } from 'react-player';
 
 // https://github.com/cookpete/react-player/issues/1474#issuecomment-1184645105
-const ReactPlayer = dynamic(() => import('react-player/lazy'), { ssr: false });
+const ReactPlayer = dynamic(() => import('react-player/lazy'), {
+  ssr: !!false,
+});
 
 interface VideoPlayerProps {
   url: string;

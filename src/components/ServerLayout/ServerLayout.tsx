@@ -1,3 +1,4 @@
+// TODO: Probably not needed. Use layout files instead.
 import React from 'react';
 import Head from 'next/head';
 import Navbar from '../Navbar';

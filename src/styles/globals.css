@@ -1,5 +1,4 @@
 /* ./styles/globals.css */
-@import url('./fonts.css');
 @import url('./mdx.css');
 @import url('./newsletter.css');
 
@@ -12,7 +11,7 @@ body {
   padding: 0;
   margin: 0;
   background-color: #0e0b00;
-  font-family: Roboto, -apple-system, BlinkMacSystemFont, Segoe UI, Oxygen,
+  font-family: Inter, -apple-system, BlinkMacSystemFont, Segoe UI, Oxygen,
     Ubuntu, Cantarell, Fira Sans, Droid Sans, sans-serif;
 
   @apply text-white;
@@ -32,24 +31,27 @@ p {
 }
 
 h1 {
-  font-family: Helvetica Neue Cyr, -apple-system, BlinkMacSystemFont, Segoe UI,
-    Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, sans-serif;
+  font-family: var(--font-space-grotesk), -apple-system, BlinkMacSystemFont,
+    Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans,
+    sans-serif;
 
-  @apply text-2xl my-3 font-bold;
+  @apply text-4xl my-3 font-bold;
 }
 
 h2 {
-  font-family: Helvetica Neue Cyr, -apple-system, BlinkMacSystemFont, Segoe UI,
-    Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, sans-serif;
+  font-family: var(--font-space-grotesk), -apple-system, BlinkMacSystemFont,
+    Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans,
+    sans-serif;
 
-  @apply text-xl;
+  @apply text-3xl font-bold;
 }
 
 h3 {
-  font-family: Helvetica Neue Cyr, -apple-system, BlinkMacSystemFont, Segoe UI,
-    Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, sans-serif;
+  font-family: var(--font-space-grotesk), -apple-system, BlinkMacSystemFont,
+    Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans,
+    sans-serif;
 
-  @apply text-lg;
+  @apply text-2xl font-semibold;
 }
 
 .icon.icon-link {

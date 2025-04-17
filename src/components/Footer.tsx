@@ -14,7 +14,7 @@ type FooterProps = {
 const Footer = ({ hideNewsletterForm = false }: FooterProps) => (
   <footer className="mt-auto">
     {!hideNewsletterForm && <NewsletterForm />}
-    <div className="bg-custom-blue-500 mt-10">
+    <div className="border-t border-white-100/25 mt-10">
       <MaxWidthWrapper>
         <div className="py-10 flex flex-col md:flex-row">
           <div className="md:w-1/3 mb-7 md:mr-7">
@@ -63,7 +63,7 @@ const Footer = ({ hideNewsletterForm = false }: FooterProps) => (
             </div>
 
             <div>
-              <h2 className="text-white-400 mt-2 font-bold">Products</h2>
+              <h2 className=" mt-2 font-bold">Products</h2>
               <div className="flex flex-col">
                 <Link
                   href="/react-native-mastery"
@@ -75,7 +75,7 @@ const Footer = ({ hideNewsletterForm = false }: FooterProps) => (
                   notJust.Club
                 </Link>
                 <Link href="/testimonials" className="text-gray-300 my-2">
-                  Testimonials
+                  Wall of love
                 </Link>
                 <Link href="/partnerships" className="text-gray-300 my-2">
                   Advertise
@@ -84,7 +84,7 @@ const Footer = ({ hideNewsletterForm = false }: FooterProps) => (
             </div>
 
             {/* <div>
-              <h2 className="text-white-400 mt-2 font-bold">
+              <h2 className=" mt-2 font-bold">
                 Project Tutorials
               </h2>
               <div className="flex flex-col">
@@ -105,7 +105,7 @@ const Footer = ({ hideNewsletterForm = false }: FooterProps) => (
             </div> */}
 
             <div>
-              <h2 className="text-white-400 mt-2 font-bold">On Social</h2>
+              <h2 className=" mt-2 font-bold">On Social</h2>
               <div className="flex flex-col">
                 {Object.keys(SOCIALS).map((social) => (
                   <a
@@ -125,7 +125,7 @@ const Footer = ({ hideNewsletterForm = false }: FooterProps) => (
       </MaxWidthWrapper>
     </div>
 
-    <p className="text-center p-5 text-gray-400">
+    <p className="text-center p-5 text-gray-300">
       Copyright © 2025 notJust.dev All rights reserved.
     </p>
   </footer>

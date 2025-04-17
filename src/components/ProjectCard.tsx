@@ -25,7 +25,7 @@ const ProjectCard = ({
       className="relative w-full my-3 flex flex-col items-stretch md:flex-row cursor-pointer group"
     >
       <div
-        className={`absolute ${float}-0 bottom-0 bg-gray-800 w-full md:w-2/3 h-2/3 md:h-full rounded-md`}
+        className={`absolute ${float}-0 bottom-0 border border-white-100/25 w-full md:w-2/3 h-2/3 md:h-full rounded-3xl`}
       />
 
       <div
@@ -52,9 +52,9 @@ const ProjectCard = ({
       </div>
 
       <div className="flex flex-1 flex-col justify-center p-5 z-10 ">
-        <h1 className="text-center md:text-left group-hover:text-secondary duration-500">
+        <h3 className="text-center md:text-left group-hover:text-secondary duration-500">
           {project.title}
-        </h1>
+        </h3>
         {/* <div className="mb-3">
           <Tags tags={project.tags} />
         </div> */}
