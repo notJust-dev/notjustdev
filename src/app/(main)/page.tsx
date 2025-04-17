@@ -1,4 +1,3 @@
-import TechLogos from '../../components/TechLogos';
 import AboutUsSection from '../../components/AboutUsSection';
 import HeroSection from '../../components/HeroSection';
 import HomePageProjects from '../../components/HomePageProjects';
@@ -14,6 +13,21 @@ const PROJECTS_ON_HOME_PAGE = 2;
 const EVENTS_ON_HOME_PAGE = 2;
 
 export const revalidate = 10;
+
+const stats = [
+  {
+    value: '1000',
+    label: 'Students',
+  },
+  {
+    value: '130K',
+    label: 'Youtube Subscribers',
+  },
+  {
+    value: '20M',
+    label: 'Tutorial Views',
+  },
+];
 
 export default async function Home() {
   const [latestPosts, projects, events] = await Promise.all([
@@ -38,7 +52,21 @@ export default async function Home() {
       <SenjaWidget id="fb91bb4e-be55-4ca9-a855-119d0bafcfb0" />
 
       {/* Tech stack */}
-      <TechLogos />
+      {/* <TechLogos /> */}
+
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-8 py-20 min-h-[500px] items-center ">
+        {stats.map((stat) => (
+          <div
+            key={stat.label}
+            className="flex flex-col items-center space-y-2"
+          >
+            <span className="text-6xl md:text-8xl font-space-grotesk font-black text-transparent [text-stroke:2px_#FF4D4D] [-webkit-text-stroke:2px_#FFE030]">
+              {stat.value}
+            </span>
+            <span className="text-xl text-white-200 ">{stat.label}</span>
+          </div>
+        ))}
+      </div>
 
       {/* Projects */}
       <HomePageProjects project={projects} courses={courses} />
