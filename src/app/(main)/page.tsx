@@ -8,6 +8,7 @@ import { getAllPosts } from '../../lib/notion/notion';
 import courses from '../../data/courses';
 import HomePageEvents from '../../components/EventsOverview/EventsOverview';
 import { getUpcomingEvents } from '../../lib/events';
+import SenjaWidget from '@/components/SenjaWidget';
 
 const BLOG_POSTS_ON_HOME_PAGE = 4;
 const PROJECTS_ON_HOME_PAGE = 2;
@@ -34,6 +35,8 @@ export default async function Home() {
     <main className="grid gap-12">
       {/* Hero */}
       <HeroSection />
+
+      <SenjaWidget id="fb91bb4e-be55-4ca9-a855-119d0bafcfb0" />
 
       {/* Tech stack */}
       <TechLogos />
