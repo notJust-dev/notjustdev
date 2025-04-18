@@ -22,7 +22,6 @@ export default function Tag({
 }) {
   return (
     <Link
-      onClick={(e) => e.stopPropagation()}
       href={`/tag/${encodeURIComponent(tag.name)}`}
       className={`${colors[tag.color]} ${
         dimmed && 'opacity-50'

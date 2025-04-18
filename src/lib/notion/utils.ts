@@ -6,10 +6,6 @@ import { NotionToMarkdown } from 'notion-to-md';
 import { processVideos } from '../utils/videos';
 import { copyFileToS3 } from '../s3Client';
 import { buildToC, shiftHeadings } from '../utils/tableOfContents';
-import { serialize } from 'next-mdx-remote/serialize';
-import rehypeSlug from 'rehype-slug';
-import rehypeAutolinkHeadings from 'rehype-autolink-headings';
-import { type MDXRemoteSerializeResult } from 'next-mdx-remote';
 
 const { NOTION_KEY } = process.env;
 const MD_IMAGE_REGEX = /!\[(?<alt>[^\]]*)\]\((?<url>.*?)(?=\"|\))\)/g;
@@ -74,18 +70,18 @@ export const getStatusFilter = () => {
 
 export const notionPageToMDX = async (
   page: PageObjectResponse,
-): Promise<{ content: MDXRemoteSerializeResult; toc: ToCHeading[] }> => {
+): Promise<{ content: string; toc: ToCHeading[] }> => {
   let mdBlocks = await n2m.pageToMarkdown(page.id);
 
   mdBlocks = await Promise.all(mdBlocks.map(processVideos));
   if (!mdBlocks.length) {
     return {
-      content: await serialize(''),
+      content: '',
       toc: [],
     };
   }
 
-  let mdString = n2m
+  let content = n2m
     .toMarkdownString(mdBlocks)
     .parent.replaceAll('“', '"')
     .replaceAll('”', '"');
@@ -93,27 +89,10 @@ export const notionPageToMDX = async (
   // TODO them based on blocks, similar to videos?
   // There is also custom transformers
   // https://github.com/souvikinator/notion-to-md/blob/master/README.md#custom-transformers
-  mdString = await downloadAndReplaceMDXImages(mdString);
+  content = await downloadAndReplaceMDXImages(content);
   // TODO maybe this should be a rehype plugin?
-  mdString = shiftHeadings(mdString);
-  const toc = buildToC(mdString);
-
-  const content = await serialize(mdString, {
-    mdxOptions: {
-      rehypePlugins: [
-        rehypeSlug,
-        () =>
-          rehypeAutolinkHeadings({
-            behavior: 'append',
-            properties: {
-              className: 'heading-copy-link',
-              'aria-hidden': 'true',
-              tabIndex: -1,
-            },
-          }),
-      ],
-    },
-  });
+  content = shiftHeadings(content);
+  const toc = buildToC(content);
 
   return { content, toc };
 };

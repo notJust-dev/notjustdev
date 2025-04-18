@@ -1,5 +1,3 @@
-import React from 'react';
-
 interface MaxWidthWrapperProps {
   children: React.ReactNode;
   maxWidth?: number;

@@ -1,5 +1,5 @@
 .link {
-  @apply block mt-4 lg:inline-block lg:mt-0 text-white-100 hover:text-primary mx-4 font-space-grotesk font-medium;
+  @apply block lg:inline-block  text-white-100 hover:text-primary font-space-grotesk font-medium;
 }
 
 .isActive {

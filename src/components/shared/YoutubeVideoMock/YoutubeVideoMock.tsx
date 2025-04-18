@@ -1,5 +1,3 @@
-import React from 'react';
-
 const YtIcon = () => (
   <svg
     version="1.1"

@@ -39,7 +39,6 @@ const EventCard = ({ event, priority = false }: EventCardProps) => {
         <div className="my-2">
           {event.isPro && (
             <Link
-              onClick={(e) => e.stopPropagation()}
               href={`/club`}
               className={`bg-primary text-gray-900  pl-2 pr-3 py-1  rounded text-xs font-bold font-mono`}
             >
