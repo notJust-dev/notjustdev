@@ -212,9 +212,7 @@ export default function PostPage({
           <aside className="flex-col flex-1 py-5 sticky top-0 self-start max-h-screen overflow-scroll no-scrollbar hidden lg:block">
             <div className="flex flex-col gap-5">
               <PostLinks post={post} />
-              {post.toc && (
-                <TableOfContents toc={post.toc} activeHeadingId={'1'} />
-              )}
+              {post.toc && <TableOfContents toc={post.toc} />}
             </div>
           </aside>
         </div>
