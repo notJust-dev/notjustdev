@@ -1,4 +1,3 @@
-import React from 'react';
 // import LiteYouTubeEmbed from 'react-lite-youtube-embed';
 
 interface Props {

@@ -1,5 +1,4 @@
-/* eslint-disable react/jsx-key */
-import React, { isValidElement } from 'react';
+import { isValidElement } from 'react';
 import { Highlight, themes } from 'prism-react-renderer';
 
 interface Props {
@@ -23,7 +22,11 @@ const StaticCodeSnippet = ({ children }: Props) => {
   }
 
   return (
-    <Highlight code={code} language={language} theme={themes.vsDark}>
+    <Highlight
+      code={code}
+      language={language}
+      theme={themes.gruvboxMaterialDark}
+    >
       {({ className, style, tokens, getLineProps, getTokenProps }) => (
         <div className="relative">
           {language && (
@@ -39,9 +42,9 @@ const StaticCodeSnippet = ({ children }: Props) => {
             style={style}
           >
             {tokens.slice(0, -1).map((line, i) => (
-              <div {...getLineProps({ line, key: i })}>
+              <div key={i} {...getLineProps({ line, key: i })}>
                 {line.map((token, key) => (
-                  <span {...getTokenProps({ token, key })} />
+                  <span key={key} {...getTokenProps({ token, key })} />
                 ))}
               </div>
             ))}

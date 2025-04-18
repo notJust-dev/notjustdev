@@ -1,6 +1,5 @@
 /* eslint-disable react/jsx-key */
-/* eslint-disable react/jsx-props-no-spreading */
-import React, { ReactNode } from 'react';
+import { ReactNode } from 'react';
 import { Highlight, themes } from 'prism-react-renderer';
 
 interface Props {
@@ -11,7 +10,7 @@ const InlineCodeSnippet = ({ children }: Props) => (
   <Highlight
     code={children as string}
     language="javascript"
-    theme={themes.vsDark}
+    theme={themes.gruvboxMaterialDark}
   >
     {({ className, style, tokens, getLineProps, getTokenProps }) => {
       const line = tokens[0];
@@ -22,7 +21,7 @@ const InlineCodeSnippet = ({ children }: Props) => (
           style={style}
         >
           {line.map((token, key) => (
-            <span {...getTokenProps({ token, key })} />
+            <span key={key} {...getTokenProps({ token, key })} />
           ))}
         </span>
       );

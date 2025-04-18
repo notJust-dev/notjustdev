@@ -26,7 +26,7 @@
     "next": "15.3.0",
     "next-mdx-remote": "5.0.0",
     "notion-to-md": "^3.1.1",
-    "prism-react-renderer": "^2.0.6",
+    "prism-react-renderer": "^2.4.1",
     "react": "19.1.0",
     "react-dom": "19.1.0",
     "react-icons": "^4.10.1",

@@ -46,7 +46,7 @@ type NotionMultiSelect = {
 type PostType = 'Blog' | 'Project';
 
 type Post = PostMeta & {
-  content: MDXRemoteSerializeResult;
+  content: string;
   toc?: ToCHeading[];
 };
 
