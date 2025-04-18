@@ -13,7 +13,11 @@ type FooterProps = {
 
 const Footer = ({ hideNewsletterForm = false }: FooterProps) => (
   <footer className="mt-auto">
-    {!hideNewsletterForm && <NewsletterForm />}
+    {!hideNewsletterForm && (
+      <MaxWidthWrapper>
+        <NewsletterForm />
+      </MaxWidthWrapper>
+    )}
     <div className="border-t border-white-100/25 mt-10">
       <MaxWidthWrapper>
         <div className="py-10 flex flex-col md:flex-row">
