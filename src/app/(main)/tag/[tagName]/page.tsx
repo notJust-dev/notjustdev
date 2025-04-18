@@ -1,6 +1,5 @@
 import React from 'react';
 import BlogCard from '@/components/BlogCard';
-import Layout from '@/components/Layout/Layout';
 import MaxWidthWrapper from '@/components/MaxWidthWrapper';
 import { getAllPostTags, getAllPosts } from '@/lib/notion/notion';
 import Tag from '@/components/Tags/Tag';
@@ -52,13 +51,11 @@ export default async function TaggedPosts({ params }: TaggedPostsProps) {
 
   if (!tag) {
     return (
-      <Layout title="notJust.dev Tags">
-        <MaxWidthWrapper>
-          <section className="flex flex-col items-center my-5">
-            <h1>Could not find posts for this tag</h1>
-          </section>
-        </MaxWidthWrapper>
-      </Layout>
+      <MaxWidthWrapper>
+        <section className="flex flex-col items-center my-5">
+          <h1>Could not find posts for this tag</h1>
+        </section>
+      </MaxWidthWrapper>
     );
   }
 

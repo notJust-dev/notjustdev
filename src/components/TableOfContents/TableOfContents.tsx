@@ -39,9 +39,9 @@ export default function TableOfContents({ toc }: TableOfContentsProps) {
         Table of Contents
       </h3>
       <ul>
-        {toc.map((h) => (
+        {toc.map((h, i) => (
           <li
-            key={h.title}
+            key={i + h.title}
             className={`${
               margins[h.depth]
             } my-2 hover:text-primary font-light text-sm ${

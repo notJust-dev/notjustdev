@@ -1,5 +1,5 @@
 /* eslint-disable react/jsx-key */
-import { ReactNode } from 'react';
+import React, { ReactNode } from 'react';
 import { Highlight, themes } from 'prism-react-renderer';
 
 interface Props {
@@ -21,7 +21,7 @@ const InlineCodeSnippet = ({ children }: Props) => (
           style={style}
         >
           {line.map((token, key) => (
-            <span key={key} {...getTokenProps({ token, key })} />
+            <span key={key} {...getTokenProps({ token })} />
           ))}
         </span>
       );

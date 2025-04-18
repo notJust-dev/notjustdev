@@ -42,9 +42,9 @@ const StaticCodeSnippet = ({ children }: Props) => {
             style={style}
           >
             {tokens.slice(0, -1).map((line, i) => (
-              <div key={i} {...getLineProps({ line, key: i })}>
+              <div key={i} {...getLineProps({ line })}>
                 {line.map((token, key) => (
-                  <span key={key} {...getTokenProps({ token, key })} />
+                  <span key={key} {...getTokenProps({ token })} />
                 ))}
               </div>
             ))}
