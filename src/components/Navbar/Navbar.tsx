@@ -5,6 +5,7 @@ import Link from 'next/link';
 import MaxWidthWrapper from '../MaxWidthWrapper';
 import ActiveLink from './ActiveLink';
 import logo from '../../../public/images/logo/white.png';
+import Button from '../Button';
 // import Announcement from '../Announcement';
 
 const Navbar = () => {
@@ -14,7 +15,7 @@ const Navbar = () => {
     <>
       {/* TODO: Add announcement back in */}
       {/* <Announcement /> */}
-      <div className="sticky top-0 z-50 backdrop-blur-2xl drop-shadow-lg">
+      <div className="sticky top-0 z-50 backdrop-blur-2xl drop-shadow-lg border-b border-white-100/25 mb-10 md:mb-0">
         <MaxWidthWrapper>
           <nav className="flex items-center justify-between flex-wrap bg-teal py-6">
             <Link href="/">
@@ -45,14 +46,17 @@ const Navbar = () => {
             </div>
 
             <div
-              className={`w-full block flex-grow md:flex md:items-center md:justify-end md:w-auto ${
+              className={`w-full flex pt-8 md:pt-0 flex-col md:flex-row flex-grow items-center md:flex md:items-center md:justify-end md:w-auto space-y-4 md:space-y-0 md:space-x-6 ${
                 !isOpen && 'hidden'
               }`}
             >
               <ActiveLink href="/projects" title="Tutorials" />
-              <ActiveLink href="/pro-courses" title="Courses" />
               <ActiveLink href="/blog" title="Blog" />
               <ActiveLink href="/newsletter" title="Newsletter" />
+              <Button
+                href="/react-native-mastery"
+                text="React Native Mastery"
+              />
             </div>
           </nav>
         </MaxWidthWrapper>
