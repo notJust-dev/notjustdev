@@ -1,3 +1,4 @@
+import { Suspense } from 'react';
 import Form from './form';
 
 export default function KitForm({
@@ -22,7 +23,9 @@ export default function KitForm({
         {title}
       </p>
       <p className="text-white-100">{description}</p>
-      <Form formId={formId} buttonText={buttonText} />
+      <Suspense fallback={<div>Loading...</div>}>
+        <Form formId={formId} buttonText={buttonText} />
+      </Suspense>
     </div>
   );
 }

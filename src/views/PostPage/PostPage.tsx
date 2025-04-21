@@ -125,7 +125,7 @@ export default function PostPage({
       </div>
 
       <div className="flex flex-col xl:flex-row gap-10 items-stretch xl:items-end">
-        <div className="xl:max-w-screen-md w-full">
+        <div className="xl:max-w-screen-md w-full rounded-lg overflow-hidden">
           {post.youtubeID ? (
             <YoutubeVideo id={post.youtubeID} title={post.title} />
           ) : (
