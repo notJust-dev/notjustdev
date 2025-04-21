@@ -1,6 +1,8 @@
-const { hostname } = require('os');
+import createMDX from '@next/mdx';
 
-module.exports = {
+/** @type {import('next').NextConfig} */
+const nextConfig = {
+  pageExtensions: ['ts', 'tsx', 'js', 'jsx', 'md', 'mdx'],
   images: {
     remotePatterns: [
       {
@@ -60,7 +62,8 @@ module.exports = {
       },
       {
         source: '/club',
-        destination: 'https://www.youtube.com/channel/UCYSa_YLoJokZAwHhlwJntIA/join',
+        destination:
+          'https://www.youtube.com/channel/UCYSa_YLoJokZAwHhlwJntIA/join',
         permanent: true,
       },
       {
@@ -86,3 +89,10 @@ module.exports = {
     ];
   },
 };
+
+const withMDX = createMDX({
+  // Add markdown plugins here, as desired
+});
+
+// Merge MDX config with Next.js config
+export default withMDX(nextConfig);

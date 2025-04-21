@@ -129,9 +129,12 @@ const Footer = ({ hideNewsletterForm = false }: FooterProps) => (
       </MaxWidthWrapper>
     </div>
 
-    <p className="text-center p-5 text-gray-300">
-      Copyright © 2025 notJust.dev All rights reserved.
-    </p>
+    <MaxWidthWrapper className="flex justify-between py-5 text-neutral-400">
+      <p className="text-neutral-400">Copyright © 2025 notJust.dev</p>
+      <Link href="/privacy-policy" className="text-sm">
+        Privacy Policy
+      </Link>
+    </MaxWidthWrapper>
   </footer>
 );
 
