@@ -1,3 +1,4 @@
+/* TODO: Move to globals.css */
 .button {
   @apply inline-block relative py-4 px-8 rounded-xl text-center text-lg leading-none font-medium font-space-grotesk;
 }

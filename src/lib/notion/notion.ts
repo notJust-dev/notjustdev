@@ -37,6 +37,7 @@ const parseNotionPageMeta = async (
       'Parent page': parentPage,
       'Parent slug': parentSlug,
       'Youtube ID': youtubeID,
+      'Kit Form ID': kitFormId,
       Github,
       seo_title: seoTitle,
     },
@@ -76,6 +77,9 @@ const parseNotionPageMeta = async (
   if (youtubeID.type !== 'rich_text') {
     throw new Error('Validation Error: youtubeID is not a rich_text');
   }
+  if (kitFormId.type !== 'rich_text') {
+    throw new Error('Validation Error: kitFormId is not a rich_text');
+  }
   if (parentSlug.type !== 'rollup' || parentSlug.rollup.type !== 'array') {
     throw new Error('Validation Error: Parent slug is not a rollup');
   }
@@ -97,6 +101,7 @@ const parseNotionPageMeta = async (
     tags: tags.multi_select,
     youtubeID: richTextToPlain(youtubeID.rich_text),
     githubUrl: Github.url,
+    kitFormId: richTextToPlain(kitFormId.rich_text),
   };
   if (parentPage.relation.length > 0) {
     post.parentPageId = parentPage.relation[0]?.id;

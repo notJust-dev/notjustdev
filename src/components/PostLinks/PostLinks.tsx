@@ -1,5 +1,5 @@
 import { ReactNode } from 'react';
-import { FaGithub, FaYoutube } from 'react-icons/fa';
+import { FaGithub } from 'react-icons/fa';
 import { FaArrowRightLong } from 'react-icons/fa6';
 
 type PostLinksProps = {
@@ -43,10 +43,10 @@ export default function PostLinks({ post }: PostLinksProps) {
       <h3 className="mb-4 pl-3 border-l-4 border-secondary text-xl">Links</h3>
 
       <ul className="flex flex-col gap-2">
-        <PostLink href={youtube}>
+        {/* <PostLink href={youtube}>
           <FaYoutube />
           Watch on Youtube
-        </PostLink>
+        </PostLink> */}
 
         <PostLink href={post.githubUrl}>
           <FaGithub />

@@ -1,22 +1,10 @@
-// import dummyBroadcasts from './dummyBroadcasts';
-const CK_URL = 'https://api.kit.com/v4';
-
-const fetchCK = (path: string, init: RequestInit = {}) => {
-  console.log(`${CK_URL}/${path}`);
-  return fetch(`${CK_URL}/${path}`, {
-    ...init,
-    cache: 'force-cache',
-    headers: {
-      ...init.headers,
-      'X-Kit-Api-Key': process.env.KIT_API_KEY || '',
-    },
-  });
-};
+import { fetchCK } from './utils';
 
 const listBroadcasts = async (): Promise<Broadcast[]> => {
   try {
     const response = await fetchCK('/broadcasts', {
       next: { revalidate: 3600 }, // 1 hour
+      cache: 'force-cache',
     });
     const data = await response.json();
     return data?.broadcasts || [];
@@ -28,7 +16,9 @@ const listBroadcasts = async (): Promise<Broadcast[]> => {
 
 export const getBroadcast = async (id: number): Promise<Broadcast | null> => {
   try {
-    const response = await fetchCK(`/broadcasts/${id}`);
+    const response = await fetchCK(`/broadcasts/${id}`, {
+      cache: 'force-cache',
+    });
     const data = await response.json();
     return data?.broadcast || null;
   } catch (e) {
