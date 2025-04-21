@@ -132,7 +132,8 @@ const Footer = ({ hideNewsletterForm = false }: FooterProps) => (
     <MaxWidthWrapper className="flex justify-between py-5 text-neutral-400 text-sm">
       <p className="text-neutral-400">Copyright © 2025 notJust.dev</p>
       <div className="flex gap-4">
-        <Link href="/privacy-policy">Privacy Policy</Link>
+        <Link href="/privacy">Privacy Policy</Link>
+        <Link href="/terms">Terms of Service</Link>
         <Link href="#" className="cky-banner-element">
           Cookie Preferences
         </Link>
