@@ -1,11 +1,12 @@
 import React from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
-import MaxWidthWrapper from './MaxWidthWrapper';
-import NewsletterForm from './NewsletterForm';
-import { SOCIALS } from '../lib/config';
+import MaxWidthWrapper from '../MaxWidthWrapper';
+import NewsletterForm from '../NewsletterForm';
+import { SOCIALS } from '../../lib/config';
 
-import logo from '../../public/images/logo/white.png';
+import logo from '@images/logo/white.png';
+import CopyrightFooter from './CopyrightFooter';
 
 type FooterProps = {
   hideNewsletterForm?: boolean;
@@ -129,16 +130,7 @@ const Footer = ({ hideNewsletterForm = false }: FooterProps) => (
       </MaxWidthWrapper>
     </div>
 
-    <MaxWidthWrapper className="flex justify-between py-5 text-neutral-400 text-sm">
-      <p className="text-neutral-400">Copyright © 2025 notJust.dev</p>
-      <div className="flex gap-4">
-        <Link href="/privacy">Privacy Policy</Link>
-        <Link href="/terms">Terms of Service</Link>
-        <Link href="#" className="cky-banner-element">
-          Cookie Preferences
-        </Link>
-      </div>
-    </MaxWidthWrapper>
+    <CopyrightFooter />
   </footer>
 );
 
