@@ -2,6 +2,7 @@ import Image from 'next/image';
 import newsletterHero from '@images/newsletter/newsletter-hero.avif';
 import senja from '@images/newsletter/senja.png';
 import Form from './form';
+import { Suspense } from 'react';
 
 export default function NewsletterLandingPage() {
   return (
@@ -24,7 +25,9 @@ export default function NewsletterLandingPage() {
           <b>React Native</b> Developer.
         </p>
 
-        <Form formId="7171106" />
+        <Suspense fallback={<div>Loading...</div>}>
+          <Form formId="7171106" />
+        </Suspense>
 
         {/* <SenjaWidget id="7020b122-aafc-45a6-8667-57a0533faf15" /> */}
         <Image
