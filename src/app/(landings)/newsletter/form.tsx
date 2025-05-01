@@ -33,10 +33,12 @@ export default function Form({ formId }: { formId: string }) {
   if (state.success) {
     return (
       <div className="bg-green-200 text-green-900 p-2 rounded-md font-medium space-y-1">
-        <span className="font-space-grotesk text-lg font-bold">Success!</span>
+        <span className="font-space-grotesk text-lg font-bold">
+          You&apos;re almost there!
+        </span>
         <p className="text-sm text-green-900">
-          <b>Check your email for the link.</b> If you don&apos;t see it, check
-          your spam folder.
+          Check your inbox for a confirmation email — click the link inside to
+          complete your subscription.
         </p>
       </div>
     );

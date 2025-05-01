@@ -3,6 +3,19 @@ import newsletterHero from '@images/newsletter/newsletter-hero.avif';
 import senja from '@images/newsletter/senja.png';
 import Form from './form';
 import { Suspense } from 'react';
+import { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  title: 'notJust.Newsletter: React Native & Expo news for mobile developers',
+  description:
+    'Subscribe to notJust.Newsletter for exclusive tutorials, tips, and best practices in React Native, Expo, and full-stack mobile development.',
+
+  openGraph: {
+    title: 'notJust.Newsletter: React Native & Expo news for mobile developers',
+    description:
+      'Subscribe to notJust.Newsletter to stay up-to-date with the latest technologies and become a better React Native Developer.',
+  },
+};
 
 export default function NewsletterLandingPage() {
   return (
