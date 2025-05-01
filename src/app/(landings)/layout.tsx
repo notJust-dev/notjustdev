@@ -18,7 +18,7 @@ export default function LegalLayout({
         alt="brand elements"
         width={731}
         height={850}
-        className="absolute top-0 bottom-0 max-h-[100vh] left-auto right-0 blur-[300px]"
+        className="absolute top-0 bottom-0 max-h-[100vh] left-auto right-0 blur-[300px] pointer-events-none"
       />
       <main className="flex-1">
         <MaxWidthWrapper>{children}</MaxWidthWrapper>

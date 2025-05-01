@@ -6,7 +6,13 @@ const FormSuccess = () => (
   <MaxWidthWrapper maxWidth={800}>
     <section className="min-h-[80vh] flex items-center">
       <div className="bg-black p-10 rounded-xl w-full space-y-5">
-        <Image src="/images/checkmark.png" width={96} height={96} alt="" />
+        <Image
+          src="/images/checkmark.png"
+          width={96}
+          height={96}
+          alt=""
+          className="pointer-events-none"
+        />
         <h1>You are all set! {'  '}🎉</h1>
         <p className="my-1">You have successfully confirmed your spot 🙌</p>
         <p className="my-1">You will receive more information soon</p>

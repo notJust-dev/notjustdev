@@ -30,6 +30,7 @@ const Footer = ({ hideNewsletterForm = false }: FooterProps) => (
                   alt="notJust Development Logo"
                   placeholder="blur"
                   sizes="200px"
+                  className="pointer-events-none"
                 />
               </Link>
             </div>

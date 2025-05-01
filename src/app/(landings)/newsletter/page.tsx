@@ -46,6 +46,7 @@ export default function NewsletterLandingPage() {
         <Image
           src={senja}
           alt="notJust Newsletter Social proof"
+          className="pointer-events-none"
           width={380}
           height={45}
         />
@@ -58,7 +59,7 @@ export default function NewsletterLandingPage() {
         height={748}
         width={722}
         alt="notJust Newsletter Image"
-        className="max-w-md"
+        className="max-w-md pointer-events-none"
         placeholder="blur"
         priority
         sizes="(max-width: 768px) 100vw,

@@ -60,7 +60,12 @@ const AuthorDetails = ({ author, sectionTitle }: Props) => {
                 If you want to support me personally, you can
               </p>
               <a href={author.buyMeACoffee} target="_blank" rel="noreferrer">
-                <Image width={218} src={bmcButton} alt="Buy me a coffee" />
+                <Image
+                  width={218}
+                  src={bmcButton}
+                  alt="Buy me a coffee"
+                  className="pointer-events-none"
+                />
               </a>
             </>
           )}

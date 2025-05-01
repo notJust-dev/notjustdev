@@ -49,7 +49,7 @@ export default async function Home() {
             src="/images/testimonials/charlie-cheever.avif"
             alt="Testimonial from Charlie Cheever"
             fill
-            className="object-cover rounded-lg"
+            className="object-cover rounded-lg pointer-events-none"
           />
         </div>
         <div className="aspect-[2/1] relative">
@@ -57,7 +57,7 @@ export default async function Home() {
             src="/images/testimonials/krzysztof-magiera.avif"
             alt="Testimonial from Krzysztof Magiera"
             fill
-            className="object-cover rounded-lg"
+            className="object-cover rounded-lg pointer-events-none"
           />
         </div>
       </div>

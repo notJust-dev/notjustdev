@@ -48,14 +48,14 @@ export default function RNMSection() {
             src="/images/brand_elements/rnm_logo.avif"
             alt="React Native 3d Logo"
             fill
-            className="object-contain"
+            className="object-contain pointer-events-none"
           />
           <Image
             src="/images/brand_elements/union.svg"
             alt="brand elements"
             width={731}
             height={850}
-            className="absolute top-0 bottom-0 left-auto right-0 blur-[300px]"
+            className="absolute top-0 bottom-0 left-auto right-0 blur-[300px] pointer-events-none"
           />
         </div>
       </div>
