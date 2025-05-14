@@ -16,6 +16,9 @@ const Navbar = () => {
       {/* TODO: Add announcement back in */}
       {/* <Announcement /> */}
       <div className="sticky top-0 z-50 backdrop-blur-2xl drop-shadow-lg border-b md:border-b-0 border-white-100/25 mb-10 md:mb-0">
+        {/* For Parity Deals */}
+        <div className="ppp" />
+
         <MaxWidthWrapper>
           <nav className="flex items-center justify-between flex-wrap bg-teal py-6">
             <Link href="/">
