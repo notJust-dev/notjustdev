@@ -1,4 +1,3 @@
-import Script from 'next/script';
 import { GtmNoscript, GtmScript } from '../components/GTM';
 import { SEO } from '../lib/config';
 import { inter, spaceGrotesk } from '@/styles/fonts';
@@ -31,11 +30,6 @@ export default function RootLayout({
         <GtmNoscript />
 
         {children}
-
-        <Script
-          src="https://cdn.paritydeals.com/banner.js"
-          strategy="lazyOnload"
-        />
       </body>
     </html>
   );
