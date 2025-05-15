@@ -11,9 +11,15 @@ export const metadata: Metadata = {
 export default function AppRevenueCalculator() {
   return (
     <div className="mt-8 md:mt-20 flex flex-col gap-12 md:gap-20">
-      <h1 className="text-4xl md:text-5xl font-bold mb-2 text-primary-gradient">
-        Mobile App Revenue Calculator
-      </h1>
+      <div className="space-y-10">
+        <span className="text-pill whitespace-pre">
+          💸{'  '}In App Subscription Revenue Insights
+        </span>
+
+        <h1 className="text-4xl md:text-5xl font-bold mb-2 text-primary-gradient">
+          Mobile App Revenue Calculator
+        </h1>
+      </div>
 
       <div className="flex flex-col-reverse md:flex-row gap-12 md:gap-20  justify-center">
         {/* Info Column */}
