@@ -121,5 +121,9 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   // Newsletter public posts
   urls.push({ url: `${root}/newsletter/archive` });
   urls.push(...(await getNewsletterSiteMap()));
+
+  // tools
+  urls.push({ url: `${root}/app-revenue-calculator` });
+
   return urls;
 }
