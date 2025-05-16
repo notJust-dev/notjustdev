@@ -37,13 +37,13 @@ export default function Calculator() {
   const [q1_60, median_60] = [day60[1], day60[2]];
 
   return (
-    <div className="max-w-2xl mx-auto p-8 bg-white dark:bg-zinc-900 rounded-3xl shadow-2xl border border-gray-100 dark:border-zinc-800">
+    <div className="max-w-2xl mx-auto p-8 bg-zinc-900 rounded-3xl shadow-2xl border border-zinc-800">
       <div className="space-y-8">
         <div className="space-y-2">
-          <h2 className="text-2xl lg:text-3xl font-semibold  text-gray-900 dark:text-white">
+          <h2 className="text-2xl lg:text-3xl font-semibold text-white">
             Your app&apos;s revenue potential
           </h2>
-          <p className=" text-gray-500 dark:text-zinc-400">
+          <p className=" text-zinc-400">
             Adjust the parameters below to calculate estimated revenue
           </p>
         </div>
@@ -51,7 +51,7 @@ export default function Calculator() {
         <div className="space-y-10">
           <select
             id="category"
-            className="w-full px-5 py-4 text-center border-b-2 border-gray-200 dark:border-zinc-700 focus:ring-2 focus:ring-primary-500 focus:outline-none text-xl bg-white dark:bg-zinc-900 dark:text-zinc-100 transition shadow-md hover:border-primary-400 focus:border-primary-500"
+            className="w-full px-5 py-4 text-center border-b-2 border-zinc-700 focus:ring-2 focus:ring-primary-500 focus:outline-none text-xl bg-zinc-900 text-zinc-100 transition shadow-md hover:border-primary-400 focus:border-primary-500"
             value={category}
             onChange={(e) => setCategory(e.target.value as Category)}
           >
@@ -68,7 +68,7 @@ export default function Calculator() {
               type="text"
               inputMode="numeric"
               pattern="[0-9,]*"
-              className="w-full self-center max-w- text-center text-5xl lg:text-6xl font-extrabold border-0 border-b-2 border-gray-300 dark:border-zinc-700 bg-transparent focus:ring-0 focus:border-primary-500 dark:focus:border-primary-400 text-gray-900 dark:text-white placeholder:text-gray-400 dark:placeholder:text-zinc-500 transition appearance-none outline-none"
+              className="w-full self-center max-w- text-center text-5xl lg:text-6xl font-extrabold border-0 border-b-2 border-zinc-700 bg-transparent focus:ring-0 focus:border-primary-400 text-white placeholder:text-zinc-500 transition appearance-none outline-none"
               placeholder="Enter downloads"
               value={formatNumber(downloads)}
               onChange={handleDownloadsChange}
@@ -77,24 +77,24 @@ export default function Calculator() {
             />
             <label
               htmlFor="downloads"
-              className="block text-base font-medium mb-2 text-gray-700 dark:text-neutral-400"
+              className="block text-base font-medium mb-2 text-neutral-400"
             >
               Number of downloads
             </label>
           </div>
         </div>
         <div className="mt-12 flex justify-center">
-          <div className="w-full rounded-3xl bg-white/80 dark:bg-zinc-900/80 shadow-xl border border-gray-100 dark:border-zinc-800 flex flex-col items-center py-10 px-6">
-            <span className="text-lg font-medium text-gray-500 dark:text-zinc-400 mb-2 tracking-wide">
+          <div className="w-full rounded-3xl bg-zinc-900/80 shadow-xl border border-zinc-800 flex flex-col items-center py-10 px-6">
+            <span className="text-lg font-medium text-zinc-400 mb-2 tracking-wide">
               Estimated Revenue (60 days)
             </span>
-            <span className="text-4xl text-center lg:text-5xl font-extrabold tabular-nums bg-gradient-to-r from-green-400 to-yellow-400 dark:from-green-300 dark:to-yellow-300 bg-clip-text text-transparent py-2 mb-2 select-text">
+            <span className="text-4xl text-center lg:text-5xl font-extrabold tabular-nums bg-gradient-to-r  from-green-300 to-yellow-300 bg-clip-text text-transparent py-2 mb-2 select-text">
               ${q1_60.toLocaleString()} – ${median_60.toLocaleString()}
             </span>
           </div>
         </div>
       </div>
-      <p className="text-xs text-gray-400 dark:text-zinc-500 mt-12 text-center">
+      <p className="text-xs text-zinc-500 mt-12 text-center">
         * Estimates are based on industry data and may vary.
       </p>
     </div>

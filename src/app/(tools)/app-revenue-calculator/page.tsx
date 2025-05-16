@@ -22,7 +22,7 @@ export default function AppRevenueCalculator() {
               App Revenue Calculator
             </h1>
           </div>
-          <div className="text-lg md:text-xl text-gray-600 dark:text-white-200 flex flex-col gap-4">
+          <div className="text-lg md:text-xl text-white-200 flex flex-col gap-4">
             <p>
               Estimate your mobile app&apos;s revenue based on real industry
               data. Enter your download count and app category to see your
@@ -35,14 +35,14 @@ export default function AppRevenueCalculator() {
             </p>
           </div>
 
-          <div className="text-base text-gray-500 dark:text-neutral-300  rounded-xl p-4 border border-gray-100 dark:border-zinc-700">
+          <div className="text-base text-neutral-300  rounded-xl p-4 border border-zinc-700">
             <span className="font-semibold ">Data Source:</span> Revenue
             estimates are based on{' '}
             <a
               href="https://www.revenuecat.com/state-of-subscription-apps-2025/?utm_source=notjustdev&utm_medium=referral&utm_campaign=app-revenue-calculator"
               target="_blank"
               rel="noopener noreferrer"
-              className="underline hover:text-primary-600 dark:hover:text-primary-400"
+              className="underline hover:text-primary-400"
             >
               The State of Subscription Apps 2025 by RevenueCat
             </a>
