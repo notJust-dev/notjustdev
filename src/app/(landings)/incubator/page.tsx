@@ -2,6 +2,7 @@ import { Metadata } from 'next';
 import Form from '../newsletter/form';
 import Script from 'next/script';
 import Image from 'next/image';
+import { Suspense } from 'react';
 
 export const metadata: Metadata = {
   title: 'notJust Incubator | Build and Launch Your Mobile App in 10 Weeks',
@@ -39,11 +40,13 @@ export default function IncubatorPage() {
               </p>
             </div>
 
-            <Form
-              formId="8546697"
-              buttonText="Join the Waitlist"
-              className="w-full"
-            />
+            <Suspense fallback={<div>Loading...</div>}>
+              <Form
+                formId="8546697"
+                buttonText="Join the Waitlist"
+                className="w-full"
+              />
+            </Suspense>
             {/* For analytics to track form views */}
             <Script
               async
