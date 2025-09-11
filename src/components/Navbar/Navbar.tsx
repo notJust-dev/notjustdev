@@ -55,10 +55,13 @@ const Navbar = () => {
               <ActiveLink href="/projects" title="Tutorials" />
               <ActiveLink href="/blog" title="Blog" />
               <ActiveLink href="/newsletter" title="Newsletter" />
-              <Button
+
+              <ActiveLink
                 href="/react-native-mastery"
-                text="React Native Mastery"
+                title="React Native Mastery"
               />
+
+              <Button href="/incubator" text="nJ.Incubator" />
             </div>
           </nav>
         </MaxWidthWrapper>
