@@ -6,8 +6,16 @@ import MaxWidthWrapper from '../MaxWidthWrapper';
 import ActiveLink from './ActiveLink';
 import logo from '../../../public/images/logo/white.png';
 
-export default function NavbarMini() {
+export type NavbarMiniLinks = 'NewsletterArchive' | 'Partnerships';
+
+type NavbarMiniProps = {
+  links?: NavbarMiniLinks[];
+};
+
+export default function NavbarMini({ links = [] }: NavbarMiniProps) {
   const [isOpen, setIsOpen] = useState(false);
+
+  console.log(links);
 
   return (
     <>
@@ -46,13 +54,17 @@ export default function NavbarMini() {
                 !isOpen && 'hidden'
               }`}
             >
-              <Link
-                href="/newsletter/archive"
-                className="block lg:inline-block text-white-100 hover:text-primary font-space-grotesk font-medium"
-              >
-                Archive
-              </Link>
-              <ActiveLink href="/partnerships" title="Advertise" />
+              {links.includes('NewsletterArchive') && (
+                <Link
+                  href="/newsletter/archive"
+                  className="block lg:inline-block text-white-100 hover:text-primary font-space-grotesk font-medium"
+                >
+                  Archive
+                </Link>
+              )}
+              {links.includes('Partnerships') && (
+                <ActiveLink href="/partnerships" title="Advertise" />
+              )}
             </div>
           </nav>
         </MaxWidthWrapper>
