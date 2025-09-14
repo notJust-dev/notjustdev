@@ -4,12 +4,14 @@ import Script from 'next/script';
 
 export default function KitForm({
   formId,
+  formEmbedID,
   beforeTitle,
   title,
   description,
   buttonText,
 }: {
   formId: string;
+  formEmbedID?: string | null;
   beforeTitle?: string;
   title: string;
   description: string;
@@ -28,11 +30,13 @@ export default function KitForm({
         <Form formId={formId} buttonText={buttonText} />
       </Suspense>
       {/* For analytics to track form views */}
-      <Script
-        async
-        data-uid={formId}
-        src={`https://awesome-teacher-1065.kit.com/${formId}/index.js`}
-      />
+      {!!formEmbedID && (
+        <Script
+          async
+          data-uid={formEmbedID}
+          src={`https://awesome-teacher-1065.kit.com/${formEmbedID}/index.js`}
+        />
+      )}
     </div>
   );
 }

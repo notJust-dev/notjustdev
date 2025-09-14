@@ -38,6 +38,7 @@ const parseNotionPageMeta = async (
       'Parent slug': parentSlug,
       'Youtube ID': youtubeID,
       'Kit Form ID': kitFormId,
+      'Kit Form Embed ID': kitFormEmbedID,
       Github,
       seo_title: seoTitle,
     },
@@ -80,6 +81,9 @@ const parseNotionPageMeta = async (
   if (kitFormId.type !== 'rich_text') {
     throw new Error('Validation Error: kitFormId is not a rich_text');
   }
+  if (kitFormEmbedID.type !== 'rich_text') {
+    throw new Error('Validation Error: kitFormEmbedID is not a rich_text');
+  }
   if (parentSlug.type !== 'rollup' || parentSlug.rollup.type !== 'array') {
     throw new Error('Validation Error: Parent slug is not a rollup');
   }
@@ -102,6 +106,7 @@ const parseNotionPageMeta = async (
     youtubeID: richTextToPlain(youtubeID.rich_text),
     githubUrl: Github.url,
     kitFormId: richTextToPlain(kitFormId.rich_text),
+    kitFormEmbedID: richTextToPlain(kitFormEmbedID.rich_text),
   };
   if (parentPage.relation.length > 0) {
     post.parentPageId = parentPage.relation[0]?.id;

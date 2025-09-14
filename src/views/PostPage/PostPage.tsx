@@ -144,10 +144,10 @@ export default function PostPage({
             )
           )}
         </div>
-        {/* TODO: if not this, show a newsletter form */}
         {post.kitFormId ? (
           <KitForm
             formId={post.kitFormId}
+            formEmbedID={post.kitFormEmbedID}
             beforeTitle="Get access to"
             title="The Asset Bundle"
             description="Source code, Step by step guide, code snippets, and assets used for this project."
@@ -156,6 +156,7 @@ export default function PostPage({
         ) : (
           <KitForm
             formId="2371301"
+            formEmbedID="5f2aa76c34"
             beforeTitle="Subscribe to"
             title="notJust.Newsletter"
             description="Stay up-to-date with the latest technologies and become a better React Native Developer."

@@ -16,6 +16,7 @@ type PostMeta = {
   youtubeID?: string;
   githubUrl?: string | null;
   kitFormId?: string | null;
+  kitFormEmbedID?: string | null;
 
   redirect_url?: string;
 
