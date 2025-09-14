@@ -1,5 +1,6 @@
 import { Suspense } from 'react';
 import Form from './form';
+import Script from 'next/script';
 
 export default function KitForm({
   formId,
@@ -26,6 +27,12 @@ export default function KitForm({
       <Suspense fallback={<div>Loading...</div>}>
         <Form formId={formId} buttonText={buttonText} />
       </Suspense>
+      {/* For analytics to track form views */}
+      <Script
+        async
+        data-uid={formId}
+        src={`https://awesome-teacher-1065.kit.com/${formId}/index.js`}
+      />
     </div>
   );
 }
