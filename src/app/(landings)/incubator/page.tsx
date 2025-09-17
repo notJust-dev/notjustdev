@@ -32,12 +32,18 @@ export default function IncubatorPage() {
           <div className="flex flex-col gap-6">
             <div className="flex flex-col gap-2">
               <h3 className="text-2xl font-semibold text-white">
-                Join the Waitlist
+                Join the Waitlist and get Free Resources
               </h3>
-              <p className="text-neutral-300">
-                Next cohort - <b>October 2025 </b>. Be the first to know when
-                applications open.
-              </p>
+
+              <ul className="text-neutral-300 space-y-1">
+                <li>
+                  ✓ The <b>App Ideation Playbook</b> (Step 1 of our system)
+                </li>
+                <li>✓ 10+ validated app ideas with market data</li>
+                <li>
+                  ✓ <b>Priority access</b> for October 2025 cohort
+                </li>
+              </ul>
             </div>
 
             <Suspense fallback={<div>Loading...</div>}>
