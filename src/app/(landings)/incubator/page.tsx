@@ -32,18 +32,12 @@ export default function IncubatorPage() {
           <div className="flex flex-col gap-6">
             <div className="flex flex-col gap-2">
               <h3 className="text-2xl font-semibold text-white">
-                Join the Waitlist and get Free Resources
+                Join the Waitlist
               </h3>
 
-              <ul className="text-neutral-300 space-y-1">
-                <li>
-                  ✓ The <b>App Ideation Playbook</b> (Step 1 of our system)
-                </li>
-                <li>✓ 10+ validated app ideas with market data</li>
-                <li>
-                  ✓ <b>Priority access</b> for October 2025 cohort
-                </li>
-              </ul>
+              <p className="text-lg">
+                To learn more about the incubator and how to apply
+              </p>
             </div>
 
             <Suspense fallback={<div>Loading...</div>}>
@@ -56,9 +50,9 @@ export default function IncubatorPage() {
             {/* For analytics to track form views */}
             <Script
               async
-              data-uid="8546697"
-              src={`https://awesome-teacher-1065.kit.com/8546697/index.js`}
-            ></Script>
+              data-uid="f416c47518"
+              src={`https://awesome-teacher-1065.kit.com/f416c47518/index.js`}
+            />
           </div>
         </div>
       </div>
