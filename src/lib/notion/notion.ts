@@ -176,6 +176,12 @@ export const getAllPosts = async ({
     database_id: NOTION_DATABASE,
     page_size: pageSize,
     filter,
+    sorts: [
+      {
+        timestamp: 'created_time',
+        direction: 'descending',
+      },
+    ],
   };
 
   try {
