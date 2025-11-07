@@ -54,8 +54,8 @@ const Footer = ({ hideNewsletterForm = false }: FooterProps) => (
                 <Link href="/newsletter" className="text-gray-300 my-2">
                   Newsletter
                 </Link>
-                <Link href="/events" className="text-gray-300 my-2">
-                  Events
+                <Link href="/podcast" className="text-gray-300 my-2">
+                  Podcast
                 </Link>
 
                 <Link
