@@ -1,6 +1,6 @@
 'use client';
 
-import { useRef, ReactNode } from 'react';
+import { useRef, ReactNode, Suspense } from 'react';
 import useScript from '../../../hooks/useScript';
 import Form from '../../../app/(landings)/newsletter/form';
 
@@ -30,8 +30,9 @@ function OptInForm({
         <p>{children}</p>
       </div>
 
-      <Form formId={formApiId} buttonText="Subscribe" className="w-full" />
-
+      <Suspense>
+        <Form formId={formApiId} buttonText="Subscribe" className="w-full" />
+      </Suspense>
       <div ref={scriptRef} />
     </div>
   );
