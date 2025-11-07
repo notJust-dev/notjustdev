@@ -110,3 +110,8 @@ h3 {
     @apply bg-primary text-gray-900 shadow-primary/30 hover:shadow-lg hover:shadow-primary/50 transition-all;
   }
 }
+
+.formkit-form {
+  position: absolute;
+  top: -999999px;
+}
