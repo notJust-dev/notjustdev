@@ -12,9 +12,10 @@ export const SOCIALS: { [k: string]: string } = {
 export const CONVERTKIT = {
   FORM_SRC: process.env.NEXT_PUBLIC_CONVERTKIT_FORM_SRC,
   FORM_ID: process.env.NEXT_PUBLIC_CONVERTKIT_FORM_ID,
-  subscribers: 25986,
-  subscribersUpdatedOn: '2024-10-28',
-  averageNewSubscribersPerDay: 50,
+  FORM_API_ID: process.env.NEXT_PUBLIC_CONVERTKIT_FORM_API_ID!,
+  subscribers: 28703,
+  subscribersUpdatedOn: '2025-11-01',
+  averageNewSubscribersPerDay: 20,
 };
 
 export const SEO = {

@@ -24,8 +24,9 @@ function NewsletterForm() {
   return (
     <OptInForm
       formId={CONVERTKIT.FORM_ID}
+      formApiId={CONVERTKIT.FORM_API_ID}
       formSrc={CONVERTKIT.FORM_SRC}
-      title="notJust Development Newsletter"
+      title="notJust.dev Newsletter"
     >
       Join <span className="text-primary font-bold">{subscribers}</span> notJust
       Developers on the road to success. No spam, unsubscribe at any time.
