@@ -6,15 +6,13 @@ import MaxWidthWrapper from '../MaxWidthWrapper';
 import ActiveLink from './ActiveLink';
 import logo from '../../../public/images/logo/white.png';
 import Button from '../Button';
-import Announcement from '../Announcement';
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
     <>
-      <Announcement />
-      <div className="sticky top-[72px] sm:top-[91px] z-50 backdrop-blur-2xl drop-shadow-lg border-b md:border-b-0 border-white-100/25 mb-10 md:mb-0">
+      <div className="sticky top-0 z-50 backdrop-blur-2xl drop-shadow-lg border-b md:border-b-0 border-white-100/25 mb-10 md:mb-0">
         {/* For Parity Deals */}
 
         <MaxWidthWrapper>
