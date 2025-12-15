@@ -27,7 +27,7 @@
     "html-react-parser": "^5.2.3",
     "image-size": "^1.0.2",
     "mdast-util-mdx": "^2.0.1",
-    "next": "15.3.0",
+    "next": "15.3.8",
     "next-mdx-remote": "5.0.0",
     "notion-to-md": "^3.1.1",
     "prism-react-renderer": "^2.4.1",
