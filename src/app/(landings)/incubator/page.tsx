@@ -60,7 +60,7 @@ export default function IncubatorPage() {
       {/* Quote Section */}
       <div className="mt-16 text-center">
         <blockquote className="text-xl md:text-2xl text-white-100 italic mb-6 prose">
-          &ldquo;If you&apos;re still not building apps in 2025, you&apos;re
+          &ldquo;If you&apos;re still not building apps in 2026, you&apos;re
           missing out big time. <br />
           This is the AI development gold rush, and we are here to help you
           build and launch profitable mobile apps.&rdquo;
