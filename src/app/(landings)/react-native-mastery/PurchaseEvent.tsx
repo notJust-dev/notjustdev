@@ -8,19 +8,22 @@ declare global {
   }
 }
 
-export default function PurchaseEvent() {
+export default function PurchaseEvent({
+  value,
+  itemId,
+  itemName,
+}: {
+  value: number;
+  itemId: string;
+  itemName: string;
+}) {
   useEffect(() => {
     window.gtag?.('event', 'purchase', {
-      value: 349,
+      value,
       currency: 'USD',
-      items: [
-        {
-          item_id: 'prod_RA926pX22oQo9e',
-          item_name: 'RNM Basic',
-        },
-      ],
+      items: [{ item_id: itemId, item_name: itemName }],
     });
-  }, []);
+  }, [value, itemId, itemName]);
 
   return null;
 }

@@ -8,10 +8,10 @@ export const metadata: Metadata = {
     "You've successfully enrolled in React Native Mastery. Check your email for next steps.",
 };
 
-export default function ThankYouBasic() {
+export default function ThankYouPro() {
   return (
     <>
-      <PurchaseEvent value={349} itemId="prod_RA926pX22oQo9e" itemName="RNM Basic" />
+      <PurchaseEvent value={499} itemId="prod_RA93EjaI9aloOw" itemName="RNM Pro" />
       <ThankYouPage />
     </>
   );
