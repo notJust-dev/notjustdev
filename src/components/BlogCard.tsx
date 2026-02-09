@@ -9,8 +9,19 @@ export interface BlogCardProps {
 
 const MAX_DESCRIPTION_LENGTH = 256;
 
+const getPostUrl = (post: PostMeta) => {
+  switch (post.type) {
+    case 'Case study':
+      return `/case-studies/${post.slug}`;
+    case 'Project':
+      return `/projects/${post.slug}`;
+    default:
+      return `/blog/${post.slug}`;
+  }
+};
+
 const BlogCard = ({ post, priority = false }: BlogCardProps) => {
-  const blogUrl = `/blog/${post.slug}`;
+  const blogUrl = getPostUrl(post);
   return (
     <Link
       href={blogUrl}

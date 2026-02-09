@@ -89,6 +89,9 @@ const Footer = ({ hideNewsletterForm = false }: FooterProps) => (
                 <Link href="/partnerships" className="text-gray-300 my-2">
                   Advertise
                 </Link>
+                <Link href="/case-studies" className="text-gray-300 my-2">
+                  Case Studies
+                </Link>
               </div>
             </div>
 

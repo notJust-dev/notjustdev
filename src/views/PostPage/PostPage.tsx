@@ -144,7 +144,16 @@ export default function PostPage({
             )
           )}
         </div>
-        {post.kitFormId ? (
+        {post.type === 'Case study' ? (
+          <KitForm
+            formId="8546697"
+            formEmbedID="f416c47518"
+            beforeTitle="Interested?"
+            title="Join the Waitlist"
+            description="Be the first to know when new spots open in the notJust Incubator."
+            buttonText="Join the Waitlist"
+          />
+        ) : post.kitFormId ? (
           <KitForm
             formId={post.kitFormId}
             formEmbedID={post.kitFormEmbedID}
@@ -200,9 +209,8 @@ export default function PostPage({
                   Check other episodes from the &nbsp;
                   <Link
                     className="text-primary"
-                    href={`/${
-                      parentPost.type === 'Blog' ? 'blog' : 'projects'
-                    }/${parentPost.slug}`}
+                    href={`/${parentPost.type === 'Blog' ? 'blog' : 'projects'
+                      }/${parentPost.slug}`}
                   >
                     {parentPost.title}&nbsp;
                   </Link>

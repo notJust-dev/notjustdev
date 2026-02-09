@@ -2,6 +2,7 @@ import { Metadata } from 'next';
 import Form from '../newsletter/form';
 import Script from 'next/script';
 import Image from 'next/image';
+import Link from 'next/link';
 import { Suspense } from 'react';
 
 export const metadata: Metadata = {
@@ -79,6 +80,16 @@ export default function IncubatorPage() {
             <p className="text-gray-400 text-sm">Founder, notJust.dev</p>
           </div>
         </div>
+      </div>
+
+      {/* Case Studies Link */}
+      <div className="mt-10">
+        <Link
+          href="/case-studies"
+          className="text-primary hover:underline text-lg"
+        >
+          See our success stories &rarr;
+        </Link>
       </div>
     </section>
   );

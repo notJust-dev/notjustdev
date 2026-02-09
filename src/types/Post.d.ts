@@ -45,7 +45,7 @@ type NotionMultiSelect = {
   name: string;
 };
 
-type PostType = 'Blog' | 'Project';
+type PostType = 'Blog' | 'Project' | 'Case study';
 
 type Post = PostMeta & {
   content: string;
