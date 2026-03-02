@@ -24,11 +24,10 @@ No test runner is configured. Prettier runs via Husky pre-commit hook.
 Uses Next.js App Router with **route groups** for layout separation:
 
 - `(main)/` — Blog posts (`/blog/[slug]`), projects (`/projects/[slug]`), case studies, events, tags
-- `(landings)/` — Landing pages (incubator, partnerships, podcast, newsletter) with minimal layouts
+- `(landings)/` — Landing pages (incubator, react-native-mastery, partnerships, podcast, newsletter) with minimal layouts
 - `(tools)/` — Interactive tools (app-revenue-calculator)
 - `(legal)/` — Legal/policy pages
 - `bootcamp/` — Bootcamp section
-- `[...webflow_path]/` — Catch-all route proxying Webflow pages
 
 ### Content Pipeline
 
@@ -74,9 +73,4 @@ Required (see `.env.example`):
 - `AWS_REGION`, `AWS_ACCESS_KEY_ID`, `AWS_SECRET_ACCESS_KEY`, `S3_BUCKET` — S3 media storage
 - `KIT_API_KEY` — ConvertKit/Kit API
 - `NEXT_PUBLIC_CONVERTKIT_FORM_*` — Newsletter form embedding
-- `WEBFLOW_URL` — Webflow proxy target
 - `NEXT_PUBLIC_GTM` — Google Tag Manager ID
-
-## Webflow Integration
-
-The catch-all route `src/app/[...webflow_path]/` fetches HTML from the configured Webflow site, parses it with cheerio, and serves it through Next.js. This enables Webflow-designed pages to coexist with the Next.js app under the same domain.
