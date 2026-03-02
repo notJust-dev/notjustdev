@@ -45,6 +45,7 @@ const serializeOptions: SerializeOptions = {
         }),
     ],
   },
+  blockJS: false,
 };
 
 type EventPageProps = {

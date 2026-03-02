@@ -78,6 +78,7 @@ export default function PostPage({
           }),
       ],
     },
+    blockJS: false,
   };
 
   return (
