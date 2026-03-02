@@ -16,6 +16,7 @@ import FAQAccordion from './components/FAQAccordion';
 import TutorSection from './components/TutorSection';
 import StudentReviews from './components/StudentReviews';
 import FinalCTA from './components/FinalCTA';
+import StripeLinksEnhancer from './components/StripeLinksEnhancer';
 import { testimonialGroups } from './data/testimonials';
 
 export const metadata: Metadata = {
@@ -90,6 +91,8 @@ export default function ReactNativeMasteryPage() {
       <TestimonialsSection images={testimonialGroups[6].images} />
 
       <FinalCTA />
+
+      <StripeLinksEnhancer />
 
       {/* ParityDeals PPP banner */}
       <Script
