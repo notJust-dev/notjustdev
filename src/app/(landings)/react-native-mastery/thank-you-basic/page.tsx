@@ -1,6 +1,6 @@
 import { Metadata } from 'next';
 import PurchaseEvent from '../PurchaseEvent';
-import ThankYouPage from '../ThankYouPage';
+import ThankYouPage from '../components/ThankYouPage';
 
 export const metadata: Metadata = {
   title: 'Thank you for joining React Native Mastery!',
