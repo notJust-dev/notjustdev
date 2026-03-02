@@ -43,7 +43,7 @@ export default function RNMNavbar() {
                 ))}
               </ul>
 
-              <a href="#Pricing" className={styles.enrollButton}>
+              <a href="#Pricing" className={`${styles.enrollButton} ${styles.navbarEnroll}`}>
                 Enroll Now
               </a>
 

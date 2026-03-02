@@ -323,8 +323,8 @@
 
 .testimonialImage {
   border-radius: 12px;
-  width: calc(50% - 10px);
-  min-width: 280px;
+  flex: 1 1 calc(50% - 10px);
+  min-width: 300px;
   height: auto;
 }
 
@@ -1588,6 +1588,10 @@ details[open] .faqIcon {
     display: none;
   }
 
+  .navbarEnroll {
+    display: none;
+  }
+
   .hamburger {
     display: flex;
   }
@@ -1622,6 +1626,10 @@ details[open] .faqIcon {
 
   .mobileMenuOverlay a:hover {
     color: var(--yellow);
+  }
+
+  .mobileMenuOverlay .enrollButton {
+    color: var(--black);
   }
 
   .sectionTitle {
@@ -1699,12 +1707,8 @@ details[open] .faqIcon {
     background-color: rgba(255, 224, 48, 0.1);
   }
 
-  .infinityLogoWrapper {
-    display: none;
-  }
-
   .mobileLogoGrid {
-    display: flex;
+    display: none;
   }
 }
 
