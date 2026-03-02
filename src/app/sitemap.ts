@@ -1,37 +1,9 @@
 import { MetadataRoute } from 'next';
 import { getAllPostTags, getAllPosts } from '../lib/notion/notion';
 import { getAllEvents } from '../lib/events';
-import { XMLParser } from 'fast-xml-parser';
 import { getPublicBroadcasts } from '../lib/convertkit/broadcasts';
 
 const root = 'https://www.notjust.dev';
-
-const getWebflowSiteMap = async (): Promise<MetadataRoute.Sitemap> => {
-  try {
-    const sitemapLink = process.env.WEBFLOW_URL + `/sitemap.xml`;
-    const response = await fetch(sitemapLink);
-    const sitemapXML = await response.text();
-
-    const parser = new XMLParser();
-    const sitemapObj = parser.parse(sitemapXML);
-    const links = sitemapObj?.urlset?.url?.map((l: { loc: string }) => l.loc);
-
-    const urls: MetadataRoute.Sitemap = [];
-
-    for (const link of links) {
-      const url = new URL(link);
-      const path = url.pathname.replace(`/`, ``).split(`/`);
-      if (!path.length || !path[0]) continue;
-      urls.push({
-        url: `${root}/${path}`,
-      });
-    }
-    return urls;
-  } catch (e) {
-    console.log('Failed to fetch and parse webflow sitemap', e);
-    return [];
-  }
-};
 
 const getNewsletterSiteMap = async (): Promise<MetadataRoute.Sitemap> => {
   const broadcasts = await getPublicBroadcasts();
@@ -115,8 +87,8 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     })),
   );
 
-  // webflow
-  urls.push(...(await getWebflowSiteMap()));
+  // React Native Mastery
+  urls.push({ url: `${root}/react-native-mastery` });
 
   // Newsletter public posts
   urls.push({ url: `${root}/newsletter/archive` });
