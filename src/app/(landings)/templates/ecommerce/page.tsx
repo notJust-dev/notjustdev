@@ -76,6 +76,10 @@ const config: ComingSoonConfig = {
   },
   waitlistFormId: '9357766',
   waitlistEmbedUid: 'dfe427ebb6',
+  heroImage: {
+    src: '/images/templates/ecommerce/screenshots/home.png',
+    alt: 'Ecommerce template home screen',
+  },
 };
 
 export default function EcommercePage() {

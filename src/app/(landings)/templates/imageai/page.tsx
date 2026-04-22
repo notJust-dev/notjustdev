@@ -76,6 +76,10 @@ const config: ComingSoonConfig = {
   },
   waitlistFormId: '9357746',
   waitlistEmbedUid: '156b18e6a7',
+  heroImage: {
+    src: '/images/templates/imageai/screenshots/home.png',
+    alt: 'ImageAI template home screen',
+  },
 };
 
 export default function ImageAIPage() {

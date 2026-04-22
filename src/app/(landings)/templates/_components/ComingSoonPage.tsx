@@ -1,3 +1,4 @@
+import Image from 'next/image';
 import MaxWidthWrapper from '@/components/MaxWidthWrapper';
 import TemplateNavbar from './TemplateNavbar';
 import WaitlistForm from './WaitlistForm';
@@ -17,6 +18,10 @@ export type ComingSoonConfig = {
   };
   waitlistFormId: string;
   waitlistEmbedUid: string;
+  heroImage?: {
+    src: string;
+    alt: string;
+  };
 };
 
 export default function ComingSoonPage({ config }: { config: ComingSoonConfig }) {
@@ -30,32 +35,54 @@ export default function ComingSoonPage({ config }: { config: ComingSoonConfig })
 
       {/* Hero */}
       <MaxWidthWrapper>
-        <section className="py-16 md:py-24 space-y-6 max-w-3xl">
-          <p className="text-pill w-fit">Coming soon · notJust.dev Template</p>
-          <h1 className="text-4xl md:text-6xl leading-tight">
-            {config.name}
-            <br className="hidden md:block" />
-            <span className="text-primary-gradient">{config.tagline}</span>
-          </h1>
-          <p className="text-gray-300 text-lg md:text-xl max-w-xl">
-            {config.description}
-          </p>
+        <section
+          className={`py-16 md:py-24 ${
+            config.heroImage
+              ? 'flex flex-col md:flex-row gap-12 md:gap-20 items-center'
+              : 'space-y-6 max-w-3xl'
+          }`}
+        >
+          <div className="flex-1 space-y-6">
+            <p className="text-pill w-fit">Coming soon · notJust.dev Template</p>
+            <h1 className="text-4xl md:text-6xl leading-tight">
+              {config.name}
+              <br className="hidden md:block" />
+              <span className="text-primary-gradient">{config.tagline}</span>
+            </h1>
+            <p className="text-gray-300 text-lg md:text-xl max-w-xl">
+              {config.description}
+            </p>
 
-          <div className="flex flex-wrap items-center gap-4 pt-2">
-            <a
-              href={config.preOrder.stripeUrl}
-              className="button button-primary"
-              data-stripe-link
-            >
-              Pre-order now
-            </a>
-            <span className="text-primary font-space-grotesk font-medium text-sm tracking-wide">
-              {config.preOrder.discountLabel}
-            </span>
+            <div className="flex flex-wrap items-center gap-4 pt-2">
+              <a
+                href={config.preOrder.stripeUrl}
+                className="button button-primary"
+                data-stripe-link
+              >
+                Pre-order now
+              </a>
+              <span className="text-primary font-space-grotesk font-medium text-sm tracking-wide">
+                {config.preOrder.discountLabel}
+              </span>
+            </div>
+            <p className="text-gray-400 text-sm">
+              Locked-in pre-order price. Delivered when the template launches.
+            </p>
           </div>
-          <p className="text-gray-400 text-sm">
-            Locked-in pre-order price. Delivered when the template launches.
-          </p>
+
+          {config.heroImage && (
+            <div className="flex-1 flex justify-center md:justify-end">
+              <Image
+                src={config.heroImage.src}
+                alt={config.heroImage.alt}
+                width={380}
+                height={800}
+                priority
+                sizes="(max-width: 768px) 70vw, 360px"
+                className="rounded-[40px] shadow-2xl shadow-primary/10 max-w-[260px] md:max-w-[340px] h-auto"
+              />
+            </div>
+          )}
         </section>
       </MaxWidthWrapper>
 

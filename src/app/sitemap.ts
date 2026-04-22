@@ -91,6 +91,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   urls.push({ url: `${root}/react-native-mastery` });
 
   // Templates
+  urls.push({ url: `${root}/templates` });
   urls.push({ url: `${root}/templates/chatai` });
   urls.push({ url: `${root}/templates/imageai` });
   urls.push({ url: `${root}/templates/ecommerce` });
