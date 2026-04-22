@@ -90,6 +90,9 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   // React Native Mastery
   urls.push({ url: `${root}/react-native-mastery` });
 
+  // Templates
+  urls.push({ url: `${root}/templates/chatai` });
+
   // Newsletter public posts
   urls.push({ url: `${root}/newsletter/archive` });
   urls.push(...(await getNewsletterSiteMap()));
