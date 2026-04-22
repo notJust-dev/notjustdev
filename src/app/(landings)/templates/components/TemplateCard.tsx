@@ -9,29 +9,30 @@ export default function TemplateCard({ template }: { template: Card }) {
   return (
     <Link
       href={`/templates/${template.slug}`}
-      className="group relative flex flex-col rounded-2xl bg-black/40 border border-white-200/10 hover:border-primary/50 transition-all overflow-hidden"
+      className="group relative flex flex-col md:flex-row rounded-2xl bg-black/40 border border-white-200/10 hover:border-primary/50 transition-all overflow-hidden"
     >
-      <div className="relative aspect-[4/3] flex items-center justify-center bg-gradient-to-br from-primary/10 via-transparent to-secondary/5 overflow-hidden">
+      <span
+        className={`absolute top-4 right-4 z-10 text-xs font-space-grotesk font-medium px-3 py-1.5 rounded-full ${
+          template.status === 'available'
+            ? 'bg-primary text-gray-900'
+            : 'bg-black/60 text-primary border border-primary/40'
+        }`}
+      >
+        {statusLabel}
+      </span>
+
+      <div className="relative md:w-1/2 aspect-[4/3] md:aspect-auto md:min-h-[360px] flex items-center justify-center bg-gradient-to-br from-primary/10 via-transparent to-secondary/5 overflow-hidden">
         <Image
           src={template.image}
           alt={`${template.name} preview`}
           width={280}
           height={560}
-          sizes="(max-width: 768px) 80vw, 400px"
-          className="w-auto h-[85%] max-w-[60%] rounded-3xl shadow-2xl shadow-primary/10 group-hover:scale-105 transition-transform duration-300"
+          sizes="(max-width: 768px) 80vw, 280px"
+          className="w-auto h-[85%] max-w-[65%] rounded-3xl shadow-2xl shadow-primary/10 group-hover:scale-105 transition-transform duration-300"
         />
-        <span
-          className={`absolute top-4 left-4 text-xs font-space-grotesk font-medium px-3 py-1.5 rounded-full ${
-            template.status === 'available'
-              ? 'bg-primary text-gray-900'
-              : 'bg-black/60 text-primary border border-primary/40'
-          }`}
-        >
-          {statusLabel}
-        </span>
       </div>
 
-      <div className="flex flex-col gap-4 p-6 md:p-8 flex-1">
+      <div className="flex flex-col gap-4 p-6 md:p-8 flex-1 md:w-1/2">
         <div className="space-y-2">
           <h3 className="text-white-100 text-2xl font-space-grotesk font-semibold">
             {template.name}

@@ -53,6 +53,9 @@ const pillars = [
 ];
 
 export default function TemplatesIndexPage() {
+  const available = templates.filter((t) => t.status === 'available');
+  const comingSoon = templates.filter((t) => t.status === 'pre-order');
+
   return (
     <>
       <NavbarMini />
@@ -75,16 +78,47 @@ export default function TemplatesIndexPage() {
         </section>
       </MaxWidthWrapper>
 
-      {/* Templates grid */}
-      <MaxWidthWrapper>
-        <section className="pb-20 md:pb-28">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
-            {templates.map((t) => (
-              <TemplateCard key={t.slug} template={t} />
-            ))}
-          </div>
-        </section>
-      </MaxWidthWrapper>
+      {/* Available now */}
+      {available.length > 0 && (
+        <MaxWidthWrapper>
+          <section className="pb-12 md:pb-16 space-y-6">
+            <div className="space-y-1">
+              <h2 className="text-2xl md:text-3xl">Available now</h2>
+              <p className="text-gray-400 text-sm">
+                Ship-ready, documented, supported.
+              </p>
+            </div>
+            <div
+              className={`grid gap-6 md:gap-8 grid-cols-1 ${
+                available.length > 1 ? 'lg:grid-cols-2' : ''
+              }`}
+            >
+              {available.map((t) => (
+                <TemplateCard key={t.slug} template={t} />
+              ))}
+            </div>
+          </section>
+        </MaxWidthWrapper>
+      )}
+
+      {/* Coming soon */}
+      {comingSoon.length > 0 && (
+        <MaxWidthWrapper>
+          <section className="pb-20 md:pb-28 space-y-6">
+            <div className="space-y-1">
+              <h2 className="text-2xl md:text-3xl">Coming soon</h2>
+              <p className="text-gray-400 text-sm">
+                Pre-order today, delivered at launch.
+              </p>
+            </div>
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 md:gap-8">
+              {comingSoon.map((t) => (
+                <TemplateCard key={t.slug} template={t} />
+              ))}
+            </div>
+          </section>
+        </MaxWidthWrapper>
+      )}
 
       {/* Why notJust.dev */}
       <MaxWidthWrapper>
