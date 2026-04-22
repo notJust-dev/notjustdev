@@ -92,6 +92,8 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
 
   // Templates
   urls.push({ url: `${root}/templates/chatai` });
+  urls.push({ url: `${root}/templates/imageai` });
+  urls.push({ url: `${root}/templates/ecommerce` });
 
   // Newsletter public posts
   urls.push({ url: `${root}/newsletter/archive` });
