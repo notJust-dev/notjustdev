@@ -5,7 +5,6 @@ import Link from 'next/link';
 import MaxWidthWrapper from '../MaxWidthWrapper';
 import ActiveLink from './ActiveLink';
 import logo from '../../../public/images/logo/white.png';
-import Button from '../Button';
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -58,7 +57,7 @@ const Navbar = () => {
                 title="React Native Mastery"
               />
 
-              <Button href="/incubator" text="nJ.Incubator" />
+              <ActiveLink href="/templates" title="Templates" />
             </div>
           </nav>
         </MaxWidthWrapper>

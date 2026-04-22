@@ -1,6 +1,6 @@
 import { Metadata } from 'next';
 import MaxWidthWrapper from '@/components/MaxWidthWrapper';
-import NavbarMini from '@/components/Navbar/NavbarMini';
+import Navbar from '@/components/Navbar/Navbar';
 import { templates } from './data/templates';
 import TemplateCard from './components/TemplateCard';
 
@@ -58,7 +58,7 @@ export default function TemplatesIndexPage() {
 
   return (
     <>
-      <NavbarMini />
+      <Navbar />
 
       {/* Hero */}
       <MaxWidthWrapper>
