@@ -35,8 +35,8 @@ export default function Calculator() {
   };
 
   const day60 = calcRevenue(data.day60);
-  // Q1 is index 1, Median is index 2
-  const [q1_60, median_60] = [day60[1], day60[2]];
+  // Data schema: [Q1, Median, Q3, P90]. Display the median-to-Q3 range.
+  const [median_60, q3_60] = [day60[1], day60[2]];
 
   return (
     <div className="max-w-2xl mx-auto p-8 bg-zinc-900 rounded-3xl shadow-2xl border border-zinc-800">
@@ -95,7 +95,7 @@ export default function Calculator() {
               Estimated Revenue (60 days)
             </span>
             <span className="text-4xl text-center lg:text-5xl font-extrabold tabular-nums bg-gradient-to-r  from-green-300 to-yellow-300 bg-clip-text text-transparent py-2 mb-2 select-text">
-              ${q1_60.toLocaleString()} – ${median_60.toLocaleString()}
+              ${median_60.toLocaleString()} – ${q3_60.toLocaleString()}
             </span>
           </div>
         </div>

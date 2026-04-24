@@ -39,18 +39,19 @@ export default function AppRevenueCalculator() {
             <span className="font-semibold ">Data Source:</span> Revenue
             estimates are based on{' '}
             <a
-              href="https://www.revenuecat.com/state-of-subscription-apps-2025/?utm_source=notjustdev&utm_medium=referral&utm_campaign=app-revenue-calculator"
+              href="https://www.revenuecat.com/state-of-subscription-apps/?utm_source=notjustdev&utm_medium=referral&utm_campaign=app-revenue-calculator"
               target="_blank"
               rel="noopener noreferrer"
               className="underline hover:text-primary-400"
             >
-              The State of Subscription Apps 2025 by RevenueCat
+              The State of Subscription Apps 2026 by RevenueCat
             </a>
-            . Data is drawn from 75,000+ subscription apps and $10B+ in tracked
-            revenue, providing Q1 to median ranges for each category.{' '}
+            . Data is drawn from 115,000+ subscription apps and $16B+ in
+            tracked revenue, showing the median-to-upper-quartile range of
+            revenue per install for each category.{' '}
             <span className="sr-only">
               Source:
-              https://www.revenuecat.com/state-of-subscription-apps-2025/
+              https://www.revenuecat.com/state-of-subscription-apps/
             </span>
           </div>
         </section>
