@@ -7,6 +7,7 @@ import logo from '../../../../public/images/logo/white.png';
 import { mainLinks, socialLinks, CustomLinkData } from '@/data/links';
 import NewsletterPopup from '@/components/NewsletterForm/NewsletterModal';
 import { BsNewspaper } from 'react-icons/bs';
+import posthog from 'posthog-js';
 
 const CustomLink = ({
   text,
@@ -47,7 +48,11 @@ const LinksPage = () => {
             className="self-center my-5"
           />
           {mainLinks.map((link) => (
-            <CustomLink key={link.text} {...link} />
+            <CustomLink
+              key={link.text}
+              {...link}
+              onClick={() => posthog.capture('links_page_link_clicked', { link_text: link.text, href: link.href })}
+            />
           ))}
 
           <CustomLink
@@ -55,7 +60,10 @@ const LinksPage = () => {
             text="Newsletter"
             Icon={BsNewspaper}
             href="#"
-            onClick={() => setShowNewsletterModal(true)}
+            onClick={() => {
+              posthog.capture('newsletter_modal_opened', { source: 'links_page' });
+              setShowNewsletterModal(true);
+            }}
           />
         </section>
 

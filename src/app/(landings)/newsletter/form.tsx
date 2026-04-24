@@ -1,8 +1,9 @@
 'use client';
-import { useActionState } from 'react';
+import { useActionState, useEffect } from 'react';
 import submit from '@/components/KitForm/actions';
 import { useFormStatus } from 'react-dom';
 import { usePathname, useSearchParams } from 'next/navigation';
+import posthog from 'posthog-js';
 
 function SubmitButton({ buttonText }: { buttonText: string }) {
   const { pending } = useFormStatus();
@@ -28,6 +29,12 @@ export default function Form({
   className?: string;
 }) {
   const [state, action] = useActionState(submit, { success: false, error: '' });
+
+  useEffect(() => {
+    if (state.success) {
+      posthog.capture('newsletter_subscribed', { form_id: formId });
+    }
+  }, [state.success, formId]);
 
   const pathname = usePathname();
   const searchParams = useSearchParams();
@@ -57,6 +64,7 @@ export default function Form({
       <form
         action={action}
         className={`flex flex-col sm:flex-row gap-2 ${className}`}
+        onSubmit={() => posthog.capture('newsletter_subscription_started', { form_id: formId, referrer: URL })}
       >
         <input type="hidden" name="form_id" value={formId} />
         <input type="hidden" name="referrer" value={URL} />

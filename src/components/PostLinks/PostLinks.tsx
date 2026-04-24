@@ -1,6 +1,8 @@
+'use client';
 import { ReactNode } from 'react';
 import { FaGithub } from 'react-icons/fa';
 import { FaArrowRightLong } from 'react-icons/fa6';
+import posthog from 'posthog-js';
 
 type PostLinksProps = {
   post: Post;
@@ -9,9 +11,11 @@ type PostLinksProps = {
 const PostLink = ({
   href,
   children,
+  onClick,
 }: {
   href?: string | null;
   children: ReactNode;
+  onClick?: () => void;
 }) => {
   if (!href) {
     return null;
@@ -22,6 +26,7 @@ const PostLink = ({
         href={href}
         target="_blank"
         className="flex flex-row items-center gap-2 hover:text-primary"
+        onClick={onClick}
       >
         {children}
         <FaArrowRightLong />
@@ -48,7 +53,10 @@ export default function PostLinks({ post }: PostLinksProps) {
           Watch on Youtube
         </PostLink> */}
 
-        <PostLink href={post.githubUrl}>
+        <PostLink
+          href={post.githubUrl}
+          onClick={() => posthog.capture('post_github_link_clicked', { post_slug: post.slug, url: post.githubUrl })}
+        >
           <FaGithub />
           Source code
         </PostLink>
@@ -59,6 +67,7 @@ export default function PostLinks({ post }: PostLinksProps) {
               href={youtube}
               target="_blank"
               className="flex flex-row items-center gap-2 hover:text-primary"
+              onClick={() => posthog.capture('post_youtube_link_clicked', { post_slug: post.slug, youtube_id: post.youtubeID })}
             ></a>
           </li>
         )}

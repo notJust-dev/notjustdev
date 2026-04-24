@@ -30,6 +30,7 @@
     "next": "15.3.8",
     "next-mdx-remote": "^6.0.0",
     "notion-to-md": "^3.1.1",
+    "posthog-js": "^1.371.3",
     "prism-react-renderer": "^2.4.1",
     "react": "19.1.0",
     "react-dom": "19.1.0",

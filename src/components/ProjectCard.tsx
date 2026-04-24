@@ -1,8 +1,10 @@
+'use client';
 import Image from 'next/image';
 // import Tags from './Tags';
 import path from 'path';
 import Link from 'next/link';
 import { MdArrowRightAlt } from 'react-icons/md';
+import posthog from 'posthog-js';
 
 interface Props {
   project: PostMeta;
@@ -23,6 +25,7 @@ const ProjectCard = ({
     <Link
       href={projectUrl}
       className="relative w-full my-3 flex flex-col items-stretch md:flex-row cursor-pointer group"
+      onClick={() => posthog.capture('project_card_clicked', { project_slug: project.slug, project_title: project.title, url: projectUrl })}
     >
       <div
         className={`absolute ${float}-0 bottom-0 border border-white-100/25 w-full md:w-2/3 h-2/3 md:h-full rounded-3xl`}

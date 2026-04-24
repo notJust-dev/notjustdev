@@ -2,6 +2,7 @@
 import { categories, revenueByCategory } from './data';
 import type { Category } from './data';
 import { useState, useRef } from 'react';
+import posthog from 'posthog-js';
 
 export default function Calculator() {
   const [downloads, setDownloads] = useState('1000');
@@ -24,6 +25,7 @@ export default function Calculator() {
     const raw = e.target.value.replace(/,/g, '');
     if (/^\d*$/.test(raw)) {
       setDownloads(raw);
+      posthog.capture('calculator_downloads_changed', { downloads: Number(raw) });
     }
   };
 
@@ -53,7 +55,11 @@ export default function Calculator() {
             id="category"
             className="w-full px-5 py-4 text-center border-b-2 border-zinc-700 focus:ring-2 focus:ring-primary-500 focus:outline-none text-xl bg-zinc-900 text-zinc-100 transition shadow-md hover:border-primary-400 focus:border-primary-500"
             value={category}
-            onChange={(e) => setCategory(e.target.value as Category)}
+            onChange={(e) => {
+              const newCategory = e.target.value as Category;
+              setCategory(newCategory);
+              posthog.capture('calculator_category_changed', { category: newCategory });
+            }}
           >
             {categories.map((cat) => (
               <option key={cat} value={cat}>
