@@ -2,7 +2,7 @@ import { Metadata } from 'next';
 import Image from 'next/image';
 import MaxWidthWrapper from '@/components/MaxWidthWrapper';
 
-const CALENDLY_URL = 'https://calendly.com/vadim-notjustdev/bootcamp-1on1';
+const CALENDLY_URL = 'https://ntjst.dev/call-b2b';
 const APPLY_FORM_URL =
   'https://docs.google.com/forms/d/e/1FAIpQLScoG8A7ETshQBocHT9HXFgxmNDHCuC25kWcy9v7-AFdPsz7VA/viewform?usp=dialog';
 
@@ -47,7 +47,7 @@ const collaborations = [
 ];
 
 const stats = [
-  { value: '125.000+', label: 'youtube subscribers' },
+  { value: '135.000+', label: 'youtube subscribers' },
   { value: '30.000+', label: 'email subscribers' },
   { value: '2M+', label: 'views last 6 months' },
   { value: '~2H', label: 'Average View Duration' },
@@ -63,9 +63,9 @@ const workedWithLogos = [
 ];
 
 export const metadata: Metadata = {
-  title: 'Partnerships - notJust.dev',
+  title: 'Partnerships - Reach 135k Mobile Developers | notJust.dev',
   description:
-    'Get your product in the hands of 125k Mobile Devs. Showcase your product through engaging, hands-on tutorials.',
+    'Reach 135k mobile developers through trusted, hands-on tutorials. Showcase your product to a loyal, engaged audience and turn devs into users.',
 };
 
 function BookACallCTA() {
@@ -94,7 +94,7 @@ export default function PartnershipsPage() {
         <section className="py-16 md:py-28 flex flex-col md:flex-row gap-12 md:gap-16 items-start md:items-center">
           <div className="flex-1 space-y-6">
             <h1 className="text-primary">
-              Get your product in the hands of 125k Mobile Devs
+              Reach 135k Mobile Developers Through Trusted, Hands-On Tutorials
             </h1>
             <p className="text-gray-300 text-lg max-w-lg">
               Showcase your product to mobile developers and turn them into
