@@ -1,6 +1,8 @@
+import type { ReactNode } from 'react';
+
 export type FaqItem = {
   question: string;
-  answer: string;
+  answer: ReactNode;
 };
 
 export const faq: FaqItem[] = [
@@ -26,8 +28,32 @@ export const faq: FaqItem[] = [
   },
   {
     question: 'Is this production-ready or a demo?',
-    answer:
-      'Production-ready. It ships with Sentry crash reporting, PostHog analytics, RevenueCat paywalls, row-level security on every table, signed iOS and Android builds via EAS, and OTA updates for JavaScript-only changes.',
+    answer: (
+      <>
+        Production-ready, and we proved it. We used this exact template to ship{' '}
+        <a
+          href="https://apps.apple.com/us/app/ai-chat-assistant-rhys/id6762458844"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="text-primary hover:underline"
+        >
+          Rhys on the App Store
+        </a>{' '}
+        and{' '}
+        <a
+          href="https://play.google.com/store/apps/details?id=app.notjust.rhys"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="text-primary hover:underline"
+        >
+          on Google Play
+        </a>
+        . Download it and see the streaming, paywall, and chat history in
+        action. It ships with Sentry crash reporting, PostHog analytics,
+        RevenueCat paywalls, row-level security on every table, signed iOS and
+        Android builds via EAS, and OTA updates for JavaScript-only changes.
+      </>
+    ),
   },
   {
     question: 'Can I publish apps built with this to the App Store and Play Store?',

@@ -4,6 +4,7 @@ import HeroSection from './components/HeroSection';
 import TrustBar from './components/TrustBar';
 import FeaturesSection from './components/FeaturesSection';
 import MonetizationSection from './components/MonetizationSection';
+import LiveAppSection from './components/LiveAppSection';
 import IncludedSection from './components/IncludedSection';
 import TechStackSection from './components/TechStackSection';
 import HowItWorksSection from './components/HowItWorksSection';
@@ -47,6 +48,7 @@ export default function ChatAITemplatePage() {
       <TrustBar />
       <FeaturesSection />
       <MonetizationSection />
+      <LiveAppSection />
       <IncludedSection />
       <TechStackSection />
       <HowItWorksSection />

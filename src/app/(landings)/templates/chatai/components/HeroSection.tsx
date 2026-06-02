@@ -32,6 +32,22 @@ export default function HeroSection() {
           <p className="text-gray-400 text-sm pt-2">
             iOS + Android · Full stack · Lifetime updates
           </p>
+          <a
+            href="#live-app"
+            className="inline-flex items-center gap-2 text-sm text-white-200 hover:text-primary transition-colors group"
+          >
+            <span className="relative flex h-2 w-2">
+              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75" />
+              <span className="relative inline-flex rounded-full h-2 w-2 bg-primary" />
+            </span>
+            Already live in the App Store &amp; Play Store
+            <span
+              className="transition-transform group-hover:translate-x-0.5"
+              aria-hidden
+            >
+              →
+            </span>
+          </a>
         </div>
 
         <div className="flex-1 flex justify-center md:justify-end">
